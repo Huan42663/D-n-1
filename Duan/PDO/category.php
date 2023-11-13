@@ -29,6 +29,9 @@ function delete_cate ($id_cate){
         pdo_execute($sql);
         $delete = "DELETE FROM CATEGORY WHERE ID_CATE= $id_cate";
         pdo_execute($delete);
+    }else {
+        $delete = "DELETE FROM CATEGORY WHERE ID_CATE= $id_cate";
+        pdo_execute($delete);
     }
      
 }
@@ -55,6 +58,9 @@ function delete_color ($id_color){
         pdo_execute($sql);
         $delete = "DELETE FROM COLOR WHERE ID_COLOR= $id_color";
         pdo_execute($delete);
+    }else {
+        $delete = "DELETE FROM COLOR WHERE ID_COLOR= $id_color";
+        pdo_execute($delete); 
     }
 }
 function load_one_color ($id_color){
@@ -98,6 +104,9 @@ function delete_brand ($id_brand){
     if(is_array($pro)){
         $sql = "UPDATE PRODUCT SET ID_BRAND = 1 WHERE ID_BRAND = $id_brand";
         pdo_execute($sql);
+        $delete = "DELETE FROM BRAND WHERE ID_BRAND= $id_brand";
+        pdo_execute($delete);
+    }else { 
         $delete = "DELETE FROM BRAND WHERE ID_BRAND= $id_brand";
         pdo_execute($delete);
     }
