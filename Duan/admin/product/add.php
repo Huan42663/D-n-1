@@ -1,11 +1,11 @@
 <h2> <i class="fa-solid fa-shop"></i> Thêm sản phẩm </h2>
 <div class="form-add">
     <form action="" enctype="multipart/form-data" method="POST">
-        tên sản phẩm <input type="text" name="name" id=""><br>
-        giá sản phẩm <input type="text" name="price" id=""><br>
-        ảnh sản phẩm <input type="file" name="img" id=""><br>
-        mô tả <input type="text" name="detail" id=""><br>
-        số lượng <input type="number" name="quantity" id=""><br>
+        <input placeholder="tên sản phẩm " type="text" name="name" id=""><br>
+        <input placeholder="giá sản phẩm " type="text" name="price" id=""><br>
+        ảnh sản phẩm <br><input type="file" name="img" id=""><br>
+        <textarea placeholder="mô tả " name="detail" id="" cols="30" rows="10"></textarea><br>
+        <input placeholder="số lượng " type="number" min="1" name="quantity" id=""><br>
         màu
         <select name="color" id="">
             <?php

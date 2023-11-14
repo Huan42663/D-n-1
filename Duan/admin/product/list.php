@@ -13,8 +13,6 @@
                 <th scope="col">Danh mục</th>
                 <th scope="col">Hãng</th>
                 <th scope="col">Ngày thêm</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Màu</th>
                 <th></th>
               </tr>
             </thead>
@@ -33,11 +31,11 @@
                         <td><?=$cate_name?></td>
                         <td><?=$brand_name?></td>
                         <td><?=$add_at?></td>
-                        <td><?=$quantity?></td>
-                        <td><?=$color_name?></td>
                         <td>
                         <a href="index.php?act=update_pro&id=<?=$id_pro?>"><input type="button" value="Sửa"></a>
-                        <a onclick="return confirm('Bạn có muốn xóa không !')" href="index.php?act=delete_pro&id=<?=$id_pro?>"><input type="button" value="Xóa"></a>
+                        <a onclick="return confirm('Bạn có muốn xóa không !')" href="index.php?act=delete_pro&id=<?=$id_pro?>">
+                        <input type="button" value="Xóa sản phẩm"></a>
+                        <a href="index.php?act=list_color_pro&id=<?=$id_pro?>"><input type="button" value="Danh sách màu"></a>
                       </td>
                     </tr>
                 <?php
@@ -53,7 +51,7 @@
               for($i=0;$i<$count;$i++) { 
                 
             ?>
-                <input type="submit" name="number" value="<?=$i+1?>">
+                <input type="button" name="number" value="<?=$i+1?>">
             <?php
               }
             ?>

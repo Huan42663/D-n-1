@@ -16,7 +16,7 @@
       <ul class="menu">
       <li><a href="index.php">ADMIN</a></li>
       <li><a href="index.php?act=list_product">Sản phẩm</a></li>
-      <li><a href="danhmuc.html">Danh mục</a></li>
+      <li><a href="index.php?act=list_cate">Danh mục</a></li>
       <li><a href="">Thống kê</a></li>
       <li><a href="">Tai khoản</a></li>
       <li><a href="">Trang cá nhân</a></li>

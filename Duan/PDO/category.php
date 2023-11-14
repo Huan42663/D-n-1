@@ -19,8 +19,6 @@ function update_cate ($id_cate,$cate_name){
     $sql = "UPDATE CATEGORY SET CATE_NAME = '$cate_name' WHERE ID_CATE = '$id_cate'";
     $cate = pdo_execute($sql);
 }
-
-
 function delete_cate ($id_cate){
     $sql = "SELECT * FROM PRODUCT WHERE ID_CATE = $id_cate";
     $pro = pdo_query($sql);
@@ -34,6 +32,22 @@ function delete_cate ($id_cate){
         pdo_execute($delete);
     }
      
+}
+function count_cate(){
+    $sql = "SELECT * FROM CATEGORY WHERE ID_CATE != 1";
+    $cate = pdo_query($sql);
+    $i=0;
+    foreach ($cate as $key => $value) {
+        $i++;
+    }
+    $number =ceil($i / 5);
+    return $number;
+}
+function load_limit_5_cate ($start,$limit){
+    $sql = "SELECT * FROM CATEGORY 
+    WHERE ID_CATE != 1 ORDER BY ID_CATE DESC LIMIT $start,$limit "; 
+    $cate = pdo_query($sql);
+    return $cate;
 }
 ?>
 
@@ -68,12 +82,28 @@ function load_one_color ($id_color){
     $color = pdo_query_one($sql);
     return $color;
 }
-function update_color ($color_name,$id_color){
+function update_color ($id_color,$color_name){
     $sql = "UPDATE COLOR SET COLOR_NAME = '$color_name' WHERE ID_COLOR = '$id_color'";
     $color = pdo_execute($sql);
 }
-
+function count_color(){
+    $sql = "SELECT * FROM COLOR WHERE ID_COLOR != 1";
+    $color = pdo_query($sql);
+    $i=0;
+    foreach ($color as $key => $value) {
+        $i++;
+    }
+    $number =ceil($i / 5);
+    return $number;
+}
+function load_limit_5_color ($start,$limit){
+    $sql = "SELECT * FROM COLOR 
+    WHERE ID_COLOR != 1 ORDER BY ID_COLOR DESC LIMIT $start,$limit "; 
+    $color = pdo_query($sql);
+    return $color;
+}
 ?>
+
 
 <!-- brand -->
 
@@ -111,5 +141,21 @@ function delete_brand ($id_brand){
         pdo_execute($delete);
     }
      
+}
+function count_brand(){
+    $sql = "SELECT * FROM BRAND WHERE ID_BRAND!= 1";
+    $color = pdo_query($sql);
+    $i=0;
+    foreach ($color as $key => $value) {
+        $i++;
+    }
+    $number =ceil($i / 5);
+    return $number;
+}
+function load_limit_5_brand ($start,$limit){
+    $sql = "SELECT * FROM BRAND 
+    WHERE ID_BRAND != 1 ORDER BY ID_BRAND DESC LIMIT $start,$limit "; 
+    $color = pdo_query($sql);
+    return $color;
 }
 ?>

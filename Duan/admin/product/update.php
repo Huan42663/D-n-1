@@ -4,22 +4,11 @@
         extract($product);
     ?>
     <form action="index.php?act=updated_pro" enctype="multipart/form-data" method="POST">
+        <input type="hidden" name="id_pro" value="<?=$id_pro?>">
         tên sản phẩm <input type="text" name="name" value="<?=$pro_name?>"><br>
         giá sản phẩm <input type="text" name="price" value="<?=$price?>"><br>
-        <img width=100px src="../image_product/<?=$image?>" alt=""> <input type="file" name="img"><br>
+        <img width=100px src="../image_product/<?=$img?>" alt=""> <input type="file" name="img"><br>
         mô tả <textarea name="detail" id="" cols="30" rows="10"><?=$detail?></textarea><br>
-        số lượng <input type="number" name="quantity" value="<?=$quantity?>"><br>
-        màu
-        <select name="color" id="">
-            <?php
-                foreach ($listcolor as $key => $value) {
-            ?>
-                <option <?php if($value['id_color'] == $id_color) echo 'selected'; ?>
-                value="<?=$value['id_color']?>"><?=$value['color_name']?></option>
-            <?php
-                }
-            ?>
-        </select><br>
         hãng
         <select name="brand" id="">
             <?php
