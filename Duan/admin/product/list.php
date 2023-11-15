@@ -49,7 +49,6 @@
             <form action="index.php?act=list_product" method="POST">
             <?php
               for($i=0;$i<$count;$i++) { 
-                
             ?>
                 <input type="button" name="number" value="<?=$i+1?>">
             <?php
