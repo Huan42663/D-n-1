@@ -87,7 +87,6 @@
     </div>
   </div>
 </footer>
-</body>
 <!-- end of footer -->
 
 <!-- Messenger Plugin chat Code -->
@@ -131,5 +130,6 @@
 <script src="./Duan/View/CSS_JS/script.js"></script>
 <!-- fontawesome cdn -->
 <script src="https://kit.fontawesome.com/9cc1e5b793.js" crossorigin="anonymous"></script>
+</body>
 
 </html>
