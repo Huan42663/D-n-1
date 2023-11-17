@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap');
+
+@font-face {
+    font-family: "SpaceCrusadersItalic";
+    src: url(../Font/SpaceCrusadersItalic-ZV1Zx.ttf);
+}
+
+:root {
+    --lg-font: 'Kaisei Tokumin', serif;
+    --sm-font: 'Poppins', sans-serif;
+    --pink: #e5345b;
+}
+
+/* body{
+    font-family: var(--sm-font);
+} */
+
+/* button */
+.bg-primary {
+    background-color: var(--pink) !important;
+}
+
+.btn:not(.nav-btns button) {
+    background-color: #fff;
+    color: rgb(85, 85, 85);
+    padding: 5px 28px;
+    border-radius: 5px;
+    border: 1px solid rgb(85, 85, 85);
+}
+
+.btn:not(.nav-btns button):hover {
+    background-color: var(--pink);
+    color: #fff;
+    border-color: var(--pink);
+}
+
+/* text color */
+.text-primary {
+    color: var(--pink) !important;
+}
+
+/* navbar */
+.navbar {
+    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+.navbar-brand span {
+    font-size: 25px;
+    font-family: "SpaceCrusadersItalic";
+}
+
+.nav-link:hover {
+    color: var(--pink) !important;
+}
+
+.nav-item {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+
+.carousel-inner h1 {
+    font-size: 60px;
+    font-family: var(--lg-font);
+}
+
+.carousel-item .btn {
+    border-color: #fff !important;
+}
+
+.carousel-item .btn:hover {
+    border-color: var(--pink) !important;
+}
+
+/* title */
+.title h2::before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 50px;
+    background-color: var(--pink);
+    left: -20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* collection */
+.active-filter-btn {
+    background-color: var(--pink) !important;
+    color: #fff !important;
+    border-color: var(--pink) !important;
+}
+
+.filter-button-group .btn:hover {
+    color: #fff !important;
+}
+
+.collection-img span {
+    top: 0px;
+    right: 0px;
+    width: auto;
+    border-radius: 0px 10px 0px 10px;
+    padding: 2.5px 10px 2.5px 10px;
+}
+
+/* special */
+.special-img span {
+    top: 20px;
+    right: 20px;
+}
+
+.special-list .btn {
+    padding: 8px 20px !important;
+}
+
+.special-img img {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.special-img:hover img {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/* offers */
+#offers {
+    background: url(../Images/test.png) center/cover no-repeat;
+}
+
+#offers .row {
+    min-height: 60vh;
+}
+
+.offers-content span {
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+.offers-content h2 {
+    font-size: 50px;
+    font-family: var(--lg-font);
+    text-shadow: 2px 2px 5px black;
+}
+
+.offers-content .btn {
+    border-color: transparent !important;
+    box-shadow: 2px 2px 5px black;
+    font-weight: 500;
+}
+
+/* Giới Thiệu */
+#about {
+    background-color: rgba(179, 179, 179, 0.05);
+}
+
+#about img {
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px black;
+    transition: 0.3s ease;
+}
+
+#about img:hover {
+    transform: scale(1.03);
+}
+
+/* newsletter */
+#newsletter {
+    background-color: rgba(179, 179, 179, 0.05);
+}
+
+#newsletter p {
+    max-width: 600px;
+}
+
+#newsletter .input-group {
+    max-width: 500px;
+}
+
+#newsletter .form-control {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#newsletter .btn {
+    background-color: var(--pink);
+    color: #fff;
+    border-color: var(--pink);
+    transition: 0.3s ease;
+}
+
+#newsletter .btn:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+/* footer */
+footer .brand {
+    font-family: "SpaceCrusadersItalic";
+}
+
+footer p {
+    padding-right: 50px;
+}
+
+footer a {
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--pink) !important;
+}
+
+/* media queries */
+@media(min-width: 992px) {
+    .nav-item {
+        border-bottom: none;
+    }
+}
+
+/* Silder */
+.carousel {
+    margin-top: 00px;
+}
+
+.carousel img {
+    border-radius: 10px;
+}
+
+/* Scroll To Top */
+.to-top{
+    background-color: white;
+    position: fixed;
+    bottom: 800px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    transition: 0.3s ease;
+    /* pointer-events: none; */
+    box-shadow: 0px 0px 5px black;
+    z-index: 99999;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.to-top:hover{
+    background-color: #00b3ff;
+    color: white;
+}
+
+.to-top.active{
+    bottom: 100px;
+    opacity: 1;
+    visibility: visible;
+}
