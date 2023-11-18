@@ -8,7 +8,7 @@
         <div class="khuon_thung_chua">
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
-                    <h2 class="title">BlueTech</h2>
+                    <h2 class="thuong_hieu">BlueTech</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Tên Tài Khoản" />
@@ -35,7 +35,7 @@
                     </div>
                 </form>
                 <form action="#" class="sign-up-form">
-                    <h2 class="title">BlueTech</h2>
+                    <h2 class="thuong_hieu">BlueTech</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Tên Tài Khoản" />

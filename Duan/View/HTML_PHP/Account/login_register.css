@@ -402,3 +402,12 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+@font-face {
+  font-family: "SpaceCrusadersItalic";
+  src: url(../Font/SpaceCrusadersItalic-ZV1Zx.ttf);
+}
+
+.thuong_hieu {
+  font-family: "SpaceCrusadersItalic";
+}
