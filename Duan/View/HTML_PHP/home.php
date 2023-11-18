@@ -1,3 +1,5 @@
+<title>BlueTech - Trang Chủ</title>
+
 <!-- slider -->
 <div class="container pt-3">
   <div id="carouselExampleIndicators" class="col-10 carousel slide" data-bs-ride="carousel">
