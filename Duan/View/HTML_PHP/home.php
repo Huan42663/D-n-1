@@ -2,7 +2,7 @@
 
 <!-- slider -->
 <div class="container pt-3">
-  <div id="carouselExampleIndicators" class="col-10 carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -44,10 +44,82 @@
     });
   });
 </script>
+
+<style>
+    .col{
+      border: 1px solid red;
+    }
+  </style>
+
+<div class="container py-5 d-flex flex-wrap justify-content-center">
+  <div class="row p-0 ">
+    
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+  
+
+  </div>
+</div>
+
+</div>
 <!-- end of slider -->
 
 <!-- SẢN PHẨM -->
-<section id="collection" class="pt-5">
+<!-- <section id="collection" class="pt-5">
   <div class="container">
     <div class="title text-center">
       <h2 class="position-relative d-inline-block">SẢN PHẨM</h2>
@@ -221,7 +293,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- end of collection -->
 
 <!-- special products -->
