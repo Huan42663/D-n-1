@@ -47,16 +47,16 @@
       <div class="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark" href="#">danh mục</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php#">danh mục</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark" href="#products">sản phẩm</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php#products">sản phẩm</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark" href="#about">giới thiệu</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php#about">giới thiệu</a>
           </li>
           <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark" href="#blogs">blogs</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php#blogs">blogs</a>
           </li>
           <li class="nav-item px-2 py-2 border-0">
             <a class="nav-link text-uppercase text-dark" href="#">cách thanh toán</a>
