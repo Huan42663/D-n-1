@@ -47,11 +47,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 99999;
+    color: black;
+    font-weight: 400;
 }
 
 .navbar-brand span {
     font-size: 25px;
     font-family: "SpaceCrusadersItalic";
+    font-weight: normal;
 }
 
 .nav-link:hover {

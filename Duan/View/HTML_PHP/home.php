@@ -55,7 +55,7 @@
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href="#"><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <a href=""><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
@@ -79,8 +79,42 @@
     </div>
   </div>
 </div>
+</div>
+
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-center">
+      <h2 class="title-product m-0">GAMING KEYBOARD</h2>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#">Razer Basilisk V3 Pro</a>
+          </div>
+          <div>
+            <del class="old-price">4.290.000đ</del>
+            <span class="new-price">3.690.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
 
 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <!-- end of slider -->
 
@@ -263,7 +297,7 @@
 <!-- end of collection -->
 
 <!-- special products -->
-<section id="special" class="py-5">
+<section id="special" class="mb-5">
   <div class="container">
     <div class="title text-center py-5">
       <h2 class="position-relative d-inline-block">KHUYẾN MÃI</h2>
