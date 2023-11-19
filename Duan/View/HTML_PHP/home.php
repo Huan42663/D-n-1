@@ -74,11 +74,24 @@
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(10 đánh giá)</span>
           </div>
-
         </div>
       </div>
     </div>
   </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -109,11 +122,23 @@
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
           </div>
-
         </div>
       </div>
     </div>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- BÀN PHÍM GAMING ------------ -->
@@ -143,11 +168,23 @@
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
           </div>
-
         </div>
       </div>
     </div>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
@@ -182,6 +219,19 @@
       </div>
     </div>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -226,11 +276,23 @@
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
           </div>
-
         </div>
       </div>
     </div>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 <!-- <section id="special" class="mb-5">
