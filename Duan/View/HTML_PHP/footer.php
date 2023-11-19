@@ -67,7 +67,7 @@
         <div>
           <ul class="list-unstyled d-flex">
             <li>
-              <a href="https://www.facebook.com/HotaruF2P/" class="text-white text-decoration-none fs-4 me-4">
+              <a href="#" class="text-white text-decoration-none fs-4 me-4">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>

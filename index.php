@@ -1,6 +1,7 @@
-<?php include "./Duan/View/HTML_PHP/header.php"; ?>
-
 <?php
+include "./Duan/View/HTML_PHP/header.php";
+include "./Duan/PDO/pdo.php";
+
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
     switch ($act) {
@@ -17,6 +18,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             session_unset();
             echo '<script>alert("Lỗi!");</script>';
             include "../View/home.php";
+            break;
+
+        case 'admin':
+            include "./Duan/admin/index.php";
             break;
 
         default:

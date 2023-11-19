@@ -1,6 +1,6 @@
 <title>BlueTech - Trang Chủ</title>
 
-<!-- slider -->
+<!-- -------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -45,11 +45,49 @@
   });
 </script>
 
-<div class="container pb-3 d-flex flex-wrap justify-content-center"
+<!-- -------------------------------------------------------------------------------------------------------------------------- SIÊU KHUYẾN MÃI ------------ -->
+<div id="sale" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+  style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-start">
+      <h2 class="title-product m-0" style="background-color: white; color: orangered; mix-blend-mode: luminosity;">SIÊU
+        KHUYẾN MÃI</h2>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card border-0" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/View/Images/Razer Viper Ultimate with Charging Dock - Mercury.webp"
+              class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#">Razer Viper Ultimate Mercury</a>
+          </div>
+          <div>
+            <del class="old-price">3.940.000đ</del>
+            <span class="new-price">2.390.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(10 đánh giá)</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------- CHUỘT GAMING ------------ -->
+<div id="products" class="container pb-3 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
-    <div class="d-flex justify-content-center">
-      <h2 class="title-product m-0">GAMING MOUSE</h2>
+    <div class="d-flex justify-content-start">
+      <h2 class="title-product m-0">CHUỘT GAMING</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -72,20 +110,52 @@
             <span class="rate-quantity">(31 đánh giá)</span>
           </div>
 
-
-
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------- BÀN PHÍM GAMING ------------ -->
 <div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
-    <div class="d-flex justify-content-center">
-      <h2 class="title-product m-0">GAMING KEYBOARD</h2>
+    <div class="d-flex justify-content-start">
+      <h2 class="title-product m-0">BÀN PHÍM GAMING</h2>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/View/Images/Bàn phím Asus ROG Azoth.png" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#">Bàn phím cơ Asus ROG Azoth</a>
+          </div>
+          <div>
+            <del class="old-price">7.990.000đ</del>
+            <span class="new-price">6.990.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
+<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-end">
+      <h2 class="title-product m-0">ĐƯỢC XEM NHIỀU NHẤT</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -108,196 +178,62 @@
             <span class="rate-quantity">(31 đánh giá)</span>
           </div>
 
-
-
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-<!-- end of slider -->
 
-<!-- SẢN PHẨM -->
-<!-- <section id="collection" class="pt-5">
+
+<!-- ------------------------------------------------------------------------------------------------------------------------- Banner Quảng Cáo ------------ -->
+<section id="offers" class="py-5">
   <div class="container">
-    <div class="title text-center">
-      <h2 class="position-relative d-inline-block">SẢN PHẨM</h2>
+    <div
+      class="row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start">
+      <div class="offers-content">
+        <span class="text-white">Siêu Khuyến Mãi!</span>
+        <h2 class="mt-2 mb-4 text-white">Giảm Giá Tới 50%</h2>
+        <a href="#sale" class="btn">Mua Ngay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
+<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-center">
+      <h2 class="title-product m-0">SẢN PHẨM ĐÃ THÍCH CỦA BẠN</h2>
     </div>
 
-    <div class="row g-0">
-      <div class="d-flex flex-wrap justify-content-center mt-2 filter-button-group">
-        <button type="button" class="btn m-2 text-dark active-filter-btn" data-filter="*">
-          Tất Cả
-        </button>
-        <button type="button" class="btn m-2 text-dark" data-filter=".new">
-          Mới Nhất
-        </button>
-        <button type="button" class="btn m-2 text-dark" data-filter=".feat">
-          Sắp Nhập Hàng
-        </button>
-      </div>
-
-      <div class="collection-list mt-2 row gx-0">
-        <div class="col-md-6 col-lg-4 col-xl-3 best border">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_formal_gray_shirt.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#">Razer Basilisk V3 Pro</a>
+          </div>
+          <div>
+            <del class="old-price">4.290.000đ</del>
+            <span class="new-price">3.690.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
 
-        <div class="col-md-6 col-lg-4 col-xl-3 feat border">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_pant_girl.png" class="w-100" />
-            <span
-              class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Mới</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 new">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_polo-shirt.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 best">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_shirt-girl.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 feat border">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_t-shirt_men.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_tunic-shirt_girl.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_undershirt.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-          <div class="collection-img position-relative">
-            <img src="./Duan/View/Images/c_western-shirt.png" class="w-100" />
-            <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Giảm
-              Giá</span>
-          </div>
-          <div class="text-center">
-            <div class="rating mt-3">
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-              <span class="text-primary"><i class="fas fa-star"></i></span>
-            </div>
-            <p class="text-capitalize my-1">gray shirt</p>
-            <span class="fw-bold">$ 45.50</span>
-          </div>
         </div>
       </div>
     </div>
   </div>
-</section> -->
-<!-- end of collection -->
+</div>
 
-<!-- special products -->
-<section id="special" class="mb-5">
+<!-- <section id="special" class="mb-5">
   <div class="container">
     <div class="title text-center py-5">
       <h2 class="position-relative d-inline-block">KHUYẾN MÃI</h2>
@@ -365,23 +301,30 @@
       </div>
     </div>
   </div>
-</section>
-<!-- end of special products -->
+</section> -->
 
-<!-- offers -->
-<section id="offers" class="py-5">
+<!-- ------------------------------------------------------------------------------------------------------------------------------- Giới Thiệu ------------ -->
+<section id="about" class="py-5">
   <div class="container">
-    <div
-      class="row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start">
-      <div class="offers-content">
-        <span class="text-white">Siêu Khuyến Mãi!</span>
-        <h2 class="mt-2 mb-4 text-white">Giảm Giá Tới 50%</h2>
-        <a href="#" class="btn">Mua Ngay</a>
+    <div class="row gy-lg-5 align-items-center">
+      <div class="col-lg-6 order-lg-1 text-center text-lg-start">
+        <div class="title pt-3 pb-4">
+          <h2 class="position-relative d-inline-block ms-4 text-white">GIỚI THIỆU</h2>
+        </div>
+        <p class="lead text-white">
+          BLUETECH - Một sàn thương mại điện tử về công nghệ
+        </p>
+        <p class="text-white">
+          Với mong muốn cung cấp những sản phẩm công nghệ uy tín và chất lượng nhất đến cho mọi người, chúng tôi
+          luôn không ngừng học hỏi và cải tiến từ những phản hồi góp ý từ các bạn.
+        </p>
+      </div>
+      <div class="col-lg-6 order-lg-0">
+        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png"" class=" img-fluid" /></a>
       </div>
     </div>
   </div>
 </section>
-<!-- end of blogs -->
 
 <!-- blogs -->
 <section id="blogs" class="py-5">
@@ -457,119 +400,6 @@
   </div>
 </section>
 <!-- end of blogs -->
-
-<!-- Giới Thiệu -->
-<section id="about" class="py-5">
-  <div class="container">
-    <div class="row gy-lg-5 align-items-center">
-      <div class="col-lg-6 order-lg-1 text-center text-lg-start">
-        <div class="title pt-3 pb-4">
-          <h2 class="position-relative d-inline-block ms-4">GIỚI THIỆU</h2>
-        </div>
-        <p class="lead text-muted">
-          BlueTech - Một sàn thương mại điện tử về công nghệ
-        </p>
-        <p>
-          Với mong muốn cung cấp những sản phẩm công nghệ uy tín và chất lượng nhất đến cho mọi người, chúng tôi
-          luôn không ngừng học hỏi và cải tiến từ những phản hồi góp ý từ các bạn.
-        </p>
-      </div>
-      <div class="col-lg-6 order-lg-0">
-        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png"" class=" img-fluid" /></a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end of about us -->
-
-<!-- popular -->
-<section id="popular" class="py-5">
-  <div class="container">
-    <div class="title text-center pt-3 pb-5">
-      <h2 class="position-relative d-inline-block ms-4">
-        ĐƯỢC YÊU THÍCH NHẤT
-      </h2>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 col-lg-4 row g-3">
-        <h3 class="fs-5">Top Rated</h3>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/top_rated_1.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/top_rated_2.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/top_rated_3.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 row g-3">
-        <h3 class="fs-5">Best Selling</h3>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/best_selling_1.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/best_selling_2.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/best_selling_3.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 row g-3">
-        <h3 class="fs-5">Giảm Giá</h3>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/on_sale_1.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/on_sale_2.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-        <div class="d-flex align-items-start justify-content-start">
-          <img src="./Duan/View/Images/on_sale_3.jpg" alt="" class="img-fluid pe-3 w-25" />
-          <div>
-            <p class="mb-0">Blue Shirt</p>
-            <span>$ 20.00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end of popular -->
 
 <!-- newsletter -->
 <section id="newsletter" class="py-5">
