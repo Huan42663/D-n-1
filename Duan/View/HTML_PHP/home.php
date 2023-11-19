@@ -51,7 +51,7 @@
   <div class="row p-0">
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0" style="background-color: white; color: orangered; mix-blend-mode: luminosity;">SIÊU
-        KHUYẾN MÃI</h2>
+        KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -100,7 +100,7 @@
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
-      <h2 class="title-product m-0">CHUỘT GAMING</h2>
+      <h2 class="title-product m-0"><i class="fa-solid fa-computer-mouse"></i> | CHUỘT GAMING</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -146,7 +146,7 @@
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
-      <h2 class="title-product m-0">BÀN PHÍM GAMING</h2>
+      <h2 class="title-product m-0"><i class="fa-regular fa-keyboard"></i> | BÀN PHÍM GAMING</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -192,7 +192,7 @@
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
-      <h2 class="title-product m-0">ĐƯỢC XEM NHIỀU NHẤT</h2>
+      <h2 class="title-product m-0"><i class="fa-regular fa-eye"></i> | ĐƯỢC XEM NHIỀU NHẤT</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -254,7 +254,7 @@
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
-      <h2 class="title-product m-0">SẢN PHẨM ĐÃ THÍCH CỦA BẠN</h2>
+      <h2 class="title-product m-0"><i class="fa-solid fa-heart"></i> | SẢN PHẨM ĐÃ THÍCH CỦA BẠN</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
