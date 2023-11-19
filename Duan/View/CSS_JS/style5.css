@@ -8,13 +8,13 @@
 :root {
     --lg-font: 'Kaisei Tokumin', serif;
     --sm-font: 'Poppins', sans-serif;
-    --pink: #e5345b;
+    --pink: #00b3ff;
 }
 
-/* body{
-    font-family: var(--sm-font);
-    background-color: black;
-} */
+body {
+    /* font-family: var(--sm-font); */
+    background-color: whitesmoke;
+}
 
 /* button */
 .bg-primary {
@@ -89,7 +89,7 @@
     transform: translateY(-50%);
 }
 
-/* collection */
+/* Sản Phẩm */
 .active-filter-btn {
     background-color: var(--pink) !important;
     color: #fff !important;
@@ -104,9 +104,78 @@
     top: 0px;
     right: 0px;
     width: auto;
-    border-radius: 0px 10px 0px 10px;
-    padding: 2.5px 10px 2.5px 10px;
+    border-radius: 0px 5px 0px 10px;
+    padding: 2.5px 5px 2.5px 5px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px #00b3ff;
+    font-family: "Poppins";
 }
+
+.collection-img {
+    overflow: hidden;
+}
+
+.card-img-top {
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.title-product {
+    padding: 10px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #00b3ff;
+    color: white;
+    font-family: "Poppins";
+    font-weight: bold;
+    box-shadow: 0px 0px 5px gray;
+}
+
+.product-title a {
+    font-family: "Poppins";
+    font-weight: bold;
+    transition: 0.3s ease;
+    color: inherit;
+    /* Giữ màu chữ mặc định của cha */
+    text-decoration: none;
+    /* Loại bỏ gạch chân mặc định */
+}
+
+.product-title:hover a {
+    text-shadow: 1.5px 1.5px 2px #00b3ff;
+}
+
+.old-price {
+    font-size: 12px;
+    color: gray;
+    font-family: "Poppins";
+}
+
+.new-price {
+    font-weight: bold;
+    color: red;
+    font-family: "Poppins";
+}
+
+.star-rate {
+    color: orange;
+}
+
+.rate {
+    color: orange;
+    font-weight: bold;
+    font-family: "Poppins";
+}
+
+.rate-quantity {
+    color: gray;
+    font-family: "Poppins";
+    font-size: 12px;
+}
+
 
 /* special */
 .special-img span {
@@ -238,7 +307,7 @@ footer a:hover {
 }
 
 /* Scroll To Top */
-.to-top{
+.to-top {
     background-color: white;
     position: fixed;
     bottom: 800px;
@@ -262,16 +331,13 @@ footer a:hover {
     visibility: hidden;
 }
 
-.to-top:hover{
+.to-top:hover {
     background-color: #00b3ff;
     color: white;
 }
 
-.to-top.active{
+.to-top.active {
     bottom: 100px;
     opacity: 1;
     visibility: visible;
 }
-
-/* product cards */
-

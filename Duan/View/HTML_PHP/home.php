@@ -1,7 +1,7 @@
 <title>BlueTech - Trang Chủ</title>
 
 <!-- slider -->
-<div class="container pt-3">
+<div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -45,75 +45,41 @@
   });
 </script>
 
-<style>
-    .col{
-      border: 1px solid red;
-    }
-  </style>
-
-<div class="container py-5 d-flex flex-wrap justify-content-center">
-  <div class="row p-0 ">
-    
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div class="card" style="width: 18rem;">
-        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div class="card" style="width: 18rem;">
-        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div class="card" style="width: 18rem;">
-        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div class="card" style="width: 18rem;">
-        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div class="card" style="width: 18rem;">
-        <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+<div class="container pb-3 d-flex flex-wrap justify-content-center"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-center">
+      <h2 class="title-product m-0">GAMING MOUSE</h2>
     </div>
 
-  
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href="#"><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#">Razer Basilisk V3 Pro</a>
+          </div>
+          <div>
+            <del class="old-price">4.290.000đ</del>
+            <span class="new-price">3.690.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
 
+
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 </div>
 <!-- end of slider -->
