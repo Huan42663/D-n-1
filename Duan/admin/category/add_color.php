@@ -4,4 +4,12 @@
         <input placeholder="Mên Màu" type="text" name="name" id=""><br>
         <input type="submit" name="them" value="thêm">
     </form>
+    <?php
+     if(isset($_POST['them'])){
+        $name_color=$_POST['name'];
+         if($name_color==""){
+            echo"không để ô chống";
+         }
+        }
+        ?>
 </div>
