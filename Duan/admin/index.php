@@ -36,11 +36,17 @@ if(isset($_GET['act'])){
             include "category/list_cate.php";
             break;
         case 'add_cate':
+            include "category/add_cate.php";
             if(isset($_POST['them']) && $_POST['them']){
+            if($_POST['name']==""){
+                echo"không để chống";
+                }
+            else{
                 $cate_name = $_POST['name'];
                 add_cate($cate_name);
+                header('location:index.php?act=list_cate');
+                }
             }
-            include "category/add_cate.php";
             break;
         case 'update_cate':
             if(isset($_GET['id'])){
@@ -115,11 +121,17 @@ if(isset($_GET['act'])){
             include "category/list_cate.php";
             break;
         case 'add_color':
-            if(isset($_POST['them']) && $_POST['them']){
-                $color_name = $_POST['name'];
-                add_color($color_name);
-            }
             include "category/add_color.php";
+            if(isset($_POST['them']) && $_POST['them']){
+               if($_POST['name-color']==""){
+                  echo "không để ô chống";
+                }
+               else{
+                  $color_name = $_POST['name-color'];
+                  add_color($color_name);
+                  header('location:index.php?act=list_cate');
+                }
+               }
             break;
         case 'update_color':
             if(isset($_GET['id'])){
@@ -194,11 +206,18 @@ if(isset($_GET['act'])){
             include "category/list_cate.php";
             break;
             case 'add_brand':
-                if(isset($_POST['them']) && $_POST['them']){
-                    $brand_name = $_POST['name'];
-                    add_brand($brand_name);
-                }
                 include "category/add_brand.php";
+                if(isset($_POST['them']) && $_POST['them']){
+                  if($_POST['name']=="")
+                        {
+                           echo"không để ô chống";
+                        }
+                        else {
+                           $brand_name = $_POST['name'];
+                           add_brand($brand_name);
+                           header('location:index.php?act=list_cate');
+                        }
+                }
                 break;
             case 'update_brand':
                 if(isset($_GET['id'])){
