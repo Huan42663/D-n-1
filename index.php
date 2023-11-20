@@ -24,6 +24,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             include "./Duan/admin/index.php";
             break;
 
+        case 'product_lists':
+            include "./Duan/View/HTML_PHP/product_lists.php";
+            break;
+
         default:
             echo '<script>alert("Lỗi!");</script>';
             include "./Duan/View/HTML_PHP/home.php";

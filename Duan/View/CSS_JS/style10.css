@@ -300,6 +300,10 @@ footer a:hover {
     color: var(--pink) !important;
 }
 
+footer{
+    background-image: linear-gradient(to right, #0E2241 , black);
+}
+
 /* media queries */
 @media(min-width: 992px) {
     .nav-item {

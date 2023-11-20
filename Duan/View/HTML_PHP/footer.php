@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer class="bg-dark py-5">
+<footer class="py-5">
   <div class="container">
     <div class="row text-white g-4">
       <div class="col-md-6 col-lg-3">
