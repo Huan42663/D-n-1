@@ -121,6 +121,7 @@ body {
 .card-img-top {
     overflow: hidden;
     transition: 0.3s ease;
+    
 }
 
 .card-img-top:hover {
@@ -142,9 +143,13 @@ body {
     src: url(../Font/Dosis-VariableFont_wght.ttf);
 }
 
+.product-title{
+    height: 55px;
+}
+
 .product-title a {
     font-family: "Dosis-VariableFont";
-    font-size: large;
+    font-size: 15px;
     font-weight: bold;
     transition: 0.3s ease;
     color: inherit;

@@ -53,36 +53,39 @@
       <h2 class="title-product m-0" style="background-color: white; color: orangered; mix-blend-mode: luminosity;">SIÊU
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
-<?php 
-  foreach ($product_sale as $sale) {
-    extract($sale);
-?>
-    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
-      <div class="card border-0" style="width: 100%;">
-        <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$img?>"
-              class="card-img-top" alt="..."></a>
-          <span
-            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
-        </div>
-        <div class="card-body">
-          <div class="product-title">
-            <a href="#"><?=$pro_name?></a>
+    <?php
+    foreach ($product_sale as $sale) {
+      extract($sale);
+      ?>
+      <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+        <div class="card border-0" style="width: 100%;">
+          <div class="collection-img position-relative">
+            <a href=""><img src="./Duan/image_product/<?= $img ?>" class="card-img-top" alt="..."></a>
+            <span
+              class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
           </div>
-          <div>
-            <del class="old-price"><?=$price?>đ</del>
-            <span class="new-price">2.390.000đ</span>
+          <div class="card-body">
+            <div class="product-title">
+              <a href="#">
+                <?= $pro_name ?>
+              </a>
+            </div>
+            <div>
+              <del class="old-price">2.390.000đ</del>
+              <span class="new-price">
+                <?= $price ?>đ
+              </span>
+            </div>
+            <div>
+              <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+              <span class="rate-quantity">(10 đánh giá)</span>
+            </div>
           </div>
-          <!-- <div>
-            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
-            <span class="rate-quantity">(10 đánh giá)</span>
-          </div> -->
         </div>
       </div>
-    </div>
-    <?php
-  }
-  ?>
+      <?php
+    }
+    ?>
   </div>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
@@ -90,11 +93,13 @@
         <a class="page-link">Trước</a>
       </li>
       <?php
-        for ($i=0; $i < $count_page_sale; $i++) { 
-      ?>
-        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i?>"><?=$i+1?></a></li>
-      <?php
-        }
+      for ($i = 0; $i < $count_page_sale; $i++) {
+        ?>
+        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?= $i ?>">
+            <?= $i + 1 ?>
+          </a></li>
+        <?php
+      }
       ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>

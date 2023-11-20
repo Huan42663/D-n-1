@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./Duan/View/HTML_PHP/Account/login_register.css">
+<link rel="stylesheet" href="./Duan/View/HTML_PHP/Account/login_register2.css">
 
 <title>BlueTech - Tài khoản</title>
 </head>
@@ -8,7 +8,7 @@
         <div class="khuon_thung_chua">
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
-                    <h2 class="thuong_hieu">BlueTech</h2>
+                    <h2 class="thuong_hieu">SIGN IN</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Tên Tài Khoản" />
@@ -35,7 +35,7 @@
                     </div>
                 </form>
                 <form action="#" class="sign-up-form">
-                    <h2 class="thuong_hieu">BlueTech</h2>
+                    <h2 class="thuong_hieu">SIGN UP</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Tên Tài Khoản" />
@@ -80,7 +80,7 @@
                         Đăng Ký
                     </button>
                 </div>
-                <img src="./Duan/View/HTML_PHP/Account/img/log.svg" class="image" alt="" />
+                <img src="./Duan/View/HTML_PHP/Account/img/b.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -92,7 +92,7 @@
                         Đăng Nhập
                     </button>
                 </div>
-                <img src="./img/register.svg" class="image" alt="" />
+                <img src="./Duan/View/HTML_PHP/Account/img/sign_in.svg" class="image" alt="" />
             </div>
         </div>
     </div>

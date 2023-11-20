@@ -1,11 +1,14 @@
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
     <div class="row p-0">
-        <div class="d-flex justify-content-start align-items-center">
-            <h2 class="title-product m-0"><i class="fa-solid fa-computer-mouse"></i> | CHUỘT GAMING</h2>
-            <div class="d-flex justify-content-center">
-                <h3 class="m-0">Razor</h3>
-                <h3 class="m-0">Logitech</h3>
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <h2 class="title-product m-0 mr-auto"><i class="fa-solid fa-computer-mouse"></i> | CHUỘT GAMING</h2>
+            <div class="d-flex flex-wrap justify-content-end align-items-center">
+                <a href="#" class="p-2 m-0">Razor</a>
+                <a href="#" class="p-2 m-0">Logitech</a>
+                <a href="#" class="p-2 m-0">Asus</a>
+                <a href="#" class="p-2 m-0">Glorious</a>
+                <a href="#" class="p-2 m-0">Steelseries</a>
             </div>
         </div>
 
