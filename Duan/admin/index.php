@@ -280,8 +280,8 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro();
-            $list_pro = load_limit_10_pro($start,$limit);
+            $count = count_pro(10);
+            $list_pro = load_limit_pro($start,$limit);
             include "product/list.php";
         break;
         case 'add_pro':
@@ -337,8 +337,8 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro();
-            $list_pro = load_limit_10_pro($start,$limit);
+            $count = count_pro(10);
+            $list_pro = load_limit_pro($start,$limit);
             include "product/list.php";
             break;
         case 'add_more_color':
@@ -366,8 +366,8 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro();
-            $list_pro = load_limit_10_pro($start,$limit);
+            $count = count_pro(10);
+            $list_pro = load_limit_pro($start,$limit);
             include "product/list.php";
             break;
         case 'list_color_pro':
@@ -436,10 +436,14 @@ if(isset($_GET['act'])){
             include "product/list_color_pro.php";
             break;
         default:
+        $product = load_top_5_pro();
         include "view/home.php";
             break;
     }
-} else include "view/home.php";
+} else {
+    $product = load_top_5_pro();
+    include "view/home.php";
+}
 include "view/footer.php";
 
 ?>  

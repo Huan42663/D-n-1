@@ -11,42 +11,27 @@
                 <th scope="col">Lượt xem</th>
                 <th scope="col">Danh muc</th>
                 <th></th>
-              </tr>
+              </tr> 
             </thead>
             <tbody>
+              <?php
+                foreach ($product as $pro) {
+                  extract($pro);
+              ?>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <th scope="row"><?=$id_pro?></th>
+                <td><?=$pro_name?></td>
+                <td><?=$price?></td>
+                <td><img src="../upload/<?=$img?>" alt=""></td>
+                <td><?=$view?></td>
+                <td><?=$cate_name?></td>
                 <td><input type="button" value="Thêm">
                   <input type="button" value="Sửa">
                   <input type="button" value="Xóa"></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><input type="button" value="Thêm">
-                  <input type="button" value="Sửa">
-                  <input type="button" value="Xóa"></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>@twitter</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><input type="button" value="Thêm">
-                  <input type="button" value="Sửa">
-                  <input type="button" value="Xóa"></td>
-              </tr>
+              <?php
+                }
+              ?>
             </tbody>
           </table>
        </div>

@@ -19,21 +19,29 @@ function load_all_pro (){
     $pro = pdo_query($sql);
     return $pro;
 }
-function count_pro(){
+function count_pro($pro_per_page){
     $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != 1";
     $pro = pdo_query($sql);
     $i=0;
     foreach ($pro as $key => $value) {
         $i++;
     }
-    $number =ceil($i / 10);
+    $number =ceil($i / $pro_per_page);
     return $number;
 }
-function load_limit_10_pro ($start,$limit){
+function load_limit_pro ($start,$limit){
     $sql = "SELECT * FROM PRODUCT 
     JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
     JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
     WHERE PRODUCT.ID_PRO != 1 ORDER BY PRODUCT.ID_PRO DESC LIMIT $start,$limit "; 
+    $pro = pdo_query($sql);
+    return $pro;
+}
+function load_top_5_pro (){
+    $sql = "SELECT * FROM PRODUCT 
+    JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE
+    WHERE PRODUCT.ID_PRO != 1
+    ORDER BY VIEW DESC LIMIT 0,5";
     $pro = pdo_query($sql);
     return $pro;
 }
@@ -84,6 +92,16 @@ function delete_pro($id_pro){
         pdo_execute($delete);
     }
 }
+// function other_pro ($id_pro,$id_cate){
+//     $check_pro = "SELECT * FROM PRODUCT WHERE ID_PRO != 1 AND ID_PRO != $id_pro";
+//     $number = pdo_query($check_pro);
+//     $i = 0;
+//     foreach ($number) {
+//         $i++;
+//     }
+//     $start = random_int(0,$i - 5);
+//     $sql = "SELECT * FROM PRODUCT WHERE ID_CATE = $id_cate AND ID_PRO != $id_pro LIMIT $start,5";
+// }
 ?>
 
 <!-- color_pro -->
