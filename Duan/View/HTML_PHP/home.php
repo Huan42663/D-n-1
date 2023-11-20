@@ -141,12 +141,12 @@
   </nav>
 </div>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------- BÀN PHÍM GAMING ------------ -->
+<!-- ----------------------------------------------------------------------------------------------------------------------- BÀN PHÍM CƠ GAMING ------------ -->
 <div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
-      <h2 class="title-product m-0"><i class="fa-regular fa-keyboard"></i> | BÀN PHÍM GAMING</h2>
+      <h2 class="title-product m-0"><i class="fa-regular fa-keyboard"></i> | BÀN PHÍM CƠ GAMING</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
@@ -254,7 +254,7 @@
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
-      <h2 class="title-product m-0"><i class="fa-solid fa-heart"></i> | SẢN PHẨM ĐÃ THÍCH CỦA BẠN</h2>
+      <h2 class="title-product m-0"><i class="fa-solid fa-heart"></i> | SẢN PHẨM BẠN ĐÃ THÍCH</h2>
     </div>
 
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
