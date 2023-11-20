@@ -36,7 +36,7 @@
         for($i=0;$i<$count_cate;$i++) { 
         
     ?>
-        <input type="button" name="number_cate" value="<?=$i+1?>">
+        <input type="submit" name="number_cate" value="<?=$i+1?>">
     <?php
         }
     ?>
@@ -79,7 +79,7 @@
         for($i=0;$i<$count_color;$i++) { 
         
     ?>
-        <input type="button" name="number_color" value="<?=$i+1?>">
+        <input type="submit" name="number_color" value="<?=$i+1?>">
     <?php
         }
     ?>
@@ -117,4 +117,14 @@
         </tr>
         </tbody>
     </table>
+    <form action="index.php?act=list_cate" method="POST">
+    <?php
+        for($i=0;$i<$count_brand;$i++) { 
+        
+    ?>
+        <input type="submit" name="number_brand" value="<?=$i+1?>">
+    <?php
+        }
+    ?>
+    </form>
 </div>
