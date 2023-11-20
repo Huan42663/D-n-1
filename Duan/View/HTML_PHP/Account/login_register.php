@@ -80,7 +80,7 @@
                         Đăng Ký
                     </button>
                 </div>
-                <img src="img/log.svg" class="image" alt="" />
+                <img src="./Duan/View/HTML_PHP/Account/img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -92,7 +92,7 @@
                         Đăng Nhập
                     </button>
                 </div>
-                <img src="img/register.svg" class="image" alt="" />
+                <img src="./img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>

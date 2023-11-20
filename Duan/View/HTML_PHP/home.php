@@ -188,7 +188,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -250,7 +250,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
