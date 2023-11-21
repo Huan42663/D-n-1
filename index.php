@@ -27,7 +27,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'product_lists':
-            include "./Duan/View/HTML_PHP/product_lists.php";
+            include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
 
         default:

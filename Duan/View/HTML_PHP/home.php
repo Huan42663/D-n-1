@@ -1,6 +1,6 @@
 <title>BlueTech - Trang Chủ</title>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">

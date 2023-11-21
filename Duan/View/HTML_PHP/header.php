@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,13 +13,14 @@
 </head>
 
 <body>
-
-  <!-- navbar -->
+  <!-- -------------------------------------------------------------------------------------------------------------------------- Tên Thương Hiệu ------------ -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
     <div class="container d-flex flex-wrap justify-content-between">
       <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php#">
         <span class="text-uppercase">BlueTech</span>
       </a>
+
+      <!-- -------------------------------------------------------------------------------------------------------------------- Icon Tiện Ích -------------- -->
 
       <div class="order-lg-2 nav-btns">
         <button id="toggleThis" type="button" class="btn position-relative">
@@ -43,10 +43,12 @@
           </button></a>
       </div>
 
+      <!-- -------------------------------------------------------------------------------------------------------------------- Icon Menu ------------------ -->
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- -------------------------------------------------------------------------------------------------------------------- Menu / Navbar -------------- -->
       <div class="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
@@ -74,10 +76,11 @@
 
   </nav>
 
+  <!-- ------------------------------------------------------------------------------------------------------------------------ Form Tìm Kiếm -------------- -->
   <div id="searchBox" class="container searchBox p-0 mb-4">
     <div class="input-group">
       <input type="search" class="form-control">
-      <button type="submit" class="btn">
+      <button type="submit">
         <i class="fa fa-search"></i>
       </button>
     </div>
