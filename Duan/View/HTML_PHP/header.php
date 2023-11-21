@@ -6,52 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      // Check if the searchBox is visible on page load
-      var isSearchBoxVisible = $('#searchBox').is(':visible');
-
-      $('#toggleThis').click(function () {
-        $('#searchBox').slideToggle("fast");
-      });
-
-      // Hide the searchBox if it was visible on page load
-      if (isSearchBoxVisible) {
-        $('#searchBox').hide();
-      }
-    });
-  </script>
-
   <!-- bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <!-- custom css -->
-  <link rel="stylesheet" href="./Duan/View/CSS_JS/style11.css">
+  <link rel="stylesheet" href="./Duan/View/CSS_JS/style12.css">
 </head>
 
 <body>
-
-  <style>
-    .searchBox {
-      position: sticky;
-      top: 80px;
-      z-index: 9999;
-    }
-
-    .searchBox input {
-      background-image: linear-gradient(to right, #0E2241, black) !important;
-      border: 1px solid #0E2241 !important;
-      box-shadow: 0px 0px 5px black !important;
-      color: white !important;
-    }
-
-    .searchBox button {
-      border: 1px solid #00b3ff !important;
-      box-shadow: 0px 0px 5px black !important;
-    }
-  </style>
 
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
