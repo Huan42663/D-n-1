@@ -36,7 +36,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
     }
 } else {
-    $limit = 12;
+    $limit = 6;
     if (isset($_GET['page-sale'])) {
         $number = $_POST['page-sale'];
         $start = $number * $limit;
