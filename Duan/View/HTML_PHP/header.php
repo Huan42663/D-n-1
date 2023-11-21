@@ -40,17 +40,17 @@
       z-index: 9999;
     }
 
-    .searchBox input{
-      background-image: linear-gradient(to right, #0E2241, black);
-      border: 1px solid #0E2241;
-      box-shadow: 0px 0px 5px black;
+    .searchBox input {
+      background-image: linear-gradient(to right, #0E2241, black) !important;
+      border: 1px solid #0E2241 !important;
+      box-shadow: 0px 0px 5px black !important;
+      color: white !important;
     }
 
-    .searchBox button{
-      border: 1px solid #00b3ff;
-      box-shadow: 0px 0px 5px black;
+    .searchBox button {
+      border: 1px solid #00b3ff !important;
+      box-shadow: 0px 0px 5px black !important;
     }
-    
   </style>
 
   <!-- navbar -->
