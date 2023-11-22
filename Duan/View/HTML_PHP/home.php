@@ -54,23 +54,22 @@
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 <?php 
-  foreach ($product_sale as $sale) {
-    extract($sale);
+  foreach ($product_sale as $key => $value) {
 ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$img?>"
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>"
               class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$pro_name?></a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price?>đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">2.390.000đ</span>
           </div>
           <!-- <div>
@@ -92,7 +91,7 @@
       <?php
         for ($i=0; $i < $count_page_sale; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page_sale=<?=$i?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -111,38 +110,47 @@
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0"><i class="fa-solid fa-computer-mouse"></i> | CHUỘT GAMING</h2>
     </div>
-
+    <?php
+      foreach ($product_mouse as $key => $value) {
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#">Razer Basilisk V3 Pro</a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price">4.290.000đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">3.690.000đ</span>
           </div>
-          <div>
+          <!-- <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
-  </div>
+      <?php
+      }
+      ?>
+  </div>  
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
       <li class="page-item disabled">
         <a class="page-link">Trước</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <?php
+        for ($i=0; $i < $count_page_mouse; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_mouse=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>
       </li>
@@ -157,38 +165,47 @@
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0"><i class="fa-regular fa-keyboard"></i> | BÀN PHÍM CƠ GAMING</h2>
     </div>
-
+    <?php
+      foreach ($product_key_board as $key => $value) {
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/View/Images/Bàn phím Asus ROG Azoth.png" class="card-img-top" alt="..."></a>
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#">Bàn phím cơ Asus ROG Azoth</a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price">7.990.000đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">6.990.000đ</span>
           </div>
-          <div>
+          <!-- <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
+    <?php
+      }
+    ?>
   </div>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
       <li class="page-item disabled">
         <a class="page-link">Trước</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <?php
+        for ($i=0; $i < $count_page_key_board; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>
       </li>

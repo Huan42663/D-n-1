@@ -38,14 +38,30 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     }
 } else {
     $limit = 12;
-    if(isset($_GET['page-sale'])){
-        $number = $_POST['page-sale'];
+    if(isset($_GET['page_sale'])){
+        $number = $_GET['page_sale'];
         $start = $number * $limit;
     }else{
         $start = 0;
     }
     $count_page_sale = count_pro(12);
-    $product_sale = load_limit_pro ($start,$limit);
+    $product_sale = load_limit_pro ($start,$limit,"",0);
+    if(isset($_GET['page_mouse'])){
+        $number = $_GET['page_mouse'];
+        $start = $number * $limit;
+    }else{
+        $start = 0;
+    }
+    $count_page_mouse = count_pro(12);
+    $product_mouse = load_limit_pro ($start,$limit,"chuột",0);
+    if(isset($_GET['page_key_board'])){
+        $number = $_GET['page_key_board'];
+        $start = $number * $limit;
+    }else{
+        $start = 0;
+    }
+    $count_page_key_board = count_pro(12);
+    $product_key_board = load_limit_pro ($start,$limit,"bàn phím",0);
     include "./Duan/View/HTML_PHP/home.php";
 }
 

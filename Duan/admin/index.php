@@ -300,7 +300,7 @@ if(isset($_GET['act'])){
                 $start = 0;
             }
             $count = count_pro(10);
-            $list_pro = load_limit_pro($start,$limit);
+            $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
         break;
         case 'add_pro':
@@ -357,7 +357,7 @@ if(isset($_GET['act'])){
                 $start = 0;
             }
             $count = count_pro(10);
-            $list_pro = load_limit_pro($start,$limit);
+            $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
             break;
         case 'add_more_color':
@@ -386,7 +386,7 @@ if(isset($_GET['act'])){
                 $start = 0;
             }
             $count = count_pro(10);
-            $list_pro = load_limit_pro($start,$limit);
+            $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
             break;
         case 'list_color_pro':
