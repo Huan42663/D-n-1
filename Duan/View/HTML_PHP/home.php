@@ -46,7 +46,7 @@
 </script>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- SIÊU KHUYẾN MÃI ------------ -->
-<div id="sale" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div id="sale" class="container pb-3 my-5"
   style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -104,7 +104,7 @@
 
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- CHUỘT GAMING ------------ -->
-<div id="products" class="container pb-3 d-flex flex-wrap justify-content-center"
+<div id="products" class="container pb-3"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -159,7 +159,7 @@
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------- BÀN PHÍM CƠ GAMING ------------ -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -214,7 +214,7 @@
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------- Tai Nghe ---------------------- -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -269,7 +269,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -331,7 +331,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">

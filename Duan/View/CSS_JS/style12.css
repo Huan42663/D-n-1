@@ -27,6 +27,10 @@ body {
     padding: 5px 28px;
     border-radius: 5px;
     border: 1px solid rgb(85, 85, 85);
+    font-weight: 600;
+    transition: 0.3 ease;
+    box-shadow: 1px 1px 1px black;
+    color: black;
 }
 
 .btn:not(.nav-btns button):hover {
@@ -268,6 +272,7 @@ body {
 #newsletter .form-control {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    box-shadow: 1px 1px 1px black;
 }
 
 #newsletter .btn {
@@ -357,7 +362,7 @@ footer {
     visibility: visible;
 }
 
-/* Form Tìm Kiếm */
+/* ------------------------------------------------------------------------------------------------------------------- Form Tìm Kiếm */
 .searchBox {
     position: fixed;
     left: 50%;
@@ -396,4 +401,126 @@ footer {
 .searchBox .searchBoxButton:hover {
     background-color: #00b3ff !important;
     color: white !important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- Chi Tiết Sản Phẩm */
+.product-title-details {
+    font-family: "Dosis-VariableFont";
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.product-title-details a {
+    text-decoration: none;
+    color: black;
+}
+
+.all-price-details del {
+    font-size: x-large;
+    color: gray;
+    font-family: "Poppins";
+    margin-right: 10px;
+}
+
+.new-price-details {
+    font-size: xx-large;
+    font-weight: bold;
+    color: red;
+    margin-right: 15px;
+    font-family: "Poppins";
+}
+
+.product-percent-details {
+    font-size: medium;
+    font-weight: bold;
+    font-family: "Poppins";
+    border: 2px solid red;
+    border-radius: 3px;
+    color: white;
+    padding: 0px 5px;
+    color: red;
+}
+
+.all-price-details {
+    display: flex;
+    align-items: center;
+}
+
+.star-rate-details {
+    color: orange;
+    font-size: large;
+}
+
+.rate-details {
+    color: orange;
+    font-weight: bold;
+    font-family: "Poppins";
+    font-size: large;
+}
+
+.rate-quantity-details {
+    color: gray;
+    font-family: "Poppins";
+    font-size: small;
+}
+
+.check-rate-details {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: medium;
+    color: #00b3ff;
+    transition: 0.3s ease;
+}
+
+.check-rate-details:hover {
+    color: #0E2241;
+    text-decoration: underline;
+}
+
+.accompanying-services span {
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.all-product-details span {
+    display: block;
+}
+
+.popup-image{
+    top: 0;
+    left: 0;
+    
+    height: 100px;
+    width: 100%;
+    z-index: 999999;
+}
+
+.popup-image span{
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: black;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+.popup-image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid black;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+    z-index: 999999;
+}
+
+@media (max-width:789px) {
+    .popup-image img{
+        width: 95%;
+    }
 }

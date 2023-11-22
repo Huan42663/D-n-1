@@ -1,4 +1,4 @@
-<!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiện Thị Số Sản Phẩm ------------ -->
+<!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiển Thị Số Sản Phẩm ------------ -->
 <div class="container mt-3">
 
     <div class="row">
@@ -16,7 +16,7 @@
         <div class="col-md-4 text-md-end">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                 aria-label="breadcrumb">
-                <p>Đang Hiển Thị 1-18 Trên 50 Sản Phẩm</p>
+                <p>Có Tổng Cộng 50 Sản Phẩm</p>
             </nav>
         </div>
 
@@ -25,7 +25,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- Bộ Lọc Tổng Hợp ------------ -->
-<div class="container pb-3 mb-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 mb-5"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
     <div class="row mt-3">
         <div class="col-6 d-flex justify-content-between align-items-center w-100">
@@ -68,7 +68,7 @@
             <div class="col-6 dropdown-menu-end d-flex flex-wrap justify-content-end">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Bộ Lọc
+                    Sắp Xếp
                 </button>
                 <ul class="dropdown-menu p-0">
                     <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=lastest">Mới Nhất</a></li>
