@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -78,13 +79,14 @@
 
   <!-- ------------------------------------------------------------------------------------------------------------------------ Form Tìm Kiếm -------------- -->
   <div id="searchBox" class="container searchBox p-0 mb-4">
-  <form action="index.php?act=product_lists" method="POST">
-    <div class="input-group">
-      <input type="search" name="kyw" class="form-control">
-      <input type="submit" name="btn_search" id="">
-      <!-- <button type="submit" name="btn_search">
+    <form action="index.php?act=product_lists" method="POST">
+      <div class="input-group">
+        <input type="search" name="kyw" class="form-control" placeholder="Tìm Kiếm Sản Phẩm...">
+        <input class="searchBoxButton" type="submit" name="btn_search">
+
+        <!-- <button type="submit" name="btn_search">
         <i class="fa fa-search"></i>
       </button> -->
-    </div>
-  </form>
+      </div>
+    </form>
   </div>

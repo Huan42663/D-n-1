@@ -372,27 +372,28 @@ footer {
 }
 
 .searchBox input {
-    background-image: linear-gradient(to right, #0E2241, white) !important;
+    /* background-image: linear-gradient(to right, #0E2241, white); */
     border: 0;
     box-shadow: 0px 0px 5px black !important;
     color: white !important;
     border-radius: 0px 0px 0px 10px;
 }
 
-.searchBox button {
+.searchBox .searchBoxButton {
+    background-color: white !important;
     border: 0;
     box-shadow: 0px 0px 5px black !important;
     border-radius: 0;
     padding: 0px 25px;
     display: flex;
     align-items: center;
-    background-color: white;
     border-radius: 0px 0px 10px 0px;
     transition: 0.3s ease;
     z-index: 9999;
+    color: black !important;
 }
 
-.searchBox button:hover {
-    background-color: #00b3ff;
-    color: white;
+.searchBox .searchBoxButton:hover {
+    background-color: #00b3ff !important;
+    color: white !important;
 }
