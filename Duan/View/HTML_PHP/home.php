@@ -1,6 +1,6 @@
 <title>BlueTech - Trang Chủ</title>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -54,22 +54,23 @@
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 <?php 
-  foreach ($product_sale as $key => $value) {
+  foreach ($product_sale as $sale) {
+    extract($sale);
 ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$value['img']?>"
+          <a href=""><img src="./Duan/image_product/<?=$img?>"
               class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$value['pro_name']?></a>
+            <a href="#"><?=$pro_name?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
+            <del class="old-price"><?=$price?>đ</del>
             <span class="new-price">2.390.000đ</span>
           </div>
           <!-- <div>
@@ -91,7 +92,7 @@
       <?php
         for ($i=0; $i < $count_page_sale; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page_sale=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -214,7 +215,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -276,7 +277,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">

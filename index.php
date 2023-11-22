@@ -15,20 +15,19 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
             include "./Duan/View/HTML_PHP/Account/Login_Register.php";
             break;
+
         case 'log_out':
             session_unset();
             echo '<script>alert("Lỗi!");</script>';
             include "../View/home.php";
             break;
-        case'':
 
-            break;
         case 'admin':
             include "./Duan/admin/index.php";
             break;
 
         case 'product_lists':
-            include "./Duan/View/HTML_PHP/product_lists.php";
+            include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
 
         default:
@@ -38,30 +37,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     }
 } else {
     $limit = 12;
-    if(isset($_GET['page_sale'])){
-        $number = $_GET['page_sale'];
+    if(isset($_GET['page-sale'])){
+        $number = $_POST['page-sale'];
         $start = $number * $limit;
-    }else{
+    } else {
         $start = 0;
     }
     $count_page_sale = count_pro(12);
-    $product_sale = load_limit_pro ($start,$limit,"",0);
-    if(isset($_GET['page_mouse'])){
-        $number = $_GET['page_mouse'];
-        $start = $number * $limit;
-    }else{
-        $start = 0;
-    }
-    $count_page_mouse = count_pro(12);
-    $product_mouse = load_limit_pro ($start,$limit,"chuột",0);
-    if(isset($_GET['page_key_board'])){
-        $number = $_GET['page_key_board'];
-        $start = $number * $limit;
-    }else{
-        $start = 0;
-    }
-    $count_page_key_board = count_pro(12);
-    $product_key_board = load_limit_pro ($start,$limit,"bàn phím",0);
+    $product_sale = load_limit_pro ($start,$limit);
     include "./Duan/View/HTML_PHP/home.php";
 }
 
