@@ -54,23 +54,22 @@
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 <?php 
-  foreach ($product_sale as $sale) {
-    extract($sale);
+  foreach ($product_sale as $key => $value) {
 ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$img?>"
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>"
               class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$pro_name?></a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price?>đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">2.390.000đ</span>
           </div>
           <!-- <div>
@@ -409,7 +408,7 @@
         </p>
       </div>
       <div class="col-lg-6 order-lg-0">
-        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png"" class=" img-fluid" /></a>
+        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png" class=" img-fluid" /></a>
       </div>
     </div>
   </div>

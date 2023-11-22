@@ -299,7 +299,7 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro(10);
+            $count = count_pro(10,"",0);
             $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
         break;
@@ -356,7 +356,7 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro(10);
+            $count = count_pro(10,"",0);
             $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
             break;
@@ -385,7 +385,7 @@ if(isset($_GET['act'])){
             }else{
                 $start = 0;
             }
-            $count = count_pro(10);
+            $count = count_pro(10,"",0);
             $list_pro = load_limit_pro($start,$limit,"",0);
             include "product/list.php";
             break;

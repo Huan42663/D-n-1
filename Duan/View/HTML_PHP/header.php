@@ -78,10 +78,13 @@
 
   <!-- ------------------------------------------------------------------------------------------------------------------------ Form Tìm Kiếm -------------- -->
   <div id="searchBox" class="container searchBox p-0 mb-4">
+  <form action="index.php?act=product_lists" method="POST">
     <div class="input-group">
-      <input type="search" class="form-control">
-      <button type="submit">
+      <input type="search" name="kyw" class="form-control">
+      <input type="submit" name="btn_search" id="">
+      <!-- <button type="submit" name="btn_search">
         <i class="fa fa-search"></i>
-      </button>
+      </button> -->
     </div>
+  </form>
   </div>
