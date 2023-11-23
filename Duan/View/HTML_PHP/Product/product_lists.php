@@ -1,4 +1,4 @@
-<!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiện Thị Số Sản Phẩm ------------ -->
+<!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiển Thị Số Sản Phẩm ------------ -->
 <div class="container mt-3">
 
     <div class="row">
@@ -31,91 +31,106 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- Bộ Lọc Tổng Hợp ------------ -->
-<div class="container pb-3 mb-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 mb-5"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
     <div class="row mt-3">
         <div class="col-6 d-flex justify-content-between align-items-center w-100">
             <form action="index.php?act=product_lists" method="POST">
-            <div class="d-flex flex-wrap align-items-center">
-                <input type="radio" name="brand" value="all" checked> Tất cả
-                <?php
+                <div class="d-flex flex-wrap align-items-center">
+                    <input type="radio" name="brand" value="all" checked> Tất cả
+                    <?php
                     foreach ($brand as $key => $value) {
-                ?>
-                <input type="radio" name="brand" value="<?=$value['id_brand']?>"><?=$value['brand_name']?>
-                <?php
+                        ?>
+                        <input type="radio" name="brand" value="<?= $value['id_brand'] ?>">
+                        <?= $value['brand_name'] ?>
+                        <?php
                     }
-                ?>
-            </div>
-            <div class="d-flex flex-wrap align-items-center">
-                <input type="radio" name="cate" value="all" checked> Tất cả
-                <?php
+                    ?>
+                </div>
+                <div class="d-flex flex-wrap align-items-center">
+                    <input type="radio" name="cate" value="all" checked> Tất cả
+                    <?php
                     foreach ($cate as $key => $value) {
-                ?>
-                <input type="radio" name="cate" value="<?=$value['id_cate']?>"><?=$value['cate_name']?>
-                <?php
+                        ?>
+                        <input type="radio" name="cate" value="<?= $value['id_cate'] ?>">
+                        <?= $value['cate_name'] ?>
+                        <?php
                     }
-                ?>
-            </div>
-            <div class="d-flex flex-wrap align-items-center">
-                <input type="radio" name="color" value="all" checked> Tất cả
-                <?php
+                    ?>
+                </div>
+                <div class="d-flex flex-wrap align-items-center">
+                    <input type="radio" name="color" value="all" checked> Tất cả
+                    <?php
                     foreach ($color as $key => $value) {
-                ?>
-                <input type="radio" name="color" value="<?=$value['id_color']?>"><?=$value['color_name']?>
-                <?php
+                        ?>
+                        <input type="radio" name="color" value="<?= $value['id_color'] ?>">
+                        <?= $value['color_name'] ?>
+                        <?php
                     }
-                ?>
-            </div>
+                    ?>
+                </div>
                 <input type="submit" name="btn_filter" value="Lọc">
             </form>
             <div class="col-6 dropdown-menu-end d-flex flex-wrap justify-content-end">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Bộ Lọc
+                    Sắp Xếp
                 </button>
                 <ul class="dropdown-menu p-0">
                     <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=lastest">Mới Nhất</a></li>
-                    <li><hr class="dropdown-divider m-0"></li>
-                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=price_up">Giá Từ Thấp -> Cao</a></li>
-                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=price_down">Giá Từ Cao -> Thấp</a></li>
-                    <li><hr class="dropdown-divider m-0"></li>
-                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=most_view">Được Xem Nhiều Nhất</a></li>
+                    <li>
+                        <hr class="dropdown-divider m-0">
+                    </li>
+                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=price_up">Giá Từ Thấp ->
+                            Cao</a></li>
+                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=price_down">Giá Từ Cao ->
+                            Thấp</a></li>
+                    <li>
+                        <hr class="dropdown-divider m-0">
+                    </li>
+                    <li><a class="dropdown-item" href="index.php?act=product_lists&load_type=most_view">Được Xem Nhiều
+                            Nhất</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
-            <?php
-                foreach ($product as $key => $value) {
+        <!-- --------------------------------------------------------------------------------------------------------------------- Sản Phẩm ---------------- -->
+        <?php
+        foreach ($product as $key => $value) {
             ?>
-            <div class="card" style="width: 100%;">
-                <div class="collection-img position-relative">
-                    <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top"
-                            alt="..."></a>
-                    <span
-                        class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
-                </div>
-                <div class="card-body">
-                    <div class="product-title">
-                        <a href="#"><?=$value['pro_name']?></a>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+
+                <div class="card" style="width: 100%;">
+                    <div class="collection-img position-relative">
+                        <a href=""><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
+                        <span
+                            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
                     </div>
-                    <div>
-                        <del class="old-price"><?=$value['price']?>đ</del>
-                        <span class="new-price">3.690.000đ</span>
-                    </div>
-                    <div>
-                        <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
-                        <span class="rate-quantity">(31 đánh giá)</span>
+                    <div class="card-body">
+                        <div class="product-title">
+                            <a href="#">
+                                <?= $value['pro_name'] ?>
+                            </a>
+                        </div>
+                        <div>
+                            <del class="old-price">3.690.000đ</del>
+                            <span class="new-price">
+                                <?= $value['price'] ?>đ
+                            </span>
+                        </div>
+                        <div>
+                            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+                            <span class="rate-quantity">(31 đánh giá)</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <?php
-                }
-            ?>
-        </div>
+        }
+        ?>
     </div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------- Phân Trang ------------ -->
+    <!-- --------------------------------------------------------------------------------------------------------------------------- Phân Trang ------------ -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center mt-3 m-0">
             <li class="page-item disabled">

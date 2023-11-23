@@ -46,7 +46,7 @@
 </script>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- SIÊU KHUYẾN MÃI ------------ -->
-<div id="sale" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div id="sale" class="container pb-3 my-5"
   style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -73,10 +73,10 @@
             <del class="old-price"><?=$price_sale?> &#8363;</del>
             <span class="new-price">2.390.000 &#8363;</span>
           </div>
-          <!-- <div>
+          <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(10 đánh giá)</span>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
 
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- CHUỘT GAMING ------------ -->
-<div id="products" class="container pb-3 d-flex flex-wrap justify-content-center"
+<div id="products" class="container pb-3"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -130,10 +130,10 @@
             <del class="old-price"><?=$price_mouse?>đ</del>
             <span class="new-price">3.690.000đ</span>
           </div>
-          <!-- <div>
+          <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------- BÀN PHÍM CƠ GAMING ------------ -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
@@ -186,10 +186,65 @@
             <del class="old-price"><?=$price_key_board?>đ</del>
             <span class="new-price">6.990.000đ</span>
           </div>
-          <!-- <div>
+          <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
             <span class="rate-quantity">(31 đánh giá)</span>
-          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+      }
+    ?>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <?php
+        for ($i=0; $i < $count_page_key_board; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ----------------------------------------------------------------------------------------------------------------------- Tai Nghe ---------------------- -->
+<div class="container pb-3 my-5"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-start">
+      <h2 class="title-product m-0"><i class="fa-solid fa-headphones-simple"></i> | Tai Nghe</h2>
+    </div>
+    <?php
+      foreach ($product_key_board as $key => $value) {
+    ?>
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#"><?=$value['pro_name']?></a>
+          </div>
+          <div>
+            <del class="old-price"><?=$value['price']?>đ</del>
+            <span class="new-price">6.990.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
         </div>
       </div>
     </div>
@@ -217,7 +272,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -279,7 +334,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
