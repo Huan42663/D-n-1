@@ -13,10 +13,8 @@
 </head>
 <body>
   <div class="container-bar sticky" style="width: 20%; ">
-    <div class="header" style="width: 100%;background-image: linear-gradient(to bottom, #0E2241 , #00b3ff);; border-top-right-radius: 8px; border-top-left-radius: 8px;">  
-      <a class="navbar-brand" href="admin.html" style="color: #fff;"><img src="logo/logo-shop.jpg" alt="" width="30px" style="border-radius: 100%;">ADMIN</a>
-    </div>
-    <ul class="menu">
+  <div class="bar">
+    <ul class="menu" style="background-color: whitesmoke;padding-right: 20px;">
     <li ><a  href="index.php?"><i class="bi bi-house-fill"></i> Home</a></li>
     <li ><a  href="thongke.html"><i class="bi bi-reception-4"></i> Thống kê</a></li>
     <li ><a  href="index.php?act=list_product" ><i class="bi bi-suitcase-lg"></i> Sản phẩm</a></li>
@@ -25,5 +23,6 @@
     <li ><a  href="doitac.html" ><i class="bi bi-people-fill"></i> Đối tác</a></li>
     <li ><a  href="taikhoan.html"><i class="bi bi-person-circle"></i> Tài khoản</a></li>
     </ul>
+    </div>
    </div>
    

@@ -39,17 +39,19 @@
             <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
           </button></a>
 
-        <!-- <a href="index.php?act=account"><button type="button" class="btn position-relative">
+        <a href="index.php?act=account"><button type="button" class="btn position-relative">
             <i class="fa-solid fa-circle-user"></i>
-          </button></a> -->
+          </button></a>
 
 
-        <div class="flex-shrink-0 dropdown d-flex flex-wrap">
+        <!-- <div class="flex-shrink-0 dropdown d-flex flex-wrap">
+          <a href="index.php?act=account"><button type="button" class="btn position-relative">
+              <i class="fa-solid fa-circle-user"></i>
+            </button></a>
+
           <div class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
             aria-expanded="false">
-            <a href="index.php?act=account"><button type="button" class="btn position-relative">
-                <i class="fa-solid fa-circle-user"></i>
-              </button></a>
+
           </div>
           <ul class="dropdown-menu text-small shadow p-0">
             <div class="d-flex flex-wrap align-items-center justify-content-center">
@@ -73,7 +75,7 @@
 
             <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
           </ul>
-        </div>
+        </div> -->
 
       </div>
 
@@ -101,7 +103,7 @@
             <a class="nav-link text-uppercase text-dark" href="#">cách thanh toán</a>
           </li>
           <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark" href="#">bảo hành</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php?act=update_account">bảo hành</a>
           </li>
         </ul>
       </div>
