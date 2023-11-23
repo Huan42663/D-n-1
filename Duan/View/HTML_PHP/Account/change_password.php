@@ -52,24 +52,16 @@
             ?>
             <form>
                 <div class="mb-3 mt-3">
-                    <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
-                    <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
+                    <label for="exampleInputEmail1" class="form-label">Mật Khẩu Cũ</label>
+                    <input type="password" class="form-control" name="pass">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
-                    <input type="text" class="form-control" name="user" value="<?= $user_name ?>">
+                    <label for="exampleInputEmail1" class="form-label">Mật Khẩu Mới</label>
+                    <input type="password" class="form-control" name="pass">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" value="<?= $email ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
-                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Số Điện Thoại</label>
-                    <input type="text" class="form-control" name="tel" value="<?= $tel ?>">
+                    <label for="exampleInputPassword1" class="form-label">Mật Khẩu Mới</label>
+                    <input type="password" class="form-control" name="pass">
                 </div>
 
                 <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button>

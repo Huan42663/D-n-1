@@ -1,4 +1,4 @@
-<div class="container mb-5 mt-5 pe-5"
+<div class="container mb-5 mt-5"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
     <div class="row">
         <div class="col-xl-4 p-0">
@@ -45,42 +45,10 @@
         </div>
 
         <div class="col-xl-8">
-            <?php
-            if (isset($_SESSION['user']) && (is_array($_SESSION['user']))) {
-                extract($_SESSION['user']);
-            }
-            ?>
-            <form>
-                <div class="mb-3 mt-3">
-                    <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
-                    <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
-                    <input type="text" class="form-control" name="user" value="<?= $user_name ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" value="<?= $email ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
-                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Số Điện Thoại</label>
-                    <input type="text" class="form-control" name="tel" value="<?= $tel ?>">
-                </div>
-
-                <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button>
-            </form>
-            <h2 class="thongbao">
-                <?php
-                if (isset($thongbao) && ($thongbao != "")) {
-                    echo $thongbao;
-                }
-                ?>
-            </h2>
+            <h2 class="mt-5">Xin Chào Chính!</h2>
+            <h2 class="mt-5">Email:</h2>
+            <h2>Số Điện Thoại:</h2>
+            <h2>Địa Chỉ:</h2>
         </div>
     </div>
 </div>

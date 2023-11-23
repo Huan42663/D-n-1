@@ -13,7 +13,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'account':                                                                     // Vào Trang Đăng Ký - Đăng Nhập
             include "./Duan/View/HTML_PHP/Account/login_register.php";
 
-
             if (isset($_POST['register']) && ($_POST['register'])) {                      // Đăng Ký\
                 if ($errorCount == 0) {
                     $user_name_register = $_POST['user_name_register'];
@@ -25,7 +24,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                     include "./Duan/View/HTML_PHP/Account/login_register.php";
                 }
             }
-
 
             if (isset($_POST['login']) && ($_POST['login'])) {                                    // Đăng Nhập
                 if ($errorCount == 0) {
@@ -42,14 +40,35 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
 
             break;
 
+        case 'account_details':
+            include "./Duan/View/HTML_PHP/Account/account_details.php";
+            break;
+
         case 'update_account':
             include "./Duan/View/HTML_PHP/Account/update_account.php";
+
+            if (isset($_POST['update']) && ($_POST['update'])) {
+                $user_name = $_POST['user_name'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $tel = $_POST['tel'];
+                $id = $_POST['id_user'];
+                update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
+                $_SESSION['user'] = check_user($user_name, $pass);
+                echo '<script>alert("Cập Nhật Thành Công!");</script>';
+                echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
+            }
+            break;
+
+        case 'change_password':
+            include "./Duan/View/HTML_PHP/Account/change_password.php";
             break;
 
         case 'log_out':
             session_unset();
             // echo '<script>alert("Lỗi!");</script>';
-            include "../View/home.php";
+            echo "<script>window.location.href='index.php';</script>";
             break;
 
         case 'admin':

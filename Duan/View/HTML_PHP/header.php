@@ -29,7 +29,7 @@
           <i class="fa fa-search"></i>
         </button>
 
-        <a href="./Duan/admin/index.php"><button type="button" class="btn position-relative">
+        <a href=""><button type="button" class="btn position-relative">
             <i class="fa-solid fa-truck-fast"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">1</span>
           </button></a>
@@ -103,7 +103,7 @@
             <a class="nav-link text-uppercase text-dark" href="#">cách thanh toán</a>
           </li>
           <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark" href="index.php?act=update_account">bảo hành</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php?act=account_details">bảo hành</a>
           </li>
         </ul>
       </div>
