@@ -108,7 +108,7 @@ function load_one_pro ($id){
     $pro = pdo_query_one($sql);
     return $pro;
 }
-function count_pro_filter($pro_per_page,$kyw,$brand,$cate,$color){
+function count_pro_filter($kyw,$brand,$cate,$color){
     $sql = "SELECT * FROM PRODUCT
     JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
     WHERE PRODUCT.ID_PRO != 1";
@@ -129,8 +129,8 @@ function count_pro_filter($pro_per_page,$kyw,$brand,$cate,$color){
     foreach ($pro as $key => $value) {
         $i++;
     }
-    $number =ceil($i / $pro_per_page);
-    return $number;
+    // $number =ceil($i / $pro_per_page);
+    return $i;
 }
 function load_limit_pro_filter ($start,$limit,$kyw,$brand,$cate,$color,$load_with,$load_type){
     $sql = "SELECT * FROM PRODUCT 

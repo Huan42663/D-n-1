@@ -16,7 +16,13 @@
         <div class="col-md-4 text-md-end">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                 aria-label="breadcrumb">
-                <p>Đang Hiển Thị 1-18 Trên 50 Sản Phẩm</p>
+                <?php
+                    if(isset($_POST['btn_search']) || isset($_POST['btn_filter'])){
+                ?>
+                    <p>Tìm thấy <?=$count?> Sản Phẩm</p>
+                <?php
+                    }
+                ?>
             </nav>
         </div>
 
@@ -116,7 +122,7 @@
                 <a class="page-link">Trước</a>
             </li>
             <?php
-                for ($i=0; $i <$count ; $i++) { 
+                for ($i=0; $i <$page ; $i++) { 
             ?>
             <li class="page-item"><a class="page-link" href="index.php?act=product_lists?page=<?=$i?>"><?=$i+1?></a></li>
             <?php

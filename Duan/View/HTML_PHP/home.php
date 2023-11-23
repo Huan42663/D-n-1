@@ -54,8 +54,9 @@
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 <?php 
-  foreach ($product_sale as $key => $value) {
-?>
+    foreach ($product_sale as $key => $value) {
+      $price_sale = number_format($value['price'], 0,'.','.');
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
@@ -69,8 +70,8 @@
             <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">2.390.000đ</span>
+            <del class="old-price"><?=$price_sale?> &#8363;</del>
+            <span class="new-price">2.390.000 &#8363;</span>
           </div>
           <!-- <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -112,6 +113,7 @@
     </div>
     <?php
       foreach ($product_mouse as $key => $value) {
+        $price_mouse = number_format($value['price'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
@@ -125,7 +127,7 @@
             <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
+            <del class="old-price"><?=$price_mouse?>đ</del>
             <span class="new-price">3.690.000đ</span>
           </div>
           <!-- <div>
@@ -167,6 +169,7 @@
     </div>
     <?php
       foreach ($product_key_board as $key => $value) {
+        $price_key_board = number_format($value['price'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
@@ -180,7 +183,7 @@
             <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
+            <del class="old-price"><?=$price_key_board?>đ</del>
             <span class="new-price">6.990.000đ</span>
           </div>
           <!-- <div>
