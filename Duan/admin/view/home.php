@@ -25,9 +25,6 @@
                 <td><img src="../upload/<?=$img?>" alt=""></td>
                 <td><?=$view?></td>
                 <td><?=$cate_name?></td>
-                <td><input type="button" value="Thêm">
-                  <input type="button" value="Sửa">
-                  <input type="button" value="Xóa"></td>
               </tr>
               <?php
                 }

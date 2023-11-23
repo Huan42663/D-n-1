@@ -36,17 +36,19 @@ if(isset($_GET['act'])){
             include "category/list_cate.php";
             break;
         case 'add_cate':
-            include "category/add_cate.php";
             if(isset($_POST['them']) && $_POST['them']){
-            if($_POST['name']==""){
-                echo"không để chống";
+              if($_POST['name']==""){
+                echo "<script>alert('Không để chống');</script>";
                 }
-            else{
+              elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+                echo "<script>alert('Không ký tự đặc biệt');</script>";
+                }
+              else{
                 $cate_name = $_POST['name'];
                 add_cate($cate_name);
-                header('location:index.php?act=list_cate');
                 }
             }
+            include "category/add_cate.php";
             break;
         case 'update_cate':
             if(isset($_GET['id'])){
@@ -124,7 +126,10 @@ if(isset($_GET['act'])){
             include "category/add_color.php";
             if(isset($_POST['them']) && $_POST['them']){
                if($_POST['name-color']==""){
-                  echo "không để ô chống";
+                  echo "<script>alert('Không để chống');</script>";
+                }
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name-color'])){
+                    echo "<script>alert('Không để ký tự đặc biệt');</script>";
                 }
                else{
                   $color_name = $_POST['name-color'];
@@ -210,7 +215,10 @@ if(isset($_GET['act'])){
                 if(isset($_POST['them']) && $_POST['them']){
                   if($_POST['name']=="")
                         {
-                           echo"không để ô chống";
+                            echo "<script>alert('Không để chống');</script>";
+                        }
+                        elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+                            echo "<script>alert('Không để ký tự đặc biệt');</script>";
                         }
                         else {
                            $brand_name = $_POST['name'];
@@ -305,18 +313,38 @@ if(isset($_GET['act'])){
         break;
         case 'add_pro':
             if(isset($_POST['them']) && $_POST['them']){
-                $name = $_POST['name'];
-                $price = $_POST['price'];
-                $detail = $_POST['detail'];
-                $color = $_POST['color'];
-                $brand = $_POST['brand'];
-                $cate = $_POST['cate'];
-                $quantity = $_POST['quantity'];
-                $img = $_FILES['img']['name'];
-                $tmp_name = $_FILES['img']['tmp_name'];
-                move_uploaded_file($tmp_name,'../image_product/' . $img);
-                $add_at = date("Y-m-d");
-                add_product ($name,$price,$img,$detail,$color,$brand,$cate,$add_at,$quantity);
+                if($_POST['name']==""){
+                    echo "<script>alert('Không để chống tên sản phẩm');</script>";
+                }
+                elseif($_POST['price']==""){
+                    echo "<script>alert('yêu cầu nhập giá sản phẩm');</script>";
+                }
+                elseif($_POST['quantity']==""){
+                    echo "<script>alert('Không để chống');</script>";
+                }
+               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+                    echo "<script>alert('Không để ký tự đặc biệt');</script>";
+               }
+               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
+                    echo "<script>alert('Không để đặc biệt');</script>";
+               }
+               elseif(ctype_digit($_POST['price'])){
+                    echo "<script>alert('Không để chống');</script>";
+                }
+                else{
+                    $name = $_POST['name'];
+                    $price = $_POST['price'];
+                    $detail = $_POST['detail'];
+                    $color = $_POST['color'];
+                    $brand = $_POST['brand'];
+                    $cate = $_POST['cate'];
+                    $quantity = $_POST['quantity'];
+                    $img = $_FILES['img']['name'];
+                    $tmp_name = $_FILES['img']['tmp_name'];
+                    move_uploaded_file($tmp_name,'../image_product/' . $img);
+                    $add_at = date("Y-m-d");
+                    add_product ($name,$price,$img,$detail,$color,$brand,$cate,$add_at,$quantity);
+                }  
             }
             $listcolor = load_all_color();
             $listbrand = load_all_brand();
@@ -361,14 +389,21 @@ if(isset($_GET['act'])){
             include "product/list.php";
             break;
         case 'add_more_color':
+            
             if(isset($_POST['them']) && $_POST['them']){
-                $id_pro = $_GET['id'];
-                $id_color = $_POST['color'];
-                $quantity = $_POST['quantity'];
-                $img = $_FILES['img']['name'];
-                $tmp_name = $_FILES['img']['tmp_name'];
-                move_uploaded_file($tmp_name,'../image_product/' . $img);
-                add_more_color($id_pro,$id_color,$img,$quantity);
+                if($_POST['quantity']==""){
+                    echo "<script>alert('Không để chống');</script>";
+                }
+                else{
+                    $id_pro = $_GET['id'];
+                    $id_color = $_POST['color'];
+                    $quantity = $_POST['quantity'];
+                    $img = $_FILES['img']['name'];
+                    $tmp_name = $_FILES['img']['tmp_name'];
+                    move_uploaded_file($tmp_name,'../image_product/' . $img);
+                    add_more_color($id_pro,$id_color,$img,$quantity);
+                    
+                }
             }
             $listcolor = load_all_color();
             include "product/add_more_color.php";

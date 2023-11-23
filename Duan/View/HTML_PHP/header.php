@@ -23,7 +23,8 @@
 
       <!-- -------------------------------------------------------------------------------------------------------------------- Icon Tiện Ích -------------- -->
 
-      <div class="order-lg-2 nav-btns">
+      <div class="order-lg-2 nav-btns d-flex flex-wrap align-items-center">
+
         <button id="toggleThis" type="button" class="btn position-relative">
           <i class="fa fa-search"></i>
         </button>
@@ -38,10 +39,42 @@
             <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
           </button></a>
 
-        <a href="index.php?act=account"><button type="button" class="btn position-relative">
+        <!-- <a href="index.php?act=account"><button type="button" class="btn position-relative">
             <i class="fa-solid fa-circle-user"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
-          </button></a>
+          </button></a> -->
+
+
+        <div class="flex-shrink-0 dropdown d-flex flex-wrap">
+          <div class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <a href="index.php?act=account"><button type="button" class="btn position-relative">
+                <i class="fa-solid fa-circle-user"></i>
+              </button></a>
+          </div>
+          <ul class="dropdown-menu text-small shadow p-0">
+            <div class="d-flex flex-wrap align-items-center justify-content-center">
+              <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" width="50px" class="rounded-circle" alt="">
+              <p class="m-0">Xin Chào <strong>Chính</strong>!</p>
+            </div>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li><a class="dropdown-item" href="#">Cài Đặt</a></li>
+
+            <li>
+              <a class="dropdown-item" href="#">Yêu Thích</a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider m-0" />
+            </li>
+
+            <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
+          </ul>
+        </div>
+
       </div>
 
       <!-- -------------------------------------------------------------------------------------------------------------------- Icon Menu ------------------ -->
@@ -76,6 +109,8 @@
     </div>
 
   </nav>
+
+
 
   <!-- ------------------------------------------------------------------------------------------------------------------------ Form Tìm Kiếm -------------- -->
   <div id="searchBox" class="container searchBox p-0 mb-4">
