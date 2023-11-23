@@ -54,23 +54,24 @@
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
 <?php 
-  foreach ($product_sale as $key => $value) {
-?>
+    foreach ($product_sale as $key => $value) {
+      $price_sale = number_format($value['price'], 0,'.','.');
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$value['img']?>"
+          <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>"
               class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$value['pro_name']?></a>
+            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">2.390.000đ</span>
+            <del class="old-price"><?=$price_sale?> &#8363;</del>
+            <span class="new-price">2.390.000 &#8363;</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -91,7 +92,7 @@
       <?php
         for ($i=0; $i < $count_page_sale; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i+1?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -112,21 +113,22 @@
     </div>
     <?php
       foreach ($product_mouse as $key => $value) {
+        $price_mouse = number_format($value['price'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+          <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$value['pro_name']?></a>
+            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">3.690.000đ</span>
+            <del class="old-price"><?=$price_mouse?> &#8363;</del>
+            <span class="new-price">3.690.000 &#8363;</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -147,7 +149,7 @@
       <?php
         for ($i=0; $i < $count_page_mouse; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page_mouse=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page_mouse=<?=$i+1?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -167,21 +169,22 @@
     </div>
     <?php
       foreach ($product_key_board as $key => $value) {
+        $price_key_board = number_format($value['price'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+          <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$value['pro_name']?></a>
+            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">6.990.000đ</span>
+            <del class="old-price"><?=$price_key_board?> &#8363;</del>
+            <span class="new-price">6.990.000 &#8363;</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -202,7 +205,7 @@
       <?php
         for ($i=0; $i < $count_page_key_board; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i+1?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -221,22 +224,22 @@
       <h2 class="title-product m-0"><i class="fa-solid fa-headphones-simple"></i> | Tai Nghe</h2>
     </div>
     <?php
-      foreach ($product_key_board as $key => $value) {
+      foreach ($product_head_phone as $key => $value) {
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+          <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#"><?=$value['pro_name']?></a>
+            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">6.990.000đ</span>
+            <del class="old-price"><?=$value['price']?> &#8363;</del>
+            <span class="new-price">6.990.000 &#8363;</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -255,9 +258,9 @@
         <a class="page-link">Trước</a>
       </li>
       <?php
-        for ($i=0; $i < $count_page_key_board; $i++) { 
+        for ($i=0; $i < $count_page_head_phone; $i++) { 
       ?>
-        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+        <li class="page-item"><a class="page-link" href="index.php?page_head_phone=<?=$i+1?>"><?=$i+1?></a></li>
       <?php
         }
       ?>
@@ -288,8 +291,8 @@
             <a href="#">Razer Basilisk V3 Pro</a>
           </div>
           <div>
-            <del class="old-price">4.290.000đ</del>
-            <span class="new-price">3.690.000đ</span>
+            <del class="old-price">4.290.000 &#8363;</del>
+            <span class="new-price">3.690.000 &#8363;</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>

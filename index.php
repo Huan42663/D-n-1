@@ -74,11 +74,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'admin':
             include "./Duan/admin/index.php";
             break;
-
-        case 'product_details':
-            include "./Duan/View/HTML_PHP/Product/product_details.php";
-            break;
-
         case 'product_lists':
             $limit = 18;
             if (isset($_POST['btn_search']) && $_POST['btn_search']) {
@@ -131,14 +126,28 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             } else {
                 $start = 0;
             }
-            $count = count_pro_filter($limit, $kyw, $brand, $cate, $color);
-            $product = load_limit_pro_filter($start, $limit, $kyw, $brand, $cate, $color, $load_with, $load_type);
-            $color = load_all_color();
+            $count = count_pro_filter($kyw,$brand,$cate,$color);
+            $page = ceil($count / $limit);
+            $product = load_limit_pro_filter($start,$limit,$kyw,$brand,$cate,$color,$load_with,$load_type);
+            $color = load_all_color ();
             $cate = load_all_cate();
             $brand = load_all_brand();
             include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
-
+        case 'product_details':
+            if(isset($_GET['id'])){
+                $id_pro = $_GET['id'];
+            }
+            if(isset($_GET['color'])){
+                $color = $_GET['color'];
+                $color_pro= load_pro_for_color($id_pro,$color);
+            }
+            $other_pro = other_pro($id_pro);
+            $brand_name = get_name_brand($id_pro);
+            $product = load_one_pro($id_pro);
+            $list_color = load_color_for_pro($id_pro);
+            include "./Duan/View/HTML_PHP/Product/product_details.php";
+            break;
         default:
             echo '<script>alert("Lỗi!");</script>';
             include "./Duan/View/HTML_PHP/home.php";
@@ -148,7 +157,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $limit = 12;
     if (isset($_GET['page-sale'])) {
         $number = $_GET['page-sale'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
@@ -156,20 +165,28 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $product_sale = load_limit_pro($start, $limit, "", 0);
     if (isset($_GET['page-mouse'])) {
         $number = $_GET['page-mouse'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
-    $count_page_mouse = count_pro($limit, "", 0);
+    $count_page_mouse = count_pro($limit, "chuột", 0);
     $product_mouse = load_limit_pro($start, $limit, "chuột", 0);
     if (isset($_GET['page-key-board'])) {
         $number = $_GET['page-key-board'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
-    $count_page_key_board = count_pro($limit, "", 0);
+    $count_page_key_board = count_pro($limit, "bàn phím", 0);
     $product_key_board = load_limit_pro($start, $limit, "bàn phím", 0);
+    if (isset($_GET['page-head-phone'])) {
+        $number = $_GET['page-head-phone'];
+        $start = ($number - 1) * $limit;
+    } else {
+        $start = 0;
+    }
+    $count_page_head_phone = count_pro($limit, "tai nghe", 0);
+    $product_head_phone = load_limit_pro($start, $limit, "tai nghe", 0);
     include "./Duan/View/HTML_PHP/home.php";
 }
 

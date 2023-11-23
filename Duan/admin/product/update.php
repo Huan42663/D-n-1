@@ -9,6 +9,7 @@
         <input type="hidden" name="id_pro" value="<?=$id_pro?>">
         <h5>Tên sản phẩm <input type="text" name="name" value="<?=$pro_name?>" class="name"></h5><br><br>
         <h5>Giá sản phẩm <input type="text" name="price" value="<?=$price?>" class="name"></h5><br><br>
+        <h5>Giá khuyến mại <input type="text" name="discount" value="<?=$discount?>" class="name"></h5><br><br>
         <img width=100px src="../image_product/<?=$img?>" alt=""> <input type="file" name="img"><br><br>
         <h5>mô tả </h5><textarea name="detail" id="" cols="30" rows="10" class="mota"><?=$detail?></textarea><br><br>
         hãng

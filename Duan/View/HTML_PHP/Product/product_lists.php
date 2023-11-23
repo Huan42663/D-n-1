@@ -16,7 +16,13 @@
         <div class="col-md-4 text-md-end">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                 aria-label="breadcrumb">
-                <p>Có Tổng Cộng 50 Sản Phẩm</p>
+                <?php
+                    if(isset($_POST['btn_search']) || isset($_POST['btn_filter'])){
+                ?>
+                    <p>Tìm thấy <?=$count?> Sản Phẩm</p>
+                <?php
+                    }
+                ?>
             </nav>
         </div>
 
@@ -96,13 +102,13 @@
 
                 <div class="card" style="width: 100%;">
                     <div class="collection-img position-relative">
-                        <a href=""><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
+                        <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
                         <span
                             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
                     </div>
                     <div class="card-body">
                         <div class="product-title">
-                            <a href="#">
+                            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>">
                                 <?= $value['pro_name'] ?>
                             </a>
                         </div>
@@ -131,13 +137,11 @@
                 <a class="page-link">Trước</a>
             </li>
             <?php
-            for ($i = 0; $i < $count; $i++) {
-                ?>
-                <li class="page-item"><a class="page-link" href="index.php?act=product_lists?page=<?= $i ?>">
-                        <?= $i + 1 ?>
-                    </a></li>
-                <?php
-            }
+                for ($i=0; $i <$page ; $i++) { 
+            ?>
+            <li class="page-item"><a class="page-link" href="index.php?act=product_lists?page=<?=$i?>"><?=$i+1?></a></li>
+            <?php
+                }
             ?>
             <li class="page-item">
                 <a class="page-link" href="#">Sau</a>

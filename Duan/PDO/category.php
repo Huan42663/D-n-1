@@ -49,6 +49,13 @@ function load_limit_5_cate ($start,$limit){
     $cate = pdo_query($sql);
     return $cate;
 }
+// lấy tên loại
+function get_name_cate($id_pro){
+    $sql = "SELECT * FROM PRODUCT JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE WHERE ID_PRO = $id_pro";
+    $cate = pdo_query_one($sql);
+    extract ($cate);
+    return $cate_name;
+}
 ?>
 
 <!-- color -->
@@ -130,7 +137,6 @@ function update_brand ($id_brand,$brand_name){
     $brand = pdo_execute($sql);
 }
 
-
 function delete_brand ($id_brand){
     $sql = "SELECT * FROM PRODUCT WHERE ID_BRAND = $id_brand";
     $pro = pdo_query($sql);
@@ -145,6 +151,7 @@ function delete_brand ($id_brand){
     }
      
 }
+// đếm số lượng bản ghi của hãng
 function count_brand(){
     $sql = "SELECT * FROM BRAND WHERE ID_BRAND!= 1";
     $color = pdo_query($sql);
@@ -155,10 +162,18 @@ function count_brand(){
     $number =ceil($i / 5);
     return $number;
 }
+// lấy bản ghi của hãng theo $start và $limit
 function load_limit_5_brand ($start,$limit){
     $sql = "SELECT * FROM BRAND 
     WHERE ID_BRAND != 1 ORDER BY ID_BRAND DESC LIMIT $start,$limit "; 
     $color = pdo_query($sql);
     return $color;
+}
+// lấy tên hãng
+function get_name_brand($id_pro){
+    $sql = "SELECT * FROM PRODUCT JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND WHERE ID_PRO = $id_pro";
+    $brand = pdo_query_one($sql);
+    extract ($brand);
+    return $brand_name;
 }
 ?>
