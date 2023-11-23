@@ -1,6 +1,6 @@
 <div class="container">
 <div class="header " style="background-image: linear-gradient(to bottom, #0E2241 , #00b3ff);">
-        <div class="navbar-brand" href="admin.html" style="color: #fff; padding-top: 5px;padding-left: 5px;padding-bottom: 5px;"><img src="logo/logo-shop.jpg" alt="" width="50px" style="border-radius: 100%;"><a href="" style="text-decoration: none; color: #fff;padding-left: 5px;">ADMIN</a> </div>
+        <div class="navbar-brand" href="index.php?" style="color: #fff; padding-top: 5px;padding-left: 5px;padding-bottom: 5px;"><img src="logo/logo-shop.jpg" alt="" width="50px" style="border-radius: 100%;"><a href="" style="text-decoration: none; color: #fff;padding-left: 5px;">ADMIN</a> </div>
         <div class="container-fluid" style="background-color: #00b3ff;"  >
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation" >
             <i class="bi bi-list">MENU</i>
