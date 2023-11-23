@@ -5,6 +5,7 @@
     <form action="" enctype="multipart/form-data" method="POST">
         <h5><input placeholder=" Tên sản phẩm..." type="text" name="name" id="" class="name"></h5><br><br>
         <h5><input placeholder=" Giá sản phẩm..." type="text" name="price" id=""class="name"></h5><br><br>
+        <h5><input placeholder=" Giá khuyến mại..." type="text" name="discount" id=""class="name"></h5><br><br>
         ảnh sản phẩm<input type="file" name="img" id=""><br><br>
         <textarea placeholder="mô tả " name="detail" id="" cols="30" rows="10" class="mota"></textarea><br><br>
         <input placeholder="số lượng " type="number" min="1" name="quantity" id="" class="number"><br><br>

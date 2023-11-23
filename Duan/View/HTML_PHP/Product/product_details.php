@@ -1,5 +1,14 @@
 <!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiển Thị Số Sản Phẩm ------------ -->
-
+<?php
+    extract($product);
+    $price_format = number_format($price,0,'.','.');
+    $discount_format = number_format($discount,0,'.','.');
+    if(isset($color_pro)){
+        $image = $color_pro['image'];
+    }else{
+        $image = $img;
+    }
+?>
 <div class="container mt-3">
     <div class="row">
 
@@ -10,7 +19,7 @@
                     <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Trang Chủ</a></li>
                     <li class="breadcrumb-item"><a href="index.php?act=product_lists" class="text-decoration-none">Chuột
                             Gaming</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Razer Viper Ultimate - Mercury</li>
+                    <li class="breadcrumb-item active" aria-current="page"><?=$pro_name?></li>
                 </ol>
             </nav>
         </div>
@@ -26,34 +35,40 @@
         <div class="col-md-6 col-xl-4 mb-3">
             <div class="card" style="width: 100%;">
                 <div class="collection-img position-relative image-containter">
-                    <a href=""><img src="./Duan/image_product/Razer Viper Ultimate with Charging Dock - Mercury.webp"
+                    <a href=""><img src="./Duan/image_product/<?=$image?>"
                             class="card-img-top" alt="..."></a>
                 </div>
             </div>
 
             <div class="popup-image">
                 <span>&times;</span>
-                <img src="./Duan/image_product/Razer Viper Ultimate with Charging Dock - Mercury.webp">
+                <img src="./Duan/image_product/<?=$image?>">
             </div>
         </div>
 
         <div class="col-md-6 col-xl-8 mb-3">
             <div class="card-body">
                 <div class="product-title-details">
-                    Razer Viper Ultimate - Mercury
+                    <?=$pro_name?>
                 </div>
                 <div class="all-price-details d-flex flex-wrap">
-                    <del>3.690.000đ</del>
-                    <span class="new-price-details">2.390.000đ</span>
+                    <del><?=$price_format?> &#8363;</del>
+                    <span class="new-price-details"><?=$discount_format?> &#8363;</span>
                     <span class="product-percent-details">-30%</span>
                 </div>
 
                 <div class="all-product-details">
-                    <span><strong>Hãng Sản Xuất: </strong>Razer</span>
+                    <span><strong>Hãng Sản Xuất: </strong><?=$brand_name?></span>
                     <span><strong>Bảo Hành: </strong>12 Tháng</span>
                     <span><strong>Trạng Thái: </strong>Còn Hàng</span>
-                    <span><strong>Số Lượng: </strong>52</span>
-                    <span><strong>Đã Bán: </strong>153</span>
+                    <?php
+                        if(isset($color_pro)){
+                    ?>
+                        <span><strong>Số Lượng: </strong><?=$color_pro['quantity']?></span>
+                    <?php
+                    }
+                    ?>
+                    <!-- <span><strong>Đã Bán: </strong>153</span> -->
                 </div>
                 <hr>
                 <div>
@@ -73,10 +88,25 @@
                 <div>
                     <!-- Màu cho ông Huân -->
                     <div>
-
+                        <?php
+                            foreach ($list_color as $lc) {
+                                extract($lc);
+                        ?>
+                        <a href="index.php?act=product_details&id=<?=$id_pro?>&color=<?=$id_color?>"><button style="background-color:<?=$color_name?>;color:red;"><?=$color_name?></button></a>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
-
+                <div>
+                    <?php
+                        if(isset($color_pro)){
+                    ?>
+                        <input type="number" name="quantity" min=0 max=<?=$color_pro['quantity']?>>
+                    <?php
+                        }
+                    ?>
+                </div>
 
                 <div class="mt-3">
                     <input class="btn" type="submit" value="Mua Ngay">
@@ -96,12 +126,39 @@
         <div class="col-md-7 me-3"
             style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
             <h4 class="mt-2"><strong>Mô Tả Sản Phẩm</strong></h4>
-            <span>aaa</span>
+            <span><?=$detail?></span>
         </div>
 
         <div class="col-md" style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
             <h4 class="mt-2"><strong>Sản Phẩm Cùng Loại</strong></h4>
-
+            <?php
+                foreach ($other_pro as $key => $value) {
+            ?>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+            <div class="card" style="width: 100%;">
+                <div class="collection-img position-relative">
+                <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+                <span
+                    class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+                </div>
+                <div class="card-body">
+                <div class="product-title">
+                    <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
+                </div>
+                <div>
+                    <del class="old-price"><?=$value['price']?> &#8363;</del>
+                    <span class="new-price">6.990.000 &#8363;</span>
+                </div>
+                <div>
+                    <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+                    <span class="rate-quantity">(31 đánh giá)</span>
+                </div>
+                </div>
+            </div>
+            </div>
+            <?php
+                }
+            ?>
         </div>
 
     </div>

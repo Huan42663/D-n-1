@@ -7,6 +7,7 @@
                 <th scope="col">Mã sản phẩm</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Giá sản phẩm</th>
+                <th scope="col">Giá khuyến mại</th>
                 <th scope="col">Ảnh</th>
                 <th scope="col">Lượt xem</th>
                 <th scope="col">Mô tả</th>
@@ -25,6 +26,7 @@
                         <th scope="row"><?=$id_pro?></th>
                         <td><?=$pro_name?></td>
                         <td><?=$price?></td>
+                        <td><?=$discount?></td>
                         <td><img width=50px src="../image_product/<?=$img?>" alt=""></td>
                         <td><?=$view?></td>
                         <td><?=$detail?></td>

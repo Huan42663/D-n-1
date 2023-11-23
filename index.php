@@ -25,11 +25,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'admin':
             include "./Duan/admin/index.php";
             break;
-
-        case 'product_details':
-            include "./Duan/View/HTML_PHP/Product/product_details.php";
-            break;
-
         case 'product_lists':
             $limit = 18;
             if (isset($_POST['btn_search']) && $_POST['btn_search']) {
@@ -91,11 +86,18 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
         case 'product_details':
-            if(isset($_GET['id_pro'])) {
-                $id_pro = $_GET['id_pro'];
+            if(isset($_GET['id'])){
+                $id_pro = $_GET['id'];
             }
+            if(isset($_GET['color'])){
+                $color = $_GET['color'];
+                $color_pro= load_pro_for_color($id_pro,$color);
+            }
+            $other_pro = other_pro($id_pro);
+            $brand_name = get_name_brand($id_pro);
             $product = load_one_pro($id_pro);
-            include "./Duan/View/HTML_PHP/product/Product_details.php";
+            $list_color = load_color_for_pro($id_pro);
+            include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
         default:
             echo '<script>alert("Lỗi!");</script>';
