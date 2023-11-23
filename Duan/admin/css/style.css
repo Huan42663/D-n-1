@@ -1,8 +1,25 @@
+@media screen and (max-width: 800px) {
+    .container-bar {
+        display: none;
+    }
+    .navbar{
+        display: block;
+    }
+}
+@media screen and (min-width: 800px) {
+    .container-bar {
+        display: block;
+    }.navbar-nav{
+        display: none;
+    }
+}
+
 *{
     box-sizing: border-box;
 }
 body{
     display: flex;
+    
 }
 .container{
     margin: 0 auto;
@@ -42,7 +59,7 @@ body{
     color: black;
 }
 .menu li a:hover{
-    color: brown;
+    color: rgb(48, 37, 203);
     text-decoration: underline;
 }
 .content{
