@@ -47,7 +47,7 @@
             $errorCount++;
         }
         if (strlen($user_name_login) == 0) {
-            $loi['user_name_login'] = "Tên Không Được Đỏ Trống";
+            $loi['user_name_login'] = "Tên Không Được Bỏ Trống";
             $errorCount++;
         }
         if (strlen($pass_login) < 6) {
@@ -69,11 +69,11 @@
             $errorCount++;
         }
         if (strlen($user_name_register) == 0) {
-            $loi['user_name_register'] = "Tên Không Được Đỏ Trống";
+            $loi['user_name_register'] = "Tên Không Được Bỏ Trống";
             $errorCount++;
         }
         if (strlen($email_register) == 0) {
-            $loi['email_register'] = "Email Không Được Đỏ Trống";
+            $loi['email_register'] = "Email Không Được Bỏ Trống";
             $errorCount++;
         } elseif (!filter_var($email_register, FILTER_VALIDATE_EMAIL)) {
             $loi['email_register'] = "Định dạng Email không hợp lệ";

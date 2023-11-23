@@ -13,8 +13,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'account':                                                                     // Vào Trang Đăng Ký - Đăng Nhập
             include "./Duan/View/HTML_PHP/Account/login_register.php";
 
-            if ($errorCount == 0) {
-                if (isset($_POST['register']) && ($_POST['register'])) {                      // Đăng Ký
+
+            if (isset($_POST['register']) && ($_POST['register'])) {                      // Đăng Ký\
+                if ($errorCount == 0) {
                     $user_name_register = $_POST['user_name_register'];
                     $email_register = $_POST['email_register'];
                     $pass_register = $_POST['pass_register'];
@@ -25,8 +26,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 }
             }
 
-            if ($errorCount == 0) {
-                if (isset($_POST['login']) && ($_POST['login'])) {                                    // Đăng Nhập
+
+            if (isset($_POST['login']) && ($_POST['login'])) {                                    // Đăng Nhập
+                if ($errorCount == 0) {
                     $user_name_login = $_POST['user_name_login'];
                     $pass_login = $_POST['pass_login'];
                     $check_user = check_user($user_name_login, $pass_login);
@@ -41,7 +43,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'update_account':
-            include "./Duan/View/HTML_PHP/Product/update_account.php";
+            include "./Duan/View/HTML_PHP/Account/update_account.php";
             break;
 
         case 'log_out':
