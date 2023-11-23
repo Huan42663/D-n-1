@@ -53,11 +53,13 @@ body{
 .menu{
     display: block;
     padding-top: 10px;
+    
 }
 .menu li{
     list-style: none;
-    padding-top: 20px ;
+    padding-top: 22px ;
     border-bottom: 1px solid;
+    padding-bottom: 20px;
 }
 .menu li a{
     font-size: 100%;
