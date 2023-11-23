@@ -102,13 +102,13 @@
 
                 <div class="card" style="width: 100%;">
                     <div class="collection-img position-relative">
-                        <a href=""><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
+                        <a href="index.php?act=product_details&id_pro=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
                         <span
                             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
                     </div>
                     <div class="card-body">
                         <div class="product-title">
-                            <a href="#">
+                            <a href="index.php?act=product_details&id_pro=<?=$value['id_pro']?>">
                                 <?= $value['pro_name'] ?>
                             </a>
                         </div>

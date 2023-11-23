@@ -77,6 +77,7 @@ function load_limit_pro ($start,$limit,$kyw,$id_cate){
     $sql = "SELECT * FROM PRODUCT 
     JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
     JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
+    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
     WHERE 1";
     if($kyw != ""){
         $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
@@ -100,11 +101,7 @@ function load_top_5_pro (){
     return $pro;
 }
 function load_one_pro ($id){
-    $sql = "SELECT * FROM PRODUCT 
-    JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
-    JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
-    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
-    WHERE PRODUCT.ID_PRO = $id";
+    $sql = " SELECT * FROM PRODUCT WHERE ID_PRO = $id";
     $pro = pdo_query_one($sql);
     return $pro;
 }

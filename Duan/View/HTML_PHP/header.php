@@ -17,7 +17,7 @@
   <!-- -------------------------------------------------------------------------------------------------------------------------- Tên Thương Hiệu ------------ -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
     <div class="container d-flex flex-wrap justify-content-between">
-      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php#">
+      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php">
         <span class="text-uppercase">BlueTech</span>
       </a>
 

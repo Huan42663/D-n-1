@@ -90,7 +90,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $brand = load_all_brand();
             include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
-
+        case 'product_details':
+            if(isset($_GET['id_pro'])) {
+                $id_pro = $_GET['id_pro'];
+            }
+            $product = load_one_pro($id_pro);
+            include "./Duan/View/HTML_PHP/product/Product_details.php";
+            break;
         default:
             echo '<script>alert("Lỗi!");</script>';
             include "./Duan/View/HTML_PHP/home.php";
@@ -100,7 +106,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $limit = 12;
     if (isset($_GET['page-sale'])) {
         $number = $_GET['page-sale'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
@@ -108,20 +114,28 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $product_sale = load_limit_pro($start, $limit, "", 0);
     if (isset($_GET['page-mouse'])) {
         $number = $_GET['page-mouse'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
-    $count_page_mouse = count_pro($limit, "", 0);
+    $count_page_mouse = count_pro($limit, "chuột", 0);
     $product_mouse = load_limit_pro($start, $limit, "chuột", 0);
     if (isset($_GET['page-key-board'])) {
         $number = $_GET['page-key-board'];
-        $start = $number * $limit;
+        $start = ($number - 1) * $limit;
     } else {
         $start = 0;
     }
-    $count_page_key_board = count_pro($limit, "", 0);
+    $count_page_key_board = count_pro($limit, "bàn phím", 0);
     $product_key_board = load_limit_pro($start, $limit, "bàn phím", 0);
+    if (isset($_GET['page-head-phone'])) {
+        $number = $_GET['page-head-phone'];
+        $start = ($number - 1) * $limit;
+    } else {
+        $start = 0;
+    }
+    $count_page_head_phone = count_pro($limit, "tai nghe", 0);
+    $product_head_phone = load_limit_pro($start, $limit, "tai nghe", 0);
     include "./Duan/View/HTML_PHP/home.php";
 }
 
