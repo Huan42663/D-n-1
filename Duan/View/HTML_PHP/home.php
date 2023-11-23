@@ -1,6 +1,6 @@
 <title>BlueTech - Trang Chủ</title>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -46,28 +46,30 @@
 </script>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- SIÊU KHUYẾN MÃI ------------ -->
-<div id="sale" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div id="sale" class="container pb-3 my-5"
   style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0" style="background-color: white; color: orangered; mix-blend-mode: luminosity;">SIÊU
         KHUYẾN MÃI <i class="fa-solid fa-percent"></i></h2>
     </div>
-
+<?php 
+  foreach ($product_sale as $key => $value) {
+?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/View/Images/Razer Viper Ultimate with Charging Dock - Mercury.webp"
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>"
               class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#">Razer Viper Ultimate Mercury</a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price">3.940.000đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">2.390.000đ</span>
           </div>
           <div>
@@ -77,16 +79,22 @@
         </div>
       </div>
     </div>
+    <?php
+  }
+  ?>
   </div>
-
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
       <li class="page-item disabled">
         <a class="page-link">Trước</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <?php
+        for ($i=0; $i < $count_page_sale; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page-sale=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>
       </li>
@@ -96,26 +104,28 @@
 
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- CHUỘT GAMING ------------ -->
-<div id="products" class="container pb-3 d-flex flex-wrap justify-content-center"
+<div id="products" class="container pb-3"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0"><i class="fa-solid fa-computer-mouse"></i> | CHUỘT GAMING</h2>
     </div>
-
+    <?php
+      foreach ($product_mouse as $key => $value) {
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" class="card-img-top" alt="..."></a>
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#">Razer Basilisk V3 Pro</a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price">4.290.000đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">3.690.000đ</span>
           </div>
           <div>
@@ -125,15 +135,22 @@
         </div>
       </div>
     </div>
-  </div>
+      <?php
+      }
+      ?>
+  </div>  
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
       <li class="page-item disabled">
         <a class="page-link">Trước</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <?php
+        for ($i=0; $i < $count_page_mouse; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_mouse=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>
       </li>
@@ -142,26 +159,28 @@
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------- BÀN PHÍM CƠ GAMING ------------ -->
-<div class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-start">
       <h2 class="title-product m-0"><i class="fa-regular fa-keyboard"></i> | BÀN PHÍM CƠ GAMING</h2>
     </div>
-
+    <?php
+      foreach ($product_key_board as $key => $value) {
+    ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
-          <a href=""><img src="./Duan/View/Images/Bàn phím Asus ROG Azoth.png" class="card-img-top" alt="..."></a>
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
           <span
             class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
         </div>
         <div class="card-body">
           <div class="product-title">
-            <a href="#">Bàn phím cơ Asus ROG Azoth</a>
+            <a href="#"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price">7.990.000đ</del>
+            <del class="old-price"><?=$value['price']?>đ</del>
             <span class="new-price">6.990.000đ</span>
           </div>
           <div>
@@ -171,15 +190,77 @@
         </div>
       </div>
     </div>
+    <?php
+      }
+    ?>
   </div>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-3 m-0">
       <li class="page-item disabled">
         <a class="page-link">Trước</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <?php
+        for ($i=0; $i < $count_page_key_board; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
+      <li class="page-item">
+        <a class="page-link" href="#">Sau</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ----------------------------------------------------------------------------------------------------------------------- Tai Nghe ---------------------- -->
+<div class="container pb-3 my-5"
+  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+  <div class="row p-0">
+    <div class="d-flex justify-content-start">
+      <h2 class="title-product m-0"><i class="fa-solid fa-headphones-simple"></i> | Tai Nghe</h2>
+    </div>
+    <?php
+      foreach ($product_key_board as $key => $value) {
+    ?>
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
+      <div class="card" style="width: 100%;">
+        <div class="collection-img position-relative">
+          <a href=""><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
+          <span
+            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+        </div>
+        <div class="card-body">
+          <div class="product-title">
+            <a href="#"><?=$value['pro_name']?></a>
+          </div>
+          <div>
+            <del class="old-price"><?=$value['price']?>đ</del>
+            <span class="new-price">6.990.000đ</span>
+          </div>
+          <div>
+            <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
+            <span class="rate-quantity">(31 đánh giá)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+      }
+    ?>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center mt-3 m-0">
+      <li class="page-item disabled">
+        <a class="page-link">Trước</a>
+      </li>
+      <?php
+        for ($i=0; $i < $count_page_key_board; $i++) { 
+      ?>
+        <li class="page-item"><a class="page-link" href="index.php?page_key_board=<?=$i?>"><?=$i+1?></a></li>
+      <?php
+        }
+      ?>
       <li class="page-item">
         <a class="page-link" href="#">Sau</a>
       </li>
@@ -188,7 +269,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -250,7 +331,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div id="products" class="container pb-3 my-5 d-flex flex-wrap justify-content-center"
+<div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
@@ -382,7 +463,7 @@
         </p>
       </div>
       <div class="col-lg-6 order-lg-0">
-        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png"" class=" img-fluid" /></a>
+        <a href="#collection"><img src="./Duan/View/Images/banner_gioithieu.png" class=" img-fluid" /></a>
       </div>
     </div>
   </div>

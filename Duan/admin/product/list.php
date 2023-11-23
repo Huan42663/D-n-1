@@ -50,7 +50,7 @@
             <?php
               for($i=0;$i<$count;$i++) { 
             ?>
-                <input type="button" name="number" value="<?=$i+1?>">
+                <input type="submit" name="number" value="<?=$i+1?>">
             <?php
               }
             ?>

@@ -66,10 +66,13 @@ function load_all_color (){
 }
 function delete_color ($id_color){
     $sql = "SELECT * FROM COLOR_PRO WHERE ID_COLOR = $id_color";
-    $pro = pdo_query($sql);
-    if(is_array($pro)){
-        $sql = "UPDATE COLOR_PRO SET ID_COLOR = 1 WHERE ID_COLOR = $id_color";
-        pdo_execute($sql);
+    $clp = pdo_query($sql);
+    if(is_array($clp)){
+        foreach ($clp as $cl) {
+            extract($cl);
+            $sql = "UPDATE COLOR_PRO SET ID_COLOR = 1 WHERE ID_CLP = $id_clp";
+            pdo_execute($sql);
+        }
         $delete = "DELETE FROM COLOR WHERE ID_COLOR= $id_color";
         pdo_execute($delete);
     }else {

@@ -27,6 +27,10 @@ body {
     padding: 5px 28px;
     border-radius: 5px;
     border: 1px solid rgb(85, 85, 85);
+    font-weight: 600;
+    transition: 0.3 ease;
+    box-shadow: 1px 1px 1px black;
+    color: black;
 }
 
 .btn:not(.nav-btns button):hover {
@@ -121,6 +125,7 @@ body {
 .card-img-top {
     overflow: hidden;
     transition: 0.3s ease;
+
 }
 
 .card-img-top:hover {
@@ -144,7 +149,7 @@ body {
 
 .product-title a {
     font-family: "Dosis-VariableFont";
-    font-size: large;
+    font-size: 16px;
     font-weight: bold;
     transition: 0.3s ease;
     color: inherit;
@@ -238,7 +243,7 @@ body {
 /* Giới Thiệu */
 #about {
     background-color: white;
-    background-image: linear-gradient(to right, #0E2241 , #00b3ff);
+    background-image: linear-gradient(to right, #0E2241, #00b3ff);
 }
 
 #about img {
@@ -267,6 +272,7 @@ body {
 #newsletter .form-control {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    box-shadow: 1px 1px 1px black;
 }
 
 #newsletter .btn {
@@ -300,8 +306,8 @@ footer a:hover {
     color: var(--pink) !important;
 }
 
-footer{
-    background-image: linear-gradient(to right, #0E2241 , black);
+footer {
+    background-image: linear-gradient(to right, #0E2241, black);
 }
 
 /* media queries */
@@ -354,4 +360,167 @@ footer{
     bottom: 100px;
     opacity: 1;
     visibility: visible;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- Form Tìm Kiếm */
+.searchBox {
+    position: fixed;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: auto;
+    z-index: 999;
+}
+
+.searchBox input {
+    /* background-image: linear-gradient(to right, #0E2241, white); */
+    border: 0;
+    box-shadow: 0px 0px 5px black !important;
+    color: black !important;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.searchBox .searchBoxButton {
+    background-color: white !important;
+    border: 0;
+    box-shadow: 0px 0px 5px black !important;
+    border-radius: 0;
+    padding: 0px 25px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px 0px 10px 0px;
+    transition: 0.3s ease;
+    z-index: 9999;
+    color: black !important;
+}
+
+.searchBox .searchBoxButton:hover {
+    background-color: #00b3ff !important;
+    color: white !important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- Chi Tiết Sản Phẩm */
+.product-title-details {
+    font-family: "Dosis-VariableFont";
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.product-title-details a {
+    text-decoration: none;
+    color: black;
+}
+
+.all-price-details del {
+    font-size: x-large;
+    color: gray;
+    font-family: "Poppins";
+    margin-right: 10px;
+}
+
+.new-price-details {
+    font-size: xx-large;
+    font-weight: bold;
+    color: red;
+    margin-right: 15px;
+    font-family: "Poppins";
+}
+
+.product-percent-details {
+    font-size: medium;
+    font-weight: bold;
+    font-family: "Poppins";
+    border: 2px solid red;
+    border-radius: 3px;
+    color: white;
+    padding: 0px 5px;
+    color: red;
+}
+
+.all-price-details {
+    display: flex;
+    align-items: center;
+}
+
+.star-rate-details {
+    color: orange;
+    font-size: large;
+}
+
+.rate-details {
+    color: orange;
+    font-weight: bold;
+    font-family: "Poppins";
+    font-size: large;
+}
+
+.rate-quantity-details {
+    color: gray;
+    font-family: "Poppins";
+    font-size: small;
+}
+
+.check-rate-details {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: medium;
+    color: #00b3ff;
+    transition: 0.3s ease;
+}
+
+.check-rate-details:hover {
+    color: #0E2241;
+    text-decoration: underline;
+}
+
+.accompanying-services span {
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.all-product-details span {
+    display: block;
+}
+
+.popup-image{
+    top: 0;
+    left: 0;
+    
+    height: 100px;
+    width: 100%;
+    z-index: 999999;
+}
+
+.popup-image span{
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: black;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+.popup-image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid black;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+    z-index: 999999;
+}
+
+@media (max-width:789px) {
+    .popup-image img{
+        width: 95%;
+    }
 }
