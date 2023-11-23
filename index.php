@@ -1,19 +1,47 @@
 <?php
+include "./Duan/View/HTML_PHP/header.php";
+
+include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
-include "./Duan/View/HTML_PHP/header.php";
-include "./Duan/PDO/pdo.php";
+
+include "./Duan/PDO/account.php";
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
     switch ($act) {
-        case 'account':
-            if ((isset($_POST['login_register'])) && (($_POST['login_register'] > 0))) {
+        case 'account':                                                                     // Vào Trang Đăng Ký - Đăng Nhập
+            include "./Duan/View/HTML_PHP/Account/login_register.php";
 
-            } else {
-                // echo '<script>alert("Lỗi!");</script>';
+            if ($errorCount == 0) {
+                if (isset($_POST['register']) && ($_POST['register'])) {                      // Đăng Ký
+                    $user_name_register = $_POST['user_name_register'];
+                    $email_register = $_POST['email_register'];
+                    $pass_register = $_POST['pass_register'];
+                    insert_account($user_name_register, $email_register, $pass_register);
+
+                    echo '<script>alert("Đăng Ký Thành Công!");</script>';
+                    include "./Duan/View/HTML_PHP/Account/login_register.php";
+                }
             }
-            include "./Duan/View/HTML_PHP/Account/Login_Register.php";
+
+            if ($errorCount == 0) {
+                if (isset($_POST['login']) && ($_POST['login'])) {                                    // Đăng Nhập
+                    $user_name_login = $_POST['user_name_login'];
+                    $pass_login = $_POST['pass_login'];
+                    $check_user = check_user($user_name_login, $pass_login);
+                    if (is_array($check_user)) {
+                        $_SESSION['user'] = $check_user;
+                        echo '<script>alert("Đăng Nhập Thành Công!");</script>';
+                        echo "<script>window.location.href='index.php';</script>";
+                    }
+                }
+            }
+
+            break;
+
+        case 'update_account':
+            include "./Duan/View/HTML_PHP/Product/update_account.php";
             break;
 
         case 'log_out':
