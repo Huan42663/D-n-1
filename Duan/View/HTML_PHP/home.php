@@ -70,8 +70,8 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_sale?> &#8363;</del>
-            <span class="new-price">2.390.000 &#8363;</span>
+            <del class="old-price"><?=$price_sale?>đ</del>
+            <span class="new-price">2.390.000đ</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -127,8 +127,8 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_mouse?> &#8363;</del>
-            <span class="new-price">3.690.000 &#8363;</span>
+            <del class="old-price"><?=$price_mouse?>đ</del>
+            <span class="new-price">3.690.000đ</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -183,8 +183,8 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_key_board?> &#8363;</del>
-            <span class="new-price">6.990.000 &#8363;</span>
+            <del class="old-price"><?=$price_key_board?>đ</del>
+            <span class="new-price">6.990.000đ</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -238,8 +238,8 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?> &#8363;</del>
-            <span class="new-price">6.990.000 &#8363;</span>
+            <del class="old-price"><?=$value['price']?>đ</del>
+            <span class="new-price">6.990.000đ</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -291,8 +291,8 @@
             <a href="#">Razer Basilisk V3 Pro</a>
           </div>
           <div>
-            <del class="old-price">4.290.000 &#8363;</del>
-            <span class="new-price">3.690.000 &#8363;</span>
+            <del class="old-price">4.290.000đ</del>
+            <span class="new-price">3.690.000đ</span>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
