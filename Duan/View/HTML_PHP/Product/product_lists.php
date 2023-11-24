@@ -58,17 +58,6 @@
                     }
                     ?>
                 </div>
-                <div class="d-flex flex-wrap align-items-center">
-                    <input type="radio" name="color" value="all" checked> Tất cả
-                    <?php
-                    foreach ($color as $key => $value) {
-                        ?>
-                        <input type="radio" name="color" value="<?= $value['id_color'] ?>">
-                        <?= $value['color_name'] ?>
-                        <?php
-                    }
-                    ?>
-                </div>
                 <input type="submit" name="btn_filter" value="Lọc">
             </form>
             <div class="col-6 dropdown-menu-end d-flex flex-wrap justify-content-end">
@@ -97,7 +86,9 @@
         <!-- --------------------------------------------------------------------------------------------------------------------- Sản Phẩm ---------------- -->
         <?php
         foreach ($product as $key => $value) {
-            ?>
+            $price_format = number_format($value['price'],0,".",".");
+            $discount_format = number_format($value['discount'],0,".",".");
+        ?>
             <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
 
                 <div class="card" style="width: 100%;">
@@ -113,10 +104,23 @@
                             </a>
                         </div>
                         <div>
-                            <del class="old-price">3.690.000đ</del>
-                            <span class="new-price">
-                                <?= $value['price'] ?>đ
-                            </span>
+                            <?php
+                                if($value['discount'] != 0){
+                            ?>
+                                <del class="old-price"><?=$price_format?>đ</del>
+                                <span class="new-price">
+                                    <?= $discount_format ?>đ
+                                </span>
+                            <?php
+                                }else{
+                            ?>
+                            <del class="old-price"></del>
+                                <span class="new-price">
+                                    <?= $price_format ?>đ
+                                </span>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div>
                             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>

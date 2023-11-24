@@ -15,7 +15,7 @@
                         ?>
 
                         <li class="nav-item">
-                            <a href="index.php?act=admin" class="nav-link link-dark ms-5">
+                            <a href="./Duan/admin/index.php" class="nav-link link-dark ms-5">
                                 Truy Cập Trang Admin
                             </a>
                         </li>

@@ -24,7 +24,7 @@
                         <td>
                         <a href="index.php?act=update_color_pro&id_clp=<?=$id_clp?>"><input type="button" value="Sửa"></a>
                         <a onclick="return confirm('Bạn có muốn xóa không !')" 
-                        href="index.php?act=delete_color_pro&id_clp=<?=$id_clp?>">
+                        href="index.php?act=delete_color_pro&id_clp=<?=$id_clp?>&id_pro=<?=$id_pro?>">
                         <input type="button" value="xóa màu"></a>
                       </td>
                     </tr>

@@ -56,6 +56,7 @@
 <?php 
     foreach ($product_sale as $key => $value) {
       $price_sale = number_format($value['price'], 0,'.','.');
+      $discount_sale = number_format($value['discount'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
@@ -70,8 +71,23 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_sale?>đ</del>
-            <span class="new-price">2.390.000đ</span>
+          <?php
+              if($value['discount'] != 0){
+          ?>
+              <del class="old-price"><?=$price_sale?>đ</del>
+              <span class="new-price">
+                  <?= $discount_sale ?>đ
+              </span>
+          <?php
+              }else{
+          ?>
+          <del class="old-price"></del>
+              <span class="new-price">
+                  <?= $price_sale ?>đ
+              </span>
+          <?php
+              }
+          ?>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -114,6 +130,7 @@
     <?php
       foreach ($product_mouse as $key => $value) {
         $price_mouse = number_format($value['price'], 0,'.','.');
+        $discount_mouse = number_format($value['discount'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
@@ -127,8 +144,23 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_mouse?>đ</del>
-            <span class="new-price">3.690.000đ</span>
+          <?php
+              if($value['discount'] != 0){
+          ?>
+              <del class="old-price"><?=$price_mouse?>đ</del>
+              <span class="new-price">
+                  <?= $discount_mouse ?>đ
+              </span>
+          <?php
+              }else{
+          ?>
+          <del class="old-price"></del>
+              <span class="new-price">
+                  <?= $price_mouse ?>đ
+              </span>
+          <?php
+              }
+          ?>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -170,6 +202,7 @@
     <?php
       foreach ($product_key_board as $key => $value) {
         $price_key_board = number_format($value['price'], 0,'.','.');
+        $discount_key_board = number_format($value['discount'], 0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
@@ -183,8 +216,23 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$price_key_board?>đ</del>
-            <span class="new-price">6.990.000đ</span>
+          <?php
+              if($value['discount'] != 0){
+          ?>
+              <del class="old-price"><?=$price_key_board?>đ</del>
+              <span class="new-price">
+                  <?= $discount_key_board ?>đ
+              </span>
+          <?php
+              }else{
+          ?>
+          <del class="old-price"></del>
+              <span class="new-price">
+                  <?= $price_key_board ?>đ
+              </span>
+          <?php
+              }
+          ?>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -225,6 +273,8 @@
     </div>
     <?php
       foreach ($product_head_phone as $key => $value) {
+        $price_head_phone = number_format($value['price'],0,'.','.');
+        $discount_head_phone = number_format($value['discount'],0,'.','.');
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
@@ -238,8 +288,23 @@
             <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><?=$value['pro_name']?></a>
           </div>
           <div>
-            <del class="old-price"><?=$value['price']?>đ</del>
-            <span class="new-price">6.990.000đ</span>
+          <?php
+              if($value['discount'] != 0){
+          ?>
+              <del class="old-price"><?=$price_head_phone?>đ</del>
+              <span class="new-price">
+                  <?= $discount_head_phone ?>đ
+              </span>
+          <?php
+              }else{
+          ?>
+          <del class="old-price"></del>
+              <span class="new-price">
+                  <?= $price_head_phone ?>đ
+              </span>
+          <?php
+              }
+          ?>
           </div>
           <div>
             <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
@@ -272,7 +337,7 @@
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Được Xem Nhiều Nhất ----------------- -->
-<div class="container pb-3 my-5"
+<!-- <div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-end">
@@ -316,7 +381,7 @@
       </li>
     </ul>
   </nav>
-</div>
+</div> -->
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------- Banner Quảng Cáo ------------ -->
