@@ -17,7 +17,7 @@ if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act) {
         case 'shop':
-            header('location:index.php');
+            echo "<script>window.location.href='../../index.php';</script>";
             break;
 
         case 'list_cate':
