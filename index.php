@@ -42,7 +42,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                             echo "<script>window.location.href='index.php';</script>";
                         } else {
                             echo '<script>alert("Tài Khoản Không Tồn Tại!");</script>';
-                            echo "<script>window.location.href='index.php';</script>";
                         }
                     }
                 }
@@ -74,14 +73,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
-                $id = $_POST['id_user'];
+                $id_user = $_POST['id_user'];
                 update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
                 $_SESSION['user'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
                 echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
             } else {
-                echo '<script>alert("Lỗi!");</script>';
-
+                // echo '<script>alert("Lỗi!");</script>';
             }
             break;
 

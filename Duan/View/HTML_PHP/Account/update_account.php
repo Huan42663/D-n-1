@@ -53,8 +53,8 @@
 
         <div class="col-xl-8">
             <?php
-            if (isset($_SESSION['user']) && (is_array($_SESSION['user']))) {
-                extract($_SESSION['user']);
+            if (isset($_SESSION['user_name_login']) && (is_array($_SESSION['user_name_login']))) {
+                extract($_SESSION['user_name_login']);
             }
             ?>
             <form action="index.php?act=update_account" method="post">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
-                    <input type="text" class="form-control" name="user" value="<?= $user_name ?>">
+                    <input type="text" class="form-control" name="user_name" value="<?= $user_name ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Email</label>
@@ -81,13 +81,7 @@
 
                 <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button>
             </form>
-            <h2 class="thongbao">
-                <?php
-                if (isset($thongbao) && ($thongbao != "")) {
-                    echo $thongbao;
-                }
-                ?>
-            </h2>
+
         </div>
     </div>
 </div>

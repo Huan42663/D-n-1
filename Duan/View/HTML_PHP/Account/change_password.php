@@ -53,8 +53,8 @@
 
         <div class="col-xl-8">
             <?php
-            if (isset($_SESSION['user']) && (is_array($_SESSION['user']))) {
-                extract($_SESSION['user']);
+            if (isset($_SESSION['user_name_login']) && (is_array($_SESSION['user_name_login']))) {
+                extract($_SESSION['user_name_login']);
             }
             ?>
             <form>
@@ -73,13 +73,7 @@
 
                 <button type="submit" name="update" class="btn btn-primary">Đổi</button>
             </form>
-            <h2 class="thongbao">
-                <?php
-                if (isset($thongbao) && ($thongbao != "")) {
-                    echo $thongbao;
-                }
-                ?>
-            </h2>
+
         </div>
     </div>
 </div>
