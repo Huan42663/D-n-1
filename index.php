@@ -68,16 +68,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
 
             if (isset($_POST['update']) && ($_POST['update'])) {
+                $id_user = $_POST['id_user'];
                 $user_name = $_POST['user_name'];
-                $pass = $_POST['pass'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
-                $id_user = $_POST['id_user'];
-                update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
-                $_SESSION['user'] = check_user($user_name, $pass);
+                $avatar = $_POST['avatar'];
+                update_account($id_user, $user_name, $email, $address, $tel, $avatar);
+                // $_SESSION['user_name_login'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
-                echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
+                // echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
             } else {
                 // echo '<script>alert("Lỗi!");</script>';
             }

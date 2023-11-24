@@ -58,6 +58,8 @@
             }
             ?>
             <form action="index.php?act=update_account" method="post">
+                <input type="hidden" name="id_user" value="<?= $id_user ?>">
+
                 <div class="mb-3 mt-3">
                     <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
                     <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
@@ -71,15 +73,15 @@
                     <input type="text" class="form-control" name="email" value="<?= $email ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
-                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Số Điện Thoại</label>
                     <input type="text" class="form-control" name="tel" value="<?= $tel ?>">
                 </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
+                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
+                </div>
 
-                <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button>
+                <input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></input>
             </form>
 
         </div>
