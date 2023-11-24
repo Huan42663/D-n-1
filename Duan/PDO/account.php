@@ -20,9 +20,9 @@
     //     return $dm;
     // }
 
-    function update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar)
-    {                           // Update: Chỉnh sửa thông tin tài khoản
-        $sql = "UPDATE user SET user='" . $user_name . "', pass='" . $pass . "',  email='" . $email . "', address='" . $address . "',
+    function update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar)            // Update: Chỉnh sửa thông tin tài khoản
+    {
+        $sql = "UPDATE user SET user_name='" . $user_name . "', pass='" . $pass . "',  email='" . $email . "', address='" . $address . "',
         tel='" . $tel . "', avatar='" . $avatar . "' WHERE id=" . $id_user;
         // echo $sql;die;
         pdo_execute($sql);
@@ -30,7 +30,7 @@
 
     function load_all_account()                                                             // Load danh sách tài khoản người dùng ở Admin
     {      
-        $sql = "SELECT * FROM  user ORDER BY id DESC";
+        $sql = "SELECT * FROM user ORDER BY id DESC";
         $list_account = pdo_query($sql);
         return $list_account;
     }
