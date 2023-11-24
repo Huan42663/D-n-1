@@ -57,11 +57,12 @@
                 extract($_SESSION['user_name_login']);
             }
             ?>
-            <form action="index.php?act=update_account" method="post" enctype="multipart/form-data">
+            <form action="index.php?act=update_account" method="post">
+                <input type="hidden" name="id_user" value="<?= $id_user ?>">
+
                 <div class="mb-3 mt-3">
                     <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
-                    <img src="./Duan/image_user/<?=$avatar?>" alt="">
-                    <input type="file" class="form-control" name="avatar">
+                    <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
@@ -72,16 +73,15 @@
                     <input type="text" class="form-control" name="email" value="<?= $email ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
-                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Số Điện Thoại</label>
                     <input type="text" class="form-control" name="tel" value="<?= $tel ?>">
                 </div>
-                <input type="hidden" name="role" id="" value="<?=$role?>">
-                <input type="submit" name="update" value="Cập Nhật" class="btn btn-primary">
-                <!-- <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button> -->
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
+                    <input type="text" class="form-control" name="address" value="<?= $address ?>">
+                </div>
+
+                <input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></input>
             </form>
 
         </div>

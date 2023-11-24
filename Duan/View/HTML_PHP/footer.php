@@ -40,22 +40,22 @@
         <h5 class="fw-light">Liên Kết</h5>
         <ul class="list-unstyled">
           <li class="my-3">
-            <a href="#" class="text-white text-decoration-none">
+            <a href="index.php#" class="text-white text-decoration-none">
               <i class="fas fa-chevron-right me-1"></i> Trang Chủ
             </a>
           </li>
           <li class="my-3">
-            <a href="#collection" class="text-white text-decoration-none">
+            <a href="index.php#products" class="text-white text-decoration-none">
               <i class="fas fa-chevron-right me-1"></i> Sản Phẩm
             </a>
           </li>
           <li class="my-3">
-            <a href="#blogs" class="text-white text-decoration-none">
+            <a href="index.php#blogs" class="text-white text-decoration-none">
               <i class="fas fa-chevron-right me-1"></i> Blogs
             </a>
           </li>
           <li class="my-3">
-            <a href="#about" class="text-white text-decoration-none">
+            <a href="index.php#about" class="text-white text-decoration-none">
               <i class="fas fa-chevron-right me-1"></i> Giới Thiệu
             </a>
           </li>
