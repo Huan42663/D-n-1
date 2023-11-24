@@ -110,6 +110,7 @@ if (isset($color_pro)) {
                         ?>
                     </div>
                 </div>
+                <br>
                 <div>
                     <?php
                     if (isset($color_pro)) {
@@ -195,7 +196,33 @@ if (isset($color_pro)) {
         <div class="col-md-12 me-3"
             style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
             <h4 class="mt-2"><strong>Bình Luận Về: </strong>Razer Viper Ultimate - Mercury</h4>
-
+                <table>
+                    <?php
+                        foreach ($comment as $key => $value) {
+                    ?>
+                        <tr>
+                            <td><img width=30px height=30px style="border-radius:100px;" src="./Duan/image_user/<?=$value['avatar']?>" alt=""></td>
+                            <td><?=$value['user_name']?></td>
+                            <td><?=$value['content']?></td>
+                            <td><?=$value['date']?></td>
+                        </tr>
+                    <?php
+                        }
+                    ?>
+                </table>
+                <?php
+                    if(isset($_SESSION['user_name_login'])){
+                ?>
+                    <form action="index.php?act=comment" method="POST">
+                        <input type="hidden" name="id_pro" value="<?=$id_pro?>">
+                        <input type="text" name="content" id="">
+                        <input type="submit" name="btn_comment" value="Gửi">
+                    </form>
+                <?php
+                    }else{
+                        echo "đăng nhập để bình luận";
+                    }
+                ?>
         </div>
 
     </div>

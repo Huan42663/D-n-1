@@ -57,10 +57,11 @@
                 extract($_SESSION['user']);
             }
             ?>
-            <form action="index.php?act=update_account" method="post">
+            <form action="index.php?act=update_account" method="post" enctype="multipart/form-data">
                 <div class="mb-3 mt-3">
                     <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
-                    <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
+                    <img src="./Duan/image_user/<?=$avatar?>" alt="">
+                    <input type="file" class="form-control" name="avatar">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
@@ -78,8 +79,9 @@
                     <label for="exampleInputPassword1" class="form-label">Số Điện Thoại</label>
                     <input type="text" class="form-control" name="tel" value="<?= $tel ?>">
                 </div>
-
-                <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button>
+                <input type="hidden" name="role" id="" value="<?=$role?>">
+                <input type="submit" name="update" value="Cập Nhật" class="btn btn-primary">
+                <!-- <button type="submit" name="update" class="btn btn-primary">Cập Nhật</button> -->
             </form>
             <h2 class="thongbao">
                 <?php

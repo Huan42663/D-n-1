@@ -165,12 +165,12 @@ function other_pro ($id){
     foreach ($number as $row) {
         $i++;
     }
-    if($i >= 5){
-        $start = random_int(0,$i - 5);
+    if($i >= 4){
+        $start = random_int(0,$i - 4);
     }else{
         $start = 0;
     }
-    $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != $id AND ID_CATE = $id_cate LIMIT $start,5";
+    $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != $id AND ID_CATE = $id_cate LIMIT $start,4";
     $other_pro = pdo_query($sql);
     return $other_pro;
 }

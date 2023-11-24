@@ -20,12 +20,17 @@
     //     return $dm;
     // }
 
-    function update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar)            // Update: Chỉnh sửa thông tin tài khoản
+    function update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar,$role)            // Update: Chỉnh sửa thông tin tài khoản
     {
-        $sql = "UPDATE user SET user_name='" . $user_name . "', pass='" . $pass . "',  email='" . $email . "', address='" . $address . "',
-        tel='" . $tel . "', avatar='" . $avatar . "' WHERE id=" . $id_user;
-        // echo $sql;die;
-        pdo_execute($sql);
+        if($avatar != ""){
+            $sql = "UPDATE user SET user_name='" . $user_name . "', pass='" . $pass . "',  email='" . $email . "', address='" . $address . "',
+            tel='" . $tel . "', avatar='" . $avatar . "', role='" . $role . "' WHERE id_user=" . $id_user;
+            // echo $sql;die;
+            pdo_execute($sql);
+        }else{
+            $sql = "UPDATE USER SET USER_NAME = '$user_name' , PASS = '$pass',EMAIL = '$email',ADDRESS = '$address',TEL = '$tel',ROLE = $role WHERE ID_USER = $id_user";
+            pdo_execute($sql);
+        }
     }
 
     function load_all_account()                                                             // Load danh sách tài khoản người dùng ở Admin
@@ -37,8 +42,28 @@
 
     function delete_account($id_user)                                                       // Xóa tài khoản người dùng ở Admin
     {                 
-        $sql = "DELETE FROM user WHERE id=" . $id_user;
+        $sql = "DELETE FROM user WHERE id_user=" . $id_user;
         pdo_execute($sql);
     }
-
+    function load_one_account($id_user){
+        $sql = "SELECT * FROM USER WHERE ID_USER= $id_user";
+        $acc = pdo_query_one($sql);
+        return $acc;
+    }
+    function count_account(){
+        $sql = "SELECT * FROM USER";
+        $acc = pdo_query($sql);
+        $i=0;
+        foreach ($acc as $key => $value) {
+            $i++;
+        }
+        $number =ceil($i / 5);
+        return $number;
+    }
+    function load_limit_5_account ($start,$limit){
+        $sql = "SELECT * FROM USER 
+        ORDER BY ROLE DESC LIMIT $start,$limit "; 
+        $acc = pdo_query($sql);
+        return $acc;
+    }
 ?>

@@ -19,9 +19,9 @@
     <li ><a  href="thongke.html"><i class="bi bi-reception-4"></i> Thống kê</a></li>
     <li ><a  href="index.php?act=list_product" ><i class="bi bi-suitcase-lg"></i> Sản phẩm</a></li>
     <li ><a  href="index.php?act=list_cate" ><i class="bi bi-ui-checks-grid"></i> Danh mục</a></li>
-    <li ><a  href="binhluan.html" ><i class="bi bi-wechat"></i> Bình luận</a></li>
-    <li ><a  href="doitac.html" ><i class="bi bi-people-fill"></i> Đối tác</a></li>
-    <li ><a  href="taikhoan.html"><i class="bi bi-person-circle"></i> Tài khoản</a></li>
+    <li ><a  href="index.php?act=list_comment" ><i class="bi bi-wechat"></i> Bình luận</a></li>
+    <!-- <li ><a  href="doitac.html" ><i class="bi bi-people-fill"></i> Đối tác</a></li> -->
+    <li ><a  href="index.php?act=list_account"><i class="bi bi-person-circle"></i> Tài khoản</a></li>
     </ul>
     </div>
    </div>

@@ -1,7 +1,16 @@
 <?php
+session_start();
+if(empty($_SESSION['user_name_login'])){
+    echo "<script>alert('bạn không đủ thẩm quyền');</script>";
+}else if (extract($_SESSION['user_name_login']) && $role == 0){
+    echo "<script>alert('bạn không đủ thẩm quyền');</script>";
+}else{
+
 include "../PDO/pdo.php";
 include "../PDO/category.php";
 include "../PDO/product.php";
+include "../PDO/comment.php";
+include "../PDO/account.php";
 include "view/nav_bar.php";
 include "view/header_bar.php";
 if(isset($_GET['act'])){
@@ -521,8 +530,9 @@ if(isset($_GET['act'])){
             include "product/list_color_pro.php";
             break;
         case 'delete_color_pro':
-            if(isset($_GET['id_clp']) && $_GET['id_clp'] > 1){
+            if(isset($_GET['id_clp']) && $_GET['id_clp'] > 0){
                 $id_clp = $_GET['id_clp'];
+                $id_pro = $_GET['id_pro'];
                 delete_color_pro ($id_clp);
             }
             $count = count_color_pro($id_pro);
@@ -536,6 +546,79 @@ if(isset($_GET['act'])){
             $list_pro = load_limit_10_color_pro($start,$limit,$id_pro);
             include "product/list_color_pro.php";
             break;
+        case 'list_comment':
+            $limit = 5;
+            if(isset($_POST['number'])){
+                $number = $_POST['number'];
+                $start = ($number - 1) * $limit;
+            }else{
+                $start = 0;
+            }
+            $count = count_comment();
+            $list_comment = load_limit_5_comment($start,$limit);
+            include "comment/list.php";
+            break;
+        case 'delete_comment':
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                delete_comment($id);
+            }
+            break;
+        case 'list_account':
+            $limit = 5;
+            if(isset($_POST['number'])){
+                $number = $_POST['number'];
+                $start = ($number - 1) * $limit;
+            }else{
+                $start = 0;
+            }
+            $count = count_account();
+            $list_account = load_limit_5_account($start,$limit);
+            include "account/list.php";
+            break;
+        case 'update_account':
+            if(isset($_GET['id'])){
+                $id_user = $_GET['id'];
+            }
+            $account = load_one_account($id_user);
+            include "account/update.php";
+            break;
+        case 'updated_account':
+            if(isset($_POST['sua'])){
+                if($_POST['user_name']=="" || $_POST['pass'] == ""){
+                echo "<script>alert('Không để trống');</script>";
+                }
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['user_name']) || preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pass'])){
+                echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
+                }else{
+                    $id_user = $_POST['id_user'];
+                    $user_name = $_POST['user_name'];
+                    $pass = $_POST['pass'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $avatar = $_FILES['avatar']['name'];
+                    $role = $_POST['role'];
+                    if($avatar){
+                        $tmp_name = $_FILE['avatar']['tmp_name'];
+                        move_uploaded_file($tmp_name,'./Duan/image_user/'.$avatar);
+                        update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar,$role);
+                    }else{
+                        update_account($id_user, $user_name, $pass, $email, $address, $tel, "",$role);
+                    }
+                }
+            }
+            $limit = 5;
+            if(isset($_POST['number'])){
+                $number = $_POST['number'];
+                $start = ($number - 1) * $limit;
+            }else{
+                $start = 0;
+            }
+            $count = count_account();
+            $list_account = load_limit_5_account($start,$limit);
+            include "account/list.php";
+            break;
         default:
         $product = load_top_5_pro();
         include "view/home.php";
@@ -546,5 +629,5 @@ if(isset($_GET['act'])){
     include "view/home.php";
 }
 include "view/footer.php";
-
+}
 ?>  
