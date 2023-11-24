@@ -56,16 +56,24 @@
 
         <div class="col-xl-8">
             <h2 class="mt-5">Xin Chào
-                <?= $user_name ?>
+                <span style="color: red;">
+                    <?= $user_name ?>
+                </span>
             </h2>
             <h2 class="mt-5">Email:
-                <?= $email ?>
+                <span style="color: red;">
+                    <?= $email ?>
+                </span>
             </h2>
             <h2>Số Điện Thoại:
-                <?= $tel ?>
+                <span style="color: red;">
+                    <?= $tel ?>
+                </span>
             </h2>
             <h2>Địa Chỉ:
-                <?= $address ?>
+                <span style="color: red;">
+                    <?= $address ?>
+                </span>
             </h2>
         </div>
     </div>

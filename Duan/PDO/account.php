@@ -35,7 +35,7 @@
 
     function load_all_account()                                                             // Load danh sách tài khoản người dùng ở Admin
     {      
-        $sql = "SELECT * FROM user ORDER BY id DESC";
+        $sql = "SELECT * FROM user ORDER BY id_user DESC";
         $list_account = pdo_query($sql);
         return $list_account;
     }

@@ -42,7 +42,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                             echo "<script>window.location.href='index.php';</script>";
                         } else {
                             echo '<script>alert("Tài Khoản Không Tồn Tại!");</script>';
-                            echo "<script>window.location.href='index.php';</script>";
                         }
                     }
                 }
@@ -87,7 +86,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $_SESSION['user'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
                 echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
-            }else {
+            } else {
                 echo '<script>alert("Lỗi!");</script>';
 
             }
