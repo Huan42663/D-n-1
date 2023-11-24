@@ -10,7 +10,7 @@
                 <ul class="nav nav-pills flex-column mb-auto">
 
                     <?php
-                    if ($role == 1) {
+                    if ($role > 0) {
                         # code...
                         ?>
 
