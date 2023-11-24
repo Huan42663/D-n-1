@@ -5,7 +5,7 @@ include "./Duan/View/HTML_PHP/header.php";
 include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
-include "./Duan/PDO/comment.php";
+include "./Duan/PDO/comment.php";+
 include "./Duan/PDO/account.php";
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
