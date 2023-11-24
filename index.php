@@ -92,15 +92,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 } else {
                     $cate = "";
                 }
-                if ($_POST['color'] != 'all') {
-                    $color = $_POST['color'];
-                } else {
-                    $color = "";
-                }
+                // if ($_POST['color'] != 'all') {
+                //     $color = $_POST['color'];
+                // } else {
+                //     $color = "";
+                // }
             } else {
                 $brand = "";
                 $cate = "";
-                $color = "";
+                // $color = "";
             }
             if (isset($_GET['load_type'])) {
                 if ($_GET['load_type'] == 'price_up') {
@@ -126,9 +126,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             } else {
                 $start = 0;
             }
-            $count = count_pro_filter($kyw,$brand,$cate,$color);
+            $count = count_pro_filter($kyw,$brand,$cate);
             $page = ceil($count / $limit);
-            $product = load_limit_pro_filter($start,$limit,$kyw,$brand,$cate,$color,$load_with,$load_type);
+            $product = load_limit_pro_filter($start,$limit,$kyw,$brand,$cate,$load_with,$load_type);
             $color = load_all_color ();
             $cate = load_all_cate();
             $brand = load_all_brand();

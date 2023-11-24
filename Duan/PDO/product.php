@@ -77,7 +77,7 @@ function load_limit_pro ($start,$limit,$kyw,$id_cate){
     $sql = "SELECT * FROM PRODUCT 
     JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
     JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
-    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
+    -- JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
     WHERE 1";
     if($kyw != ""){
         $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
@@ -105,9 +105,9 @@ function load_one_pro ($id){
     $pro = pdo_query_one($sql);
     return $pro;
 }
-function count_pro_filter($kyw,$brand,$cate,$color){
+function count_pro_filter($kyw,$brand,$cate){
     $sql = "SELECT * FROM PRODUCT
-    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
+    -- JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
     WHERE PRODUCT.ID_PRO != 1";
     if($kyw != ""){
         $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
@@ -118,9 +118,9 @@ function count_pro_filter($kyw,$brand,$cate,$color){
     if($cate > 0){
         $sql .= " AND ID_CATE = $cate";
     }
-    if($color > 0){
-        $sql .= " AND ID_COLOR = $color";
-    }
+    // if($color > 0){
+    //     $sql .= " AND ID_COLOR = $color";
+    // }
     $pro = pdo_query($sql);
     $i=0;
     foreach ($pro as $key => $value) {
@@ -129,12 +129,12 @@ function count_pro_filter($kyw,$brand,$cate,$color){
     // $number =ceil($i / $pro_per_page);
     return $i;
 }
-function load_limit_pro_filter ($start,$limit,$kyw,$brand,$cate,$color,$load_with,$load_type){
+function load_limit_pro_filter ($start,$limit,$kyw,$brand,$cate,$load_with,$load_type){
     $sql = "SELECT * FROM PRODUCT 
     JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
     JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
-    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO 
-    JOIN COLOR ON COLOR_PRO.ID_COLOR = COLOR.ID_COLOR
+    -- JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO 
+    -- JOIN COLOR ON COLOR_PRO.ID_COLOR = COLOR.ID_COLOR
     WHERE 1";
     if($kyw != ""){
         $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
@@ -145,9 +145,9 @@ function load_limit_pro_filter ($start,$limit,$kyw,$brand,$cate,$color,$load_wit
     if($cate > 0){
         $sql .= " AND PRODUCT.ID_CATE = $cate";
     }
-    if($color > 0){
-        $sql .= " AND COLOR_PRO.ID_COLOR = $color";
-    }
+    // if($color > 0){
+    //     $sql .= " AND COLOR_PRO.ID_COLOR = $color";
+    // }
     // if($cate_name != ""){
     //     $sql .=" AND CATE_NAME LIKE '%$cate_name%' ";
     // }
