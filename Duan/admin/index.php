@@ -16,6 +16,10 @@ include "view/header_bar.php";
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act) {
+        case 'shop':
+            echo "<script>window.location.href='../../index.php';</script>";
+            break;
+
         case 'list_cate':
             $limit = 5;
             if(isset($_POST['number_cate'])){

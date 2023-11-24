@@ -23,6 +23,9 @@
     <!-- <li ><a  href="doitac.html" ><i class="bi bi-people-fill"></i> Đối tác</a></li> -->
     <li ><a  href="index.php?act=list_account"><i class="bi bi-person-circle"></i> Tài khoản</a></li>
     </ul>
+    <ul class="menu" style="background-color: whitesmoke;padding-right: 20px;">
+    <li ><a  href="index.php?act=shop"><i class="bi bi-house-fill"></i> shop </a></li>
+    </ul>
     </div>
    </div>
    
