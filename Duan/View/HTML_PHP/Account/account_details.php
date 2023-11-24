@@ -8,11 +8,21 @@
                 <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" alt=""
                     style="width: 100%; border-radius: 5px 0px 0px 5px;">
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="./Duan/admin/index.php" class="nav-link link-dark ms-5">
-                            Truy Cập Trang Admin
-                        </a>
-                    </li>
+
+                    <?php
+                    if ($role == 1) {
+                        # code...
+                        ?>
+
+                        <li class="nav-item">
+                            <a href="index.php?act=admin" class="nav-link link-dark ms-5">
+                                Truy Cập Trang Admin
+                            </a>
+                        </li>
+
+                        <?php
+                    }
+                    ?>
                     <li>
                         <a href="index.php?act=account_details" class="nav-link link-dark ms-5">
                             Thông Tin Tài Khoản
@@ -45,10 +55,18 @@
         </div>
 
         <div class="col-xl-8">
-            <h2 class="mt-5">Xin Chào Chính!</h2>
-            <h2 class="mt-5">Email:</h2>
-            <h2>Số Điện Thoại:</h2>
-            <h2>Địa Chỉ:</h2>
+            <h2 class="mt-5">Xin Chào
+                <?= $user_name ?>
+            </h2>
+            <h2 class="mt-5">Email:
+                <?= $email ?>
+            </h2>
+            <h2>Số Điện Thoại:
+                <?= $tel ?>
+            </h2>
+            <h2>Địa Chỉ:
+                <?= $address ?>
+            </h2>
         </div>
     </div>
 </div>
