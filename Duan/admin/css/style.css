@@ -38,12 +38,14 @@ body{
 }
 .bar{
     position: fixed;
+    box-shadow: 2px 2px 5px 2px rgb(147, 149, 160);
 }
 .header{
     left: 1px;
     position: fixed;
     right: 1px;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px;
 }
 .header h3{
     font-size: 100%;
