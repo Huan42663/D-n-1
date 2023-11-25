@@ -5,7 +5,7 @@ include "./Duan/View/HTML_PHP/header.php";
 include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
-
+include "./Duan/PDO/comment.php";+
 include "./Duan/PDO/account.php";
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
@@ -190,6 +190,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $brand_name = get_name_brand($id_pro);
             $product = load_one_pro($id_pro);
             $list_color = load_color_for_pro($id_pro);
+            $comment = load_comment($id_pro);
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
         default:
