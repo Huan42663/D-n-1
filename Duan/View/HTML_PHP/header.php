@@ -29,12 +29,12 @@
           <i class="fa fa-search"></i>
         </button>
 
-        <a href="#"><button type="button" class="btn position-relative">
+        <a href="index.php?act=shipping_process"><button type="button" class="btn position-relative">
             <i class="fa-solid fa-truck-fast"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">1</span>
           </button></a>
 
-        <a href="#"><button type="button" class="btn position-relative">
+        <a href="index.php?act=cart_lists"><button type="button" class="btn position-relative">
             <i class="fa fa-shopping-cart"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
           </button></a>

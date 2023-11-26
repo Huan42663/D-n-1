@@ -33,7 +33,7 @@
 <!-- -------------------------------------------------------------------------------------------------------------------------- Bộ Lọc Tổng Hợp ------------ -->
 <div class="container pb-3 mb-5"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
-    <div class="row mt-3">
+    <div class="row">
         <div class="col-6 d-flex justify-content-between align-items-center w-100">
             <form action="index.php?act=product_lists" method="POST">
                 <div class="d-flex flex-wrap align-items-center">

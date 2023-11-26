@@ -5,8 +5,9 @@ include "./Duan/View/HTML_PHP/header.php";
 include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
-include "./Duan/PDO/comment.php";+
-include "./Duan/PDO/account.php";
+include "./Duan/PDO/comment.php";
++
+    include "./Duan/PDO/account.php";
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
@@ -193,6 +194,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $comment = load_comment($id_pro);
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
+
+        case 'cart_lists':
+            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            
+            break;
+
+        case 'shipping_process':
+            include "./Duan/View/HTML_PHP/Cart/shipping_process.php";
+
+            break;
+
         default:
             echo '<script>alert("Lỗi!");</script>';
             include "./Duan/View/HTML_PHP/home.php";
