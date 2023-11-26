@@ -1,3 +1,117 @@
-<div class="container mt-5 mb-5">
+<title>BlueTech - Giỏ Hàng</title>
+<style>
+    .ui-w-40 {
+        width: 40px !important;
+        height: auto;
+    }
 
+    .card {
+        box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
+    }
+
+    .ui-product-color {
+        display: inline-block;
+        overflow: hidden;
+        margin: .144em;
+        width: .875rem;
+        height: .875rem;
+        border-radius: 10rem;
+        -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+        vertical-align: middle;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    th.text-right.py-3[style="width: 100px;"],
+    td.text-right.font-weight-semibold.align-middle.p-4[style="width: 100px;"] {
+        white-space: nowrap;
+    }
+</style>
+
+
+
+<div class="container p-0 my-5 clearfix">
+
+    <div class="card">
+        <div class="card-header" style="background-image: linear-gradient(to right, #0E2241 , #00b3ff);
+        color: white;">
+            <p class="m-0 pt-2 pb-2" style="font-family: 'Tahoma'; font-weight: bold; font-size: x-large;">
+                Giỏ Hàng Của Bạn</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered mb-5">
+                    <thead>
+                        <tr class="text-center">
+
+                            <th class="text-center py-3" style="min-width: 400px;">Sản Phẩm & Chi Tiết</th>
+                            <th class="text-right py-3" style="width: 100px;">Giá Cũ</th>
+                            <th class="text-right py-3" style="width: 100px;">Giá Hiện Tại</th>
+                            <th class="text-center py-3" style="width: 120px;">Số Lượng</th>
+                            <th class="text-right py-3" style="width: 100px;">Tổng Giá</th>
+                            <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#"
+                                    class="shop-tooltip float-none text-light" title data-original-title="Clear cart"><i
+                                        class="ino ion-md-trash"></i></a>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4">
+                                <div class="media align-items-center d-flex">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                        class="ui-w-40 ui-bordered me-4" alt>
+                                    <div class="media-body">
+                                        <a href="#" class="d-block text-dark">Product 1</a>
+                                        <small>
+                                            <span class="text-muted">Color:</span>
+                                            <span class="ui-product-color ui-product-color-sm align-text-bottom"
+                                                style="background:#e81e2c;"></span> &nbsp;
+                                            <span class="text-muted">Size: </span> EU 37 &nbsp;
+                                            <span class="text-muted">Ships from: </span> China
+                                        </small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-right font-weight-semibold align-middle p-4"><del>$57.55</del></td>
+                            <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
+                            <td class="align-middle p-4"><input type="number" class="form-control text-center"
+                                    value="2">
+                            </td>
+                            <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
+                            <td class="text-center align-middle px-0"><a href="#"
+                                    class="shop-tooltip close float-none text-danger text-decoration-none" title
+                                    data-original-title="Remove" style="font-size: xx-large;">×</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4  mt-2">
+                <div class="mt-4">
+                    <label class="text-muted font-weight-normal">Mã Giảm Giá</label>
+                    <input type="text" placeholder=". . . . ." class="form-control">
+                </div>
+                <div class="d-flex">
+                    <div class="text-right mt-4 mr-5">
+                        <label class="text-muted font-weight-normal me-5">Tiết Kiệm Được</label>
+                        <div class="text-large"><strong>20.000đ</strong></div>
+                    </div>
+                    <div class="text-right mt-4">
+                        <label class="text-muted font-weight-normal m-0">Tổng Tiền</label>
+                        <div class="text-large"><strong>1.150.000đ</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div class="float-right  mt-2">
+                <a href="index.php"><input type="submit" class="btn btn-lg btn-default md-btn-flat"
+                        value="Quay Lại Trang Chủ"></input></a>
+
+                <a href=""><input type="submit" class="btn btn-lg btn-primary" value="Thanh Toán"></input></a>
+            </div>
+        </div>
+    </div>
 </div>
