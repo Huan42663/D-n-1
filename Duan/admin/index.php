@@ -5,7 +5,6 @@ if(empty($_SESSION['user_name_login'])){
 }else if (extract($_SESSION['user_name_login']) && $role == 0){
     echo "<script>alert('bạn không đủ thẩm quyền');</script>";
 }else{
-
 include "../PDO/pdo.php";
 include "../PDO/category.php";
 include "../PDO/product.php";
@@ -270,13 +269,7 @@ if(isset($_GET['act'])){
                 elseif($_POST['quantity']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
-<<<<<<< Updated upstream
                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pro_name'])){
-=======
-                //elseif(@getimagesize($_POST['img'])) {
-                //    echo 'Đây là tệp hình ảnh hợp lệ.'; }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
->>>>>>> Stashed changes
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
                }
                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
