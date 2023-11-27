@@ -33,7 +33,8 @@
 
 
 
-<div class="container p-0 my-5 clearfix">
+<div class="container p-0 my-5 clearfix"
+    style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
 
     <div class="card">
         <div class="card-header" style="background-image: linear-gradient(to right, #0E2241 , #00b3ff);
@@ -61,7 +62,7 @@
                         <tr>
                             <td class="p-4">
                                 <div class="media align-items-center d-flex">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                    <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp"
                                         class="ui-w-40 ui-bordered me-4" alt>
                                     <div class="media-body">
                                         <a href="#" class="d-block text-dark">Product 1</a>
@@ -78,7 +79,7 @@
                             <td class="text-right font-weight-semibold align-middle p-4"><del>$57.55</del></td>
                             <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
                             <td class="align-middle p-4"><input type="number" class="form-control text-center"
-                                    value="2">
+                                    value="1">
                             </td>
                             <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
                             <td class="text-center align-middle px-0"><a href="#"
@@ -108,7 +109,7 @@
             </div>
             <div class="float-right  mt-2">
                 <a href="index.php"><input type="submit" class="btn btn-lg btn-default md-btn-flat"
-                        value="Quay Lại Trang Chủ"></input></a>
+                        value="Quay Lại"></input></a>
 
                 <a href=""><input type="submit" class="btn btn-lg btn-primary" value="Thanh Toán"></input></a>
             </div>
