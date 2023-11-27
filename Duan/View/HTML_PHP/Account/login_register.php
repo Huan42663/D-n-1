@@ -5,37 +5,6 @@
 
 <body>
     <?php
-    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //     // Khai báo mảng để chứa lỗi:
-    //     $error = [];
-    
-    //     // Validate user_name:
-    //     if (empty(trim($_POST['user_name']))) {
-    //         $error['user_name']['required'] = 'Tên Tài Khoản Không Được Để Trống!';
-    //     } else {
-    //         if (strlen(trim($_POST['user_name'])) < 8) {
-    //             $error['user_name']['min'] = 'Tên Tài Khoản Phải Lớn Hơn 8 Ký Tự!';
-    //         }
-    //     }
-    
-    //     // Validate email:
-    //     if (empty(trim($_POST['email']))) {
-    //         $error['email']['required'] = 'Email Không Được Để Trống!';
-    //     } else {
-    //         if (!filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
-    //             $error['email']['invalid'] = 'Email Không Hợp Lệ!';
-    //         }
-    //     }
-    
-    //     // Validate pass:
-    //     if (empty(trim($_POST['pass']))) {
-    //         $error['pass']['required'] = 'Password Không Được Để Trống!';
-    //     } else {
-    //         if (strlen(trim($_POST['pass'])) <= 8) {
-    //             $error['pass']['min'] = 'Password Phải Lớn Hơn Hoặc Bằng 8 Ký Tự!';
-    //         }
-    //     }
-    // }
     
     if (isset($_POST['login'])) {
         $user_name_login = $_POST['user_name_login'];

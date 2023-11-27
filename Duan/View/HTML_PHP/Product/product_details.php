@@ -32,7 +32,7 @@ if (isset($color_pro)) {
 <div class="container mb-3"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
 
-    <div class="row mt-3">
+    <div class="row">
 
         <div class="col-md-6 col-xl-4 mb-3 mt-3">
             <div class="card" style="width: 100%;">
@@ -195,7 +195,7 @@ if (isset($color_pro)) {
 
         <div class="col-md-12 me-3"
             style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
-            <h4 class="mt-2"><strong>Bình Luận Về: </strong>Razer Viper Ultimate - Mercury</h4>
+            <h4 class="mt-2"><strong>Bình Luận Về Sản Phẩm</strong></h4>
                 <table>
                     <?php
                         foreach ($comment as $key => $value) {
