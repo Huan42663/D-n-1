@@ -25,7 +25,7 @@
                 <td><?=$email?></td>
                 <td><?=$address?></td>
                 <td><?=$tel?></td>
-                <td><img src="./Duan/image_user/<?=$avatar?>" alt=""></td>
+                <td><img width=50px src="../image_user/<?=$avatar?>" alt=""></td>
                 <td><?=$list_role[$role]?></td>
                 <td>
                 <?php

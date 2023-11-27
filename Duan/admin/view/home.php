@@ -1,95 +1,203 @@
-
-       <div class="content-1">
-         <table class="table">
-            <h2> <i class="fa-solid fa-shop"></i> Thống kê các sản phẩm shop </h2>
-            <thead>
-              <tr>
-                <th scope="col">Mã sản phẩm</th>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Giá sản phẩm</th>
-                <th scope="col">Ảnh</th>
-                <th scope="col">Lượt xem</th>
-                <th scope="col">Danh muc</th>
-                <th></th>
-              </tr> 
-            </thead>
-            <tbody>
-              <?php
-                foreach ($product as $pro) {
-                  extract($pro);
-              ?>
-              <tr>
-                <th scope="row"><?=$id_pro?></th>
-                <td><?=$pro_name?></td>
-                <td><?=$price?></td>
-                <td><img src="../upload/<?=$img?>" alt=""></td>
-                <td><?=$view?></td>
-                <td><?=$cate_name?></td>
-              </tr>
-              <?php
-                }
-              ?>
-            </tbody>
-          </table>
-       </div>
-
-       <div class="conset">
-         <div class="container text-center">
-            <div class="row align-items-start">
-              <div class="col">
-                <h3><i class="fa-solid fa-truck"></i> Số lượn hành nhập</h3>
-                <h1>0.00</h1>
-              </div>
-              <div class="col">
-                <h3><i class="fa-solid fa-chart-simple"></i> Tổng doanh thu</h3>
-                <h1>0.000</h1>
-              </div>
-              <div class="col">
-                <h3><i class="fa-solid fa-users"></i> Số lượn người chuy cập</h3>
-                <h1>0.000</h1>
-              </div>
+<!--**********************************
+Content body start
+***********************************-->
+<div class="content-body">
+  <!-- row -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6">
+        <div class="card">
+          <div class="stat-widget-two card-body">
+            <div class="stat-content">
+              <div class="stat-text">Today Expenses</div>
+              <div class="stat-digit"><i class="fa fa-usd"></i>8500</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-       </div>
-
-       <div class="connet">
-         <div class="container text-center">
-            <div class="row align-items-center">
-              <div class="col">
-                Số lượn hàng nhập
-                <img src="logo/cach-ve-bieu-do-tron-trong-word-1-800x450.png" alt="" width="100%">
-              </div>
-              <div class="col">
-                Tổng doanh thu
-                <img src="logo/cach-ve-bieu-do-tron-trong-word-1-800x450.png" alt=""width="100%">
-              </div>
-              <div class="col">
-                Số lươn hàng xuất ra
-                <img src="logo/cach-ve-bieu-do-tron-trong-word-1-800x450.png" alt=""width="100%">
-              </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card">
+          <div class="stat-widget-two card-body">
+            <div class="stat-content">
+              <div class="stat-text">Income Detail</div>
+              <div class="stat-digit"><i class="fa fa-usd"></i>7800</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-       </div>
-
-       <div class="content">
-        <div class="container text-center">
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card">
+          <div class="stat-widget-two card-body">
+            <div class="stat-content">
+              <div class="stat-text">Task Completed</div>
+              <div class="stat-digit"><i class="fa fa-usd"></i> 500</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card">
+          <div class="stat-widget-two card-body">
+            <div class="stat-content">
+              <div class="stat-text">Task Completed</div>
+              <div class="stat-digit"><i class="fa fa-usd"></i>650</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <!-- /# card -->
+      </div>
+      <!-- /# column -->
+    </div>
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Sales Overview</h4>
+          </div>
+          <div class="card-body">
             <div class="row">
-              <div class="col">
-                 <a href=""> <img src="logo/aorus.webp" alt="" width="100%" height="100%"></a>
-              </div>
-              <div class="col">
-                <a href=""> <img src="logo/dell.jpeg" alt="" width="100%" height="100%"></a>
-              </div>
-              <div class="col">
-                <a href=""> <img src="logo/lenovo.jpg" alt="" width="100%" height="100%"></a>
+              <div class="col-xl-12 col-lg-8">
+                <div id="morris-bar-chart"></div>
               </div>
             </div>
-            </div>
-        </div>
-
-        <div class="connet">
-          <div class="col">
-            <h2>Biểu đồ doanh thu</h2>
-            <img src="logo/bieu-do-thanh-bar-chart.webp" alt="" width="100%" style="border-radius: 5px;">
           </div>
         </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <div class="m-t-10">
+              <h4 class="card-title">Customer Feedback</h4>
+              <h2 class="mt-3">385749</h2>
+            </div>
+            <div class="widget-card-circle mt-5 mb-5" id="info-circle-card">
+              <i class="ti-control-shuffle pa"></i>
+            </div>
+            <ul class="widget-line-list m-b-15">
+              <li class="border-right">
+                92% <br /><span class="text-success"><i class="ti-hand-point-up"></i> Positive</span>
+              </li>
+              <li>
+                8% <br /><span class="text-danger"><i class="ti-hand-point-down"></i>Negative</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">New Orders</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Product</th>
+                  <th>quantity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>Lew Shawon</td>
+                  <td><span>Dell-985</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td><span class="badge badge-success">Done</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>Lew Shawon</td>
+                  <td><span>Asus-565</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td>
+                    <span class="badge badge-warning">Pending</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>lew Shawon</td>
+                  <td><span>Dell-985</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td><span class="badge badge-success">Done</span></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>Lew Shawon</td>
+                  <td><span>Asus-565</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td>
+                    <span class="badge badge-warning">Pending</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>lew Shawon</td>
+                  <td><span>Dell-985</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td><span class="badge badge-success">Done</span></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="round-img">
+                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
+                    </div>
+                  </td>
+                  <td>Lew Shawon</td>
+                  <td><span>Asus-565</span></td>
+                  <td><span>456 pcs</span></td>
+                  <td>
+                    <span class="badge badge-warning">Pending</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

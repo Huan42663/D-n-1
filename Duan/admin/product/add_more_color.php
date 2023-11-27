@@ -1,25 +1,64 @@
- <div class="from">
-<h2> <i class="fa-solid fa-shop"></i> Thêm màu sản phẩm </h2>
-<hr>
-<div class="form-add">
-    <form action="" enctype="multipart/form-data" method="POST">
-        <input type="hidden" name="id_pro">
-        ảnh sản phẩm 
-        <input type="file" name="img" id=""><br><br>
-        số lượng 
-        <input type="number" min="0" name="quantity" id="" class="number"><br><br>
-        màu
-        <select name="color" id="">
-            <?php
-                foreach ($listcolor as $cl) {
-                    extract($cl);
-            ?>
-                <option value="<?=$id_color?>"><?=$color_name?></option>
-            <?php
-                }
-            ?>
-        </select><br><br>
-        <input type="submit" name="them" value="thêm" class="button">
-    </form>
-</div>
+<div class="content-body">
+    <div class="container-fluid">
+        
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thêm Màu Sản Phẩm</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="index.php?act=add_more_color" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id_pro" value="<?=$id?>" id="">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Ảnh</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input name="img" type="file" class="custom-file-input">
+                                                <label class="custom-file-label">Chọn ảnh</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skill">Màu
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="val-skill" name="color">
+                                                    <?php
+                                                        foreach ($listcolor as $key => $value) {
+                                                    ?>
+                                                        <option value="<?=$value['id_color']?>"><?=$value['color_name']?></option>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Số lượng
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" min=0 class="form-control" id="val-username" name="quantity" placeholder="Enter Quantity">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <input type="submit" class="btn btn-primary" name="them" id="" value="Thêm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

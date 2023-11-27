@@ -143,7 +143,7 @@
             <?php
                 for ($i=0; $i <$page ; $i++) { 
             ?>
-            <li class="page-item"><a class="page-link" href="index.php?act=product_lists?page=<?=$i?>"><?=$i+1?></a></li>
+            <li class="page-item"><a class="page-link" href="index.php?act=product_lists&page=<?=$i?>"><?=$i+1?></a></li>
             <?php
                 }
             ?>

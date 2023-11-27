@@ -1,130 +1,57 @@
-
-<div class="content-1">
-    <table class="table">
-    <h2> <i class="fa-solid fa-shop"></i> Danh sách Loại</h2>
-    <thead>
-        <tr>
-        <th scope="col">Mã Loại</th>
-        <th scope="col">Tên Loại</th>
-        <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($list_cate as $cate) {
-                extract($cate);
-        ?>
-            <tr>
-                <th scope="row"><?=$id_cate?></th>
-                <td><?=$cate_name?></td>
-                <td>
-                <a href="index.php?act=update_cate&id=<?=$id_cate?>"><input type="button" value="Sửa"></a>
-                <a onclick="return confirm('Bạn có muốn xóa không !')" href="index.php?act=delete_cate&id=<?=$id_cate?>">
-                <input type="button" value="Xóa"></a>
-                </td>
-            </tr>
-        <?php
-            }
-        ?>
-        <tr>
-            <td><a href="index.php?act=add_cate"><input type="button" value="Thêm" id=""></a></td>
-        </tr>
-        </tbody>
-    </table>
-    <form action="index.php?act=list_cate" method="POST">
-    <?php
-        for($i=0;$i<$count_cate;$i++) { 
-        
-    ?>
-        <input type="submit" name="number_cate" value="<?=$i+1?>">
-    <?php
-        }
-    ?>
-    </form>
-</div>
-<div class="content-1">
-    <table class="table">
-    <h2> <i class="fa-solid fa-shop"></i> Danh sách Màu</h2>
-    <thead>
-        <tr>
-        <th scope="col">Mã Màu</th>
-        <th scope="col">Tên Màu</th>
-        <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($list_color as $color) {
-                extract($color);
-        ?>
-            <tr>
-                <th scope="row"><?=$id_color?></th>
-                <td><?=$color_name?></td>
-                <td>
-                <a href="index.php?act=update_color&id=<?=$id_color?>"><input type="button" value="Sửa"></a>
-                <a onclick="return confirm('Bạn có muốn xóa không !')" href="index.php?act=delete_color&id=<?=$id_color?>">
-                <input type="button" value="Xóa"></a>
-                </td>
-            </tr>
-        <?php
-            }
-        ?>
-        <tr>
-            <td><a href="index.php?act=add_color"><input type="button" value="Thêm" id=""></a></td>
-        </tr>
-        </tbody>
-    </table>
-    <form action="index.php?act=list_cate" method="POST">
-    <?php
-        for($i=0;$i<$count_color;$i++) { 
-        
-    ?>
-        <input type="submit" name="number_color" value="<?=$i+1?>">
-    <?php
-        }
-    ?>
-    </form>
-</div>
-<div class="content-1">
-    <table class="table">
-    <h2> <i class="fa-solid fa-shop"></i> Danh sách Hãng</h2>
-    <thead>
-        <tr>
-        <th scope="col">Mã Hãng</th>
-        <th scope="col">Tên Hãng</th>
-        <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($list_brand as $brand) {
-                extract($brand);
-        ?>
-            <tr>
-                <th scope="row"><?=$id_brand?></th>
-                <td><?=$brand_name?></td>
-                <td>
-                <a href="index.php?act=update_brand&id=<?=$id_brand?>"><input type="button" value="Sửa"></a>
-                <a onclick="return confirm('Bạn có muốn xóa không !')" href="index.php?act=delete_brand&id=<?=$id_brand?>">
-                <input type="button" value="Xóa"></a>
-                </td>
-            </tr>
-        <?php
-            }
-        ?>
-        <tr>
-            <td><a href="index.php?act=add_brand"><input type="button" value="Thêm" id=""></a></td>
-        </tr>
-        </tbody>
-    </table>
-    <form action="index.php?act=list_cate" method="POST">
-    <?php
-        for($i=0;$i<$count_brand;$i++) { 
-        
-    ?>
-        <input type="submit" name="number_brand" value="<?=$i+1?>">
-    <?php
-        }
-    ?>
-    </form>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Danh Sách Danh Mục</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>ID Danh Mục</th>
+                                        <th>Tên Danh Mục</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        foreach ($list_cate as $cate) {
+                                            extract($cate);
+                                    ?>
+                                        <tr>
+                                            <td><?=$id_cate?></td>
+                                            <td><?=$cate_name?></td>
+                                            <td><a  href="index.php?act=update_cate&id=<?=$id_cate?>"><button class="btn btn-primary">Sửa</button></a></td>
+                                            <td>
+                                                <a onclick="return confirm('Bạn có muốn xóa không');"href="index.php?act=delete_cate&id=<?=$id_cate?>">
+                                                    <button class="btn btn-primary">Xóa</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+                                <a class="paginate_button previous disabled" aria-controls="example" data-dt-idx="0" tabindex="0" id="example_previous">Previous</a>
+                                <span>
+                                    <?php
+                                        for ($i=0; $i < $count; $i++) {
+                                    ?>
+                                    <a class="paginate_button current" href="index.php?act=list_cate&page=<?=$i?>" aria-controls="example" data-dt-idx="1" tabindex="0"><?=$i+1?></a>
+                                    <?php
+                                     }
+                                    ?>
+                                </span>
+                                <a class="paginate_button next" aria-controls="example" data-dt-idx="7" tabindex="0" id="example_next">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

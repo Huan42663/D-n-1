@@ -5,11 +5,11 @@
             <div class="d-flex flex-column flex-shrink-0 p-0 flex-wrap"
                 style="width: 280px; border-radius: 5px 0px 0px 5px; background-color: white; border-right: 1px solid gainsboro; box-shadow: 1px 1px 5px black;">
 
-                <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp" alt=""
+                <img src="duan/image_user/<?=$avatar?>" alt=""
                     style="width: 100%; border-radius: 5px 0px 0px 5px;">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <?php
-                    if ($role == 1) {
+                    if ($role > 0) {
                         # code...
                         ?>
                         <li class="nav-item">
@@ -57,12 +57,12 @@
                 extract($_SESSION['user_name_login']);
             }
             ?>
-            <form action="index.php?act=update_account" method="post">
+            <form action="index.php?act=updated_account" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_user" value="<?= $id_user ?>">
 
                 <div class="mb-3 mt-3">
                     <label for="exampleInputEmail1" class="form-label">Ảnh Đại Diện</label>
-                    <input type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
+                    <input accept='jpg/png'  type="file" class="form-control" name="avatar" value="<?= $avatar ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên Người Dùng</label>
@@ -80,7 +80,7 @@
                     <label for="exampleInputPassword1" class="form-label">Địa Chỉ</label>
                     <input type="text" class="form-control" name="address" value="<?= $address ?>">
                 </div>
-
+                <input type="hidden" name="role" id="" value = "<?=$role?>">
                 <input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></input>
             </form>
 

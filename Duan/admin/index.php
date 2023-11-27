@@ -11,37 +11,20 @@ include "../PDO/category.php";
 include "../PDO/product.php";
 include "../PDO/comment.php";
 include "../PDO/account.php";
-include "view/nav_bar.php";
-include "view/header_bar.php";
+include "view/header.php";
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act) {
         case 'list_cate':
             $limit = 5;
-            if(isset($_POST['number_cate'])){
-                $number = $_POST['number_cate'];
-                $start_cate = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
-                $start_cate = 0;
+                $start = 0;
             }
-            $count_cate = count_cate();
-            $list_cate = load_limit_5_cate($start_cate,$limit);
-            if(isset($_POST['number_color'])){
-                $number = $_POST['number_color'];
-                $start_color = ($number - 1) * $limit;
-            }else{
-                $start_color = 0;
-            }
-            $count_color = count_color();
-            $list_color = load_limit_5_color($start_color,$limit);
-            if(isset($_POST['number_brand'])){
-                $number = $_POST['number_brand'];
-                $start_brand = ($number - 1) * $limit;
-            }else{
-                $start_brand = 0;
-            }
-            $count_brand = count_brand();
-            $list_brand = load_limit_5_brand($start_brand,$limit);
+            $count = count_cate();
+            $list_cate = load_limit_5_cate($start,$limit);
             include "category/list_cate.php";
             break;
         case 'add_cate':
@@ -81,79 +64,59 @@ if(isset($_GET['act'])){
                 }
             }
             $limit = 5;
-            if(isset($_POST['number_cate'])){
-                $number = $_POST['number_cate'];
-                $start_cate = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
-                $start_cate = 0;
+                $start = 0;
             }
-            $count_cate = count_cate();
-            $list_cate = load_limit_5_cate($start_cate,$limit);
-            if(isset($_POST['number_color'])){
-                $number = $_POST['number_color'];
-                $start_color = ($number - 1) * $limit;
-            }else{
-                $start_color = 0;
-            }
-            $count_color = count_color();
-            $list_color = load_limit_5_color($start_color,$limit);
-            if(isset($_POST['number_brand'])){
-                $number = $_POST['number_brand'];
-                $start_brand = ($number - 1) * $limit;
-            }else{
-                $start_brand = 0;
-            }
-            $count_brand = count_brand();
-            $list_brand = load_limit_5_brand($start_brand,$limit);
+            $count = count_cate();
+            $list_cate = load_limit_5_cate($start,$limit);
             include "category/list_cate.php";
             break;
         case 'delete_cate':
-                if(isset($_GET['id'])){
-                    $id_cate = $_GET['id'];
-                    delete_cate($id_cate);
-                }
-                $limit = 5;
-            if(isset($_POST['number_cate'])){
-                $number = $_POST['number_cate'];
-                $start_cate = ($number - 1) * $limit;
-            }else{
-                $start_cate = 0;
+            if(isset($_GET['id'])){
+                $id_cate = $_GET['id'];
+                delete_cate($id_cate);
             }
-            $count_cate = count_cate();
-            $list_cate = load_limit_5_cate($start_cate,$limit);
-            if(isset($_POST['number_color'])){
-                $number = $_POST['number_color'];
-                $start_color = ($number - 1) * $limit;
+            $limit = 5;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
-                $start_color = 0;
+                $start = 0;
             }
-            $count_color = count_color();
-            $list_color = load_limit_5_color($start_color,$limit);
-            if(isset($_POST['number_brand'])){
-                $number = $_POST['number_brand'];
-                $start_brand = ($number - 1) * $limit;
-            }else{
-                $start_brand = 0;
-            }
-            $count_brand = count_brand();
-            $list_brand = load_limit_5_brand($start_brand,$limit);
+            $count = count_cate();
+            $list_cate = load_limit_5_cate($start,$limit);
             include "category/list_cate.php";
             break;
+        case 'list_color':
+            $limit = 5;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
+            }else{
+                $start = 0;
+            }
+            $count = count_color();
+            $list_color = load_limit_5_color($start,$limit);
+            include "category/list_color.php";
+            break;
         case 'add_color':
-            include "category/add_color.php";
             if(isset($_POST['them']) && $_POST['them']){
-               if($_POST['color_name']==""){
-                  echo "<script>alert('Không để trống');</script>";
+                if($_POST['color_name']==""){
+                    echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['color_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
                 }
-               else{
-                  $color_name = $_POST['name-color'];
-                  add_color($color_name);
-                  header('location:index.php?act=list_cate');
+                else{
+                    $color_name = $_POST['color_name'];
+                    add_color($color_name);
+                    // header('location:index.php?act=list_color');
                 }
-               }
+            }
+            include "category/add_color.php";
             break;
         case 'update_color':
             if(isset($_GET['id'])){
@@ -177,68 +140,47 @@ if(isset($_GET['act'])){
                 }
             }
             $limit = 5;
-            if(isset($_POST['number_cate'])){
-                $number = $_POST['number_cate'];
-                $start_cate = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
-                $start_cate = 0;
+                $start = 0;
             }
-            $count_cate = count_cate();
-            $list_cate = load_limit_5_cate($start_cate,$limit);
-            if(isset($_POST['number_color'])){
-                $number = $_POST['number_color'];
-                $start_color = ($number - 1) * $limit;
-            }else{
-                $start_color = 0;
-            }
-            $count_color = count_color();
-            $list_color = load_limit_5_color($start_color,$limit);
-            if(isset($_POST['number_brand'])){
-                $number = $_POST['number_brand'];
-                $start_brand = ($number - 1) * $limit;
-            }else{
-                $start_brand = 0;
-            }
-            $count_brand = count_brand();
-            $list_brand = load_limit_5_brand($start_brand,$limit);
-            include "category/list_cate.php";
+            $count = count_color();
+            $list_color = load_limit_5_color($start,$limit);
+            include "category/list_color.php";
             break;
         case 'delete_color':
-                if(isset($_GET['id'])){
-                    $id_color = $_GET['id'];
-                    delete_color($id_color);
-                }
-                $limit = 5;
-            if(isset($_POST['number_cate'])){
-                $number = $_POST['number_cate'];
-                $start_cate = ($number - 1) * $limit;
-            }else{
-                $start_cate = 0;
+            if(isset($_GET['id'])){
+                $id_color = $_GET['id'];
+                delete_color($id_color);
             }
-            $count_cate = count_cate();
-            $list_cate = load_limit_5_cate($start_cate,$limit);
-            if(isset($_POST['number_color'])){
-                $number = $_POST['number_color'];
-                $start_color = ($number - 1) * $limit;
+            $limit = 5;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
-                $start_color = 0;
+                $start = 0;
             }
-            $count_color = count_color();
-            $list_color = load_limit_5_color($start_color,$limit);
-            if(isset($_POST['number_brand'])){
-                $number = $_POST['number_brand'];
-                $start_brand = ($number - 1) * $limit;
-            }else{
-                $start_brand = 0;
-            }
-            $count_brand = count_brand();
-            $list_brand = load_limit_5_brand($start_brand,$limit);
-            include "category/list_cate.php";
+            $count = count_color();
+            $list_color = load_limit_5_color($start,$limit);
+            include "category/list_color.php";
             break;
+            case 'list_brand':
+                $limit = 5;
+                if(isset($_GET['page'])){
+                    $number = $_GET['page'];
+                    $start = $number * $limit;
+                }else{
+                    $start = 0;
+                }
+                $count = count_brand();
+                $list_brand = load_limit_5_brand($start,$limit);
+                include "category/list_brand.php";
+                break;
             case 'add_brand':
-                include "category/add_brand.php";
                 if(isset($_POST['them']) && $_POST['them']){
-                  if($_POST['brand_name']=="")
+                    if($_POST['brand_name']=="")
                     {
                         echo "<script>alert('Không để trống');</script>";
                     }
@@ -246,11 +188,12 @@ if(isset($_GET['act'])){
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
                     }
                     else {
-                        $brand_name = $_POST['name'];
+                        $brand_name = $_POST['brand_name'];
                         add_brand($brand_name);
                         header('location:index.php?act=list_cate');
                     }
                 }
+                include "category/add_brand.php";
                 break;
             case 'update_brand':
                 if(isset($_GET['id'])){
@@ -274,69 +217,37 @@ if(isset($_GET['act'])){
                     }
                 }
                 $limit = 5;
-                if(isset($_POST['number_cate'])){
-                    $number = $_POST['number_cate'];
-                    $start_cate = ($number - 1) * $limit;
+                if(isset($_GET['page'])){
+                    $number = $_GET['page'];
+                    $start = $number * $limit;
                 }else{
-                    $start_cate = 0;
+                    $start = 0;
                 }
-                $count_cate = count_cate();
-                $list_cate = load_limit_5_cate($start_cate,$limit);
-                if(isset($_POST['number_color'])){
-                    $number = $_POST['number_color'];
-                    $start_color = ($number - 1) * $limit;
-                }else{
-                    $start_color = 0;
-                }
-                $count_color = count_color();
-                $list_color = load_limit_5_color($start_color,$limit);
-                if(isset($_POST['number_brand'])){
-                    $number = $_POST['number_brand'];
-                    $start_brand = ($number - 1) * $limit;
-                }else{
-                    $start_brand = 0;
-                }
-                $count_brand = count_brand();
-                $list_brand = load_limit_5_brand($start_brand,$limit);
-                include "category/list_cate.php";
+                $count = count_brand();
+                $list_brand = load_limit_5_brand($start,$limit);
+                include "category/list_brand.php";
                 break;
             case 'delete_brand':
-                    if(isset($_GET['id'])){
-                        $id_brand = $_GET['id'];
-                        delete_brand($id_brand);
-                    }
-                    $limit = 5;
-                if(isset($_POST['number_cate'])){
-                    $number = $_POST['number_cate'];
-                    $start_cate = ($number - 1) * $limit;
-                }else{
-                    $start_cate = 0;
+                if(isset($_GET['id'])){
+                    $id_brand = $_GET['id'];
+                    delete_brand($id_brand);
                 }
-                $count_cate = count_cate();
-                $list_cate = load_limit_5_cate($start_cate,$limit);
-                if(isset($_POST['number_color'])){
-                    $number = $_POST['number_color'];
-                    $start_color = ($number - 1) * $limit;
+                $limit = 5;
+                if(isset($_GET['page'])){
+                    $number = $_GET['page'];
+                    $start = $number * $limit;
                 }else{
-                    $start_color = 0;
+                    $start = 0;
                 }
-                $count_color = count_color();
-                $list_color = load_limit_5_color($start_color,$limit);
-                if(isset($_POST['number_brand'])){
-                    $number = $_POST['number_brand'];
-                    $start_brand = ($number - 1) * $limit;
-                }else{
-                    $start_brand = 0;
-                }
-                $count_brand = count_brand();
-                $list_brand = load_limit_5_brand($start_brand,$limit);
-                include "category/list_cate.php";
+                $count = count_brand();
+                $list_brand = load_limit_5_brand($start,$limit);
+                include "category/list_brand.php";
                 break;
-        case 'list_product':
+        case 'list_pro':
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -346,7 +257,7 @@ if(isset($_GET['act'])){
         break;
         case 'add_pro':
             if(isset($_POST['them']) && $_POST['them']){
-                if($_POST['name']==""){
+                if($_POST['pro_name']==""){
                     echo "<script>alert('Không để trống tên sản phẩm');</script>";
                 }
                 elseif($_POST['price']==""){
@@ -355,7 +266,7 @@ if(isset($_GET['act'])){
                 elseif($_POST['quantity']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pro_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
                }
                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
@@ -365,7 +276,7 @@ if(isset($_GET['act'])){
             //         echo "<script>alert('Không để trống');</script>";
             //     }
                 else{
-                    $name = $_POST['name'];
+                    $name = $_POST['pro_name'];
                     $price = $_POST['price'];
                     $discount = $_POST['discount'];
                     $detail = $_POST['detail'];
@@ -390,49 +301,46 @@ if(isset($_GET['act'])){
                 $id = $_GET['id'];
                 $product = load_one_pro($id);
             }
-            $listbrand = load_all_brand();
+            $listbrand = load_all_brandl();
             $listcate = load_all_cate();
             include "product/update.php";
             break;
         case 'updated_pro':
-            if(isset($_POST['sua'])){
-                if($_POST['name']==""){
+            if(isset($_POST['sua']) && $_POST['sua']){
+                if($_POST['pro_name']==""){
                     echo "<script>alert('Không để trống tên sản phẩm');</script>";
                 }
                 elseif($_POST['price']==""){
                     echo "<script>alert('yêu cầu nhập giá sản phẩm');</script>";
                 }
-                elseif($_POST['quantity']==""){
-                    echo "<script>alert('Không để trống');</script>";
-                }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pro_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
-               }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
-                    echo "<script>alert('Không để đặc biệt');</script>";
-               }
-               else{
-                   $id=$_POST['id_pro'];
-                   $name = $_POST['name'];
-                   $discount = $_POST['discount'];
-                   $price = $_POST['price'];
-                   $detail = $_POST['detail'];
-                   $brand = $_POST['brand'];
-                   $cate = $_POST['cate'];
-                   $img = $_FILES['img']['name'];
-                   if($img){
-                       $tmp_name = $_FILES['img']['tmp_name'];
-                       move_uploaded_file($tmp_name,'../image_product/' . $img);
-                       update_pro($id,$name,$price,$discount,$img,$detail,$cate,$brand);
-                   }else {
-                       update_pro($id,$name,$price,$discount,"",$detail,$cate,$brand);
-                   }
-               }
+                }
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
+                        echo "<script>alert('Không để đặc biệt');</script>";
+                }
+                else{
+                    $id=$_POST['id_pro'];
+                    $name = $_POST['pro_name'];
+                    $discount = $_POST['discount'];
+                    $price = $_POST['price'];
+                    $detail = $_POST['detail'];
+                    $brand = $_POST['brand'];
+                    $cate = $_POST['cate'];
+                    $img = $_FILES['img']['name'];
+                    if($img){
+                        $tmp_name = $_FILES['img']['tmp_name'];
+                        move_uploaded_file($tmp_name,'../image_product/' . $img);
+                        update_pro($id,$name,$price,$discount,$img,$detail,$cate,$brand);
+                    }else {
+                        update_pro($id,$name,$price,$discount,"",$detail,$cate,$brand);
+                    }
+                }
             }
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -441,20 +349,19 @@ if(isset($_GET['act'])){
             include "product/list.php";
             break;
         case 'add_more_color':
-            
+            $id = $_GET['id'];
             if(isset($_POST['them']) && $_POST['them']){
                 if($_POST['quantity']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 else{
-                    $id_pro = $_GET['id'];
+                    $id_pro = $_POST['id_pro'];
                     $id_color = $_POST['color'];
                     $quantity = $_POST['quantity'];
                     $img = $_FILES['img']['name'];
                     $tmp_name = $_FILES['img']['tmp_name'];
                     move_uploaded_file($tmp_name,'../image_product/' . $img);
                     add_more_color($id_pro,$id_color,$img,$quantity);
-                    
                 }
             }
             $listcolor = load_all_color();
@@ -466,9 +373,9 @@ if(isset($_GET['act'])){
                 delete_pro ($id_pro);
             }
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -482,9 +389,9 @@ if(isset($_GET['act'])){
                 $count = count_color_pro($id_pro);
             }
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -506,7 +413,7 @@ if(isset($_GET['act'])){
                 }else{
                     $id_clp = $_POST['id_clp'];
                     $id_pro = $_POST['id_pro'];
-                    $id_color = $_POST['id_color'];
+                    $id_color = $_POST['color'];
                     $quantity = $_POST['quantity'];
                     $img = $_FILES['img']['name'];
                     if($img){
@@ -520,9 +427,9 @@ if(isset($_GET['act'])){
             }
             $count = count_color_pro($id_pro);
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -537,9 +444,9 @@ if(isset($_GET['act'])){
             }
             $count = count_color_pro($id_pro);
             $limit = 10;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -548,9 +455,9 @@ if(isset($_GET['act'])){
             break;
         case 'list_comment':
             $limit = 5;
-            if(isset($_POST['number'])){
-                $number = $_POST['number'];
-                $start = ($number - 1) * $limit;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
             }else{
                 $start = 0;
             }
@@ -563,6 +470,16 @@ if(isset($_GET['act'])){
                 $id = $_GET['id'];
                 delete_comment($id);
             }
+            $limit = 5;
+            if(isset($_GET['page'])){
+                $number = $_GET['page'];
+                $start = $number * $limit;
+            }else{
+                $start = 0;
+            }
+            $count = count_comment();
+            $list_comment = load_limit_5_comment($start,$limit);
+            include "comment/list.php";
             break;
         case 'list_account':
             $limit = 5;
@@ -598,10 +515,11 @@ if(isset($_GET['act'])){
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];
                     $avatar = $_FILES['avatar']['name'];
+                    $file_type = $_FILES['avatar']['file_type'];
                     $role = $_POST['role'];
                     if($avatar){
-                        $tmp_name = $_FILE['avatar']['tmp_name'];
-                        move_uploaded_file($tmp_name,'./Duan/image_user/'.$avatar);
+                        $tmp_name = $_FILES['avatar']['tmp_name'];
+                        move_uploaded_file($tmp_name,'../image_user/'.$avatar);
                         update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar,$role);
                     }else{
                         update_account($id_user, $user_name, $pass, $email, $address, $tel, "",$role);

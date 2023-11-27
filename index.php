@@ -5,7 +5,7 @@ include "./Duan/View/HTML_PHP/header.php";
 include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
-
+include "./Duan/PDO/comment.php";
 include "./Duan/PDO/account.php";
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
@@ -66,23 +66,32 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 extract($_SESSION['user_name_login']);
                 include "./Duan/View/HTML_PHP/Account/update_account.php";
             }
-
+            break;
+        case 'updated_account':
             if (isset($_POST['update']) && ($_POST['update'])) {
                 $id_user = $_POST['id_user'];
                 $user_name = $_POST['user_name'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
-                $avatar = $_POST['avatar'];
-                update_account($id_user, $user_name, $email, $address, $tel, $avatar);
+                $avatar = $_FILES['avatar']['name'];
+                $role = $_POST['role'];
+                if($avatar){
+                    $tmp_name = $_FILE['avatar']['tmp_name'];
+                    move_uploaded_file($tmp_name,'Duan/image_user/'.$avatar);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar,$role);
+                }else{
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "",$role);
+                }
                 // $_SESSION['user_name_login'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
                 // echo "<script>window.location.href='./Duan/View/HTML_PHP/Account/account_details.php';</script>";
+                extract($_SESSION['user_name_login']);
+                include "./Duan/View/HTML_PHP/Account/update_account.php";
             } else {
                 // echo '<script>alert("Lỗi!");</script>';
             }
             break;
-
         case 'change_password':
             if (empty($_SESSION['user_name_login'])) {
                 echo "<script>window.location.href='index.php';</script>";
@@ -136,15 +145,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 } else {
                     $cate = "";
                 }
-                if ($_POST['color'] != 'all') {
-                    $color = $_POST['color'];
-                } else {
-                    $color = "";
-                }
+                // if ($_POST['color'] != 'all') {
+                //     $color = $_POST['color'];
+                // } else {
+                //     $color = "";
+                // }
             } else {
                 $brand = "";
                 $cate = "";
-                $color = "";
+                // $color = "";
             }
             if (isset($_GET['load_type'])) {
                 if ($_GET['load_type'] == 'price_up') {
@@ -170,9 +179,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             } else {
                 $start = 0;
             }
-            $count = count_pro_filter($kyw, $brand, $cate, $color);
+            $count = count_pro_filter($kyw, $brand, $cate);
             $page = ceil($count / $limit);
-            $product = load_limit_pro_filter($start, $limit, $kyw, $brand, $cate, $color, $load_with, $load_type);
+            $product = load_limit_pro_filter($start, $limit, $kyw, $brand, $cate, $load_with, $load_type);
             $color = load_all_color();
             $cate = load_all_cate();
             $brand = load_all_brand();
@@ -190,10 +199,44 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $brand_name = get_name_brand($id_pro);
             $product = load_one_pro($id_pro);
             $list_color = load_color_for_pro($id_pro);
+            $comment = load_comment($id_pro);
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
         default:
             echo '<script>alert("Lỗi!");</script>';
+            $limit = 12;
+            if (isset($_GET['page-sale'])) {
+                $number = $_GET['page-sale'];
+                $start = ($number - 1) * $limit;
+            } else {
+                $start = 0;
+            }
+            $count_page_sale = count_pro($limit, "", 0);
+            $product_sale = load_limit_pro($start, $limit, "", 0);
+            if (isset($_GET['page-mouse'])) {
+                $number = $_GET['page-mouse'];
+                $start = ($number - 1) * $limit;
+            } else {
+                $start = 0;
+            }
+            $count_page_mouse = count_pro($limit, "chuột", 0);
+            $product_mouse = load_limit_pro($start, $limit, "chuột", 0);
+            if (isset($_GET['page-key-board'])) {
+                $number = $_GET['page-key-board'];
+                $start = ($number - 1) * $limit;
+            } else {
+                $start = 0;
+            }
+            $count_page_key_board = count_pro($limit, "bàn phím", 0);
+            $product_key_board = load_limit_pro($start, $limit, "bàn phím", 0);
+            if (isset($_GET['page-head-phone'])) {
+                $number = $_GET['page-head-phone'];
+                $start = ($number - 1) * $limit;
+            } else {
+                $start = 0;
+            }
+            $count_page_head_phone = count_pro($limit, "tai nghe", 0);
+            $product_head_phone = load_limit_pro($start, $limit, "tai nghe", 0);
             include "./Duan/View/HTML_PHP/home.php";
             break;
     }

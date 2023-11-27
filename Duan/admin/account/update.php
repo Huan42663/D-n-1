@@ -12,17 +12,17 @@
         <h5>Email <input type="text" name="email" value="<?=$email?>" class="name"></h5><br><br>
         <h5>Địa Chỉ <input type="text" name="address" value="<?=$address?>" class="name"></h5><br><br>
         <h5>Số Điện Thoại <input type="text" name="tel" value="<?=$tel?>" class="name"></h5><br><br>
-        <h5><img src="./Duan/image_user/<?=$avatar?>" alt=""> <input type="file" name="avatar" class="name"></h5><br><br>
+        <h5><img src="../image_user/<?=$avatar?>" alt=""> <input type="file" name="avatar" class="name"></h5><br><br>
         <h5>Chức Vụ <select name="role" id="">
             <?php
-                if($_SESSION['user_name_login'] == 2){
+                if($_SESSION['user_name_login']['role'] == 2){
             ?>
-                    <option value="2">Manager</option>
+                    <option <?php if($role == 2){echo 'checked';}?> value="2">Manager</option>
             <?php
                 }
             ?>
-            <option value="1">Admin</option>
-            <option value="0">User</option>
+            <option <?php if($role == 1){echo 'checked';}?> value="1">Admin</option>
+            <option <?php if($role == 0){echo 'checked';}?> value="0">User</option>
         </select></h5><br><br>
         <input type="submit" name="sua" value="Sửa" class="button">
     </form>
