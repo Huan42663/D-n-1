@@ -8,6 +8,9 @@ include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
 include "./Duan/PDO/account.php";
 
+if (!isset($_SESSION['my_cart']))
+    $_SESSION['my_cart'] = [];
+
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
     switch ($act) {
@@ -76,12 +79,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $tel = $_POST['tel'];
                 $avatar = $_FILES['avatar']['name'];
                 $role = $_POST['role'];
-                if($avatar){
+                if ($avatar) {
                     $tmp_name = $_FILE['avatar']['tmp_name'];
-                    move_uploaded_file($tmp_name,'Duan/image_user/'.$avatar);
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar,$role);
-                }else{
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "",$role);
+                    move_uploaded_file($tmp_name, 'Duan/image_user/' . $avatar);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar, $role);
+                } else {
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "", $role);
                 }
                 // $_SESSION['user_name_login'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
@@ -187,6 +190,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $brand = load_all_brand();
             include "./Duan/View/HTML_PHP/Product/product_lists.php";
             break;
+
         case 'product_details':
             if (isset($_GET['id'])) {
                 $id_pro = $_GET['id'];
@@ -203,9 +207,30 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
 
+        case 'cart':
+            if (isset($_POST['buy']) && $_POST['buy']) {
+                include "./Duan/View/HTML_PHP/Cart/shipping_info.php";
+            }
+
+            if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
+                $id_pro = $_POST['id_pro'];
+                $image = $_POST['image'];
+                $pro_name = $_POST['pro_name'];
+                $price_format = $_POST['price_format'];
+                $discount_format = $_POST['discount_format'];
+                $brand_name = $_POST['brand_name'];
+
+                $quantity = 1;
+                $total_price = $quantity * $price_format;
+                $add_product = [$id_pro, $image, $pro_name, $price_format, $discount_format, $quantity, $brand_name];
+                array_push($_SESSION['my_cart'], $add_product);
+                include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            }
+            break;
+
         case 'cart_lists':
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
-            
+
             break;
 
         case 'shipping_process':

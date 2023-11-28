@@ -31,8 +31,6 @@
     }
 </style>
 
-
-
 <div class="container p-0 my-5 clearfix"
     style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
 
@@ -58,8 +56,43 @@
                                         class="ino ion-md-trash"></i></a>Xóa</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr>
+                        <?php
+                        foreach ($_SESSION['my_cart'] as $cart) {
+                            $total_price = $cart[4] * $cart[5];
+
+                            $all_products_total = 0;
+                            $all_products_total += $total_price;
+
+                            echo '<tr>
+                                <td class="p-4">
+                                    <div class="media align-items-center d-flex">
+                                    <a href=""><img src="./Duan/image_product/' . $image . '" class="ui-w-40 ui-bordered me-4" alt="..."></a>
+                                        <div class="media-body">
+                                            <a href="#" class="d-block text-dark">' . $cart[2] . '</a>
+                                            <small>
+                                                <span class="text-muted">Hãng: ' . $cart[5] . '</span>
+                                                <span class="text-muted">Màu:</span>
+                                                <span class="ui-product-color ui-product-color-sm align-text-bottom"
+                                                    style="background:#e81e2c;"></span> &nbsp;
+                                            </small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right font-weight-semibold align-middle p-4"><del>' . $cart[3] . '</del></td>
+                                <td class="text-right font-weight-semibold align-middle p-4">' . $cart[4] . '</td>
+                                <td class="align-middle p-4"><input type="number" class="form-control text-center"
+                                        value="1">
+                                </td>
+                                <td class="text-right font-weight-semibold align-middle p-4">' . $total_price . '</td>
+                                <td class="text-center align-middle px-0"><a href="#"
+                                        class="shop-tooltip close float-none text-danger text-decoration-none" title
+                                        data-original-title="Remove" style="font-size: xx-large;">×</a></td>
+                            </tr>';
+                        }
+                        ?>
+                        <!-- <tr>
                             <td class="p-4">
                                 <div class="media align-items-center d-flex">
                                     <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp"
@@ -85,9 +118,10 @@
                             <td class="text-center align-middle px-0"><a href="#"
                                     class="shop-tooltip close float-none text-danger text-decoration-none" title
                                     data-original-title="Remove" style="font-size: xx-large;">×</a></td>
-                        </tr>
+                        </tr> -->
 
                     </tbody>
+
                 </table>
             </div>
 
@@ -103,7 +137,9 @@
                     </div>
                     <div class="text-right mt-4">
                         <label class="text-muted font-weight-normal m-0">Tổng Tiền</label>
-                        <div class="text-large"><strong>1.150.000đ</strong></div>
+                        <div class="text-large"><strong>
+                                <?= $all_products_total ?>
+                            </strong></div>
                     </div>
                 </div>
             </div>

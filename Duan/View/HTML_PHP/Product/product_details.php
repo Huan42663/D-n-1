@@ -121,14 +121,14 @@ if (isset($color_pro)) {
                 </div>
 
                 <div class="mt-3">
-                    <form action="" class="form-submit">
-                        <input type="hidden" class="pid" value="<?= $id_pro ?>">
-                        <input type="hidden" class="pimage" value="<?= $image ?>">
-                        <input type="hidden" class="pname" value="<?= $pro_name ?>">
-                        <input type="hidden" class="poldprice" value="<?= $price_format ?>">
-                        <input type="hidden" class="pprice" value="<?= $discount_format ?>">
-                        <input class="btn" type="submit" value="Mua Ngay">
-                        <input class="btn addItemBtn" type="submit" value="Thêm Vào Giỏ">
+                    <form action="index.php?act=cart" method="post" class="form-submit">
+                        <input type="hidden" name="id_pro" class="pid" value="<?= $id_pro ?>">
+                        <input type="hidden" name="image" class="pimage" value="<?= $image ?>">
+                        <input type="hidden" name="pro_name" class="pname" value="<?= $pro_name ?>">
+                        <input type="hidden" name="price_format" class="poldprice" value="<?= $price_format ?>">
+                        <input type="hidden" name="discount_format" class="pprice" value="<?= $discount_format ?>">
+                        <input class="btn" name="buy" type="submit" value="Mua Ngay">
+                        <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
                     </form>
                 </div>
             </div>
