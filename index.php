@@ -216,16 +216,31 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $id_pro = $_POST['id_pro'];
                 $image = $_POST['image'];
                 $pro_name = $_POST['pro_name'];
-                $price_format = $_POST['price_format'];
-                $discount_format = $_POST['discount_format'];
+                $price = $_POST['price'];
+                $discount = $_POST['discount'];
                 $brand_name = $_POST['brand_name'];
 
                 $quantity = 1;
-                $total_price = $quantity * $price_format;
-                $add_product = [$id_pro, $image, $pro_name, $price_format, $discount_format, $quantity, $brand_name];
+                $total_price = $quantity * $price;
+                $add_product = [$id_pro, $image, $pro_name, $price, $discount, $quantity, $brand_name];
                 array_push($_SESSION['my_cart'], $add_product);
                 include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             }
+            break;
+
+        case 'delete_cart':
+            if (isset($_GET['$id_cart'])) {
+                array_slice($_SESSION['my_cart'], $_GET['$id_cart'], 1);
+            } else {
+                $_SESSION['my_cart'] = [];
+            }
+            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            break;
+
+        case 'delete_all_cart':
+            $_SESSION['my_cart'] = [];
+
+            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
 
         case 'cart_lists':

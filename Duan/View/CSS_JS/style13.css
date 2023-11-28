@@ -14,6 +14,7 @@
 body {
     /* font-family: var(--sm-font); */
     background-color: whitesmoke;
+    min-height: 100vh;
 }
 
 /* button */
@@ -313,6 +314,8 @@ footer a:hover {
 
 footer {
     background-image: linear-gradient(to right, #0E2241, black);
+    top: 100%;
+    position: sticky;
 }
 
 /* media queries */

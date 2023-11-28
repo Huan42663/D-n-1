@@ -125,8 +125,9 @@ if (isset($color_pro)) {
                         <input type="hidden" name="id_pro" class="pid" value="<?= $id_pro ?>">
                         <input type="hidden" name="image" class="pimage" value="<?= $image ?>">
                         <input type="hidden" name="pro_name" class="pname" value="<?= $pro_name ?>">
-                        <input type="hidden" name="price_format" class="poldprice" value="<?= $price_format ?>">
-                        <input type="hidden" name="discount_format" class="pprice" value="<?= $discount_format ?>">
+                        <input type="hidden" name="price" class="poldprice" value="<?= $price ?>">
+                        <input type="hidden" name="discount" class="pprice" value="<?= $discount ?>">
+                        <input type="hidden" name="brand_name" class="brand_name" value="<?= $brand_name ?>">
                         <input class="btn" name="buy" type="submit" value="Mua Ngay">
                         <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
                     </form>
@@ -234,7 +235,7 @@ if (isset($color_pro)) {
                 </form>
                 <?php
             } else {
-                echo "đăng nhập để bình luận";
+                echo "Đăng nhập để bình luận";
             }
             ?>
         </div>
@@ -243,10 +244,10 @@ if (isset($color_pro)) {
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         $(".addItemBtn").click(function (e) {
             e.preventDefault();
@@ -260,14 +261,14 @@ if (isset($color_pro)) {
             $ajax({
                 url: 'action.php',
                 method: 'post',
-                data: {pid:pid,pname:pname,pimage:pimage,poldprice:poldprice,pprice:pprice},
-                success:function(response){
-                    
+                data: { pid: pid, pname: pname, pimage: pimage, poldprice: poldprice, pprice: pprice },
+                success: function (response) {
+
                 }
             });
         })
     });
-</script>
+</script> -->
 
 <!-- <script>
     document.querySelectorAll('.image-containter img').forEach(image => {
