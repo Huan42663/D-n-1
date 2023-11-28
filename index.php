@@ -6,12 +6,7 @@ include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
-<<<<<<< HEAD
 include "./Duan/PDO/account.php";
-=======
-+
-    include "./Duan/PDO/account.php";
->>>>>>> bc47d8ffc51e8135ab3e234de6e1391bf5e52218
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
