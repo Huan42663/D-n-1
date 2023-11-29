@@ -29,8 +29,7 @@ if (isset($color_pro)) {
 </div>
 
 <!-- -------------------------------------------------------------------------------------------------------- Ảnh Và Chi Tiết Sản Phẩm --------------------- -->
-<div class="container mb-3"
-    style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+<div class="container mb-3" style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
 
     <div class="row">
 
@@ -122,8 +121,16 @@ if (isset($color_pro)) {
                 </div>
 
                 <div class="mt-3">
-                    <input class="btn" type="submit" value="Mua Ngay">
-                    <input class="btn" type="submit" value="Thêm Vào Giỏ">
+                    <form action="index.php?act=cart" method="post" class="form-submit">
+                        <input type="hidden" name="id_pro" class="pid" value="<?= $id_pro ?>">
+                        <input type="hidden" name="image" class="pimage" value="<?= $image ?>">
+                        <input type="hidden" name="pro_name" class="pname" value="<?= $pro_name ?>">
+                        <input type="hidden" name="price" class="poldprice" value="<?= $price ?>">
+                        <input type="hidden" name="discount" class="pprice" value="<?= $discount ?>">
+                        <input type="hidden" name="brand_name" class="brand_name" value="<?= $brand_name ?>">
+                        <input class="btn" name="buy" type="submit" value="Mua Ngay">
+                        <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
+                    </form>
                 </div>
             </div>
         </div>
@@ -144,7 +151,8 @@ if (isset($color_pro)) {
             </span>
         </div>
 
-        <div class="col-md pb-3" style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+        <div class="col-md pb-3"
+            style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
             <h4 class="mt-2 mb-0"><strong>Sản Phẩm Cùng Loại</strong></h4>
             <div class="row">
                 <?php
@@ -196,38 +204,71 @@ if (isset($color_pro)) {
         <div class="col-md-12 me-3"
             style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
             <h4 class="mt-2"><strong>Bình Luận Về Sản Phẩm</strong></h4>
-                <table>
-                    <?php
-                        foreach ($comment as $key => $value) {
-                    ?>
-                        <tr>
-                            <td><img width=30px height=30px style="border-radius:100px;" src="./Duan/image_user/<?=$value['avatar']?>" alt=""></td>
-                            <td><?=$value['user_name']?></td>
-                            <td><?=$value['content']?></td>
-                            <td><?=$value['date']?></td>
-                        </tr>
-                    <?php
-                        }
-                    ?>
-                </table>
+            <table>
                 <?php
-                    if(isset($_SESSION['user_name_login'])){
+                foreach ($comment as $key => $value) {
+                    ?>
+                    <tr>
+                        <td><img width=30px height=30px style="border-radius:100px;"
+                                src="./Duan/image_user/<?= $value['avatar'] ?>" alt=""></td>
+                        <td>
+                            <?= $value['user_name'] ?>
+                        </td>
+                        <td>
+                            <?= $value['content'] ?>
+                        </td>
+                        <td>
+                            <?= $value['date'] ?>
+                        </td>
+                    </tr>
+                    <?php
+                }
                 ?>
-                    <form action="index.php?act=comment" method="POST">
-                        <input type="hidden" name="id_pro" value="<?=$id_pro?>">
-                        <input type="text" name="content" id="">
-                        <input type="submit" name="btn_comment" value="Gửi">
-                    </form>
+            </table>
+            <?php
+            if (isset($_SESSION['user_name_login'])) {
+                ?>
+                <form action="index.php?act=comment" method="POST">
+                    <input type="hidden" name="id_pro" value="<?= $id_pro ?>">
+                    <input type="text" name="content" id="">
+                    <input type="submit" name="btn_comment" value="Gửi">
+                </form>
                 <?php
-                    }else{
-                        echo "đăng nhập để bình luận";
-                    }
-                ?>
+            } else {
+                echo "Đăng nhập để bình luận";
+            }
+            ?>
         </div>
 
     </div>
 
 </div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script> -->
+
+<!-- <script type="text/javascript">
+    $(document).ready(function () {
+        $(".addItemBtn").click(function (e) {
+            e.preventDefault();
+            var $form = $(this).closest(".form-submit");
+            var pid = $form.find(".pid").val();
+            var pname = $form.find(".pname").val();
+            var pimage = $form.find(".pimage").val();
+            var poldprice = $form.find(".poldprice").val();
+            var pprice = $form.find(".pprice").val();
+
+            $ajax({
+                url: 'action.php',
+                method: 'post',
+                data: { pid: pid, pname: pname, pimage: pimage, poldprice: poldprice, pprice: pprice },
+                success: function (response) {
+
+                }
+            });
+        })
+    });
+</script> -->
 
 <!-- <script>
     document.querySelectorAll('.image-containter img').forEach(image => {

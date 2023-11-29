@@ -5,7 +5,6 @@ if(empty($_SESSION['user_name_login'])){
 }else if (extract($_SESSION['user_name_login']) && $role == 0){
     echo "<script>alert('bạn không đủ thẩm quyền');</script>";
 }else{
-
 include "../PDO/pdo.php";
 include "../PDO/category.php";
 include "../PDO/product.php";
