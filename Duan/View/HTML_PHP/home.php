@@ -1,5 +1,15 @@
 <title>BlueTech - Trang Chủ</title>
 
+<style>
+  .side_banner{
+    position: fixed;
+    width: 10%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+</style>
+<img class="side_banner" src="./Duan/View/Images/side_banner1.png" alt="">
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div id="carouselExampleIndicators" class="col-12 carousel slide" data-bs-ride="carousel">

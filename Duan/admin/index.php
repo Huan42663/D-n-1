@@ -338,7 +338,7 @@ if(isset($_GET['act'])){
                 $id = $_GET['id'];
                 $product = load_one_pro($id);
             }
-            $listbrand = load_all_brandl();
+            $listbrand = load_all_brand();
             $listcate = load_all_cate();
             include "product/update.php";
             break;
