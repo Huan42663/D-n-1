@@ -328,10 +328,12 @@ footer {
 /* Silder */
 .carousel {
     margin-top: 00px;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0px 0px 5px gray;
 }
 
 .carousel img {
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 /* Scroll To Top */
