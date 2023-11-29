@@ -231,8 +231,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'delete_cart':
             if (isset($_GET['$id_cart'])) {
                 array_slice($_SESSION['my_cart'], $_GET['$id_cart'], 1);
-            } else {
-                $_SESSION['my_cart'] = [];
             }
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
