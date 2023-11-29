@@ -21,31 +21,19 @@ function update_pro ($id,$name,$price,$discount,$img,$detail,$cate,$brand){
     }
 }
 function delete_pro($id_pro){
-    $check_color_pro = "SELECT * FROM COLOR_PRO WHERE ID_PRO = $id_pro";
-    $color_pro = pdo_query($check_color_pro);
-    $check_comment = "SELECT * FROM COMMENT WHERE ID_PRO =$id_pro";
-    $commnent = pdo_query($check_comment);
-    $check_cart = "SELECT * FROM OTHER_CART WHERE ID_PRO =$id_pro";
-    $cart = pdo_query($check_cart);
-    if(is_array($color_pro)){
-        $sql = "DELETE FROM COLOR_PRO WHERE ID_PRO = $id_pro";
-        pdo_execute($sql);
-        $delete = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
-        pdo_execute($delete);
-    }elseif(is_array($commnent)){
-        $sql = "DELETE FROM COMMENT WHERE ID_PRO = $id_pro";
-        pdo_execute($sql);
-        $delete = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
-        pdo_execute($delete);
-    }elseif(is_array($cart)){
-        $sql = "UPDATE OTHER_CART SET ID_PRO = 1 WHERE ID_PRO = $id_pro";
-        pdo_execute($sql);
-        $delete = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
-        pdo_execute($delete);
-    }else {
-        $delete = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
-        pdo_execute($delete);
-    }
+        $check_color_pro = "SELECT * FROM COLOR_PRO WHERE ID_PRO = $id_pro";
+        $color_pro = pdo_query($check_color_pro);
+        foreach ($color_pro as $clp) {
+            extract($clp);
+            $delete_other_cart = "DELETE OTHER_CART WHERE ID_CLP = $id_clp";
+            pdo_execute($delete_other_cart);
+        }
+        $delete_color_pro = "DELETE FROM COLOR_PRO WHERE ID_PRO = $id_pro";
+        pdo_execute($delete_color_pro);
+        $delet_comment = "DELETE FROM COMMENT WHERE ID_PRO = $id_pro";
+        pdo_execute($delet_comment);
+        $delete_pro = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
+        pdo_execute($delete_pro);
 }
 function load_all_pro (){
     $sql = "SELECT * FROM PRODUCT 
@@ -268,7 +256,8 @@ function load_color_for_pro($id_pro){
     return $list_color;
 }
 function load_pro_for_color($id_pro,$color){
-    $sql = "SELECT * FROM COLOR_PRO WHERE ID_COLOR = $color AND ID_PRO = $id_pro";
+    $sql = "SELECT * FROM COLOR_PRO 
+    WHERE ID_COLOR = $color AND ID_PRO = $id_pro";
     $color_pro = pdo_query_one($sql);
     return $color_pro;
 }

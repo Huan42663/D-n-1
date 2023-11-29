@@ -39,7 +39,13 @@ function load_all_account()                                                     
 }
 
 function delete_account($id_user)                                                       // Xóa tài khoản người dùng ở Admin
-{
+{   
+    $update_bill = "UPDATE bill SET ID_USER = 1 WHERE ID_USER = $id_user";
+    pdo_execute($update_bill);
+    $delete_comment = "DELETE FROM COMMNENT WHERE ID_USER = $id_user";
+    pdo_execute($delete_comment);
+    $delete_cart = "DELETE FROM CART WHERE ID_USER = $id_user";
+    pdo_execute($delete_cart);
     $sql = "DELETE FROM user WHERE id_user=" . $id_user;
     pdo_execute($sql);
 }

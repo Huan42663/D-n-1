@@ -10,6 +10,7 @@ include "../PDO/category.php";
 include "../PDO/product.php";
 include "../PDO/comment.php";
 include "../PDO/account.php";
+include "../PDO/cart.php";
 include "view/header.php";
 if(isset($_GET['act'])){
     $act = $_GET['act'];
@@ -338,7 +339,7 @@ if(isset($_GET['act'])){
                 $id = $_GET['id'];
                 $product = load_one_pro($id);
             }
-            $listbrand = load_all_brandl();
+            $listbrand = load_all_brand();
             $listcate = load_all_cate();
             include "product/update.php";
             break;

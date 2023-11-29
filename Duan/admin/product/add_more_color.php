@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="index.php?act=add_more_color" method="POST" enctype="multipart/form-data">
+                            <form class="form-valide" action="index.php?act=add_more_color&id=<?=$id?>" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id_pro" value="<?=$id?>" id="">
                                 <div class="row">
                                     <div class="col-xl-6">

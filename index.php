@@ -7,9 +7,10 @@ include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
 include "./Duan/PDO/account.php";
-
-if (!isset($_SESSION['my_cart']))
-    $_SESSION['my_cart'] = [];
+include "./Duan/PDO/cart.php";
+if(isset($_SESSION['user_name_login'])){
+    $_SESSION['count_cart'] = count_cart($_SESSION['user_name_login']['id_user']);
+}
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
@@ -26,7 +27,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                         $email_register = $_POST['email_register'];
                         $pass_register = $_POST['pass_register'];
                         insert_account($user_name_register, $email_register, $pass_register);
-
+                        
                         echo '<script>alert("Đăng Ký Thành Công!");</script>';
                         include "./Duan/View/HTML_PHP/Account/login_register.php";
                     }
@@ -40,6 +41,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
 
                         if (is_array($check_user)) {
                             $_SESSION['user_name_login'] = $check_user;
+                            $check_cart = check_cart($_SESSION['user_name_login']['id_user']);
+                            if(!is_array($check_cart)) {
+                                add_cart_account($_SESSION['user_name_login']['id_user']);
+                            }
                             echo '<script>alert("Đăng Nhập Thành Công!");</script>';
                             echo "<script>window.location.href='index.php';</script>";
                         } else {
@@ -207,42 +212,68 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'cart':
-            if (isset($_POST['buy']) && $_POST['buy']) {
-                include "./Duan/View/HTML_PHP/Cart/shipping_info.php";
-            }
-
-            if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
+            if(isset($_SESSION['user_name_login'])){
+                if(isset($_POST['id_clp'])){
+                    if (isset($_POST['buy']) && $_POST['buy']) {
+                        include "./Duan/View/HTML_PHP/Cart/shipping_info.php";
+                    }
+                    if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
+                        $id_clp = $_POST['id_clp'];
+                        $id_pro = $_POST['id_pro'];
+                        $quantity_add = $_POST['quantity'];
+                        $cart = check_cart($_SESSION['user_name_login']['id_user']);
+                        extract($cart);
+                        $check_other_cart = check_other_cart($id_cart,$id_clp);
+                        if(!is_array($check_other_cart)){
+                            add_to_cart($id_cart,$id_clp,$quantity_add);
+                            echo '<script>alert("Thêm vào giỏ hàng thành công");</script>';
+                        }else{
+                            extract($check_other_cart);
+                            if(($quantity_add + $quantity_cart) > $quantity){
+                                echo '<script>alert("Số lượng trong giỏ hàng quá lớn");</script>';
+                            }else{
+                                add_quantity_other_cart($id_cart,$id_clp,$quantity_add);
+                                echo '<script>alert("Thêm vào giỏ hàng thành công");</script>';
+                            }
+                        }
+                        echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
+                    }
+                }else{
+                    $id_pro = $_POST['id_pro'];
+                    echo '<script>alert("Vui lòng chọn màu !!");</script>';
+                    echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
+                }
+            }else{
                 $id_pro = $_POST['id_pro'];
-                $image = $_POST['image'];
-                $pro_name = $_POST['pro_name'];
-                $price = $_POST['price'];
-                $discount = $_POST['discount'];
-                $brand_name = $_POST['brand_name'];
-                $quantity = 1;
-                $total_price = $quantity * $price;
-                $add_product = [$id_pro, $image, $pro_name, $price, $discount, $quantity, $brand_name];
-                array_push($_SESSION['my_cart'], $add_product);
-                include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+                echo '<script>alert("Bạn cần đăng nhập để thêm vào giỏ hàng !");</script>';
+                echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
             }
             break;
-
         case 'delete_cart':
-            if (isset($_GET['id_cart'])) {
-                $_SESSION['my_cart'] = array_merge(
-                array_slice($_SESSION['my_cart'], $_GET['id_cart'], 1)
-                );
+            if(isset($_GET['id_cart'])){
+                $id_cart = $_GET['id_cart'];
+                $id_clp = $_GET['id_clp'];
+                delete_one_other_cart($id_cart,$id_clp);
             }
+            $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
 
-        case 'delete_all_cart':
-            $_SESSION['my_cart'] = [];
-
-            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+        // case 'delete_all_cart':
+        //     if(isset($_GET['id_cart'])) {
+        //         $id_cart = $_GET['id_cart'];
+        //         delete_all_cart($id_cart);
+        //     }
+        //     include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+        //     break;
+        case 'change_quantity':
+            if(isset($_GET['id_quantity'])) {
+                echo "<script>window.location.href='index.php?act=cart_lists;</script>";
+            }
             break;
         case 'cart_lists':
-            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
-
+                $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
+                include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
 
         case 'shipping_process':

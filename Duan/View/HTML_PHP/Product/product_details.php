@@ -79,14 +79,25 @@ if (isset($color_pro)) {
                         <?= $brand_name ?>
                     </span>
                     <span><strong>Bảo Hành: </strong>12 Tháng</span>
-                    <span><strong>Trạng Thái: </strong>Còn Hàng</span>
+                    <span><strong>Trạng Thái: </strong>
+                    <?php 
+                    if(isset($color_pro)){
+                        if($color_pro['quantity'] <= 0){
+                            echo 'Hết hàng';
+                        }else{
+                            echo 'Còn hàng';
+                        }
+                        
+                    }
+                    ?>
+                    </span>
                     <?php
-                    if (isset($color_pro)) {
-                        ?>
+                        if (isset($color_pro)) {
+                    ?>
                         <span><strong>Số Lượng: </strong>
                             <?= $color_pro['quantity'] ?>
                         </span>
-                        <?php
+                    <?php
                     }
                     ?>
                     <!-- <span><strong>Đã Bán: </strong>153</span> -->
@@ -109,42 +120,44 @@ if (isset($color_pro)) {
                 <div>
                     <!-- Màu cho ông Huân -->
                     <div>
+                        <span><strong>Màu Sắc: </strong>
+                        <br>
                         <?php
                         foreach ($list_color as $lc) {
                             extract($lc);
                             ?>
                             <a href="index.php?act=product_details&id=<?= $id_pro ?>&color=<?= $id_color ?>"><button
-                                    style="background-color:<?= $color_name ?>;">
-                                </button></a>
+                            style="width:30px;height:30px;border-radius:50%;background-color:<?= $color_name ?>;"></button></a>
                             <?php
                         }
                         ?>
                     </div>
                 </div>
                 <br>
-                <div>
-                    <?php
+                <form action="index.php?act=cart" method="post" class="form-submit">
+                <?php
                     if (isset($color_pro)) {
-                        ?>
-                        <input type="number" name="quantity" min=0 max=<?= $color_pro['quantity'] ?>>
-                        <?php
+                ?>
+                    <div>
+                            <input type="number" name="quantity" min=1 max=<?= $color_pro['quantity'] ?> value="1">
+                    </div>
+                <?php
                     }
-                    ?>
-                </div>
+                ?>
 
-                <div class="mt-3">
-                    <form action="index.php?act=cart" method="post" class="form-submit">
+                    <div class="mt-3">
+                        <?php
+                            if (isset($color_pro)) {
+                        ?>
+                            <input type="hidden" name="id_clp" class="pid" value="<?= $color_pro['id_clp'] ?>">
+                            <?php
+                        }
+                        ?>
                         <input type="hidden" name="id_pro" class="pid" value="<?= $id_pro ?>">
-                        <input type="hidden" name="image" class="pimage" value="<?= $image ?>">
-                        <input type="hidden" name="pro_name" class="pname" value="<?= $pro_name ?>">
-                        <input type="hidden" name="price" class="poldprice" value="<?= $price ?>">
-                        <input type="hidden" name="discount" class="pprice" value="<?= $discount ?>">
-                        <input type="hidden" name="brand_name" class="brand_name" value="<?= $brand_name ?>">
-                        <input type="hidden" name="id_cart" class="brand_name" value="<?= $id ?>">
-                        <input class="btn" name="buy" type="submit" value="Mua Ngay">
-                        <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
-                    </form>
-                </div>
+                        <input class="submit" name="buy" type="submit" value="Mua Ngay">
+                        <input class="submit" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
+                    </div>
+                </form>
             </div>
         </div>
 
