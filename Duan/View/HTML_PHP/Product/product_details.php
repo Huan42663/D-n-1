@@ -140,6 +140,7 @@ if (isset($color_pro)) {
                         <input type="hidden" name="price" class="poldprice" value="<?= $price ?>">
                         <input type="hidden" name="discount" class="pprice" value="<?= $discount ?>">
                         <input type="hidden" name="brand_name" class="brand_name" value="<?= $brand_name ?>">
+                        <input type="hidden" name="id_cart" class="brand_name" value="<?= $id ?>">
                         <input class="btn" name="buy" type="submit" value="Mua Ngay">
                         <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
                     </form>
