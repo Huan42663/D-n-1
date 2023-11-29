@@ -9,13 +9,14 @@ Content body start
         <div class="card">
           <div class="stat-widget-two card-body">
             <div class="stat-content">
-              <div class="stat-text">Today Expenses</div>
-              <div class="stat-digit"><i class="fa fa-usd"></i>8500</div>
+              <div class="stat-text">Đơn Hàng Mới</div>
+              <div class="stat-digit">5</div>
             </div>
-            <div class="progress">
+            <!-- Thanh Quá Trình -->
+            <!-- <div class="progress">
               <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85"
                 aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -23,13 +24,13 @@ Content body start
         <div class="card">
           <div class="stat-widget-two card-body">
             <div class="stat-content">
-              <div class="stat-text">Income Detail</div>
-              <div class="stat-digit"><i class="fa fa-usd"></i>7800</div>
+              <div class="stat-text">Đơn Hàng Đã Giao</div>
+              <div class="stat-digit">3</div>
             </div>
-            <div class="progress">
+            <!-- <div class="progress">
               <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78"
                 aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -37,13 +38,13 @@ Content body start
         <div class="card">
           <div class="stat-widget-two card-body">
             <div class="stat-content">
-              <div class="stat-text">Task Completed</div>
-              <div class="stat-digit"><i class="fa fa-usd"></i> 500</div>
+              <div class="stat-text">Đơn Hàng Đã Bị Hủy</div>
+              <div class="stat-digit">1</div>
             </div>
-            <div class="progress">
+            <!-- <div class="progress">
               <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50"
                 aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -51,13 +52,13 @@ Content body start
         <div class="card">
           <div class="stat-widget-two card-body">
             <div class="stat-content">
-              <div class="stat-text">Task Completed</div>
-              <div class="stat-digit"><i class="fa fa-usd"></i>650</div>
+              <div class="stat-text">Tổng Doanh Thu</div>
+              <div class="stat-digit">6.500.000đ</div>
             </div>
-            <div class="progress">
+            <!-- <div class="progress">
               <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0"
                 aria-valuemax="100"></div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- /# card -->
@@ -102,21 +103,21 @@ Content body start
       </div>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-12 p-0">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">New Orders</h4>
+          <h4 class="card-title">Đơn Hàng Mới Nhất</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table mb-0">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Product</th>
-                  <th>quantity</th>
-                  <th>Status</th>
+                  <th>Ảnh</th>
+                  <th>Tên</th>
+                  <th>Sản Phẩm</th>
+                  <th>Số Lượng</th>
+                  <th>Trạng Thái</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,7 +130,7 @@ Content body start
                   <td>Lew Shawon</td>
                   <td><span>Dell-985</span></td>
                   <td><span>456 pcs</span></td>
-                  <td><span class="badge badge-success">Done</span></td>
+                  <td><span class="badge badge-success">Đã Xong</span></td>
                 </tr>
                 <tr>
                   <td>
@@ -141,7 +142,7 @@ Content body start
                   <td><span>Asus-565</span></td>
                   <td><span>456 pcs</span></td>
                   <td>
-                    <span class="badge badge-warning">Pending</span>
+                    <span class="badge badge-warning">Đang Chờ</span>
                   </td>
                 </tr>
                 <tr>
