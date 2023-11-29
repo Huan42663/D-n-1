@@ -32,13 +32,17 @@ if(isset($_GET['act'])){
             break;
         case 'add_cate':
             if(isset($_POST['them']) && $_POST['them']){
-              if($_POST['name']==""){
+                $check = check_cate($_POST['name']);
+                if($_POST['name']==""){
                 echo "<script>alert('Không để trống');</script>";
                 }
-              elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['name'])){
                 echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
                 }
-              else{
+                elseif(is_array($check)){
+                    echo "<script>alert('danh mục đã tồn tại');</script>";
+                }
+                else{
                 $cate_name = $_POST['name'];
                 add_cate($cate_name);
                 }
@@ -54,11 +58,15 @@ if(isset($_GET['act'])){
             break;
         case 'updated_cate':
             if(isset($_POST['sua'])){
+                $check = check_cate($_POST['cate_name']);
                 if($_POST['cate_name']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['cate_name'])){
                     echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
+                }
+                elseif(is_array($check)){
+                    echo "<script>alert('danh mục đã tồn tại');</script>";
                 }
                 else{
                     $id_cate=$_POST['id_cate'];
@@ -107,11 +115,15 @@ if(isset($_GET['act'])){
             break;
         case 'add_color':
             if(isset($_POST['them']) && $_POST['them']){
+                $check = check_color($_POST['color_name']);
                 if($_POST['color_name']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['color_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
+                }
+                elseif (is_array($check)) {
+                    echo "<script>alert('màu đã tồn tại');</script>";
                 }
                 else{
                     $color_name = $_POST['color_name'];
@@ -130,11 +142,15 @@ if(isset($_GET['act'])){
             break;
         case 'updated_color':
             if(isset($_POST['sua'])){
+                $check = check_color($_POST['color_name']);
                 if($_POST['color_name']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['color_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
+                }
+                elseif (is_array($check)) {
+                    echo "<script>alert('màu đã tồn tại');</script>";
                 }
                 else{
                     $id_color=$_POST['id_color'];
@@ -183,12 +199,16 @@ if(isset($_GET['act'])){
                 break;
             case 'add_brand':
                 if(isset($_POST['them']) && $_POST['them']){
+                    $check = check_brand($_POST['brand_name']);
                     if($_POST['brand_name']=="")
                     {
                         echo "<script>alert('Không để trống');</script>";
                     }
                     elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['brand_name'])){
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
+                    }
+                    elseif (is_array($check)) {
+                        echo "<script>alert('hãng đã tồn tại');</script>";
                     }
                     else {
                         $brand_name = $_POST['brand_name'];
@@ -207,13 +227,18 @@ if(isset($_GET['act'])){
                 break;
             case 'updated_brand':
                 if(isset($_POST['sua'])){
+                    $check = check_brand($_POST['brand_name']);
                     if($_POST['brand_name']=="")
                     {
                         echo "<script>alert('Không để trống');</script>";
                     }
                     elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['brand_name'])){
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
-                    }else {
+                    }
+                    elseif (is_array($check)) {
+                        echo "<script>alert('hãng đã tồn tại');</script>";
+                    }
+                    else {
                         $id_brand=$_POST['id_brand'];
                         $brand_name = $_POST['brand_name'];
                         update_brand($id_brand,$brand_name);
@@ -260,6 +285,9 @@ if(isset($_GET['act'])){
         break;
         case 'add_pro':
             if(isset($_POST['them']) && $_POST['them']){
+                $check  = check_pro($_POST['pro_name']);
+                $check_file = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+                $image_extensions = array('jpg', 'png', 'jpeg', 'bmp', 'tiff', 'webp', 'svg');
                 if($_POST['pro_name']==""){
                     echo "<script>alert('Không để trống tên sản phẩm');</script>";
                 }
@@ -269,12 +297,18 @@ if(isset($_GET['act'])){
                 elseif($_POST['quantity']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pro_name'])){
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['pro_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
-               }
-               elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
+                }
+                elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
                     echo "<script>alert('Không để đặc biệt');</script>";
-               }
+                }
+                elseif (is_array($check)) {
+                    echo "<script>alert('sản phẩm đã tồn tại');</script>";
+                }
+                elseif(!in_array($check_file,$image_extensions)){
+                    echo "<script>alert('định dạng ảnh sai');</script>";
+                }
             //    elseif(ctype_digit($_POST['price'])){
             //         echo "<script>alert('Không để trống');</script>";
             //     }
@@ -290,7 +324,7 @@ if(isset($_GET['act'])){
                     $img = $_FILES['img']['name'];
                     $tmp_name = $_FILES['img']['tmp_name'];
                     move_uploaded_file($tmp_name,'../image_product/' . $img);
-                    $add_at = date("Y-m-d");
+                    $add_at = date("d-m-Y");
                     add_product ($name,$price,$discount,$img,$detail,$color,$brand,$cate,$add_at,$quantity);
                 }  
             }
@@ -310,6 +344,7 @@ if(isset($_GET['act'])){
             break;
         case 'updated_pro':
             if(isset($_POST['sua']) && $_POST['sua']){
+                $check  = check_pro($_POST['pro_name']);
                 if($_POST['pro_name']==""){
                     echo "<script>alert('Không để trống tên sản phẩm');</script>";
                 }
@@ -321,6 +356,9 @@ if(isset($_GET['act'])){
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
                         echo "<script>alert('Không để đặc biệt');</script>";
+                }
+                elseif (is_array($check)) {
+                    echo "<script>alert('sản phẩm đã tồn tại');</script>";
                 }
                 else{
                     $id=$_POST['id_pro'];

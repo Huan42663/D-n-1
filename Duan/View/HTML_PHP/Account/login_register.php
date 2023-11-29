@@ -2,7 +2,6 @@
 
 <title>BlueTech - Tài khoản</title>
 </head>
-
 <body>
     <?php
     
@@ -32,7 +31,8 @@
         $pass_register = $_POST['pass_register'];
         $passRepeat_register = $_POST['passRepeat_register'];
         $errorCount = 0;
-
+        $check_exist_user_name = check_exists_user_name($user_name_register);
+        $check_exist_email = check_exists_email($email_register);
         if (preg_match('/\s/', $user_name_register)) {
             $loi['user_name_register'] = "Tên Không Được Chứa Khoảng Trắng";
             $errorCount++;
@@ -41,11 +41,18 @@
             $loi['user_name_register'] = "Tên Không Được Bỏ Trống";
             $errorCount++;
         }
+        elseif (is_array($check_exist_user_name)) {
+            $loi['user_name_register'] = "Tên tài khoản đã tồn tại";
+            $errorCount++;
+        }
         if (strlen($email_register) == 0) {
             $loi['email_register'] = "Email Không Được Bỏ Trống";
             $errorCount++;
         } elseif (!filter_var($email_register, FILTER_VALIDATE_EMAIL)) {
             $loi['email_register'] = "Định dạng Email không hợp lệ";
+            $errorCount++;
+        }   elseif(is_array($check_exist_email)) {
+            $loi['email_register'] = "tài khoản email đã được sử dụng";
             $errorCount++;
         }
         if (strlen($pass_register) < 6) {
@@ -56,7 +63,7 @@
             $loi['passRepeat_register'] = "Nhập Lại Password Không Trùng Nhau";
             $errorCount++;
         }
-
+        
     }
 
 
