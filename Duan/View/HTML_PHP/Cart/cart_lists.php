@@ -32,12 +32,20 @@
 
     .delete_all_class {
         text-decoration: none;
-        color: black;
-        transition: 0.3s ease;
+        color: red;
     }
 
     .delete_all_class:hover {
+        text-decoration: underline;
         color: red;
+    }
+
+    .pro_name {
+        text-decoration: none;
+    }
+
+    .pro_name:hover {
+        text-decoration: underline;
     }
 </style>
 
@@ -86,9 +94,10 @@
                             echo '<tr>
                                 <td class="p-4">
                                     <div class="media align-items-center d-flex">
-                                    <a href=""><img src="./Duan/image_product/' . $cart[1] . '" class="ui-w-40 ui-bordered me-4" alt="..."></a>
+                                    <a href="index.php?act=product_details&id=' . $cart[0] . '"><img src="./Duan/image_product/' . $cart[1] . '" 
+                                    class="ui-w-40 ui-bordered me-4" alt="..."></a>
                                         <div class="media-body">
-                                            <a href="#" class="d-block text-dark">' . $cart[2] . '</a>
+                                            <a href="index.php?act=product_details&id=' . $cart[0] . '" class="pro_name d-block text-dark">' . $cart[2] . '</a>
                                             <small>
                                                 <span class="text-muted">Hãng: ' . $cart[5] . '</span>
                                                 <span class="text-muted">Màu:</span>
