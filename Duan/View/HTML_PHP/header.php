@@ -17,7 +17,7 @@
   <!-- -------------------------------------------------------------------------------------------------------------------------- Tên Thương Hiệu ------------ -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
     <div class="container d-flex flex-wrap justify-content-between">
-      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php">
+      <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php#">
         <span class="text-uppercase">BlueTech</span>
       </a>
 
@@ -88,10 +88,7 @@
       <div class="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark" href="index.php?act=product_lists">danh mục</a>
-          </li>
-          <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark" href="index.php#products">sản phẩm</a>
+            <a class="nav-link text-uppercase text-dark" href="index.php?act=product_lists">danh mục sản phẩm</a>
           </li>
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark" href="index.php#about">giới thiệu</a>
