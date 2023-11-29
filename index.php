@@ -6,12 +6,7 @@ include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
-<<<<<<< HEAD
 include "./Duan/PDO/account.php";
-=======
-+
-    include "./Duan/PDO/account.php";
->>>>>>> bc47d8ffc51e8135ab3e234de6e1391bf5e52218
 
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
@@ -22,7 +17,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 include "./Duan/View/HTML_PHP/Account/account_details.php";
             } else {
                 include "./Duan/View/HTML_PHP/Account/login_register.php";                                            // Vào Trang Đăng Ký - Đăng Nhập
-
                 if (isset($_POST['register']) && ($_POST['register'])) {                                              // Đăng Ký
                     if ($errorCount == 0) {
                         $user_name_register = $_POST['user_name_register'];
@@ -46,7 +40,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                             echo '<script>alert("Đăng Nhập Thành Công!");</script>';
                             echo "<script>window.location.href='index.php';</script>";
                         } else {
-                            echo '<script>alert("Tài Khoản Không Tồn Tại!");</script>';
+                            echo '<script>alert("Sai tài khoản hoặc mật khẩu !!");</script>';
                         }
                     }
                 }

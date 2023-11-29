@@ -64,4 +64,14 @@ function load_one_account($id_user){
     $acc = pdo_query_one($sql);
     return $acc;
 }
+function check_exists_user_name($user_name){
+    $sql = "SELECT * FROM USER WHERE USER_NAME = '$user_name'";
+    $acc = pdo_query_one($sql);
+    return $acc;
+}
+function check_exists_email($email){
+    $sql = "SELECT * FROM USER WHERE EMAIL = '$email'";
+    $acc = pdo_query_one($sql);
+    return $acc;
+}
 ?>

@@ -56,6 +56,11 @@ function get_name_cate($id_pro){
     extract ($cate);
     return $cate_name;
 }
+function check_cate ($cate_name){
+    $sql = "SELECT * FROM CATEGORY WHERE CATE_NAME = '$cate_name'";
+    $cate = pdo_query_one($sql);
+    return $cate;
+}
 ?>
 
 <!-- color -->
@@ -110,6 +115,11 @@ function load_limit_5_color ($start,$limit){
     $sql = "SELECT * FROM COLOR 
     WHERE ID_COLOR != 1 ORDER BY ID_COLOR DESC LIMIT $start,$limit "; 
     $color = pdo_query($sql);
+    return $color;
+}
+function check_color($color_name){
+    $sql = "SELECT * FROM COLOR WHERE COLOR_NAME = '$color_name'";
+    $color = pdo_query_one($sql);
     return $color;
 }
 ?>
@@ -175,5 +185,10 @@ function get_name_brand($id_pro){
     $brand = pdo_query_one($sql);
     extract ($brand);
     return $brand_name;
+}
+function check_brand($brand_name){
+    $sql = "SELECT * FROM BRAND WHERE BRAND_NAME = '$brand_name'";
+    $brand = pdo_query_one($sql);
+    return $brand;
 }
 ?>

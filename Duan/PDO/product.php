@@ -174,6 +174,11 @@ function other_pro ($id){
     $other_pro = pdo_query($sql);
     return $other_pro;
 }
+function check_pro($pro_name){
+    $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME = '$pro_name'";
+    $pro = pdo_query_one($sql);
+    return $pro;
+}
 ?>
 
 <!-- color_pro -->
@@ -232,4 +237,5 @@ function load_pro_for_color($id_pro,$color){
     $color_pro = pdo_query_one($sql);
     return $color_pro;
 }
+
 ?>
