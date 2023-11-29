@@ -80,7 +80,7 @@
                         <?php
                         $all_products_total = 0;
                         $voucher = 0;
-                        $i = 0;
+                        $i = 1;
 
                         foreach ($_SESSION['my_cart'] as $cart) {
                             $total_price = $cart[4] * $cart[5];

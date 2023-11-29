@@ -229,8 +229,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'delete_cart':
-            if (isset($_GET['$id_cart'])) {
-                array_slice($_SESSION['my_cart'], $_GET['$id_cart'], 1);
+            if (isset($_GET['id_cart'])) {
+                $_SESSION['my_cart'] = array_merge(
+                array_slice($_SESSION['my_cart'], $_GET['id_cart'], 1)
+                );
             }
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
@@ -240,7 +242,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
 
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
-
         case 'cart_lists':
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
 
