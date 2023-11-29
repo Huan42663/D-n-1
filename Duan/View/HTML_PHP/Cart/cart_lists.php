@@ -80,7 +80,7 @@
                         <?php
                         $all_products_total = 0;
                         $voucher = 0;
-                        $i = 0;
+                        $i = 1;
 
                         foreach ($_SESSION['my_cart'] as $cart) {
                             $total_price = $cart[4] * $cart[5];
@@ -94,7 +94,7 @@
                             echo '<tr>
                                 <td class="p-4">
                                     <div class="media align-items-center d-flex">
-                                    <a href="index.php?act=product_details&id=' . $cart[0] . '"><img src="./Duan/image_product/' . $cart[1] . '" 
+                                    <a href="index.php?act=product_details&id=' . $cart[0] . '"><img src="Duan/image_product/' . $cart[1] . '" 
                                     class="ui-w-40 ui-bordered me-4" alt="..."></a>
                                         <div class="media-body">
                                             <a href="index.php?act=product_details&id=' . $cart[0] . '" class="pro_name d-block text-dark">' . $cart[2] . '</a>

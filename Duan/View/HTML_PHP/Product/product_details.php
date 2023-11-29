@@ -3,6 +3,7 @@
 extract($product);
 $price_format = number_format($price, 0, '.', '.');
 $discount_format = number_format($discount, 0, '.', '.');
+$sale = 100 - ($discount/($price/100));
 if (isset($color_pro)) {
     $image = $color_pro['image'];
 } else {
@@ -52,13 +53,25 @@ if (isset($color_pro)) {
                     <?= $pro_name ?>
                 </div>
                 <div class="all-price-details d-flex flex-wrap">
+                    <?php
+                        if($discount != 0){
+                    ?>
                     <del>
                         <?= $price_format ?>đ
                     </del>
                     <span class="new-price-details">
                         <?= $discount_format ?>đ
                     </span>
-                    <span class="product-percent-details">-30%</span>
+                    <span class="product-percent-details">-<?=$sale?>%</span>
+                    <?php
+                        }else{
+                    ?>
+                    <span class="new-price-details">
+                        <?= $price_format ?>đ
+                    </span>
+                    <?php
+                        }
+                    ?>
                 </div>
 
                 <div class="all-product-details">
@@ -101,8 +114,7 @@ if (isset($color_pro)) {
                             extract($lc);
                             ?>
                             <a href="index.php?act=product_details&id=<?= $id_pro ?>&color=<?= $id_color ?>"><button
-                                    style="background-color:<?= $color_name ?>;color:red;">
-                                    <?= $color_name ?>
+                                    style="background-color:<?= $color_name ?>;">
                                 </button></a>
                             <?php
                         }
@@ -157,14 +169,22 @@ if (isset($color_pro)) {
             <div class="row">
                 <?php
                 foreach ($other_pro as $key => $value) {
+                    $price_other_format = number_format($value['price'], 0, '.', '.');
+                    $discount_other_format = number_format($value['discount'], 0, '.', '.');
+                    $sale_other = 100 - ($value['discount']/($value['price']/100));
                     ?>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-6 mt-4">
                         <div class="card" style="width: 100%;">
                             <div class="collection-img position-relative">
                                 <a href="index.php?act=product_details&id=<?= $value['id_pro'] ?>"><img
                                         src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
-                                <span
-                                    class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+                                <?php
+                                    if($value['discount'] > 0){
+                                ?>
+                                <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_other?>%</span>
+                                <?php
+                                    }
+                                ?>
                             </div>
                             <div class="card-body">
                                 <div class="product-title">
@@ -173,10 +193,20 @@ if (isset($color_pro)) {
                                     </a>
                                 </div>
                                 <div>
-                                    <del class="old-price">
-                                        <?= $value['price'] ?>đ
-                                    </del>
-                                    <span class="new-price">6.990.000đ</span>
+                                    <?php
+                                        if($value['discount'] > 0){
+                                    ?>
+                                        <del class="old-price">
+                                            <?= $price_other_format ?>đ
+                                        </del>
+                                        <span class="new-price"><?=$discount_other_format?>đ</span>
+                                    <?php
+                                        }else{
+                                    ?>
+                                        <span class="new-price"><?=$price_other_format?>đ</span>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                                 <div>
                                     <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>

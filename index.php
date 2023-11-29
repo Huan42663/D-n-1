@@ -218,7 +218,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $price = $_POST['price'];
                 $discount = $_POST['discount'];
                 $brand_name = $_POST['brand_name'];
-
                 $quantity = 1;
                 $total_price = $quantity * $price;
                 $add_product = [$id_pro, $image, $pro_name, $price, $discount, $quantity, $brand_name];
@@ -228,8 +227,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'delete_cart':
-            if (isset($_GET['$id_cart'])) {
-                array_slice($_SESSION['my_cart'], $_GET['$id_cart'], 1);
+            if (isset($_GET['id_cart'])) {
+                array_slice($_SESSION['my_cart'], $_GET['id_cart'], 1);
             }
             include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
@@ -296,8 +295,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     } else {
         $start = 0;
     }
-    $count_page_sale = count_pro($limit, "", 0);
-    $product_sale = load_limit_pro($start, $limit, "", 0);
+    $count_page_sale = count_pro_sale($limit, "", 0);
+    $product_sale = load_limit_pro_sale($start, $limit, "", 0);
     if (isset($_GET['page-mouse'])) {
         $number = $_GET['page-mouse'];
         $start = ($number - 1) * $limit;

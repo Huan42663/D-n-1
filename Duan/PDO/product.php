@@ -92,6 +92,41 @@ function load_limit_pro ($start,$limit,$kyw,$id_cate){
     $pro = pdo_query($sql);
     return $pro;
 }
+function count_pro_sale($pro_per_page,$kyw,$id_cate){
+    $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != 1 AND DISCOUNT > 0";
+    if($kyw != ""){
+        $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
+    }
+    if($id_cate > 0){
+        $sql .= " AND ID_CATE = $id_cate";
+    }
+    $pro = pdo_query($sql);
+    $i=0;
+    foreach ($pro as $key => $value) {
+        $i++;
+    }
+    $number =ceil($i / $pro_per_page);
+    return $number;
+}
+function load_limit_pro_sale ($start,$limit,$kyw,$id_cate){
+    $sql = "SELECT * FROM PRODUCT 
+    JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
+    JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
+    -- JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
+    WHERE 1";
+    if($kyw != ""){
+        $sql .=" AND PRO_NAME LIKE '%$kyw%' ";
+    }
+    if($id_cate > 0){
+        $sql .= " AND ID_CATE = $id_cate";
+    }
+    // if($cate_name != ""){
+    //     $sql .=" AND CATE_NAME LIKE '%$cate_name%' ";
+    // }
+    $sql .=" AND PRODUCT.ID_PRO != 1 AND DISCOUNT > 0 ORDER BY PRODUCT.ID_PRO DESC LIMIT $start,$limit "; 
+    $pro = pdo_query($sql);
+    return $pro;
+}
 function load_top_5_pro (){
     $sql = "SELECT * FROM PRODUCT 
     JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE
@@ -170,7 +205,7 @@ function other_pro ($id){
     }else{
         $start = 0;
     }
-    $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != $id AND ID_CATE = $id_cate LIMIT $start,4";
+    $sql = "SELECT * FROM PRODUCT WHERE ID_PRO != $id AND ID_PRO != 1 AND ID_CATE = $id_cate LIMIT $start,4";
     $other_pro = pdo_query($sql);
     return $other_pro;
 }

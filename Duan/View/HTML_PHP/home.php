@@ -43,7 +43,7 @@
       wrap: true // Cho phép chuyển đến ảnh đầu tiên sau khi đến ảnh cuối cùng
     });
   });
-</script>
+</script> 
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- SIÊU KHUYẾN MÃI ------------ -->
 <div id="sale" class="container pb-3 my-5"
@@ -57,14 +57,20 @@
     foreach ($product_sale as $key => $value) {
       $price_sale = number_format($value['price'], 0,'.','.');
       $discount_sale = number_format($value['discount'], 0,'.','.');
+      $sale_sale = 100 - ($value['discount']/($value['price']/100));
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card border-0" style="width: 100%;">
         <div class="collection-img position-relative">
           <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>"
               class="card-img-top" alt="..."></a>
-          <span
-            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+              <?php
+                  if($value['discount'] > 0){
+              ?>
+              <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_sale?>%</span>
+              <?php
+                  }
+              ?>
         </div>
         <div class="card-body">
           <div class="product-title">
@@ -131,13 +137,19 @@
       foreach ($product_mouse as $key => $value) {
         $price_mouse = number_format($value['price'], 0,'.','.');
         $discount_mouse = number_format($value['discount'], 0,'.','.');
+        $sale_mouse = 100 - ($value['discount']/($value['price']/100));
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
           <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
-          <span
-            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+          <?php
+              if($value['discount'] > 0){
+          ?>
+          <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_mouse?>%</span>
+          <?php
+              }
+          ?>
         </div>
         <div class="card-body">
           <div class="product-title">
@@ -203,13 +215,19 @@
       foreach ($product_key_board as $key => $value) {
         $price_key_board = number_format($value['price'], 0,'.','.');
         $discount_key_board = number_format($value['discount'], 0,'.','.');
+        $sale_key_board = 100 - ($value['discount']/($value['price']/100));
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
           <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
-          <span
-            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+          <?php
+              if($value['discount'] > 0){
+          ?>
+          <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_key_board?>%</span>
+          <?php
+              }
+          ?>
         </div>
         <div class="card-body">
           <div class="product-title">
@@ -275,13 +293,19 @@
       foreach ($product_head_phone as $key => $value) {
         $price_head_phone = number_format($value['price'],0,'.','.');
         $discount_head_phone = number_format($value['discount'],0,'.','.');
+        $sale_head_phone = 100 - ($value['discount']/($value['price']/100));
     ?>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
       <div class="card" style="width: 100%;">
         <div class="collection-img position-relative">
           <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?=$value['img']?>" class="card-img-top" alt="..."></a>
-          <span
-            class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-30%</span>
+          <?php
+              if($value['discount'] > 0){
+          ?>
+          <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_head_phone?>%</span>
+          <?php
+              }
+          ?>
         </div>
         <div class="card-body">
           <div class="product-title">
@@ -399,7 +423,7 @@
 </section>
 
 <!-- -------------------------------------------------------------------------------------------------------- Sản Phẩm Yêu Thích Của Người Dùng ------------ -->
-<div class="container pb-3 my-5"
+<!-- <div class="container pb-3 my-5"
   style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
   <div class="row p-0">
     <div class="d-flex justify-content-center">
@@ -442,7 +466,7 @@
       </li>
     </ul>
   </nav>
-</div>
+</div> -->
 
 <!-- <section id="special" class="mb-5">
   <div class="container">
