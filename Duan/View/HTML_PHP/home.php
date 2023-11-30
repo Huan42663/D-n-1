@@ -219,7 +219,7 @@
             </div>
             <div>
               <span class="rate">5.0 </span><i class="star-rate fa-solid fa-star"></i>
-              <span class="rate-quantity">(31 đánh giá)</span>
+              <span class="rate-quantity">(30 đánh giá)</span>
             </div>
           </div>
         </div>
