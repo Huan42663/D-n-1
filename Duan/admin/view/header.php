@@ -17,20 +17,6 @@
 </head>
 
 <body>
-  <!--*******************
-        Preloader start
-    ********************-->
-  <div id="preloader">
-    <div class="sk-three-bounce">
-      <div class="sk-child sk-bounce1"></div>
-      <div class="sk-child sk-bounce2"></div>
-      <div class="sk-child sk-bounce3"></div>
-    </div>
-  </div>
-  <!--*******************
-        Preloader end
-    ********************-->
-
   <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -38,10 +24,10 @@
     <!--**********************************
             Nav header start
         ***********************************-->
-      <div class="nav-header">
-        <a href="index.php?act=shop" class="brand-logo">
-          BLUETECH
-        </a>
+    <div class="nav-header">
+      <a href="index.php?act=shop" class="brand-logo">
+        BLUETECH
+      </a>
 
       <div class="nav-control">
         <div class="hamburger">
@@ -62,13 +48,13 @@
           <div class="collapse navbar-collapse justify-content-between">
             <div class="header-left">
               <div class="search_bar dropdown">
-                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                <!-- <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
                   <i class="mdi mdi-magnify"></i>
-                </span>
+                </span> -->
                 <div class="dropdown-menu p-0 m-0">
-                  <form>
+                  <!-- <form>
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-                  </form>
+                  </form> -->
                 </div>
               </div>
             </div>
@@ -194,22 +180,22 @@
 
 
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                    class="icon icon-chart-bar-33"></i><span class="nav-text">Biểu Đồ Thống Kê</span></a>
-                <ul aria-expanded="false">
+                <a class="" href="index.php?act=chart" aria-expanded="false"><i class="icon icon-chart-bar-33"></i><span
+                    class="nav-text">Biểu Đồ Thống Kê</span></a>
+                <!-- <ul aria-expanded="false">
                   <li><a href="./chart-flot.html">Flot</a></li>
                   <li><a href="./chart-morris.html">Morris</a></li>
                   <li><a href="./chart-chartjs.html">Chartjs</a></li>
                   <li><a href="./chart-chartist.html">Chartist</a></li>
                   <li><a href="./chart-sparkline.html">Sparkline</a></li>
                   <li><a href="./chart-peity.html">Peity</a></li>
-                </ul>
+                </ul> -->
               </li>
               <li class="nav-label">Quản Lý Cửa Hàng</li>
 
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-microchip"></i><span
-                    class="nav-text">Danh Mục</span></a>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                    class="fa-solid fa-microchip"></i><span class="nav-text">Danh Mục</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_cate">Danh Sách Danh Mục</a></li>
                   <li><a href="index.php?act=add_cate">Thêm Danh Mục</a></li>
@@ -221,8 +207,8 @@
               </li>
 
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-headphones-simple"></i><span
-                    class="nav-text">Sản Phẩm</span></a>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                    class="fa-solid fa-headphones-simple"></i><span class="nav-text">Sản Phẩm</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_pro">Danh Sách Sản Phẩm</a></li>
                   <li><a href="index.php?act=add_pro">Thêm Sản Phẩm</a></li>
@@ -237,8 +223,8 @@
                 </ul>
               </li>
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-truck-fast"></i><span
-                    class="nav-text">Đơn Hàng</span></a>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                    class="fa-solid fa-truck-fast"></i><span class="nav-text">Đơn Hàng</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=order_lists_admin">Đơn Hàng Chờ Xác Nhận</a></li>
                   <li><a href="index.php?act=order_ongoing_admin">Đơn Hàng Đang Giao</a></li>
@@ -259,7 +245,7 @@
 
               <li>
                 <a class="" href="index.php?act=list_comment" aria-expanded="false">
-                <i class="fa-solid fa-comments"></i>
+                  <i class="fa-solid fa-comments"></i>
                   <span class="nav-text">Bình Luận</span>
                 </a>
               </li>
@@ -270,18 +256,18 @@
 
           <li class="nav-label">Shipper</li>
           <li>
-            <a class="" href="index.php?act=order_lists_shipper" aria-expanded="false"><i class="fa-regular fa-clipboard"></i><span
-                class="nav-text">Danh Sách Đơn Hàng</span></a>
+            <a class="" href="index.php?act=order_lists_shipper" aria-expanded="false"><i
+                class="fa-regular fa-clipboard"></i><span class="nav-text">Danh Sách Đơn Hàng</span></a>
           </li>
 
           <li>
-            <a class="" href="index.php?act=order_ongoing_shipper" aria-expanded="false"><i class="fa-solid fa-truck"></i><span
-                class="nav-text">Đơn Hàng Đã Nhận</span></a>
+            <a class="" href="index.php?act=order_ongoing_shipper" aria-expanded="false"><i
+                class="fa-solid fa-truck"></i><span class="nav-text">Đơn Hàng Đã Nhận</span></a>
           </li>
 
           <li>
-            <a class="" href="index.php?act=order_finished_shipper" aria-expanded="false"><i class="fa-solid fa-circle-check"></i><span
-                class="nav-text">Đơn Hàng Đã Giao</span></a>
+            <a class="" href="index.php?act=order_finished_shipper" aria-expanded="false"><i
+                class="fa-solid fa-circle-check"></i><span class="nav-text">Đơn Hàng Đã Giao</span></a>
           </li>
 
       </div>

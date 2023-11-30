@@ -1,9 +1,33 @@
+<style>
+    .side_banner1 {
+        position: fixed;
+        width: 10%;
+        margin-top: 16px;
+        left: 40px;
+        border-radius: 5px;
+        z-index: -1;
+        box-shadow: 0px 0px 5px gray;
+    }
+
+    .side_banner2 {
+        position: fixed;
+        width: 10%;
+        margin-top: 16px;
+        right: 40px;
+        border-radius: 5px;
+        z-index: -1;
+        box-shadow: 0px 0px 5px gray;
+    }
+</style>
+<img class="side_banner1" src="./Duan/View/Images/side_banner1.png" alt="">
+<img class="side_banner2" src="./Duan/View/Images/side_banner2.png" alt="">
+
 <!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiển Thị Số Sản Phẩm ------------ -->
 <?php
 extract($product);
 $price_format = number_format($price, 0, '.', '.');
 $discount_format = number_format($discount, 0, '.', '.');
-$sale = 100 - ($discount/($price/100));
+$sale = 100 - ($discount / ($price / 100));
 if (isset($color_pro)) {
     $image = $color_pro['image'];
 } else {
@@ -54,23 +78,25 @@ if (isset($color_pro)) {
                 </div>
                 <div class="all-price-details d-flex flex-wrap">
                     <?php
-                        if($discount != 0){
-                    ?>
-                    <del>
-                        <?= $price_format ?>đ
-                    </del>
-                    <span class="new-price-details">
-                        <?= $discount_format ?>đ
-                    </span>
-                    <span class="product-percent-details">-<?=$sale?>%</span>
-                    <?php
-                        }else{
-                    ?>
-                    <span class="new-price-details">
-                        <?= $price_format ?>đ
-                    </span>
-                    <?php
-                        }
+                    if ($discount != 0) {
+                        ?>
+                        <del>
+                            <?= $price_format ?>đ
+                        </del>
+                        <span class="new-price-details">
+                            <?= $discount_format ?>đ
+                        </span>
+                        <span class="product-percent-details">-
+                            <?= $sale ?>%
+                        </span>
+                        <?php
+                    } else {
+                        ?>
+                        <span class="new-price-details">
+                            <?= $price_format ?>đ
+                        </span>
+                        <?php
+                    }
                     ?>
                 </div>
 
@@ -80,27 +106,27 @@ if (isset($color_pro)) {
                     </span>
                     <span><strong>Bảo Hành: </strong>12 Tháng</span>
                     <span><strong>Trạng Thái: </strong>
-                    <?php 
-                    if(isset($color_pro)){
-                        if($color_pro['quantity'] <= 0){
-                            echo 'Hết hàng';
-                        }else{
-                            echo 'Còn hàng';
+                        <?php
+                        if (isset($color_pro)) {
+                            if ($color_pro['quantity'] <= 0) {
+                                echo 'Hết hàng';
+                            } else {
+                                echo 'Còn hàng';
+                            }
+
                         }
-                        
-                    }
-                    ?>
+                        ?>
                     </span>
                     <?php
-                        if (isset($color_pro)) {
-                    ?>
+                    if (isset($color_pro)) {
+                        ?>
                         <span><strong>Số Lượng: </strong>
                             <?= $color_pro['quantity'] ?>
                         </span>
-                    <?php
+                        <?php
                     }
                     ?>
-                    <!-- <span><strong>Đã Bán: </strong>153</span> -->
+                    <span><strong>Đã Bán: </strong>153</span>
                 </div>
                 <hr>
                 <div>
@@ -121,41 +147,43 @@ if (isset($color_pro)) {
                     <!-- Màu cho ông Huân -->
                     <div>
                         <span><strong>Màu Sắc: </strong>
-                        <br>
-                        <?php
-                        foreach ($list_color as $lc) {
-                            extract($lc);
-                            ?>
-                            <a href="index.php?act=product_details&id=<?= $id_pro ?>&color=<?= $id_color ?>"><button
-                            style="width:30px;height:30px;border-radius:50%;background-color:<?= $color_name ?>;"></button></a>
+                            <br>
                             <?php
-                        }
-                        ?>
+                            foreach ($list_color as $lc) {
+                                extract($lc);
+                                ?>
+                                <a href="index.php?act=product_details&id=<?= $id_pro ?>&color=<?= $id_color ?>"><button
+                                        style="width:30px;height:30px;border-radius:50%;background-color:<?= $color_name ?>;"></button></a>
+                                <?php
+                            }
+                            ?>
                     </div>
                 </div>
-                <br>
+
                 <form action="index.php?act=cart" method="post" class="form-submit">
-                <?php
+                    <?php
                     if (isset($color_pro)) {
-                ?>
-                    <div>
-                            <input type="number" name="quantity" min=1 max=<?= $color_pro['quantity'] ?> value="1">
-                    </div>
-                <?php
+                        ?>
+                        <div class="d-flex flex-wrap align-items-center mt-2">
+                            <strong style="font-size: x-large; margin-right: 10px;">Số Lượng:</strong><input
+                                style="text-align: center;" type="number" name="quantity" min=1
+                                max=<?= $color_pro['quantity'] ?> value="1">
+                        </div>
+                        <?php
                     }
-                ?>
+                    ?>
 
                     <div class="mt-3">
                         <?php
-                            if (isset($color_pro)) {
-                        ?>
+                        if (isset($color_pro)) {
+                            ?>
                             <input type="hidden" name="id_clp" class="pid" value="<?= $color_pro['id_clp'] ?>">
                             <?php
                         }
                         ?>
                         <input type="hidden" name="id_pro" class="pid" value="<?= $id_pro ?>">
-                        <input class="submit" name="buy" type="submit" value="Mua Ngay">
-                        <input class="submit" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
+                        <input class="btn" name="buy" type="submit" value="Mua Ngay">
+                        <input class="btn" name="add_to_cart" type="submit" value="Thêm Vào Giỏ">
                     </div>
                 </form>
             </div>
@@ -185,19 +213,22 @@ if (isset($color_pro)) {
                 foreach ($other_pro as $key => $value) {
                     $price_other_format = number_format($value['price'], 0, '.', '.');
                     $discount_other_format = number_format($value['discount'], 0, '.', '.');
-                    $sale_other = 100 - ($value['discount']/($value['price']/100));
+                    $sale_other = 100 - ($value['discount'] / ($value['price'] / 100));
                     ?>
-                    <div class="col-12 col-md-6 col-lg-6 col-xl-6 mt-4">
+                    <div class="col-6 col-md-6 col-lg-6 col-xl-6 mt-4">
                         <div class="card" style="width: 100%;">
                             <div class="collection-img position-relative">
                                 <a href="index.php?act=product_details&id=<?= $value['id_pro'] ?>"><img
                                         src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
                                 <?php
-                                    if($value['discount'] > 0){
-                                ?>
-                                <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale_other?>%</span>
-                                <?php
-                                    }
+                                if ($value['discount'] > 0) {
+                                    ?>
+                                    <span
+                                        class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-
+                                        <?= $sale_other ?>%
+                                    </span>
+                                    <?php
+                                }
                                 ?>
                             </div>
                             <div class="card-body">
@@ -208,18 +239,22 @@ if (isset($color_pro)) {
                                 </div>
                                 <div>
                                     <?php
-                                        if($value['discount'] > 0){
-                                    ?>
+                                    if ($value['discount'] > 0) {
+                                        ?>
                                         <del class="old-price">
                                             <?= $price_other_format ?>đ
                                         </del>
-                                        <span class="new-price"><?=$discount_other_format?>đ</span>
-                                    <?php
-                                        }else{
-                                    ?>
-                                        <span class="new-price"><?=$price_other_format?>đ</span>
-                                    <?php
-                                        }
+                                        <span class="new-price">
+                                            <?= $discount_other_format ?>đ
+                                        </span>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <span class="new-price">
+                                            <?= $price_other_format ?>đ
+                                        </span>
+                                        <?php
+                                    }
                                     ?>
                                 </div>
                                 <div>
@@ -272,10 +307,12 @@ if (isset($color_pro)) {
             <?php
             if (isset($_SESSION['user_name_login'])) {
                 ?>
-                <form action="index.php?act=comment" method="POST">
+                <form class="m-5" action="index.php?act=comment" method="POST">
                     <input type="hidden" name="id_pro" value="<?= $id_pro ?>">
-                    <input type="text" name="content" id="">
-                    <input type="submit" name="btn_comment" value="Gửi">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="content" id="">
+                        <input class="btn" type="submit" name="btn_comment" value="Gửi">
+                    </div>
                 </form>
                 <?php
             } else {

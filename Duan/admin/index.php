@@ -12,7 +12,10 @@ if (empty($_SESSION['user_name_login'])) {
     include "../PDO/account.php";
     include "../PDO/voucher.php";
     include "../PDO/cart.php";
+    include "../PDO/chart.php";
+
     include "view/header.php";
+    
     $check_date_voucher = date("Y-m-d");
     delete_voucher($check_date_voucher);
     if (isset($_GET['act'])) {
@@ -574,6 +577,10 @@ if (empty($_SESSION['user_name_login'])) {
             case 'list_voucher':
                 $vouchers = load_all_voucher();
                 include "voucher/list.php";
+                break;
+
+            case 'chart':
+                include "view/Chart/chart.php";
                 break;
 
             case 'order_lists_admin':
