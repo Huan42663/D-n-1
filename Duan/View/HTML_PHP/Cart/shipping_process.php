@@ -1,14 +1,16 @@
+<title>BlueTech - Giỏ Hàng</title>
+
 <style>
     body {
         overflow-x: hidden;
         height: 100%;
-        background-color: #00b3ff;
+        background-color: whitesmoke;
         background-repeat: no-repeat;
     }
 
     .card {
         z-index: 0;
-        background-color: #ECEFF1;
+        background-color: white;
         padding-bottom: 20px;
         margin-top: 90px;
         margin-bottom: 90px;
@@ -117,23 +119,75 @@
             width: 50%;
         }
     }
+
+    .btn-cancel {
+        background-color: orangered;
+        color: white;
+        padding: 5px;
+        border-radius: 0p 5px 5px 0px;
+        border: 1px solid red;
+        box-shadow: 0px 0px 5px gainsboro;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-cancel:hover {
+        background-color: #0E2241;
+        border: 1px solid #0E2241;
+    }
+
+    .order-qty {
+        color: orangered;
+    }
+
+    .order-btn {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border: 1px solid black;
+        box-shadow: 1px 1px 1px black;
+        border-radius: 5px;
+        padding: 5px 28px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .order-btn:hover {
+        color: white;
+        background-color: #00b3ff;
+    }
+
+    a {
+        text-decoration: none;
+    }
 </style>
 
-<button class="btn">Danh Sách Đơn Hàng</button>
-<div class="container p-0 py-5 mx-auto">
-    <h2>Đơn Hàng Mới Nhất</h2>
+<div class="container my-5">
+    <div class="row m-0 d-flex justify-content-center">
+        <h2 class="col-12" style="text-align: center;">Bạn Đang Có <strong class="order-qty">
+                <?php ?>1
+            </strong> Đơn Hàng</h2>
+        <a href="index.php?act=shipping_process" class="mt-3 mx-2 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
+                value="Đơn Hàng Mới Nhất"></a>
+        <a href="index.php?act=shipping_process" class="mt-3 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
+                value="Đơn Hàng Đã Mua"></a>
+        <a href="index.php?act=shipping_process" class="mt-3 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
+                value="Đơn Hàng Đã Hủy"></a>
+    </div>
 
-    <div class="card m-0 p-0 mt-5" style="box-shadow: 0px 0px 3px gainsboro;">
+    <div class="card m-0 p-0 mt-3" style="box-shadow: 0px 0px 3px gainsboro;">
         <div class="row d-flex justify-content-between px-3 top pt-3">
             <div class="col-6">
                 <h5>Mã Đơn Hàng: <span class="text-primary font-weight-bold">#Y34XDHR</span></h5>
-                <p class="mb-0">Dự Kiến Giao Vào Ngày: <span>01/12/19</span></p>
+                <p class="mb-0">Dự Kiến Giao Vào Ngày: <span>05/12/2023</span></p>
                 <p class="mb-0">Khách Hàng: <span>ABC</span></p>
                 <p class="mb-0">Địa Chỉ: <span>Hà Nội</span></p>
             </div>
             <div class="col-6 d-flex flex-column" style="align-items: end;">
                 <h5>Sản Phẩm: <span class="text-primary font-weight-bold">Logitech...</span></h5>
-                <p class="mb-0">Tổng Tiền: <span>200.000đ</span></p>
+                <p class="mb-0">Hình Thức: <span>Thanh Toán Khi Nhận Hàng</span></p>
+                <p class="mb-0">Tổng Thanh Toán: <span>200.000đ</span></p>
                 <p class="mb-0">Trạng Thái: <span>Chưa Thanh Toán</span></p>
             </div>
         </div>
@@ -149,31 +203,32 @@
             </div>
         </div>
         <div class="row p-0 m-0 top justify-content-between m-5">
-            <div class="col d-flex icon-content p-0 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
                 <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
                 <div class="">
                     <p class="m-0">Đơn Hàng Đã<br>Được Xác Nhận</p>
                 </div>
             </div>
-            <div class="col d-flex icon-content p-0 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
                 <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                 <div class="">
                     <p class="m-0">Đã Được Bàn Giao<br>Cho Đơn Vị Vận Chuyển</p>
                 </div>
             </div>
-            <div class="col d-flex icon-content p-0 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
                 <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                 <div class="d-flex ">
                     <p class="m-0">Đơn Hàng<br>Đang Được Giao</p>
                 </div>
             </div>
-            <div class="col d-flex icon-content p-0 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
                 <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                 <div class="">
                     <p class="m-0">Đơn Hàng<br>Đã Đến</p>
                 </div>
             </div>
         </div>
+        <input type="submit" value="Hủy Đơn Hàng" class="btn-cancel">
     </div>
 </div>
 

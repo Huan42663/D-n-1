@@ -187,7 +187,7 @@
 
               <li class="nav-label first">Trang Chủ</li>
               <li>
-                <a class="" href="index.php" aria-expanded="false"><i class="icon icon-single-04"></i><span
+                <a class="" href="index.php" aria-expanded="false"><i class="fa-solid fa-cube"></i><span
                     class="nav-text">Bảng Điều Khiển</span></a>
 
               </li>
@@ -208,7 +208,7 @@
               <li class="nav-label">Quản Lý Cửa Hàng</li>
 
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-microchip"></i><span
                     class="nav-text">Danh Mục</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_cate">Danh Sách Danh Mục</a></li>
@@ -221,7 +221,7 @@
               </li>
 
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-headphones-simple"></i><span
                     class="nav-text">Sản Phẩm</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_pro">Danh Sách Sản Phẩm</a></li>
@@ -229,7 +229,7 @@
                 </ul>
               </li>
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-ticket"></i><span
                     class="nav-text">Voucher</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_voucher">Danh Sách Voucher</a></li>
@@ -237,18 +237,19 @@
                 </ul>
               </li>
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-truck-fast"></i><span
                     class="nav-text">Đơn Hàng</span></a>
                 <ul aria-expanded="false">
-                  <li><a href="./ui-accordion.html">Danh Sách Đơn Hàng</a></li>
-                  <li><a href="./ui-accordion.html">Đơn Hàng Đã Giao</a></li>
-                  <li><a href="./ui-alert.html">Đơn Hàng Đã Bị Hủy</a></li>
+                  <li><a href="index.php?act=order_lists_admin">Đơn Hàng Chờ Xác Nhận</a></li>
+                  <li><a href="index.php?act=order_ongoing_admin">Đơn Hàng Đang Giao</a></li>
+                  <li><a href="index.php?act=delivered_orders_admin">Đơn Hàng Đã Giao</a></li>
+                  <li><a href="index.php?act=canceled_orders_admin">Đơn Hàng Đã Bị Hủy</a></li>
                 </ul>
               </li>
 
               <li class="nav-label">Quản Lý Khách Hàng</li>
               <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa-solid fa-users"></i><span
                     class="nav-text">Người Dùng</span></a>
                 <ul aria-expanded="false">
                   <li><a href="index.php?act=list_account">Danh Sách Người Dùng</a></li>
@@ -258,7 +259,7 @@
 
               <li>
                 <a class="" href="index.php?act=list_comment" aria-expanded="false">
-                  <i class="icon icon-world-2"></i>
+                <i class="fa-solid fa-comments"></i>
                   <span class="nav-text">Bình Luận</span>
                 </a>
               </li>
@@ -269,17 +270,17 @@
 
           <li class="nav-label">Shipper</li>
           <li>
-            <a class="" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+            <a class="" href="index.php?act=order_lists_shipper" aria-expanded="false"><i class="fa-regular fa-clipboard"></i><span
                 class="nav-text">Danh Sách Đơn Hàng</span></a>
           </li>
 
           <li>
-            <a class="" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+            <a class="" href="index.php?act=order_ongoing_shipper" aria-expanded="false"><i class="fa-solid fa-truck"></i><span
                 class="nav-text">Đơn Hàng Đã Nhận</span></a>
           </li>
 
           <li>
-            <a class="" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+            <a class="" href="index.php?act=order_finished_shipper" aria-expanded="false"><i class="fa-solid fa-circle-check"></i><span
                 class="nav-text">Đơn Hàng Đã Giao</span></a>
           </li>
 
