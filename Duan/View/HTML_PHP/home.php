@@ -115,9 +115,7 @@
               <?php
               if ($value['discount'] != 0) {
                 ?>
-                <del class="old-price">
-                  <?= $price_sale ?>đ
-                </del>
+                <del class="old-price"><?= $price_sale ?>đ</del>
                 <span class="new-price">
                   <?= $discount_sale ?>đ
                 </span>
@@ -204,8 +202,7 @@
               if ($value['discount'] != 0) {
                 ?>
                 <del class="old-price">
-                  <?= $price_mouse ?>đ
-                </del>
+                  <?= $price_mouse ?>đ</del>
                 <span class="new-price">
                   <?= $discount_mouse ?>đ
                 </span>
