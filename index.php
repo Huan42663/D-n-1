@@ -12,7 +12,7 @@ include "./Duan/PDO/cart.php";
 if(isset($_SESSION['user_name_login'])){
     $_SESSION['count_cart'] = count_cart($_SESSION['user_name_login']['id_user']);
 }
-
+$check_date_voucher = date("Y-m-d");
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
     switch ($act) {
@@ -301,6 +301,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $date = date("Y-m-d");
             $vouchers = load_voucher($date);
             include "./Duan/View/HTML_PHP/voucher/list.php";
+            break;
+        case 'delete_voucher':
+           delete_voucher($check_date_voucher);
             break;
         default:
             echo '<script>alert("Lỗi!");</script>';
