@@ -173,13 +173,6 @@
                
 
                 <div class="d-flex">
-                    <div class="text-right mt-4 mr-5">
-                        <label class="text-muted font-weight-normal me-5">Mã Giảm Giá</label>
-                        <div class="text-large" style="color: #00b3ff;">
-                            <strong>
-                            </strong>
-                        </div>
-                    </div>
 
                     <div class="text-right mt-4">
                         <label class="text-muted font-weight-normal m-0">Tổng Thanh Toán</label>

@@ -13,6 +13,8 @@ include "../PDO/account.php";
 include "../PDO/voucher.php";
 include "../PDO/cart.php";
 include "view/header.php";
+$check_date_voucher = date("Y-m-d");
+delete_voucher($check_date_voucher);
 if(isset($_GET['act'])){
     $act = $_GET['act'];    
     switch ($act) {
