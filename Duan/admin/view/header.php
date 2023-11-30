@@ -39,7 +39,7 @@
             Nav header start
         ***********************************-->
       <div class="nav-header">
-        <a href="index.php" class="brand-logo">
+        <a href="index.php?act=shop" class="brand-logo">
           BLUETECH
         </a>
 
