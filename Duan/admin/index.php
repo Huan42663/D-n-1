@@ -10,10 +10,11 @@ include "../PDO/category.php";
 include "../PDO/product.php";
 include "../PDO/comment.php";
 include "../PDO/account.php";
+include "../PDO/voucher.php";
 include "../PDO/cart.php";
 include "view/header.php";
 if(isset($_GET['act'])){
-    $act = $_GET['act'];
+    $act = $_GET['act'];    
     switch ($act) {
         case 'shop':
             echo "<script>window.location.href='../../index.php';</script>";
@@ -356,7 +357,7 @@ if(isset($_GET['act'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
-                        echo "<script>alert('Không để đặc biệt');</script>";
+                        echo "<script>alert('Không để Ký tự đặc biệt');</script>";
                 }
                 elseif (is_array($check)) {
                     echo "<script>alert('sản phẩm đã tồn tại');</script>";
@@ -578,6 +579,36 @@ if(isset($_GET['act'])){
             $count = count_account();
             $list_account = load_limit_5_account($start,$limit);
             include "account/list.php";
+            break;
+        case 'add_voucher':
+            if(isset($_POST['them']) && $_POST['them']){
+                $code = $_POST['code'];
+                $start_at = $_POST['start_at'];
+                $end_at = $_POST['end_at'];
+                $value = $_POST['value'];
+                $check = check_voucher($code);
+                if($code == "" || $value == "" || $start_at == "" || $end_at == ""){
+                    echo "<script>alert('Không để trống');</script>";
+                }
+                elseif(strlen($code)>10 || strlen($code) <6){
+                    echo "<script>alert('mã giảm giá tối đa từ 6 đến 10 ký tự');</script>";
+                }
+                elseif (is_array($check)) {
+                    echo "<script>alert('mã giảm giá đã tồn tại');</script>";
+                }
+                elseif($end_at <= $start_at){
+                    echo "<script>alert('ngày kết thúc không hợp lệ');</script>";
+                }
+                else{
+                    add_voucher($code,$start_at,$end_at,$value);
+                    echo "<script>alert('Thêm thành công');</script>";
+                }
+            }
+            include "voucher/add.php";
+            break;
+        case 'list_voucher':
+            $vouchers = load_all_voucher();
+            include "voucher/list.php";
             break;
         default:
         $product = load_top_5_pro();

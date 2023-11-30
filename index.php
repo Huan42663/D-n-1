@@ -6,6 +6,7 @@ include "./Duan/PDO/pdo.php";
 include "./Duan/PDO/category.php";
 include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
+include "./Duan/PDO/voucher.php";
 include "./Duan/PDO/account.php";
 include "./Duan/PDO/cart.php";
 if(isset($_SESSION['user_name_login'])){
@@ -272,15 +273,35 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
             break;
         case 'cart_lists':
+                $date = date("Y-m-d");
+                $voucher_discount = 0;
                 $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
+                if(isset($_POST['add']) && $_POST['add']){
+                    $add_code = $_POST['add_code'];
+                    $check_voucher = check_voucher($add_code);
+                    if(is_array($check_voucher)){
+                        extract($check_voucher);
+                        if($start_at <= $date && $end_at > $date){
+                            $voucher_discount = $value;
+                            echo '<script>alert("Áp Dụng Thành Công !");</script>';
+                        }else{
+                            echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                        }
+                    }else{
+                        echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                    }
+                }
                 include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
             break;
 
         case 'shipping_process':
             include "./Duan/View/HTML_PHP/Cart/shipping_process.php";
-
             break;
-
+        case 'list_voucher':
+            $date = date("Y-m-d");
+            $vouchers = load_voucher($date);
+            include "./Duan/View/HTML_PHP/voucher/list.php";
+            break;
         default:
             echo '<script>alert("Lỗi!");</script>';
             $limit = 12;

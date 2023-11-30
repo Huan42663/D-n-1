@@ -228,7 +228,14 @@
                   <li><a href="index.php?act=add_pro">Thêm Sản Phẩm</a></li>
                 </ul>
               </li>
-
+              <li>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                    class="nav-text">Voucher</span></a>
+                <ul aria-expanded="false">
+                  <li><a href="index.php?act=list_voucher">Danh Sách Voucher</a></li>
+                  <li><a href="index.php?act=add_voucher">Thêm Voucher</a></li>
+                </ul>
+              </li>
               <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
                     class="nav-text">Đơn Hàng</span></a>

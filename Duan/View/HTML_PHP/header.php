@@ -105,9 +105,15 @@
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark" href="index.php#about">giới thiệu</a>
           </li>
-          <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark" href="index.php#blogs">blogs</a>
-          </li>
+          <?php
+            if(isset($_SESSION['user_name_login'])){
+          ?>
+            <li class="nav-item px-2 py-2 border-0">
+              <a class="nav-link text-uppercase text-dark" href="index.php?act=list_voucher">Voucher</a>
+            </li>
+          <?php
+            }
+          ?>
           <li class="nav-item px-2 py-2 border-0">
             <a class="nav-link text-uppercase text-dark" href="#">cách thanh toán</a>
           </li>

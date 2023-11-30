@@ -85,7 +85,9 @@
                             }
                             $total_price_format =number_format($total_price,0,'.','.') ;
                             $totals +=$total_price;
+                            $totals_sale = ($totals /100) * (100-$voucher_discount);
                             $totals_format = number_format($totals,0,'.','.');
+                            $totals_sale_format = number_format($totals_sale,0,'.','.');
                     ?>
                         <tr>
                             <td class="p-4">
@@ -161,8 +163,11 @@
 
             <div class="d-flex flex-wrap justify-content-between align-items-center pb-4  mt-2">
                 <div class="mt-4">
-                    <label class="text-muted font-weight-normal">Mã Giảm Giá</label>
-                    <input type="text" placeholder=". . . . ." class="form-control">
+                    <form action="index.php?act=cart_lists" method="POST">
+                        <label class="text-muted font-weight-normal">Mã Giảm Giá</label>
+                        <input type="text" placeholder="   . . . . ." class="form-control" name="add_code"><br>
+                        <input type="submit" name="add" id="" value="Áp Dụng">
+                    </form>
                 </div>
 
                
@@ -180,7 +185,20 @@
                         <label class="text-muted font-weight-normal m-0">Tổng Thanh Toán</label>
                         <div class="text-large" style="color: red;"><strong>
                                 <?= $totals_format ?>đ
-                            </strong></div>
+                            </strong>
+                        </div>
+                            <?php
+                                if($voucher_discount > 0){
+                            ?>
+                                <span>-<?=$voucher_discount?>%</span><br>
+                                <div class="text-large" style="color: red;">
+                                    <strong>
+                                        = <?= $totals_sale_format ?>đ
+                                    </strong>
+                                </div>
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
