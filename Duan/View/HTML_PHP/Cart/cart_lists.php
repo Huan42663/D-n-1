@@ -85,9 +85,7 @@
                             }
                             $total_price_format =number_format($total_price,0,'.','.') ;
                             $totals +=$total_price;
-                            $totals_sale = ($totals /100) * (100-$voucher_discount);
                             $totals_format = number_format($totals,0,'.','.');
-                            $totals_sale_format = number_format($totals_sale,0,'.','.');
                     ?>
                         <tr>
                             <td class="p-4">
@@ -117,7 +115,12 @@
                                 }
                             ?>
                             <td class="align-middle p-4">
-                                <?=$quantity_cart?>
+                                <form action="index.php?act=change_quantity" method="POST">
+                                    <input type="number" name="quantity_cart" min="1" max="<?=$quantity?>" value="<?=$quantity_cart?>">
+                                    <input type="hidden" name="id_oc" id="id_oc" value="<?=$id_oc?>">
+                                    <input type="submit" name="change" id="" value="thay đổi">
+                                </form>
+                                    
                             </td>
                             <td class="text-right font-weight-semibold align-middle p-4"><?=$total_price_format?>đ</td>
                             <td class="text-center align-middle px-0"><a onclick="return confirm('bạn có muốn xóa không');" href="index.php?act=delete_cart&id_cart=<?=$id_cart?>&id_clp=<?=$id_clp?>"
@@ -127,35 +130,6 @@
                     <?php
                         }
                     ?>
-                    
-                        <!-- <tr>
-                            <td class="p-4">
-                                <div class="media align-items-center d-flex">
-                                    <img src="./Duan/View/Images/Razer Basilisk V3 Pro.webp"
-                                        class="ui-w-40 ui-bordered me-4" alt>
-                                    <div class="media-body">
-                                        <a href="#" class="d-block text-dark">Product 1</a>
-                                        <small>
-                                            <span class="text-muted">Color:</span>
-                                            <span class="ui-product-color ui-product-color-sm align-text-bottom"
-                                                style="background:#e81e2c;"></span> &nbsp;
-                                            <span class="text-muted">Size: </span> EU 37 &nbsp;
-                                            <span class="text-muted">Ships from: </span> China
-                                        </small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-right font-weight-semibold align-middle p-4"><del>$57.55</del></td>
-                            <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-                            <td class="align-middle p-4"><input type="number" class="form-control text-center"
-                                    value="1">
-                            </td>
-                            <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
-                            <td class="text-center align-middle px-0"><a href="#"
-                                    class="shop-tooltip close float-none text-danger text-decoration-none" title
-                                    data-original-title="Remove" style="font-size: xx-large;">×</a></td>
-                        </tr> -->
-
                     </tbody>
 
                 </table>
@@ -163,43 +137,36 @@
 
             <div class="d-flex flex-wrap justify-content-between align-items-center pb-4  mt-2">
                 <div class="mt-4">
-                    <form action="index.php?act=cart_lists" method="POST">
-                        <label class="text-muted font-weight-normal">Mã Giảm Giá</label>
-                        <input type="text" placeholder="   . . . . ." class="form-control" name="add_code"><br>
-                        <input type="submit" name="add" id="" value="Áp Dụng">
-                    </form>
                 </div>
 
                
 
                 <div class="d-flex">
-
-                    <div class="text-right mt-4">
-                        <label class="text-muted font-weight-normal m-0">Tổng Thanh Toán</label>
-                        <div class="text-large" style="color: red;"><strong>
-                                <?= $totals_format ?>đ
-                            </strong>
+                    <?php
+                        if($totals != 0){
+                    ?>
+                        <div class="text-right mt-4">
+                            <label class="text-muted font-weight-normal m-0">Tổng Thanh Toán</label>
+                            <div class="text-large" style="color: red;"><strong>
+                                    <?= $totals_format ?>đ
+                                </strong>
+                            </div>
                         </div>
-                            <?php
-                                if($voucher_discount > 0){
-                            ?>
-                                <span>-<?=$voucher_discount?>%</span><br>
-                                <div class="text-large" style="color: red;">
-                                    <strong>
-                                        = <?= $totals_sale_format ?>đ
-                                    </strong>
-                                </div>
-                            <?php
-                                }
-                            ?>
-                    </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
             <div class="float-right">
                 <a href="index.php"><input type="submit" class="btn btn-lg btn-default md-btn-flat"
                         value="Quay Lại"></input></a>
-
-                <a href=""><input type="submit" class="btn btn-lg btn-primary" value="Thanh Toán"></input></a>
+                <?php
+                    if($totals != 0){
+                ?>
+                    <a href="index.php?act=check_out"><input type="submit" class="btn btn-lg btn-primary" value="Thanh Toán"></input></a>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </div>

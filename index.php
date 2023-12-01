@@ -8,6 +8,7 @@ include "./Duan/PDO/product.php";
 include "./Duan/PDO/comment.php";
 include "./Duan/PDO/voucher.php";
 include "./Duan/PDO/account.php";
+include "./Duan/PDO/bill.php";
 include "./Duan/PDO/cart.php";
 if(isset($_SESSION['user_name_login'])){
     $_SESSION['count_cart'] = count_cart($_SESSION['user_name_login']['id_user']);
@@ -258,7 +259,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 delete_one_other_cart($id_cart,$id_clp);
             }
             $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
-            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            echo '<script>location.href="index.php?act=cart_lists"</script>';
             break;
 
         // case 'delete_all_cart':
@@ -269,34 +270,83 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         //     include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
         //     break;
         case 'change_quantity':
-            if(isset($_GET['id_quantity'])) {
-                echo "<script>window.location.href='index.php?act=cart_lists;</script>";
+            if(isset($_POST['change']) && $_POST['change']){
+                $quantity_cart = $_POST['quantity_cart'];
+                $id_oc = $_POST['id_oc'];
+                change_quantity($id_oc,$quantity_cart);
             }
+            echo '<script>location.href="index.php?act=cart_lists"</script>';
             break;
         case 'cart_lists':
-                $date = date("Y-m-d");
-                $voucher_discount = 0;
-                $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
-                if(isset($_POST['add']) && $_POST['add']){
-                    $add_code = $_POST['add_code'];
-                    $check_voucher = check_voucher($add_code);
-                    if(is_array($check_voucher)){
-                        extract($check_voucher);
-                        if($start_at <= $date && $end_at > $date){
-                            $voucher_discount = $value;
-                            echo '<script>alert("Áp Dụng Thành Công !");</script>';
-                        }else{
-                            echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
-                        }
+            $date = date("Y-m-d");
+            $voucher_discount = 0;
+            $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
+            include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            break;
+        case 'check_out':
+            $date = date("Y-m-d");
+            $voucher_discount = 0;
+            $bills = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
+            $payments = load_all_payment();
+            if(isset($_POST['add']) && $_POST['add']){
+                $add_code = $_POST['add_code'];
+                $check_voucher = check_voucher($add_code);
+                if(is_array($check_voucher)){
+                    extract($check_voucher);
+                    if($start_at <= $date && $end_at > $date){
+                        $voucher_discount = $value;
+                        echo '<script>alert("Áp Dụng Thành Công !");</script>';
                     }else{
                         echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
                     }
+                }else{
+                    echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
                 }
-                include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
+            }
+            include "./Duan/View/HTML_PHP/Cart/check_out.php";
             break;
-
         case 'shipping_process':
             include "./Duan/View/HTML_PHP/Cart/shipping_process.php";
+            break;
+        case 'confirm_checkout':
+            if(isset($_POST['pay']) && $_POST['pay']){
+                $firstname = $_POST['firstname'];
+                $lastname = $_POST['lastname'];
+                $tel = $_POST['tel'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $payment = $_POST['paymentMethod'];
+                $totals = $_POST['totals'];
+                $voucher_discount = $_POST['voucher_discount'];
+                $voucher_code = $_POST['voucher_code'];
+                $voucher = $voucher_code . " " . "(-$voucher_discount%)";
+                $date = date("Y-m-d");
+                $id_user = $_SESSION['user_name_login']['id_user'];
+                $bills = load_all_cart_for_account($id_user);
+                if($firstname == "" || $lastname == "" || $tel == "" || $email == "" || $address == ""){
+                    echo "<script>alert('không được bỏ trống');</script>";
+                    echo "<script>location.href='index.php?act=check_out';</script>";
+                }elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $firstname) || preg_match('/[!@#$%^&*(),.?":{}|<>]/', $lastname)){
+                    echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
+                    echo "<script>location.href='index.php?act=check_out';</script>";
+                }elseif (!ctype_digit($tel)) {
+                    echo "<script>alert('số điện thoại không hợp lệ');</script>";
+                    echo "<script>location.href='index.php?act=check_out';</script>";
+                }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo "<script>alert('email không hợp lệ');</script>";
+                    echo "<script>location.href='index.php?act=check_out';</script>";
+                }else{
+                    add_bill ($firstname,$lastname,$tel,$date,$payment,$id_user,$totals,$voucher);
+                    foreach ($bills as $add) {
+                        extract($add);
+                        add_other_bill($pro_name,$color_name,$brand_name,$price,$quantity_cart);
+                        change_quantity_pro($id_clp,$quantity_cart);
+                    }
+                    delete_all_other_cart($id_cart);
+                    echo "<script>alert('Thanh Toán Thành Công');</script>";
+                    echo "<script>location.href='index.php';</script>";
+                }
+            }
             break;
         case 'list_voucher':
             $date = date("Y-m-d");

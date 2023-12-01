@@ -9,6 +9,7 @@ include "../PDO/pdo.php";
 include "../PDO/category.php";
 include "../PDO/product.php";
 include "../PDO/comment.php";
+include "../PDO/bill.php";
 include "../PDO/account.php";
 include "../PDO/voucher.php";
 include "../PDO/cart.php";
@@ -62,15 +63,11 @@ if(isset($_GET['act'])){
             break;
         case 'updated_cate':
             if(isset($_POST['sua'])){
-                $check = check_cate($_POST['cate_name']);
                 if($_POST['cate_name']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['cate_name'])){
                     echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
-                }
-                elseif(is_array($check)){
-                    echo "<script>alert('danh mục đã tồn tại');</script>";
                 }
                 else{
                     $id_cate=$_POST['id_cate'];
@@ -146,15 +143,12 @@ if(isset($_GET['act'])){
             break;
         case 'updated_color':
             if(isset($_POST['sua'])){
-                $check = check_color($_POST['color_name']);
+                
                 if($_POST['color_name']==""){
                     echo "<script>alert('Không để trống');</script>";
                 }
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['color_name'])){
                     echo "<script>alert('Không để ký tự đặc biệt');</script>";
-                }
-                elseif (is_array($check)) {
-                    echo "<script>alert('màu đã tồn tại');</script>";
                 }
                 else{
                     $id_color=$_POST['id_color'];
@@ -231,16 +225,12 @@ if(isset($_GET['act'])){
                 break;
             case 'updated_brand':
                 if(isset($_POST['sua'])){
-                    $check = check_brand($_POST['brand_name']);
                     if($_POST['brand_name']=="")
                     {
                         echo "<script>alert('Không để trống');</script>";
                     }
                     elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['brand_name'])){
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
-                    }
-                    elseif (is_array($check)) {
-                        echo "<script>alert('hãng đã tồn tại');</script>";
                     }
                     else {
                         $id_brand=$_POST['id_brand'];
@@ -348,7 +338,7 @@ if(isset($_GET['act'])){
             break;
         case 'updated_pro':
             if(isset($_POST['sua']) && $_POST['sua']){
-                $check  = check_pro($_POST['pro_name']);
+                // $check  = check_pro($_POST['pro_name']);
                 if($_POST['pro_name']==""){
                     echo "<script>alert('Không để trống tên sản phẩm');</script>";
                 }
@@ -361,9 +351,9 @@ if(isset($_GET['act'])){
                 elseif(preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])){
                         echo "<script>alert('Không để Ký tự đặc biệt');</script>";
                 }
-                elseif (is_array($check)) {
-                    echo "<script>alert('sản phẩm đã tồn tại');</script>";
-                }
+                // elseif (is_array($check)) {
+                //     echo "<script>alert('sản phẩm đã tồn tại');</script>";
+                // }
                 else{
                     $id=$_POST['id_pro'];
                     $name = $_POST['pro_name'];
@@ -612,6 +602,16 @@ if(isset($_GET['act'])){
             $vouchers = load_all_voucher();
             include "voucher/list.php";
             break;
+        case 'list_order':
+            $bills = load_all_bill();
+            include "order/list.php";
+            break;
+        case 'change_status_bill':
+            if(isset($_GET['id'])){
+                $id_bill = $_GET['id'];
+                change_status_bill($id_bill);
+            }
+            echo "<script>location.href='index.php?act=list_order';</script>";
         default:
         $product = load_top_5_pro();
         include "view/home.php";

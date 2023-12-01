@@ -240,7 +240,7 @@
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-world-2"></i><span
                     class="nav-text">Đơn Hàng</span></a>
                 <ul aria-expanded="false">
-                  <li><a href="./ui-accordion.html">Danh Sách Đơn Hàng</a></li>
+                  <li><a href="index.php?act=list_order">Danh Sách Đơn Hàng</a></li>
                   <li><a href="./ui-accordion.html">Đơn Hàng Đã Giao</a></li>
                   <li><a href="./ui-alert.html">Đơn Hàng Đã Bị Hủy</a></li>
                 </ul>

@@ -19,7 +19,7 @@ function load_voucher($date){
     return $vc;
 }
 function delete_voucher($date){
-    $sql = "DELETE FROM VOUCHER WHERE END_AT = '$date'";    
+    $sql = "DELETE FROM VOUCHER WHERE END_AT = '$date'"; 
     pdo_execute($sql);
 }
 ?>
