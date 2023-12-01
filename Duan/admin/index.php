@@ -15,7 +15,7 @@ if (empty($_SESSION['user_name_login'])) {
     include "../PDO/chart.php";
 
     include "view/header.php";
-    
+
     $check_date_voucher = date("Y-m-d");
     delete_voucher($check_date_voucher);
     if (isset($_GET['act'])) {
