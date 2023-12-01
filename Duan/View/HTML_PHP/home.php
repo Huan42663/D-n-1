@@ -1,6 +1,15 @@
 <title>BlueTech - Trang Chủ</title>
 
 <style>
+  @media screen (max-width:800px){
+    .side_banner1 {
+      display: none;
+    }
+    .side_banner2 {
+      display: none;
+    }
+
+  }
   .side_banner1 {
     position: fixed;
     width: 10%;
@@ -20,6 +29,7 @@
     z-index: -1;
     box-shadow: 0px 0px 5px gray;
   }
+  
 </style>
 <img class="side_banner1" src="./Duan/View/Images/side_banner1.png" alt="">
 <img class="side_banner2" src="./Duan/View/Images/side_banner2.png" alt="">
