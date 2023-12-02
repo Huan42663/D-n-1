@@ -58,10 +58,14 @@ function delete_one_other_cart($id_cart,$id_clp){
     $sql = "DELETE FROM OTHER_CART WHERE ID_CART = $id_cart AND ID_CLP = $id_clp";
     pdo_execute($sql);
 }
+
+
 function change_quantity($id_oc,$quantity_cart){
     $chang_quantity = "UPDATE OTHER_CART SET QUANTITY_CART = $quantity_cart WHERE ID_OC = $id_oc";
     $change = pdo_execute($chang_quantity);
 }
+
+
 function load_all_payment(){
     $sql = "SELECT * FROM PAYMENT";
     $payment = pdo_query($sql);

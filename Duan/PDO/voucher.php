@@ -4,7 +4,7 @@ function add_voucher($code,$start_at,$end_at,$value){
     pdo_execute($sql);
 }
 function load_all_voucher(){
-    $sql = "SELECT * FROM VOUCHER ORDER BY VALUE DESC" ;
+    $sql = "SELECT * FROM VOUCHER ORDER BY END_AT DESC" ;
     $vc = pdo_query($sql);
     return $vc;
 }

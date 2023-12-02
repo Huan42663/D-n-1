@@ -13,8 +13,6 @@ include "./Duan/PDO/cart.php";
 if(isset($_SESSION['user_name_login'])){
     $_SESSION['count_cart'] = count_cart($_SESSION['user_name_login']['id_user']);
 }
-$check_date_voucher = date("Y-m-d");
-delete_voucher($check_date_voucher);
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
     switch ($act) {
@@ -30,7 +28,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                         $email_register = $_POST['email_register'];
                         $pass_register = $_POST['pass_register'];
                         insert_account($user_name_register, $email_register, $pass_register);
-                        
+
                         echo '<script>alert("Đăng Ký Thành Công!");</script>';
                         include "./Duan/View/HTML_PHP/Account/login_register.php";
                     }
@@ -45,7 +43,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                         if (is_array($check_user)) {
                             $_SESSION['user_name_login'] = $check_user;
                             $check_cart = check_cart($_SESSION['user_name_login']['id_user']);
-                            if(!is_array($check_cart)) {
+                            if (!is_array($check_cart)) {
                                 add_cart_account($_SESSION['user_name_login']['id_user']);
                             }
                             echo '<script>alert("Đăng Nhập Thành Công!");</script>';
@@ -215,8 +213,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'cart':
-            if(isset($_SESSION['user_name_login'])){
-                if(isset($_POST['id_clp'])){
+            if (isset($_SESSION['user_name_login'])) {
+                if (isset($_POST['id_clp'])) {
                     if (isset($_POST['buy']) && $_POST['buy']) {
                         include "./Duan/View/HTML_PHP/Cart/shipping_info.php";
                     }
@@ -226,37 +224,37 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                         $quantity_add = $_POST['quantity'];
                         $cart = check_cart($_SESSION['user_name_login']['id_user']);
                         extract($cart);
-                        $check_other_cart = check_other_cart($id_cart,$id_clp);
-                        if(!is_array($check_other_cart)){
-                            add_to_cart($id_cart,$id_clp,$quantity_add);
+                        $check_other_cart = check_other_cart($id_cart, $id_clp);
+                        if (!is_array($check_other_cart)) {
+                            add_to_cart($id_cart, $id_clp, $quantity_add);
                             echo '<script>alert("Thêm vào giỏ hàng thành công");</script>';
-                        }else{
+                        } else {
                             extract($check_other_cart);
-                            if(($quantity_add + $quantity_cart) > $quantity){
+                            if (($quantity_add + $quantity_cart) > $quantity) {
                                 echo '<script>alert("Số lượng trong giỏ hàng quá lớn");</script>';
-                            }else{
-                                add_quantity_other_cart($id_cart,$id_clp,$quantity_add);
+                            } else {
+                                add_quantity_other_cart($id_cart, $id_clp, $quantity_add);
                                 echo '<script>alert("Thêm vào giỏ hàng thành công");</script>';
                             }
                         }
                         echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
                     }
-                }else{
+                } else {
                     $id_pro = $_POST['id_pro'];
                     echo '<script>alert("Vui lòng chọn màu !!");</script>';
                     echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
                 }
-            }else{
+            } else {
                 $id_pro = $_POST['id_pro'];
                 echo '<script>alert("Bạn cần đăng nhập để thêm vào giỏ hàng !");</script>';
                 echo "<script>window.location.href='index.php?act=product_details&id=$id_pro';</script>";
             }
             break;
         case 'delete_cart':
-            if(isset($_GET['id_cart'])){
+            if (isset($_GET['id_cart'])) {
                 $id_cart = $_GET['id_cart'];
                 $id_clp = $_GET['id_clp'];
-                delete_one_other_cart($id_cart,$id_clp);
+                delete_one_other_cart($id_cart, $id_clp);
             }
             $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
             echo '<script>location.href="index.php?act=cart_lists"</script>';
@@ -270,10 +268,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         //     include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
         //     break;
         case 'change_quantity':
-            if(isset($_POST['change']) && $_POST['change']){
-                $quantity_cart = $_POST['quantity_cart'];
-                $id_oc = $_POST['id_oc'];
-                change_quantity($id_oc,$quantity_cart);
+            if (isset($_GET['id_quantity'])) {
+                echo "<script>window.location.href='index.php?act=cart_lists;</script>";
             }
             echo '<script>location.href="index.php?act=cart_lists"</script>';
             break;

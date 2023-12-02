@@ -1,3 +1,27 @@
+<style>
+    .side_banner1 {
+        position: fixed;
+        width: 10%;
+        margin-top: 16px;
+        left: 40px;
+        border-radius: 5px;
+        z-index: -1;
+        box-shadow: 0px 0px 5px gray;
+    }
+
+    .side_banner2 {
+        position: fixed;
+        width: 10%;
+        margin-top: 16px;
+        right: 40px;
+        border-radius: 5px;
+        z-index: -1;
+        box-shadow: 0px 0px 5px gray;
+    }
+</style>
+<img class="side_banner1" src="./Duan/View/Images/side_banner1.png" alt="">
+<img class="side_banner2" src="./Duan/View/Images/side_banner2.png" alt="">
+
 <!-- -------------------------------------------------------------------------------------------------------- Đường Dẫn Và Hiển Thị Số Sản Phẩm ------------ -->
 <div class="container mt-3">
 
@@ -17,11 +41,13 @@
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                 aria-label="breadcrumb">
                 <?php
-                    if(isset($_POST['btn_search']) || isset($_POST['btn_filter'])){
-                ?>
-                    <p>Tìm thấy <?=$count?> Sản Phẩm</p>
-                <?php
-                    }
+                if (isset($_POST['btn_search']) || isset($_POST['btn_filter'])) {
+                    ?>
+                    <p>Tìm thấy
+                        <?= $count ?> Sản Phẩm
+                    </p>
+                    <?php
+                }
                 ?>
             </nav>
         </div>
@@ -30,38 +56,46 @@
 
 </div>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------- Bộ Lọc Tổng Hợp ------------ -->
 <div class="container pb-3 mb-5"
     style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
     <div class="row">
-        <div class="col-6 d-flex justify-content-between align-items-center w-100">
-            <form action="index.php?act=product_lists" method="POST">
-                <div class="d-flex flex-wrap align-items-center">
-                    <input type="radio" name="brand" value="all" checked> Tất cả
-                    <?php
-                    foreach ($brand as $key => $value) {
-                        ?>
-                        <input type="radio" name="brand" value="<?= $value['id_brand'] ?>">
-                        <?= $value['brand_name'] ?>
+
+        <!-- -------------------------------------------------------------------------------------------------------------- Bộ Lọc Tổng Hợp ------------ -->
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2 mt-4" style="border-right: 1px solid gainsboro;">
+
+            <div>
+                <form action="index.php?act=product_lists" method="POST">
+                    <h5>Hãng</h5>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <input class="col-1 col-md-2" type="radio" name="brand" value="all" checked> Tất cả
                         <?php
-                    }
-                    ?>
-                </div>
-                <div class="d-flex flex-wrap align-items-center">
-                    <input type="radio" name="cate" value="all" checked> Tất cả
-                    <?php
-                    foreach ($cate as $key => $value) {
+                        foreach ($brand as $key => $value) {
+                            ?>
+                            <input class="col-1 col-md-2" type="radio" name="brand" value="<?= $value['id_brand'] ?>">
+                            <?= $value['brand_name'] ?>
+                            <?php
+                        }
                         ?>
-                        <input type="radio" name="cate" value="<?= $value['id_cate'] ?>">
-                        <?= $value['cate_name'] ?>
+                    </div>
+                    <hr>
+                    <h5 class="mt-3">Loại Sản Phẩm</h5>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <input class="col-1 col-md-2" type="radio" name="cate" value="all" checked> Tất cả
                         <?php
-                    }
-                    ?>
-                </div>
-                <input type="submit" name="btn_filter" value="Lọc">
-            </form>
-            <div class="col-6 dropdown-menu-end d-flex flex-wrap justify-content-end">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        foreach ($cate as $key => $value) {
+                            ?>
+                            <input class="col-1 col-md-2" type="radio" name="cate" value="<?= $value['id_cate'] ?>">
+                            <?= $value['cate_name'] ?>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <input class="btn mt-2 w-100" type="submit" name="btn_filter" value="Lọc">
+                </form>
+            </div>
+
+            <div class="dropdown-menu-end d-flex flex-wrap justify-content-start mt-4">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Sắp Xếp
                 </button>
@@ -86,46 +120,52 @@
         <!-- --------------------------------------------------------------------------------------------------------------------- Sản Phẩm ---------------- -->
         <?php
         foreach ($product as $key => $value) {
-            $price_format = number_format($value['price'],0,".",".");
-            $discount_format = number_format($value['discount'],0,".",".");
-            $sale = 100 - ($value['discount']/($value['price']/100));
-        ?>
+            $price_format = number_format($value['price'], 0, ".", ".");
+            $discount_format = number_format($value['discount'], 0, ".", ".");
+            $sale = 100 - ($value['discount'] / ($value['price'] / 100));
+            ?>
             <div class="col-6 col-md-4 col-lg-3 col-xl-2 mt-4">
 
                 <div class="card" style="width: 100%;">
                     <div class="collection-img position-relative">
-                        <a href="index.php?act=product_details&id=<?=$value['id_pro']?>"><img src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
+                        <a href="index.php?act=product_details&id=<?= $value['id_pro'] ?>"><img
+                                src="./Duan/image_product/<?= $value['img'] ?>" class="card-img-top" alt="..."></a>
                         <?php
-                            if($value['discount'] > 0){
-                        ?>
-                        <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-<?=$sale?>%</span>
-                        <?php
-                            }
+                        if ($value['discount'] > 0) {
+                            ?>
+                            <span
+                                class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">-
+                                <?= $sale ?>%
+                            </span>
+                            <?php
+                        }
                         ?>
                     </div>
                     <div class="card-body">
                         <div class="product-title">
-                            <a href="index.php?act=product_details&id=<?=$value['id_pro']?>">
+                            <a href="index.php?act=product_details&id=<?= $value['id_pro'] ?>">
                                 <?= $value['pro_name'] ?>
                             </a>
                         </div>
                         <div>
                             <?php
-                                if($value['discount'] != 0){
-                            ?>
-                                <del class="old-price"><?=$price_format?>đ</del>
+                            if ($value['discount'] != 0) {
+                                ?>
+                                <del class="old-price">
+                                    <?= $price_format ?>đ
+                                </del>
                                 <span class="new-price">
                                     <?= $discount_format ?>đ
                                 </span>
-                            <?php
-                                }else{
-                            ?>
-                            <del class="old-price"></del>
+                                <?php
+                            } else {
+                                ?>
+                                <del class="old-price"></del>
                                 <span class="new-price">
                                     <?= $price_format ?>đ
                                 </span>
-                            <?php
-                                }
+                                <?php
+                            }
                             ?>
                         </div>
                         <div>
@@ -147,11 +187,13 @@
                 <a class="page-link">Trước</a>
             </li>
             <?php
-                for ($i=0; $i <$page ; $i++) { 
-            ?>
-            <li class="page-item"><a class="page-link" href="index.php?act=product_lists&page=<?=$i?>"><?=$i+1?></a></li>
-            <?php
-                }
+            for ($i = 0; $i < $page; $i++) {
+                ?>
+                <li class="page-item"><a class="page-link" href="index.php?act=product_lists&page=<?= $i ?>">
+                        <?= $i + 1 ?>
+                    </a></li>
+                <?php
+            }
             ?>
             <li class="page-item">
                 <a class="page-link" href="#">Sau</a>

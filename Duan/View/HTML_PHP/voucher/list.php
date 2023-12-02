@@ -29,9 +29,11 @@
     td.text-right.font-weight-semibold.align-middle.p-4[style="width: 100px;"] {
         white-space: nowrap;
     }
-    td{
+
+    td {
         text-align: center;
     }
+
     .delete_all_class {
         text-decoration: none;
         color: red;
@@ -54,33 +56,40 @@
 <div class="container p-0 my-5 clearfix"
     style="background-image: linear-gradient(to right, #0E2241 , #00b3ff); border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
 
-<div class="card">
-    <div class="card-header" style="background-image: linear-gradient(to right, #0E2241 , #00b3ff);
+    <div class="card">
+        <div class="card-header" style="background-image: linear-gradient(to right, #0E2241 , #00b3ff);
     color: white;">
-        <p class="m-0 pt-2 pb-2" style="font-family: 'Tahoma'; font-weight: bold; font-size: x-large;">
-            Mã Giảm Giá</p>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered mb-5" border=1>
+            <p class="m-0 pt-2 pb-2" style="font-family: 'Tahoma'; font-weight: bold; font-size: x-large;">
+                Mã Giảm Giá</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered mb-5" border=1>
                     <tr class="text-center">
                         <th class="text-center py-3" style="min-width: 200px;">Mã Giảm Giá</th>
                         <th class="text-right py-3" style="width: 200px;">Ngày Kết Thúc</th>
                         <th class="text-center py-3" style="width: 200px;">Giá Trị</th>
                     </tr>
                     <?php
-                        foreach ($vouchers as $voucher) {
-                            extract($voucher);
-                    ?>
+                    foreach ($vouchers as $voucher) {
+                        extract($voucher);
+                        ?>
                         <tr>
-                            <td><?=$code?></td>
-                            <td><?=$end_at?></td>
-                            <td><?=$value?>%</td>
+                            <td>
+                                <?= $code ?>
+                            </td>
+                            <td>
+                                <?= $end_at ?>
+                            </td>
+                            <td>
+                                <?= $value ?>%
+                            </td>
                         </tr>
-                    <?php
-                        }
+                        <?php
+                    }
                     ?>
-            </table>
+                </table>
+            </div>
         </div>
-
-           
+    </div>
+</div>

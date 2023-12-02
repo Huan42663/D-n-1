@@ -65,45 +65,80 @@ Content body start
       </div>
       <!-- /# column -->
     </div>
-    <div class="row">
-      <div class="col-xl-8 col-lg-8 col-md-8">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Sales Overview</h4>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-xl-12 col-lg-8">
-                <div id="morris-bar-chart"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <div class="m-t-10">
-              <h4 class="card-title">Customer Feedback</h4>
-              <h2 class="mt-3">385749</h2>
-            </div>
-            <div class="widget-card-circle mt-5 mb-5" id="info-circle-card">
-              <i class="ti-control-shuffle pa"></i>
-            </div>
-            <ul class="widget-line-list m-b-15">
-              <li class="border-right">
-                92% <br /><span class="text-success"><i class="ti-hand-point-up"></i> Positive</span>
-              </li>
-              <li>
-                8% <br /><span class="text-danger"><i class="ti-hand-point-down"></i>Negative</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- <div class="row d-flex m-0 justify-content-between">
+      <div class="col-lg-6 m-0 p-0" id="myChart" style="width:100%; max-width:600px; height:500px; margin-left: 400px;">
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+          google.charts.load('current', { 'packages': ['corechart'] });
+          google.charts.setOnLoadCallback(drawChart);
 
-    <div class="col-lg-12 p-0">
+          function drawChart() {
+
+            // Set Data
+            const data = google.visualization.arrayToDataTable([
+              ['Danh Mục', 'Số Lượng Sản Phẩm'],
+
+              // <?php
+              // $tongdm = count($listthongke);
+              // $i = 1;
+              // foreach ($listthongke as $thongke) {
+              //   extract($thongke);
+              //   if ($i == $tongdm) {
+              //     $dauphay = "";
+              //   } else {
+              //     $dauphay = ",";
+              //   }
+              //   echo "['" . $thongke['tendm'] . "', " . $thongke['countsp'] . "]" . $dauphay;
+              //   $i += 1;
+              // }
+              // ?>
+
+            ]);
+
+            // Set Options
+            const options = {
+              title: 'BIỂU ĐỒ THỐNG KÊ SỐ LƯỢNG SẢN PHẨM',
+              is3D: true
+            };
+
+            // Draw
+            const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+            chart.draw(data, options);
+
+          }
+        </script>
+      </div>
+
+      <div class="col-lg ms-5" style="background-color: white;">
+        <h4 style="text-align: center; margin-top: 20px;">DANH SÁCH THỐNG KÊ HÀNG HÓA</h4>
+        <table border="1px" style="width: 100%; text-align: center;">
+          <tr>
+            <th>STT</th>
+            <th>LOẠI HÀNG</th>
+            <th>SỐ LƯỢNG SẢN PHẨM</th>
+            <th>GIÁ CAO NHẤT</th>
+            <th>GIÁ THẤP NHẤT</th>
+            <th>GIÁ TRUNG BÌNH</th>
+          </tr>
+          <?php
+          // foreach ($listthongke as $thongke) {
+          //   extract($thongke);
+          //   echo '<tr style="text-align: center;">
+          //                 <td>' . $madm . '</td>
+          //                 <td>' . $tendm . '</td>
+          //                 <td>' . $countsp . '</td>
+          //                 <td>' . $minprice . '</td>
+          //                 <td>' . $maxprice . '</td>
+          //                 <td>' . $avgprice . '</td>
+          //             </tr>';
+          // }
+          ?>
+        </table>
+      </div>
+    </div> -->
+
+
+    <div class="col-lg-12 p-0 mt-5">
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Đơn Hàng Mới Nhất</h4>
