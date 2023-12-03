@@ -81,6 +81,7 @@
                     <input type="text" class="form-control" name="address" value="<?= $address ?>">
                 </div>
                 <input type="hidden" name="role" id="" value = "<?=$role?>">
+                <input type="hidden" name="pass" id="" value= "<?=$pass?>">
                 <input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></input>
             </form>
 

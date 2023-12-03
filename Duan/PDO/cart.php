@@ -44,10 +44,7 @@ function check_other_cart($id_cart,$id_clp){
     return $cart;
 }
 function add_quantity_other_cart($id_cart,$id_clp,$quantity){
-    $check = "SELECT * FROM OTHER_CART WHERE ID_CART = $id_cart AND ID_CLP = $id_clp";
-    $cart = pdo_query_one($check);
-    extract($cart);
-    $sql = "UPDATE OTHER_CART SET QUANTITY_CART = ($quantity_cart + $quantity) WHERE ID_CART = $id_cart AND ID_CLP = $id_clp";
+    $sql = "UPDATE OTHER_CART SET QUANTITY_CART = QUANTITY_CART + $quantity WHERE ID_CART = $id_cart AND ID_CLP = $id_clp";
     pdo_execute($sql);
 }
 function delete_all_other_cart($id_cart){

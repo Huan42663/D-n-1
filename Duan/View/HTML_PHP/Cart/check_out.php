@@ -80,14 +80,14 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Họ</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" name="firstname" required>
+                                <input type="text" class="form-control" id="firstName" name="firstname" required>
                                 <div class="invalid-feedback">
                                     Buộc Phải Điền Thông Tin.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastName">Tên</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" name="lastname" required>
+                                <input type="text" class="form-control" id="lastName" name="lastname" required>
                                 <div class="invalid-feedback">
                                     Valid last name is required.
                                 </div>

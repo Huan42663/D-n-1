@@ -136,7 +136,6 @@
         background-color: #0E2241;
         border: 1px solid #0E2241;
     }
-    
 
     .order-qty {
         color: orangered;
@@ -167,7 +166,7 @@
 
 <div class="container my-5">
     <div class="row m-0 d-flex justify-content-center">
-        <h2 class="col-12" style="text-align: center;">Bạn Đang Có <strong class="order-qty">
+        <h2 class="col-12" style="text-align: center;">Bạn Đã Hủy <strong class="order-qty">
                 <?php ?><?=$count?>
             </strong> Đơn Hàng</h2>
         <a href="index.php?act=shipping_process" class="mt-3 mx-2 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
@@ -208,8 +207,9 @@
                 <p class="mb-0">Trạng Thái: <span><?=$status_name?></span></p>
             </div>
         </div>
+        <br>
         <!-- Add class 'active' to progress -->
-        <div class="row d-flex justify-content-center mt-5">
+        <!-- <div class="row d-flex justify-content-center mt-5">
             <div class="col-12">
                 <ul id="progressbar" class="text-center">
                     <li class="<?php if ($status >0) {echo 'active';} ?> step0"></li>
@@ -237,18 +237,8 @@
                     <p class="m-0">Đơn Hàng<br>Đã Đến</p>
                 </div>
             </div>
-        </div>
-        <?php
-            if($status == 1){
-        ?>
-            <input type="submit" value="Hủy Đơn Hàng" class="btn-cancel">
-        <?php
-            }else{
-        ?>
-            <span class="btn-cancel"> Đơn Hàng Đã Được Xác Nhận Không Thể Hủy</span>
-        <?php
-            }
-        ?>
+        </div> -->
+        <span class="btn-cancel"> Đơn Hàng Đã Bị Hủy </span>
     </div>
 <?php
         }

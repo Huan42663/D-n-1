@@ -215,6 +215,10 @@ function check_pro($pro_name)
     $pro = pdo_query_one($sql);
     return $pro;
 }
+function change_view ($id_pro){
+    $sql = "UPDATE PRODUCT SET VIEW = VIEW + 1 WHERE ID_PRO = $id_pro";
+    pdo_execute($sql);
+}
 ?>
 
 <!-- color_pro -->
@@ -236,11 +240,10 @@ function update_color_pro($id_clp, $id_color, $img, $quantity)
     if ($img != '') {
         $sql = "UPDATE COLOR_PRO SET 
         ID_COLOR='$id_color',IMAGE='$img',QUANTITY='$quantity' WHERE ID_CLP = '$id_clp'";
-        pdo_execute($sql);
     } else {
         $sql = "UPDATE COLOR_PRO SET ID_COLOR='$id_color',QUANTITY='$quantity' WHERE ID_CLP = $id_clp";
-        pdo_execute($sql);
     }
+    pdo_execute($sql);
 }
 function count_color_pro($id_pro)
 {

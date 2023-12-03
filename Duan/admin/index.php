@@ -576,8 +576,48 @@ if (empty($_SESSION['user_name_login'])) {
                 include "voucher/list.php";
                 break;
             case 'list_order':
-                $bills = load_all_bill();
+                $limit = 3;
+                if (isset($_GET['page-ucb'])) {
+                    $number = $_GET['page-ucb'];
+                    $start_ucb = $number * $limit;
+                } else {
+                    $start_ucb = 0;
+                }
+                $unconfimred_bills = load_all_bill(1,$start_ucb,$limit);
+                $unconfimred_bills_count = count_bill (1,$limit);
+                if (isset($_GET['page-cb'])) {
+                    $number = $_GET['page-cb'];
+                    $start_cb = $number * $limit;
+                } else {
+                    $start_cb = 0;
+                }
+                $confimred_bills = load_all_bill(2,$start_cb,$limit);
+                $confimred_bills_count = count_bill (2,$limit);
                 include "order/list.php";
+                break;
+            case 'list_completed_order':
+                $limit = 3;
+                if (isset($_GET['page'])) {
+                    $number = $_GET['page'];
+                    $start = $number * $limit;
+                } else {
+                    $start = 0;
+                }
+                $bills = load_all_bill(3,$start,$limit);
+                $bills_count = count_bill (3,$limit);
+                include "order/list_completed.php";
+                break;
+            case 'list_cancelled_order':
+                $limit = 3;
+                if (isset($_GET['page'])) {
+                    $number = $_GET['page'];
+                    $start = $number * $limit;
+                } else {
+                    $start = 0;
+                }
+                $bills = load_all_bill(0,$start,$limit);
+                $bills_count = count_bill (0,$limit);
+                include "order/list_cancelled.php";
                 break;
             case 'change_status_bill':
                 if(isset($_GET['id'])){

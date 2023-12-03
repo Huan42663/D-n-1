@@ -1,50 +1,9 @@
 /*
     Table of Contents
 
-<<<<<<< HEAD
     Name                 : Efron
     Author               : Quixkit
     Author Portfolio     : https://themeforest.net/user/quixkit/portfolio
-=======
-body{
-    display: flex;
-}
-.container{
-    margin: 0 auto;
-    padding: 0;
-    width: 80%;
-}
-.content-1{
-    padding-bottom: 2%;
-    border-radius: 0px 0px 10px 10px;
-    padding-top: 90px;
-    border-bottom: 1px solid slategray;
-    border-left: 1px solid slategray;
-    border-right: 1px solid slategray;
-}
-.content-1 h2{
-    padding-left: 2%;
-}
-.bar{
-    position: fixed;
-    box-shadow: 2px 2px 5px 2px rgb(147, 149, 160);
-}
-.header{
-    left: 1px;
-    position: fixed;
-    right: 1px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px 2px;
-}
-.header h3{
-    font-size: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.menu{
-    display: block;
-    padding-top: 10px;
->>>>>>> bc47d8ffc51e8135ab3e234de6e1391bf5e52218
     
 
 

@@ -81,11 +81,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $user_name = $_POST['user_name'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
+                $pass = $_POST['pass'];
                 $tel = $_POST['tel'];
                 $avatar = $_FILES['avatar']['name'];
                 $role = $_POST['role'];
                 if ($avatar) {
-                    $tmp_name = $_FILE['avatar']['tmp_name'];
+                    $tmp_name = $_FILES['avatar']['tmp_name'];
                     move_uploaded_file($tmp_name, 'Duan/image_user/' . $avatar);
                     update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar, $role);
                 } else {
@@ -199,16 +200,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'product_details':
             if (isset($_GET['id'])) {
                 $id_pro = $_GET['id'];
-            }
-            $other_pro = other_pro($id_pro);
-            $brand_name = get_name_brand($id_pro);
-            $product = load_one_pro($id_pro);
-            $list_color = load_color_for_pro($id_pro);
-            $comment = load_comment($id_pro);
-            if (isset($_GET['color'])) {
-                $color = $_GET['color'];
-                $color_pro = load_pro_for_color($id_pro, $color);
-                $sold = count_pro_sold ($product['pro_name'],$color_pro['color_name']);
+                $other_pro = other_pro($id_pro);
+                $brand_name = get_name_brand($id_pro);
+                $product = load_one_pro($id_pro);
+                $list_color = load_color_for_pro($id_pro);
+                $comment = load_comment($id_pro);
+                if (isset($_GET['color'])) {
+                    $color = $_GET['color'];
+                    $color_pro = load_pro_for_color($id_pro, $color);
+                    $sold = count_pro_sold ($product['pro_name'],$color_pro['color_name']);
+                }
+                change_view($id_pro);
             }
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
@@ -302,13 +304,52 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
             include "./Duan/View/HTML_PHP/Cart/check_out.php";
             break;
+        case 'check_out_buy':
+            $date = date("Y-m-d");
+            $voucher_discount = 0;
+            
+            $payments = load_all_payment();
+            if(isset($_POST['add']) && $_POST['add']){
+                $add_code = $_POST['add_code'];
+                $check_voucher = check_voucher($add_code);
+                if(is_array($check_voucher)){
+                    extract($check_voucher);
+                    if($start_at <= $date && $end_at > $date){
+                        $voucher_discount = $value;
+                        echo '<script>alert("Áp Dụng Thành Công !");</script>';
+                    }else{
+                        echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                    }
+                }else{
+                    echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                }
+            }
+            include "./Duan/View/HTML_PHP/Cart/check_out.php";
+            break;
         case 'shipping_process':
+            $id_user = $_SESSION['user_name_login']['id_user'];
+            $count = count_bill_per_user(1,2);
+            $bills = load_all_bill_per_user($id_user,1,2);
             include "./Duan/View/HTML_PHP/Cart/shipping_process.php";
+            break;
+        case 'completed_order':
+            $id_user = $_SESSION['user_name_login']['id_user'];
+            $count = count_bill_per_user(3,"");
+            $bills = load_all_bill_per_user($id_user,3,"");
+            include "./Duan/View/HTML_PHP/Cart/completed_order.php";
+            break;
+        case 'cancelled_order':
+            $id_user = $_SESSION['user_name_login']['id_user'];
+            $count = count_bill_per_user(0,"");
+            $bills = load_all_bill_per_user($id_user,0,"");
+            include "./Duan/View/HTML_PHP/Cart/cancelled_order.php";
             break;
         case 'confirm_checkout':
             if(isset($_POST['pay']) && $_POST['pay']){
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
+                $_SESSION['firstname'] = $firstname;
+                $_SESSION['lastname'] = $lastname;
                 $tel = $_POST['tel'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
@@ -333,10 +374,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                     echo "<script>alert('email không hợp lệ');</script>";
                     echo "<script>location.href='index.php?act=check_out';</script>";
                 }else{
-                    add_bill ($firstname,$lastname,$tel,$date,$payment,$id_user,$totals,$voucher);
+                    add_bill ($firstname,$lastname,$tel,$address,$date,$payment,$id_user,$totals,$voucher);
                     foreach ($bills as $add) {
                         extract($add);
-                        add_other_bill($pro_name,$color_name,$brand_name,$price,$quantity_cart);
+                        if($discount == 0){
+                            add_other_bill($pro_name,$color_name,$brand_name,$price,$quantity_cart);
+                        }else{
+                            add_other_bill($pro_name,$color_name,$brand_name,$discount,$quantity_cart);
+                        }
                         change_quantity_pro($id_clp,$quantity_cart);
                     }
                     delete_all_other_cart($id_cart);
