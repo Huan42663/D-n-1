@@ -271,10 +271,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         //     include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
         //     break;
         case 'change_quantity':
-            if (isset($_GET['id_quantity'])) {
-                echo "<script>window.location.href='index.php?act=cart_lists;</script>";
+            if (isset($_POST['change']) && $_POST['change']) {
+                $quantity_cart = $_POST['quantity_cart'];
+                $id_oc = $_POST['id_oc'];
+                change_quantity($id_oc,$quantity_cart);
             }
-            echo '<script>location.href="index.php?act=cart_lists"</script>';
+            echo "<script>window.location.href='index.php?act=cart_lists';</script>";
             break;
         case 'cart_lists':
             $date = date("Y-m-d");
