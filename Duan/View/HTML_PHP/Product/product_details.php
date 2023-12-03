@@ -118,15 +118,24 @@ if (isset($color_pro)) {
                         ?>
                     </span>
                     <?php
-                    if (isset($color_pro)) {
-                        ?>
-                        <span><strong>Số Lượng: </strong>
-                            <?= $color_pro['quantity'] ?>
-                        </span>
-                        <?php
-                    }
+                        if (isset($color_pro)) {
+                            if($color_pro['quantity'] != 0){
                     ?>
-                    <span><strong>Đã Bán: </strong>153</span>
+                        <span><strong>Số Lượng: </strong><?= $color_pro['quantity'] ?></span>
+                    <?php
+                        }
+                        if(!empty($sold)){
+                    ?>
+                        <span><strong>Đã Bán: </strong><?=$sold['sold']?></span>
+                    <?php
+                        }else{
+                    ?>
+                        <span><strong>Đã Bán: </strong>0</span>
+                    <?php
+                        }
+                    }
+                    
+                    ?>
                 </div>
                 <hr>
                 <div>

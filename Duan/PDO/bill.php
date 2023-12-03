@@ -32,4 +32,10 @@ function change_status_bill ($id_bill){
     $change_bill = "UPDATE BILL SET STATUS = ($bill_status + 1) WHERE ID_BILL = $id_bill";
     pdo_execute($change_bill);
 }
+function count_pro_sold ($pro_name,$color_name){
+    $sql = "SELECT NAME_PRO,SUM(QUANTITY_PRO) AS sold FROM OTHER_BILL 
+    WHERE NAME_PRO = '$pro_name' AND COLOR_PRODUCT = '$color_name' GROUP BY NAME_PRO";
+    $sold = pdo_query_one($sql);
+    return $sold;
+}
 ?>

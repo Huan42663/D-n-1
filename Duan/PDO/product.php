@@ -278,7 +278,8 @@ function load_color_for_pro($id_pro)
 function load_pro_for_color($id_pro, $color)
 {
     $sql = "SELECT * FROM COLOR_PRO 
-    WHERE ID_COLOR = $color AND ID_PRO = $id_pro";
+    JOIN COLOR ON COLOR_PRO.ID_COLOR = COLOR.ID_COLOR
+    WHERE COLOR_PRO.ID_COLOR = $color AND ID_PRO = $id_pro";
     $color_pro = pdo_query_one($sql);
     return $color_pro;
 }

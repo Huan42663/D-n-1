@@ -65,7 +65,7 @@
                     ?>
                 </tbody>
             </table>
-            <form action="index.php?act=list_cate" method="POST">
+            <form action="index.php?act=list_account" method="POST">
                 <?php
                 for ($i = 0; $i < $count; $i++) {
 

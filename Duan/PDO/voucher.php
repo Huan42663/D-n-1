@@ -14,7 +14,7 @@ function check_voucher($code){
     return $vc;
 }
 function load_voucher($date){
-    $sql = "SELECT * FROM VOUCHER WHERE START_AT <= '$date' AND END_AT > '$date'";
+    $sql = "SELECT * FROM VOUCHER WHERE START_AT <= '$date' AND END_AT > '$date' ORDER BY VALUE DESC";
     $vc = pdo_query($sql);
     return $vc;
 }

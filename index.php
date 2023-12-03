@@ -200,15 +200,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             if (isset($_GET['id'])) {
                 $id_pro = $_GET['id'];
             }
-            if (isset($_GET['color'])) {
-                $color = $_GET['color'];
-                $color_pro = load_pro_for_color($id_pro, $color);
-            }
             $other_pro = other_pro($id_pro);
             $brand_name = get_name_brand($id_pro);
             $product = load_one_pro($id_pro);
             $list_color = load_color_for_pro($id_pro);
             $comment = load_comment($id_pro);
+            if (isset($_GET['color'])) {
+                $color = $_GET['color'];
+                $color_pro = load_pro_for_color($id_pro, $color);
+                $sold = count_pro_sold ($product['pro_name'],$color_pro['color_name']);
+            }
             include "./Duan/View/HTML_PHP/Product/product_details.php";
             break;
 
@@ -216,7 +217,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             if (isset($_SESSION['user_name_login'])) {
                 if (isset($_POST['id_clp'])) {
                     if (isset($_POST['buy']) && $_POST['buy']) {
-                        include "./Duan/View/HTML_PHP/Cart/shipping_info.php";
+                        include "./Duan/View/HTML_PHP/Cart/shipping_info.php";  
                     }
                     if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
                         $id_clp = $_POST['id_clp'];
