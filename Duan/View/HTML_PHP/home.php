@@ -1,7 +1,7 @@
 <title>BlueTech - Trang Chủ</title>
 
 <style>
-  @media screen (max-width:800px){
+  @media screen and (max-width: 1200px ){
     .side_banner1 {
       display: none;
     }

@@ -39,12 +39,13 @@
           }
         ?>
         <?php
-          if(isset($_SESSION['user_name_login'])){
+          if(isset($_SESSION['user_name_login']))
+          {
         ?>
         <a href="index.php?act=cart_lists">
           <button type="button" class="btn position-relative">
             <i class="fa fa-shopping-cart"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"><?=$_SESSION['count_cart']?></span>
+            <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"><?$_SESSION['count_cart']?></span>
           </button>
         </a>
         <?php
