@@ -28,7 +28,8 @@ function load_all_cart_for_account($id_user){
 function count_cart($id_user){
     $sql = "SELECT * FROM CART WHERE ID_USER = $id_user";
     $carts = pdo_query_one($sql);
-    $other_cart = "SELECT * FROM OTHER_CART WHERE ID_CART =". $carts['id_cart'];
+    extract($carts);
+    $other_cart = "SELECT * FROM OTHER_CART WHERE ID_CART = $id_cart";
     $cart = pdo_query($other_cart);
     $count=0;
     foreach ($cart as $row) {
