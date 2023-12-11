@@ -378,13 +378,13 @@ if (isset($color_pro)) {
             </div>
             <div class="modal-body">
                 <h4 class="text-center mt-2 mb-4">
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                    <i class="fas fa-star star-light submit_star mr-1 p-1" id="submit_star_1" data-rating="1"></i><i
+                        class="fas fa-star star-light submit_star mr-1 p-1" id="submit_star_2" data-rating="2"></i><i
+                        class="fas fa-star star-light submit_star mr-1 p-1" id="submit_star_3" data-rating="3"></i><i
+                        class="fas fa-star star-light submit_star mr-1 p-1" id="submit_star_4" data-rating="4"></i><i
+                        class="fas fa-star star-light submit_star mr-1 p-1" id="submit_star_5" data-rating="5"></i>
                 </h4>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <input type="text" name="user_name" id="user_name" class="form-control"
                         placeholder="Nhập Tên Của Bạn" />
                 </div>
@@ -415,6 +415,7 @@ if (isset($color_pro)) {
 
     .star-light {
         color: #e9ecef;
+        cursor: pointer;
     }
 
     #review_modal {
@@ -425,29 +426,17 @@ if (isset($color_pro)) {
 
     .modal-dialog {
         max-width: 600px;
-        /* Điều chỉnh kích thước modal nếu cần */
         width: 100%;
         margin: 0;
-    }
-
-    .modal-content {
-        position: relative;
-    }
-
-    /* Tùy chọn: Để làm cho modal trở nên đẹp hơn */
-    .modal-body {
-        padding: 20px;
-    }
-
-    .modal-header,
-    .modal-footer {
-        padding: 10px 20px;
     }
 
     .close {
         position: absolute;
         top: 10px;
         right: 20px;
+        background-color: white;
+        border: 0;
+        font-size: x-large;
     }
 </style>
 
@@ -534,6 +523,17 @@ if (isset($color_pro)) {
             })
         }
 
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Lắng nghe sự kiện click trên nút đóng modal
+        document.querySelector('.close').addEventListener('click', function () {
+            // Lấy modal hiện tại và đóng nó bằng cách thêm class 'd-none'
+            var modal = document.querySelector('.modal');
+            if (modal) {
+                modal.classList.add('d-none');
+            }
+        });
     });
 
 </script>
