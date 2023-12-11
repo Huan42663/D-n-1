@@ -5,7 +5,7 @@
         margin-top: 16px;
         left: 40px;
         border-radius: 5px;
-        z-index: -1;
+        z-index: 5;
         box-shadow: 0px 0px 5px gray;
     }
 
@@ -15,7 +15,7 @@
         margin-top: 16px;
         right: 40px;
         border-radius: 5px;
-        z-index: -1;
+        z-index: 5;
         box-shadow: 0px 0px 5px gray;
     }
 </style>
@@ -289,8 +289,8 @@ if (isset($color_pro)) {
 </div>
 
 <!-- --------------------------------------------------------------------------------------------- Bình Luận ------------------------------------------------ -->
-<div class="container p-0">
-    <div class="card">
+<div class="container p-0" style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 5px gainsboro;">
+    <div class="card" id="comments">
         <div class="card-header">Đánh Giá & Bình Luận về <strong>
                 <?= $pro_name ?>
             </strong></div>
@@ -372,7 +372,8 @@ if (isset($color_pro)) {
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Đánh Giá Của Bạn</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="close_review"
+                    id="close_review">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -418,16 +419,15 @@ if (isset($color_pro)) {
         cursor: pointer;
     }
 
-    #review_modal {
+    /* #review_modal {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
+    } */
 
     .modal-dialog {
         max-width: 600px;
-        width: 100%;
-        margin: 0;
+        top: 30%;
     }
 
     .close {
@@ -438,10 +438,28 @@ if (isset($color_pro)) {
         border: 0;
         font-size: x-large;
     }
+
+    .icon_user_cmt {
+        background-color: #00b3ff;
+        border-radius: 100%;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .icon_user_cmt h3 {
+        line-height: 0;
+        margin: 0;
+
+    }
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
@@ -452,6 +470,12 @@ if (isset($color_pro)) {
     $('#add_review').click(function () {
 
         $('#review_modal').modal('show');
+
+    });
+
+    $('#close_review').click(function () {
+
+        $('#review_modal').modal('hide');
 
     });
 
@@ -499,43 +523,135 @@ if (isset($color_pro)) {
     });
 
     $('#save_review').click(function () {
-
+        console.log('Đã nhấp vào nút #save_review');
         var user_name = $('#user_name').val();
 
         var user_review = $('#user_review').val();
 
-        if (user_name == '' || user_review == '') {
+        if (rating_data === 0) {
+            alert("Vui lòng chọn đánh giá trước khi gửi!");
+            return false;
+        }
+
+        if (user_name === '' && user_review === '') {
             alert("Vui Lòng Không Được Bỏ Trống!");
             return false;
         }
         else {
             $.ajax({
-                url: "submit_rating.php",
+                url: "Duan/View/HTML_PHP/Product/submit_rating.php",
                 method: "POST",
                 data: { rating_data: rating_data, user_name: user_name, user_review: user_review },
                 success: function (data) {
-                    $('#review_modal').modal('hide');
-
                     load_rating_data();
 
+                    // $('#user_name').val('');
+                    // $('#user_review').val('');
+                    $('#review_modal').modal('hide');
+
                     alert(data);
+                    // location.reload();
                 }
             })
         }
 
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Lắng nghe sự kiện click trên nút đóng modal
-        document.querySelector('.close').addEventListener('click', function () {
-            // Lấy modal hiện tại và đóng nó bằng cách thêm class 'd-none'
-            var modal = document.querySelector('.modal');
-            if (modal) {
-                modal.classList.add('d-none');
-            }
-        });
-    });
+    load_rating_data();
 
+    function load_rating_data() {
+        $.ajax({
+            url: "Duan/View/HTML_PHP/Product/submit_rating.php",
+            method: "POST",
+            data: { action: 'load_data' },
+
+            dataType: "JSON",
+            success: function (data) {
+                console.log('Đang gọi AJAX');
+                $('#average_rating').text(data.average_rating);
+                $('#total_review').text(data.total_review);
+
+                var count_star = 0;
+
+                $('.main_star').each(function () {
+                    count_star++;
+                    if (Math.ceil(data.average_rating) >= count_star) {
+                        $(this).addClass('text-warning');
+                        $(this).addClass('star-light');
+                    }
+                });
+
+                $('#total_five_star_review').text(data.five_star_review);
+
+                $('#total_four_star_review').text(data.four_star_review);
+
+                $('#total_three_star_review').text(data.three_star_review);
+
+                $('#total_two_star_review').text(data.two_star_review);
+
+                $('#total_one_star_review').text(data.one_star_review);
+
+                $('#five_star_progress').css('width', (data.five_star_review / data.total_review) * 100 + '%');
+
+                $('#four_star_progress').css('width', (data.four_star_review / data.total_review) * 100 + '%');
+
+                $('#three_star_progress').css('width', (data.three_star_review / data.total_review) * 100 + '%');
+
+                $('#two_star_progress').css('width', (data.two_star_review / data.total_review) * 100 + '%');
+
+                $('#one_star_progress').css('width', (data.one_star_review / data.total_review) * 100 + '%');
+
+                if (data.review_data.length > 0) {
+                    var html = '';
+
+                    for (var count = 0; count < data.review_data.length; count++) {
+                        html += '<div class="row m-5">';
+
+                        html += '<div class="col-sm-1"><div class="icon_user_cmt text-white pt-2 pb-2"><h3>'
+                            + data.review_data[count].user_name.charAt(0) + '</h3></div></div>';
+
+                        html += '<div class="col-sm-11">';
+
+                        html += '<div class="card">';
+
+                        html += '<div class="card-header"><b>' + data.review_data[count].user_name + '</b></div>';
+
+                        html += '<div class="card-body">';
+
+                        for (var star = 1; star <= 5; star++) {
+                            var class_name = '';
+
+                            if (data.review_data[count].rating >= star) {
+                                class_name = 'text-warning';
+                            }
+                            else {
+                                class_name = 'star-light';
+                            }
+
+                            html += '<i class="fas fa-star ' + class_name + ' mr-1"></i>';
+                        }
+
+                        html += '<br />';
+
+                        html += data.review_data[count].user_review;
+
+                        html += '</div>';
+
+                        html += '<div class="card-footer text-right">On ' + data.review_data[count].datetime + '</div>';
+
+                        html += '</div>';
+
+                        html += '</div>';
+
+                        html += '</div>';
+                    }
+
+                    $('#review_content').html(html);
+                }
+            }
+        })
+        console.log('Đang gọi load_rating_data()');
+    }
 </script>
 
 
