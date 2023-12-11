@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -30,25 +30,37 @@
         </button>
         <?php
           if(isset($_SESSION['user_name_login'])){
-        ?>
-        <a href="index.php?act=shipping_process"><button type="button" class="btn position-relative">
-            <i class="fa-solid fa-truck-fast"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">1</span>
-          </button></a>
-          <?php
-          }
-        ?>
+            if(isset($_SESSION['count_order']) && isset($_SESSION['count_cart'])){
+            ?>
+            <a href="index.php?act=shipping_process"><button type="button" class="btn position-relative">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"><?=$_SESSION['count_order']?></span>
+              </button>
+            </a>
+            <a href="index.php?act=cart_lists">
+              <button type="button" class="btn position-relative">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"><?=$_SESSION['count_cart']?></span>
+              </button>
+            </a>
         <?php
-          if(isset($_SESSION['user_name_login'])){
+            }
+            else{
         ?>
-        <a href="index.php?act=cart_lists">
-          <button type="button" class="btn position-relative">
-            <i class="fa fa-shopping-cart"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"><?=$_SESSION['count_cart']?></span>
-          </button>
-        </a>
+            <a href="index.php?act=shipping_process"><button type="button" class="btn position-relative">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+              </button>
+            </a>
+            <a href="index.php?act=cart_lists">
+              <button type="button" class="btn position-relative">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+              </button>
+            </a>
         <?php
           }
+        }
         ?>
 
         <a href="index.php?act=account"><button type="button" class="btn position-relative">

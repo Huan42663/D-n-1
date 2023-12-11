@@ -133,7 +133,10 @@ function load_top_5_pro()
 }
 function load_one_pro($id)
 {
-    $sql = " SELECT * FROM PRODUCT WHERE ID_PRO = $id";
+    $sql = " SELECT * FROM PRODUCT 
+    JOIN COLOR_PRO ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
+    JOIN COLOR ON COLOR_PRO.ID_COLOR = COLOR.ID_COLOR
+    WHERE PRODUCT.ID_PRO = $id";
     $pro = pdo_query_one($sql);
     return $pro;
 }
@@ -291,6 +294,15 @@ function change_quantity_pro($id_clp,$quantity){
     $pro = pdo_query_one($check_pro);
     $change = "UPDATE COLOR_PRO SET QUANTITY = " . $pro['quantity'] . " - $quantity WHERE ID_CLP = $id_clp";
     pdo_execute($change); 
+}
+function change_quantity_pro_cancel ($id_bill){
+    $sql = "SELECT * FROM OTHER_BILL WHERE ID_BILL = $id_bill";
+    $other_bills = pdo_query($sql);
+    foreach ($other_bills as $other_bill) {
+        extract($other_bill);
+        $change = "UPDATE COLOR_PRO SET QUANTITY = QUANTITY + $quantity_pro WHERE ID_CLP = $id_clp";
+        pdo_execute($change);
+    }
 }
 function loadall_thongke()
 {
