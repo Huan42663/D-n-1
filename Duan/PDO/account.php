@@ -20,12 +20,12 @@ function check_user($user_name_login, $pass_login)                              
 //     return $dm;
 // }
 
-function update_account($id_user, $user_name,$pass, $email, $address, $tel, $avatar,$role)            // Update: Chỉnh sửa thông tin tài khoản
+function update_account($id_user, $user_name,$pass, $email, $address, $tel, $avatar)            // Update: Chỉnh sửa thông tin tài khoản
 {
     if($avatar != ""){
-        $sql = "UPDATE USER SET USER_NAME = '$user_name' ,PASS = '$pass', EMAIL = '$email' , ADDRESS = '$address' , TEL = '$tel' ,AVATAR = '$avatar', ROLE = $role WHERE ID_USER = $id_user";
+        $sql = "UPDATE USER SET USER_NAME = '$user_name' ,PASS = '$pass', EMAIL = '$email' , ADDRESS = '$address' , TEL = '$tel' ,AVATAR = '$avatar' WHERE ID_USER = $id_user";
     }else{
-        $sql = "UPDATE USER SET USER_NAME = '$user_name' ,PASS = '$pass', EMAIL = '$email' , ADDRESS = '$address' , TEL = '$tel' , ROLE = $role WHERE ID_USER = $id_user";
+        $sql = "UPDATE USER SET USER_NAME = '$user_name' ,PASS = '$pass', EMAIL = '$email' , ADDRESS = '$address' , TEL = '$tel' WHERE ID_USER = $id_user";
     }
     // echo $sql;die;
     pdo_execute($sql);

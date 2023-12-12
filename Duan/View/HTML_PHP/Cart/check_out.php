@@ -16,18 +16,19 @@
                     <ul class="list-group mb-3">
                         <?php
                             $totals_all =0;
-                            foreach ($bills as $bill) {
-                                extract($bill);
-                                if($discount == 0){
-                                    $totals = $price * $quantity_cart;
-                                }else{
-                                    $totals = $discount * $quantity_cart;
-                                }
-                                $totals_all+=$totals;
-                                $totals_sale = ($totals_all /100 ) * (100 - $voucher_discount);
-                                $total_format = number_format($totals,0,'.','.');
-                                $totals_all_format = number_format($totals_all,0,'.','.');
-                                $totals_sale_format = number_format($totals_sale,0,'.','.');
+                            if($method == "check_out_cart"){
+                                foreach ($carts as $cart) {
+                                    extract($cart);
+                                    if($discount == 0){
+                                        $totals = $price * $quantity_cart;
+                                    }else{
+                                        $totals = $discount * $quantity_cart;
+                                    }
+                                    $totals_all+=$totals;
+                                    $totals_sale = ($totals_all /100 ) * (100 - $voucher_discount);
+                                    $total_format = number_format($totals,0,'.','.');
+                                    $totals_all_format = number_format($totals_all,0,'.','.');
+                                    $totals_sale_format = number_format($totals_sale,0,'.','.');
                         ?>
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
@@ -42,6 +43,32 @@
                             </li>
                         <?php
                             }
+                        }elseif ($method == "check_out_buy") {
+                            extract($product);
+                            if($discount == 0){
+                                $totals = $price * $quantity_cart;
+                            }else{
+                                $totals = $discount * $quantity_cart;
+                            }
+                            $totals_all+=$totals;
+                            $totals_sale = ($totals_all /100 ) * (100 - $voucher_discount);
+                            $total_format = number_format($totals,0,'.','.');
+                            $totals_all_format = number_format($totals_all,0,'.','.');
+                            $totals_sale_format = number_format($totals_sale,0,'.','.');
+                        ?>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Tên Sản Phẩm</h6>
+                                    <small class="text-muted"><?=$pro_name?></small>
+                                    <h6 class="my-0">Màu</h6>
+                                    <small class="text-muted"><?=$color_name?></small>
+                                    <h6 class="my-0">Số Lượng</h6>
+                                    <small class="text-muted"><?=$quantity_cart?></small>
+                                </div>
+                                <span class="text-muted"><?=$total_format?>đ</span>
+                            </li>
+                        <?php
+                        }
                         ?>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Tổng Tiền</span>
@@ -157,6 +184,7 @@
                         <?php
                             }
                         ?>
+                        <input type="hidden" name="check_out_method" id="" value="<?=$method?>">
                         <input class="btn btn-primary btn-lg btn-block" name="pay" type="submit" value="Thanh Toán"></input>
                     </form>
                 

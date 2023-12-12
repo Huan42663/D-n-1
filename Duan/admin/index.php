@@ -528,13 +528,12 @@ if (empty($_SESSION['user_name_login'])) {
                         $tel = $_POST['tel'];
                         $avatar = $_FILES['avatar']['name'];
                         $file_type = $_FILES['avatar']['file_type'];
-                        $role = $_POST['role'];
                         if ($avatar) {
                             $tmp_name = $_FILES['avatar']['tmp_name'];
                             move_uploaded_file($tmp_name, '../image_user/' . $avatar);
-                            update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar, $role);
+                            update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
                         } else {
-                            update_account($id_user, $user_name, $pass, $email, $address, $tel, "", $role);
+                            update_account($id_user, $user_name, $pass, $email, $address, $tel, "");
                         }
                     }
                 }
@@ -659,12 +658,24 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
 
             default:
-                $product = load_top_5_pro();
+                $date = date("Y-m-d");
+                $total_bill = load_bill("");
+                $completed_bill = load_bill("3");
+                $canceled_bill  = load_bill("0");
+                $total_revenue = total_revenue();
+                $total = number_format($total_revenue['revenue'],0,".",".");
+                $bills = load_new_bill($date);
                 include "view/home.php";
                 break;
         }
     } else {
-        $product = load_top_5_pro();
+        $date = date("Y-m-d");
+        $total_bill = load_bill("");
+        $completed_bill = load_bill("3");
+        $canceled_bill  = load_bill("0");
+        $total_revenue = total_revenue();
+        $total = number_format($total_revenue['revenue'],0,".",".");
+        $bills = load_new_bill($date);
         include "view/home.php";
     }
     include "view/footer.php";
