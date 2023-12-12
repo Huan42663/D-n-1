@@ -221,6 +221,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             if (isset($_SESSION['user_name_login'])) {
                 if (isset($_POST['id_clp'])) {
                     if (isset($_POST['buy']) && $_POST['buy']) {
+                        include "./Duan/View/HTML_PHP/Cart/check_out.php";  
                         $id_pro = $_POST['id_pro'];
                         $product = load_one_pro($id_pro);
                         $date = date("Y-m-d");
