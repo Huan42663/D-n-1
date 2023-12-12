@@ -59,14 +59,16 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
             case 'updated_cate':
                 if (isset($_POST['sua'])) {
-                    $check = check_cate($_POST['cate_name']);
+                    // $check = check_cate($_POST['cate_name']);
                     if ($_POST['cate_name'] == "") {
                         echo "<script>alert('Không để trống');</script>";
                     } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['cate_name'])) {
                         echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
-                    } elseif (is_array($check)) {
-                        echo "<script>alert('danh mục đã tồn tại');</script>";
-                    } else {
+                    }
+                    //  elseif (is_array($check)) {
+                    //     echo "<script>alert('danh mục đã tồn tại');</script>";
+                    // }
+                     else {
                         $id_cate = $_POST['id_cate'];
                         $cate_name = $_POST['cate_name'];
                         update_cate($id_cate, $cate_name);
@@ -137,14 +139,16 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
             case 'updated_color':
                 if (isset($_POST['sua'])) {
-                    $check = check_color($_POST['color_name']);
+                    // $check = check_color($_POST['color_name']);
                     if ($_POST['color_name'] == "") {
                         echo "<script>alert('Không để trống');</script>";
                     } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['color_name'])) {
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
-                    } elseif (is_array($check)) {
-                        echo "<script>alert('màu đã tồn tại');</script>";
-                    } else {
+                    }
+                    //  elseif (is_array($check)) {
+                    //     echo "<script>alert('màu đã tồn tại');</script>";
+                    // }
+                     else {
                         $id_color = $_POST['id_color'];
                         $color_name = $_POST['color_name'];
                         update_color($id_color, $color_name);
@@ -215,14 +219,16 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
             case 'updated_brand':
                 if (isset($_POST['sua'])) {
-                    $check = check_brand($_POST['brand_name']);
+                    // $check = check_brand($_POST['brand_name']);
                     if ($_POST['brand_name'] == "") {
                         echo "<script>alert('Không để trống');</script>";
                     } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['brand_name'])) {
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
-                    } elseif (is_array($check)) {
-                        echo "<script>alert('hãng đã tồn tại');</script>";
-                    } else {
+                    } 
+                    // elseif (is_array($check)) {
+                    //     echo "<script>alert('hãng đã tồn tại');</script>";
+                    // }
+                     else {
                         $id_brand = $_POST['id_brand'];
                         $brand_name = $_POST['brand_name'];
                         update_brand($id_brand, $brand_name);
@@ -286,7 +292,14 @@ if (empty($_SESSION['user_name_login'])) {
                         echo "<script>alert('sản phẩm đã tồn tại');</script>";
                     } elseif (!in_array($check_file, $image_extensions)) {
                         echo "<script>alert('định dạng ảnh sai');</script>";
+                    } elseif ($_POST['price'] <= $_POST['discount']) {
+                        echo "<script>alert('Giá khuyến mại phải nhỏ hơn giá gốc');</script>";
+                    } elseif ($_POST['price'] <= 0) {
+                        echo "<script>alert('giá sản phẩm phải lớn hơn 0');</script>";
+                    } elseif ($_POST['discount'] <= 0) {
+                        echo "<script>alert('giá khuyến mại phải lớn hơn 0');</script>";
                     }
+                    
                     //    elseif(ctype_digit($_POST['price'])){
                     //         echo "<script>alert('Không để trống');</script>";
                     //     }
@@ -322,7 +335,7 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
             case 'updated_pro':
                 if (isset($_POST['sua']) && $_POST['sua']) {
-                    $check = check_pro($_POST['pro_name']);
+                    // $check = check_pro($_POST['pro_name']);
                     if ($_POST['pro_name'] == "") {
                         echo "<script>alert('Không để trống tên sản phẩm');</script>";
                     } elseif ($_POST['price'] == "") {
@@ -331,9 +344,18 @@ if (empty($_SESSION['user_name_login'])) {
                         echo "<script>alert('Không để ký tự đặc biệt');</script>";
                     } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])) {
                         echo "<script>alert('Không để Ký tự đặc biệt');</script>";
-                    } elseif (is_array($check)) {
-                        echo "<script>alert('sản phẩm đã tồn tại');</script>";
-                    } else {
+                    } 
+                    // elseif (is_array($check)) {
+                    //     echo "<script>alert('sản phẩm đã tồn tại');</script>";
+                    // }
+                     elseif ($_POST['price'] <= $_POST['discount']) {
+                        echo "<script>alert('Giá khuyến mại phải nhỏ hơn giá gốc');</script>";
+                    } elseif ($_POST['price'] <= 0) {
+                        echo "<script>alert('giá sản phẩm phải lớn hơn 0');</script>";
+                    } elseif ($_POST['discount'] <= 0) {
+                        echo "<script>alert('giá khuyến mại phải lớn hơn 0');</script>";
+                    }
+                     else {
                         $id = $_POST['id_pro'];
                         $name = $_POST['pro_name'];
                         $discount = $_POST['discount'];

@@ -115,7 +115,7 @@
                                 }
                             ?>
                             <td class="align-middle p-4">
-                                    <input type="number" name="quantity_cart" id="quantity_cart" max="<?=$quantity?>" value="<?=$quantity_cart?>">
+                                    <input type="number" name="quantity_cart" id="quantity_cart" min="1" max="<?=$quantity?>" value="<?=$quantity_cart?>">
                                     <input type="hidden" name="id_oc" id="id_oc" value="<?=$id_oc?>">
                             </td>
                             <td class="text-right font-weight-semibold align-middle p-4"><?=$total_price_format?>đ</td>
