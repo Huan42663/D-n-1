@@ -596,7 +596,7 @@ if (empty($_SESSION['user_name_login'])) {
                 include "order/list.php";
                 break;
             case 'list_completed_order':
-                $limit = 3;
+                $limit = 10;
                 if (isset($_GET['page'])) {
                     $number = $_GET['page'];
                     $start = $number * $limit;
@@ -608,7 +608,7 @@ if (empty($_SESSION['user_name_login'])) {
                 include "order/list_completed.php";
                 break;
             case 'list_cancelled_order':
-                $limit = 3;
+                $limit = 10;
                 if (isset($_GET['page'])) {
                     $number = $_GET['page'];
                     $start = $number * $limit;
