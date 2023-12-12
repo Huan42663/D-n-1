@@ -219,7 +219,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             if (isset($_SESSION['user_name_login'])) {
                 if (isset($_POST['id_clp'])) {
                     if (isset($_POST['buy']) && $_POST['buy']) {
-                        include "./Duan/View/HTML_PHP/Cart/shipping_info.php";  
+                        include "./Duan/View/HTML_PHP/Cart/check_out.php";  
                     }
                     if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
                         $id_clp = $_POST['id_clp'];
