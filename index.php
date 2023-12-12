@@ -608,6 +608,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 echo "<script>location.href='index.php';</script>";
             }
             break;
+
         case 'list_voucher':
             $date = date("Y-m-d");
             $vouchers = load_voucher($date);

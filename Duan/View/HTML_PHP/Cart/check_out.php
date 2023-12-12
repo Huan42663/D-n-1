@@ -153,19 +153,6 @@
 
 
                         <h4 class="mb-3">Phương Thức Thanh Toán</h4>
-
-                        <!-- <div class="d-block my-3">
-                            <select name="paymentMethod" id="">
-                            <?php
-                                foreach ($payments as $payment) {
-                            ?>
-                                <option value="<?=$payment['id_payment']?>"><?=$payment['name_payment']?></option>
-                            <?php
-                                }
-                            ?>
-                            </select>
-                        </div> -->
-
                         <hr>
                         <?php
                             if($voucher_discount > 0){
