@@ -241,7 +241,11 @@
         <?php
             if($status == 1){
         ?>
-            <input type="submit" value="Hủy Đơn Hàng" class="btn-cancel">
+            <a onclick="return confirm('Bạn Có Chắc Chắn muốn hủy đơn Hàng Không ?');" href="index.php?act=cancel_order&id_bill=<?=$id_bill?>">
+                <div  class="btn-cancel">
+                    Hủy Đơn Hàng
+                </div>
+            </a>
         <?php
             }else{
         ?>

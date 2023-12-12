@@ -87,7 +87,7 @@
                             <?php
                                 for ($i=0; $i < $bills_count; $i++) {
                             ?>
-                            <a class="paginate_button current" href="index.php?act=list_completed_order&page=<?=$i?>" aria-controls="example" data-dt-idx="1" tabindex="0"><?=$i+1?></a>
+                            <a class="paginate_button current" href="index.php?act=list_cancelled_order&page=<?=$i?>" aria-controls="example" data-dt-idx="1" tabindex="0"><?=$i+1?></a>
                             <?php
                                 }
                             ?>

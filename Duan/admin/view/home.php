@@ -9,8 +9,8 @@ Content body start
         <div class="card">
           <div class="stat-widget-two card-body">
             <div class="stat-content">
-              <div class="stat-text">Đơn Hàng Mới</div>
-              <div class="stat-digit">5</div>
+              <div class="stat-text">Tổng Đơn Hàng</div>
+              <div class="stat-digit"><?=$total_bill['count']?></div>
             </div>
             <!-- Thanh Quá Trình -->
             <!-- <div class="progress">
@@ -25,7 +25,7 @@ Content body start
           <div class="stat-widget-two card-body">
             <div class="stat-content">
               <div class="stat-text">Đơn Hàng Đã Giao</div>
-              <div class="stat-digit">3</div>
+              <div class="stat-digit"><?=$completed_bill['count']?></div>
             </div>
             <!-- <div class="progress">
               <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78"
@@ -39,7 +39,7 @@ Content body start
           <div class="stat-widget-two card-body">
             <div class="stat-content">
               <div class="stat-text">Đơn Hàng Đã Bị Hủy</div>
-              <div class="stat-digit">1</div>
+              <div class="stat-digit"><?=$canceled_bill['count']?></div>
             </div>
             <!-- <div class="progress">
               <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50"
@@ -53,7 +53,7 @@ Content body start
           <div class="stat-widget-two card-body">
             <div class="stat-content">
               <div class="stat-text">Tổng Doanh Thu</div>
-              <div class="stat-digit">6.500.000đ</div>
+              <div class="stat-digit"><?=$total?>đ</div>
             </div>
             <!-- <div class="progress">
               <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0"
@@ -148,88 +148,29 @@ Content body start
             <table class="table mb-0">
               <thead>
                 <tr>
-                  <th>Ảnh</th>
-                  <th>Tên</th>
-                  <th>Sản Phẩm</th>
-                  <th>Số Lượng</th>
+                  <th>Mã Đơn Hàng</th>
+                  <th>Tên Người Nhận</th>
+                  <th>Địa Chỉ</th>
+                  <th>Tổng Tiền</th>
                   <th>Trạng Thái</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>Lew Shawon</td>
-                  <td><span>Dell-985</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td><span class="badge badge-success">Đã Xong</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>Lew Shawon</td>
-                  <td><span>Asus-565</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td>
-                    <span class="badge badge-warning">Đang Chờ</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>lew Shawon</td>
-                  <td><span>Dell-985</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td><span class="badge badge-success">Done</span></td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>Lew Shawon</td>
-                  <td><span>Asus-565</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td>
-                    <span class="badge badge-warning">Pending</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>lew Shawon</td>
-                  <td><span>Dell-985</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td><span class="badge badge-success">Done</span></td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <div class="round-img">
-                      <a href=""><img width="35" src="./images/avatar/1.png" alt="" /></a>
-                    </div>
-                  </td>
-                  <td>Lew Shawon</td>
-                  <td><span>Asus-565</span></td>
-                  <td><span>456 pcs</span></td>
-                  <td>
-                    <span class="badge badge-warning">Pending</span>
-                  </td>
-                </tr>
+                <?php
+                  foreach ($bills as $bill) {
+                    extract($bill);
+                    $totals = number_format($total,0,".",".");
+                ?>
+                  <tr>
+                    <td><?=$id_bill?></td>
+                    <td><?=$name_user?></td>
+                    <td><?=$address_user?></td>
+                    <td><?=$totals?></td>
+                    <td><span class="badge badge-success"><?=$status_name?></span></td>
+                  </tr>
+                <?php
+                  }
+                ?>
               </tbody>
             </table>
           </div>

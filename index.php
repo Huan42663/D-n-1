@@ -12,6 +12,7 @@ include "./Duan/PDO/bill.php";
 include "./Duan/PDO/cart.php";
 if(isset($_SESSION['user_name_login'])){
     $_SESSION['count_cart'] = count_cart($_SESSION['user_name_login']['id_user']);
+    $_SESSION['count_order'] = $count = count_bill_per_user($_SESSION['user_name_login']['id_user'],1,2);
 }
 if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
     $act = $_GET['act'];
@@ -84,13 +85,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $pass = $_POST['pass'];
                 $tel = $_POST['tel'];
                 $avatar = $_FILES['avatar']['name'];
-                $role = $_POST['role'];
                 if ($avatar) {
                     $tmp_name = $_FILES['avatar']['tmp_name'];
                     move_uploaded_file($tmp_name, 'Duan/image_user/' . $avatar);
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar, $role);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
                 } else {
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "", $role);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "");
                 }
                 // $_SESSION['user_name_login'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
@@ -137,7 +137,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             break;
 
         case 'product_lists':
-            $limit = 18;
+            $limit = 17;
             if (isset($_POST['btn_search']) && $_POST['btn_search']) {
                 $kyw = $_POST['kyw'];
             } else {
@@ -202,6 +202,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $id_pro = $_GET['id'];
                 $other_pro = other_pro($id_pro);
                 $brand_name = get_name_brand($id_pro);
+                $cate_name = get_name_cate($id_pro);
                 $product = load_one_pro($id_pro);
                 $list_color = load_color_for_pro($id_pro);
                 $comment = load_comment($id_pro);
@@ -220,6 +221,29 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 if (isset($_POST['id_clp'])) {
                     if (isset($_POST['buy']) && $_POST['buy']) {
                         include "./Duan/View/HTML_PHP/Cart/check_out.php";  
+                        $id_pro = $_POST['id_pro'];
+                        $product = load_one_pro($id_pro);
+                        $date = date("Y-m-d");
+                        $method = "check_out_buy";
+                        $voucher_discount = 0;
+                        $quantity_cart = $_POST['quantity'];
+                        $payments = load_all_payment();
+                        if(isset($_POST['add']) && $_POST['add']){
+                            $add_code = $_POST['add_code'];
+                            $check_voucher = check_voucher($add_code);
+                            if(is_array($check_voucher)){
+                                extract($check_voucher);
+                                if($start_at <= $date && $end_at > $date){
+                                    $voucher_discount = $value;
+                                    echo '<script>alert("Áp Dụng Thành Công !");</script>';
+                                }else{
+                                    echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                                }
+                            }else{
+                                echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+                            }
+                        }
+                        include "./Duan/View/HTML_PHP/Cart/check_out.php";
                     }
                     if (isset($_POST['add_to_cart']) && $_POST['add_to_cart']) {
                         $id_clp = $_POST['id_clp'];
@@ -271,9 +295,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         //     include "./Duan/View/HTML_PHP/Cart/cart_lists.php";
         //     break;
         case 'change_quantity':
-            if (isset($_POST['change']) && $_POST['change']) {
-                $quantity_cart = $_POST['quantity_cart'];
-                $id_oc = $_POST['id_oc'];
+            if (isset($_GET['id_oc'])) {
+                $quantity_cart = $_GET['amount'];
+                $id_oc = $_GET['id_oc'];
                 change_quantity($id_oc,$quantity_cart);
             }
             echo "<script>window.location.href='index.php?act=cart_lists';</script>";
@@ -287,7 +311,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
         case 'check_out':
             $date = date("Y-m-d");
             $voucher_discount = 0;
-            $bills = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
+            $method = "check_out_cart";
+            $carts = load_all_cart_for_account($_SESSION['user_name_login']['id_user']);
             $payments = load_all_payment();
             if(isset($_POST['add']) && $_POST['add']){
                 $add_code = $_POST['add_code'];
@@ -306,43 +331,50 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
             include "./Duan/View/HTML_PHP/Cart/check_out.php";
             break;
-        case 'check_out_buy':
-            $date = date("Y-m-d");
-            $voucher_discount = 0;
-            
-            $payments = load_all_payment();
-            if(isset($_POST['add']) && $_POST['add']){
-                $add_code = $_POST['add_code'];
-                $check_voucher = check_voucher($add_code);
-                if(is_array($check_voucher)){
-                    extract($check_voucher);
-                    if($start_at <= $date && $end_at > $date){
-                        $voucher_discount = $value;
-                        echo '<script>alert("Áp Dụng Thành Công !");</script>';
-                    }else{
-                        echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
-                    }
-                }else{
-                    echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
-                }
-            }
-            include "./Duan/View/HTML_PHP/Cart/check_out.php";
-            break;
+        // case 'check_out_buy':
+        //     $date = date("Y-m-d");
+        //     $voucher_discount = 0;
+        //     $payments = load_all_payment();
+        //     if(isset($_POST['add']) && $_POST['add']){
+        //         $add_code = $_POST['add_code'];
+        //         $check_voucher = check_voucher($add_code);
+        //         if(is_array($check_voucher)){
+        //             extract($check_voucher);
+        //             if($start_at <= $date && $end_at > $date){
+        //                 $voucher_discount = $value;
+        //                 echo '<script>alert("Áp Dụng Thành Công !");</script>';
+        //             }else{
+        //                 echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+        //             }
+        //         }else{
+        //             echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+        //         }
+        //     }
+        //     include "./Duan/View/HTML_PHP/Cart/check_out.php";
+        //     break;
         case 'shipping_process':
             $id_user = $_SESSION['user_name_login']['id_user'];
-            $count = count_bill_per_user(1,2);
+            $count = count_bill_per_user($id_user,1,2);
             $bills = load_all_bill_per_user($id_user,1,2);
             include "./Duan/View/HTML_PHP/Cart/shipping_process.php";
             break;
         case 'completed_order':
             $id_user = $_SESSION['user_name_login']['id_user'];
-            $count = count_bill_per_user(3,"");
+            $count = count_bill_per_user($id_user,3,"");
             $bills = load_all_bill_per_user($id_user,3,"");
             include "./Duan/View/HTML_PHP/Cart/completed_order.php";
             break;
+        case 'cancel_order':
+            if(isset($_GET['id_bill'])){
+                $id_bill = $_GET['id_bill'];
+                cancel_bill($id_bill);
+                change_quantity_pro_cancel ($id_bill);
+            }
+            echo "<script>location.href='index.php?act=shipping_process';</script>";
+            break;
         case 'cancelled_order':
             $id_user = $_SESSION['user_name_login']['id_user'];
-            $count = count_bill_per_user(0,"");
+            $count = count_bill_per_user($id_user,0,"");
             $bills = load_all_bill_per_user($id_user,0,"");
             include "./Duan/View/HTML_PHP/Cart/cancelled_order.php";
             break;
@@ -356,6 +388,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $payment = $_POST['paymentMethod'];
+                $check_out_method = $_POST['check_out_method'];
                 $totals = $_POST['totals'];
                 $voucher_discount = $_POST['voucher_discount'];
                 $voucher_code = $_POST['voucher_code'];
@@ -380,13 +413,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                     foreach ($bills as $add) {
                         extract($add);
                         if($discount == 0){
-                            add_other_bill($pro_name,$color_name,$brand_name,$price,$quantity_cart);
+                            add_other_bill($id_clp,$pro_name,$color_name,$brand_name,$price,$quantity_cart);
                         }else{
-                            add_other_bill($pro_name,$color_name,$brand_name,$discount,$quantity_cart);
+                            add_other_bill($id_clp,$pro_name,$color_name,$brand_name,$discount,$quantity_cart);
                         }
                         change_quantity_pro($id_clp,$quantity_cart);
                     }
-                    delete_all_other_cart($id_cart);
+                    if($check_out_method == 'check_out_cart'){
+                        delete_all_other_cart($id_cart);
+                    }
                     echo "<script>alert('Thanh Toán Thành Công');</script>";
                     echo "<script>location.href='index.php';</script>";
                 }

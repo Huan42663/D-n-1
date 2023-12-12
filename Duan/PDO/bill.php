@@ -5,11 +5,11 @@ function add_bill ($firstname,$lastname,$tel,$address,$date,$payment,$id_user,$t
     VALUES('$full_name','$tel','$address','$date','$totals','$payment','$voucher_discount',1,'$id_user')";
     pdo_execute($sql);
 }
-function add_other_bill ($pro_name,$color_name,$brand_name,$price,$quantity_cart){
+function add_other_bill ($id_clp,$pro_name,$color_name,$brand_name,$price,$quantity_cart){
     $check_bill = "SELECT * FROM BILL WHERE ID_BILL = (SELECT MAX(ID_BILL) FROM BILL)";
     $bill = pdo_query_one($check_bill);
-    $add_other_bill = "INSERT INTO OTHER_BILL (ID_BILL,NAME_PRO,COLOR_PRODUCT,BRAND_PRO,PRICE_PRO,QUANTITY_PRO)
-    VALUES(" . $bill['id_bill'] .",'$pro_name','$color_name','$brand_name','$price','$quantity_cart')";
+    $add_other_bill = "INSERT INTO OTHER_BILL (ID_BILL,ID_CLP,NAME_PRO,COLOR_PRODUCT,BRAND_PRO,PRICE_PRO,QUANTITY_PRO)
+    VALUES(" . $bill['id_bill'] .",'$id_clp','$pro_name','$color_name','$brand_name','$price','$quantity_cart')";
     pdo_execute($add_other_bill);
 }
 function count_bill ($status,$bill_per_page){
@@ -25,6 +25,24 @@ function count_bill ($status,$bill_per_page){
     }
     return $number;
 }
+function load_bill($status){
+    $sql = "SELECT COUNT(*) AS count FROM bill WHERE 1";
+    if($status != ""){
+        $sql.=" AND STATUS = '$status'";
+    }
+    $bills = pdo_query_one($sql);
+    return $bills;
+}
+function total_revenue(){
+    $sql = "SELECT SUM(total) AS revenue FROM bill WHERE STATUS = 3";
+    $bills = pdo_query_one($sql);
+    return $bills;
+}
+function load_new_bill ($date){
+    $sql = "SELECT * FROM bill JOIN STATUS ON bill.status = status.id_status WHERE DATE = '$date' ORDER BY id_bill DESC";
+    $bills = pdo_query($sql);
+    return $bills;
+}
 function load_all_bill($status,$start,$limit){
     $sql = "SELECT * FROM BILL 
     JOIN PAYMENT ON BILL.PAYMENT = PAYMENT.ID_PAYMENT 
@@ -36,8 +54,8 @@ function load_all_bill($status,$start,$limit){
     $bills = pdo_query($sql);
     return $bills;
 }
-function count_bill_per_user ($status,$other_status){
-    $sql = "SELECT COUNT(*) AS count FROM BILL WHERE STATUS = '$status' ";
+function count_bill_per_user ($id_user,$status,$other_status){
+    $sql = "SELECT COUNT(*) AS count FROM BILL WHERE ID_USER = $id_user AND STATUS = '$status' ";
     if($other_status != ""){
         $sql .= " OR STATUS = '$other_status'";
     }
@@ -72,8 +90,14 @@ function change_status_bill ($id_bill){
 }
 function count_pro_sold ($pro_name,$color_name){
     $sql = "SELECT NAME_PRO,SUM(QUANTITY_PRO) AS sold FROM OTHER_BILL 
-    WHERE NAME_PRO = '$pro_name' AND COLOR_PRODUCT = '$color_name' GROUP BY NAME_PRO";
+    JOIN BILL ON OTHER_BILL.ID_BILL = BILL.ID_BILL
+    WHERE NAME_PRO = '$pro_name' AND COLOR_PRODUCT = '$color_name' AND STATUS != 0
+    GROUP BY NAME_PRO";
     $sold = pdo_query_one($sql);
     return $sold;
+}
+function cancel_bill ($id_bill){
+    $sql = "UPDATE BILL SET STATUS = 0 WHERE ID_BILL = '$id_bill'";
+    pdo_execute($sql);
 }
 ?>

@@ -115,12 +115,8 @@
                                 }
                             ?>
                             <td class="align-middle p-4">
-                                <form action="index.php?act=change_quantity" method="POST">
-                                    <input type="number" name="quantity_cart" min="1" max="<?=$quantity?>" value="<?=$quantity_cart?>">
+                                    <input type="number" name="quantity_cart" id="quantity_cart" max="<?=$quantity?>" value="<?=$quantity_cart?>">
                                     <input type="hidden" name="id_oc" id="id_oc" value="<?=$id_oc?>">
-                                    <input type="submit" name="change" id="" value="thay đổi">
-                                </form>
-                                    
                             </td>
                             <td class="text-right font-weight-semibold align-middle p-4"><?=$total_price_format?>đ</td>
                             <td class="text-center align-middle px-0"><a onclick="return confirm('bạn có muốn xóa không');" href="index.php?act=delete_cart&id_cart=<?=$id_cart?>&id_clp=<?=$id_clp?>"
@@ -131,10 +127,25 @@
                         }
                     ?>
                     </tbody>
-
                 </table>
             </div>
-
+            <script>
+                var quantity = document.querySelectorAll('#quantity_cart');
+                var id_oc = document.querySelectorAll('#id_oc');
+                quantity.forEach(element => {
+                    let i = element.value;
+                    element.onchange = function(event){
+                        let amount = element.value;
+                        let id = element.nextElementSibling.value;
+                        if(Number(amount) <= Number(element.max)){
+                            location.href="index.php?act=change_quantity&id_oc=" + id + "&amount=" + amount;
+                        }else{
+                            element.value = i;
+                            alert('số lượng không phù hợp');
+                        }
+                    }
+                });
+            </script>
             <div class="d-flex flex-wrap justify-content-between align-items-center pb-4  mt-2">
                 <div class="mt-4">
                 </div>

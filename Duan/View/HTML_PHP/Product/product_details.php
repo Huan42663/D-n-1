@@ -42,8 +42,7 @@ if (isset($color_pro)) {
                 aria-label="breadcrumb">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Trang Chủ</a></li>
-                    <li class="breadcrumb-item"><a href="index.php?act=product_lists" class="text-decoration-none">Chuột
-                            Gaming</a></li>
+                    <li class="breadcrumb-item"><a href="index.php?act=product_lists" class="text-decoration-none"><?=$cate_name?></a></li>
                     <li class="breadcrumb-item active" aria-current="page">
                         <?= $pro_name ?>
                     </li>
