@@ -27,7 +27,7 @@ function delete_pro($id_pro){
         // $color_pro = pdo_query($check_color_pro);
         // foreach ($color_pro as $clp) {
         //     extract($clp);
-        //     $delete_other_cart = "DELETE OTHER_CART WHERE ID_CLP = $id_clp";
+        //     $delete_other_cart = "DELETE FROM OTHER_CART WHERE ID_CLP = $id_clp";
         //     pdo_execute($delete_other_cart);
         // }
         $delete_color_pro = "DELETE FROM COLOR_PRO WHERE ID_PRO = $id_pro";
@@ -129,6 +129,17 @@ function load_top_5_pro()
     WHERE PRODUCT.ID_PRO != 1
     ORDER BY VIEW DESC LIMIT 0,5";
     $pro = pdo_query($sql);
+    return $pro;
+}
+function load_one_pro_buy($id)
+{
+    $sql = " SELECT * FROM color_pro 
+    JOIN product ON PRODUCT.ID_PRO = COLOR_PRO.ID_PRO
+    JOIN CATEGORY ON PRODUCT.ID_CATE = CATEGORY.ID_CATE 
+    JOIN BRAND ON PRODUCT.ID_BRAND = BRAND.ID_BRAND 
+    JOIN COLOR ON COLOR_PRO.ID_COLOR = COLOR.ID_COLOR
+    WHERE color_pro.id_clp = $id";
+    $pro = pdo_query_one($sql);
     return $pro;
 }
 function load_one_pro($id)
@@ -290,9 +301,7 @@ function load_pro_for_color($id_pro, $color)
     return $color_pro;
 }
 function change_quantity_pro($id_clp,$quantity){
-    $check_pro = "SELECT * FROM COLOR_PRO WHERE ID_CLP = $id_clp";
-    $pro = pdo_query_one($check_pro);
-    $change = "UPDATE COLOR_PRO SET QUANTITY = " . $pro['quantity'] . " - $quantity WHERE ID_CLP = $id_clp";
+    $change = "UPDATE COLOR_PRO SET QUANTITY = QUANTITY - $quantity WHERE ID_CLP = $id_clp";
     pdo_execute($change); 
 }
 function change_quantity_pro_cancel ($id_bill){

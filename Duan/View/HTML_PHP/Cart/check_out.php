@@ -154,19 +154,17 @@
 
                         <h4 class="mb-3">Phương Thức Thanh Toán</h4>
 
-                        <div class="d-block my-3">
+                        <!-- <div class="d-block my-3">
+                            <select name="paymentMethod" id="">
                             <?php
                                 foreach ($payments as $payment) {
                             ?>
-                                <div class="custom-control custom-radio">
-                                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value ="<?=$payment['id_payment']?>"
-                                        checked required>
-                                    <label class="custom-control-label" for="credit"><?=$payment['name_payment']?></label>
-                                </div>
+                                <option value="<?=$payment['id_payment']?>"><?=$payment['name_payment']?></option>
                             <?php
                                 }
                             ?>
-                        </div>
+                            </select>
+                        </div> -->
 
                         <hr>
                         <?php
@@ -185,7 +183,15 @@
                             }
                         ?>
                         <input type="hidden" name="check_out_method" id="" value="<?=$method?>">
-                        <input class="btn btn-primary btn-lg btn-block" name="pay" type="submit" value="Thanh Toán"></input>
+                        <input type="hidden" name="id_clp" id="" value="<?=$id_clp?>">
+                        <input type="hidden" name="pro_name" id="" value="<?=$pro_name?>">
+                        <input type="hidden" name="color_name" id="" value="<?=$color_name?>">
+                        <input type="hidden" name="brand_name" id="" value="<?=$brand_name?>">
+                        <input type="hidden" name="price" id=""value="<?=$price?>">
+                        <input type="hidden" name="discount" id="" value="<?=$discount?>">
+                        <input type="hidden" name="quantity_cart" id="" value="<?=$quantity_cart?>">
+                        <input class="btn btn-primary btn-lg btn-block" name="pay" type="submit" value="Thanh Toán COD"></input>
+                        <input class="btn btn-primary btn-lg btn-block" name="redirect" type="submit" value="Thanh Toán VN PAY"></input>
                     </form>
                 
                 </div>

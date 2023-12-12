@@ -29,7 +29,7 @@
     #progressbar li {
         list-style-type: none;
         font-size: 13px;
-        width: 25%;
+        width: 300%;
         float: left;
         position: relative;
         font-weight: 400;
@@ -121,20 +121,15 @@
     }
 
     .btn-cancel {
-        background-color: orangered;
+        background-color: limegreen;
         color: white;
         padding: 5px;
         text-align: center;
         border-radius: 0p 5px 5px 0px;
-        border: 1px solid red;
+        border: 1px solid limegreen;
         box-shadow: 0px 0px 5px gainsboro;
         font-weight: 600;
         transition: 0.3s;
-    }
-
-    .btn-cancel:hover {
-        background-color: #0E2241;
-        border: 1px solid #0E2241;
     }
 
     .order-qty {
@@ -167,81 +162,107 @@
 <div class="container my-5">
     <div class="row m-0 d-flex justify-content-center">
         <h2 class="col-12" style="text-align: center;">Bạn Đã Mua <strong class="order-qty">
-                <?php ?><?=$count?>
+                <?php ?>
+                <?= $count ?>
             </strong> Đơn Hàng</h2>
-        <a href="index.php?act=shipping_process" class="mt-3 mx-2 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
-                value="Đơn Hàng Mới Nhất"></a>
-        <a href="index.php?act=completed_order" class="mt-3 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
-                value="Đơn Hàng Đã Mua"></a>
-        <a href="index.php?act=cancelled_order" class="mt-3 col-md-2 d-flex justify-content-center"><input class="order-btn d-flex justify-content-center" type="submit"
-                value="Đơn Hàng Đã Hủy"></a>
+        <a href="index.php?act=shipping_process" class="mt-3 mx-2 col-md-2 d-flex justify-content-center"><input
+                class="order-btn d-flex justify-content-center" type="submit" value="Đơn Hàng Mới Nhất"></a>
+        <a href="index.php?act=completed_order" class="mt-3 col-md-2 d-flex justify-content-center"><input
+                class="order-btn d-flex justify-content-center" type="submit" value="Đơn Hàng Đã Mua"></a>
+        <a href="index.php?act=cancelled_order" class="mt-3 col-md-2 d-flex justify-content-center"><input
+                class="order-btn d-flex justify-content-center" type="submit" value="Đơn Hàng Đã Hủy"></a>
     </div>
     <?php
-        foreach ($bills as $bill) {
-            extract($bill);
-            $other_bills =load_other_bill($id_bill);
-            $total_format = number_format($total,0,'.','.');
-            $new_date = date("Y-m-d" , strtotime($date. '+ 5 day'));
+    foreach ($bills as $bill) {
+        extract($bill);
+        $other_bills = load_other_bill($id_bill);
+        $total_format = number_format($total, 0, '.', '.');
+        $new_date = date("Y-m-d", strtotime($date . '+ 5 day'));
+        ?>
+        <div class="card m-0 p-0 mt-3" style="box-shadow: 0px 0px 3px gainsboro;">
+            <div class="row d-flex justify-content-between px-3 top pt-3">
+                <div class="col-6">
+                    <h5>Mã Đơn Hàng: <span class="text-primary font-weight-bold">#<?= $id_bill ?>
+                        </span></h5>
+                    <p class="mb-0">Dự Kiến Giao Vào Ngày: <span>
+                            <?= $new_date ?>
+                        </span></p>
+                    <p class="mb-0">Khách Hàng: <span>
+                            <?= $name_user ?>
+                        </span></p>
+                    <p class="mb-0">Địa Chỉ: <span>
+                            <?= $address_user ?>
+                        </span></p>
+                </div>
+                <div class="col-6 d-flex flex-column" style="align-items: end;">
+                    <h5>Sản Phẩm:<br>
+                        <?php
+                        foreach ($other_bills as $other_bill) {
+                            ?>
+                            <span class="text-primary font-weight-bold">
+                                <?= $other_bill['name_pro'] ?>
+                                <?= $other_bill['color_product'] ?> X
+                                <?= $other_bill['quantity_pro'] ?>
+                            </span><br>
+                            <?php
+                        }
+                        ?>
+                    </h5>
+                    <p class="mb-0">Hình Thức Thanh Toán: <span>
+                            <?= $name_payment ?>
+                        </span></p>
+                    <p class="mb-0">Voucher Discount: <span>
+                            <?= $voucher_discount ?>
+                        </span></p>
+                    <p class="mb-0">Tổng Thanh Toán: <span>
+                            <?= $total_format ?>đ
+                        </span></p>
+                    <p class="mb-0">Trạng Thái: <span>
+                            <?= $status_name ?>
+                        </span></p>
+                </div>
+            </div>
+            <!-- Add class 'active' to progress -->
+            <div class="row d-flex justify-content-center mt-5">
+                <div class="col-12">
+                    <ul id="progressbar" class="text-center d-flex justify-content-center">
+                        <li class="<?php if ($status > 0) {
+                            echo 'active';
+                        } ?> step0"></li>
+                        <li class="<?php if ($status > 1) {
+                            echo 'active';
+                        } ?> step0"></li>
+                        <li class="<?php if ($status > 2) {
+                            echo 'active';
+                        } ?> step0"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row p-0 m-0 top justify-content-between m-5">
+                <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
+                    <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                    <div class="">
+                        <p class="m-0">Đơn Hàng Đã<br>Được Xác Nhận</p>
+                    </div>
+                </div>
+                <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
+                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                    <div class="">
+                        <p class="m-0">Đã Được Bàn Giao<br>Cho Đơn Vị Vận Chuyển</p>
+                    </div>
+                </div>
+                <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
+                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                    <div class="">
+                        <p class="m-0">Đơn Hàng<br>Đã Đến</p>
+                    </div>
+                </div>
+            </div>
+            <span class="btn-cancel"> Đơn Hàng Đã Được Hoàn Thành </span>
+        </div>
+        <?php
+    }
     ?>
-    <div class="card m-0 p-0 mt-3" style="box-shadow: 0px 0px 3px gainsboro;">
-        <div class="row d-flex justify-content-between px-3 top pt-3">
-            <div class="col-6">
-                <h5>Mã Đơn Hàng: <span class="text-primary font-weight-bold">#<?=$id_bill?></span></h5>
-                <p class="mb-0">Dự Kiến Giao Vào Ngày: <span><?=$new_date?></span></p>
-                <p class="mb-0">Khách Hàng: <span><?=$name_user?></span></p>
-                <p class="mb-0">Địa Chỉ: <span><?=$address_user?></span></p>
-            </div>
-            <div class="col-6 d-flex flex-column" style="align-items: end;">
-            <h5>Sản Phẩm:<br>
-            <?php
-                foreach ($other_bills as $other_bill) {
-            ?>
-                    <span class="text-primary font-weight-bold"><?=$other_bill['name_pro']?> <?=$other_bill['color_product']?> X <?=$other_bill['quantity_pro']?></span><br>
-            <?php
-            }
-            ?>
-            </h5>
-                <p class="mb-0">Hình Thức Thanh Toán: <span><?=$name_payment?></span></p>
-                <p class="mb-0">Voucher Discount: <span><?=$voucher_discount?></span></p>
-                <p class="mb-0">Tổng Thanh Toán: <span><?=$total_format?>đ</span></p>
-                <p class="mb-0">Trạng Thái: <span><?=$status_name?></span></p>
-            </div>
-        </div>
-        <!-- Add class 'active' to progress -->
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-12">
-                <ul id="progressbar" class="text-center">
-                    <li class="<?php if ($status >0) {echo 'active';} ?> step0"></li>
-                    <li class="<?php if ($status >1) {echo 'active';} ?> step0"></li>
-                    <li class="<?php if ($status >2) {echo 'active';} ?> step0"></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row p-0 m-0 top justify-content-between m-5">
-            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
-                <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
-                <div class="">
-                    <p class="m-0">Đơn Hàng Đã<br>Được Xác Nhận</p>
-                </div>
-            </div>
-            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
-                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                <div class="">
-                    <p class="m-0">Đã Được Bàn Giao<br>Cho Đơn Vị Vận Chuyển</p>
-                </div>
-            </div>
-            <div class="col-3 d-flex flex-wrap icon-content p-0 d-flex justify-content-center align-items-center">
-                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                <div class="">
-                    <p class="m-0">Đơn Hàng<br>Đã Đến</p>
-                </div>
-            </div>
-        </div>
-        <span class="btn-cancel"> Đơn Hàng Đã Được Hoàn Thành </span>
-    </div>
-<?php
-        }
-?>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>

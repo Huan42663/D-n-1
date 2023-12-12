@@ -253,7 +253,7 @@
           }
           ?>
 
-          <li class="nav-label">Shipper</li>
+          <!-- <li class="nav-label">Shipper</li>
           <li>
             <a class="" href="index.php?act=order_lists_shipper" aria-expanded="false"><i
                 class="fa-regular fa-clipboard"></i><span class="nav-text">Danh Sách Đơn Hàng</span></a>
@@ -267,7 +267,7 @@
           <li>
             <a class="" href="index.php?act=order_finished_shipper" aria-expanded="false"><i
                 class="fa-solid fa-circle-check"></i><span class="nav-text">Đơn Hàng Đã Giao</span></a>
-          </li>
+          </li> -->
 
       </div>
     </div>

@@ -132,11 +132,6 @@
         transition: 0.3s;
     }
 
-    .btn-cancel:hover {
-        background-color: #0E2241;
-        border: 1px solid #0E2241;
-    }
-
     .order-qty {
         color: orangered;
     }
