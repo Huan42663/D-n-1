@@ -16,7 +16,7 @@
     margin-top: 16px;
     left: 40px;
     border-radius: 5px;
-    z-index: -1;
+    z-index: 5;
     box-shadow: 0px 0px 5px gray;
   }
 
@@ -26,7 +26,7 @@
     margin-top: 16px;
     right: 40px;
     border-radius: 5px;
-    z-index: -1;
+    z-index: 5;
     box-shadow: 0px 0px 5px gray;
   }
   
