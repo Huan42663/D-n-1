@@ -25,6 +25,24 @@ function count_bill ($status,$bill_per_page){
     }
     return $number;
 }
+function load_bill($status){
+    $sql = "SELECT COUNT(*) AS count FROM bill WHERE 1";
+    if($status != ""){
+        $sql.=" AND STATUS = '$status'";
+    }
+    $bills = pdo_query_one($sql);
+    return $bills;
+}
+function total_revenue(){
+    $sql = "SELECT SUM(total) AS revenue FROM bill WHERE STATUS = 3";
+    $bills = pdo_query_one($sql);
+    return $bills;
+}
+function load_new_bill ($date){
+    $sql = "SELECT * FROM bill JOIN STATUS ON bill.status = status.id_status WHERE DATE = '$date' ORDER BY id_bill DESC";
+    $bills = pdo_query($sql);
+    return $bills;
+}
 function load_all_bill($status,$start,$limit){
     $sql = "SELECT * FROM BILL 
     JOIN PAYMENT ON BILL.PAYMENT = PAYMENT.ID_PAYMENT 

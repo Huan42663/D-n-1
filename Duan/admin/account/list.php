@@ -44,13 +44,6 @@
                             </td>
                             <td>
                                 <?php
-                                if ($_SESSION['user_name_login']['role'] > $role && $role != 2) {
-                                    ?>
-                                    <a onclick="return confirm('Bạn có muốn xóa không !')"
-                                        href="index.php?act=delete_account&id=<?= $id_user ?>">
-                                        <input type="button" value="Xóa"></a>
-                                    <?php
-                                }
                                 if ($_SESSION['user_name_login']['role'] > $role) {
                                     ?>
                                     <a href="index.php?act=update_account&id=<?= $id_user ?>"><input type="button"

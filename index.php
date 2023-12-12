@@ -85,13 +85,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $pass = $_POST['pass'];
                 $tel = $_POST['tel'];
                 $avatar = $_FILES['avatar']['name'];
-                $role = $_POST['role'];
                 if ($avatar) {
                     $tmp_name = $_FILES['avatar']['tmp_name'];
                     move_uploaded_file($tmp_name, 'Duan/image_user/' . $avatar);
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar, $role);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, $avatar);
                 } else {
-                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "", $role);
+                    update_account($id_user, $user_name, $pass, $email, $address, $tel, "");
                 }
                 // $_SESSION['user_name_login'] = check_user($user_name, $pass);
                 echo '<script>alert("Cập Nhật Thành Công!");</script>';
@@ -331,27 +330,27 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             }
             include "./Duan/View/HTML_PHP/Cart/check_out.php";
             break;
-        case 'check_out_buy':
-            $date = date("Y-m-d");
-            $voucher_discount = 0;
-            $payments = load_all_payment();
-            if(isset($_POST['add']) && $_POST['add']){
-                $add_code = $_POST['add_code'];
-                $check_voucher = check_voucher($add_code);
-                if(is_array($check_voucher)){
-                    extract($check_voucher);
-                    if($start_at <= $date && $end_at > $date){
-                        $voucher_discount = $value;
-                        echo '<script>alert("Áp Dụng Thành Công !");</script>';
-                    }else{
-                        echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
-                    }
-                }else{
-                    echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
-                }
-            }
-            include "./Duan/View/HTML_PHP/Cart/check_out.php";
-            break;
+        // case 'check_out_buy':
+        //     $date = date("Y-m-d");
+        //     $voucher_discount = 0;
+        //     $payments = load_all_payment();
+        //     if(isset($_POST['add']) && $_POST['add']){
+        //         $add_code = $_POST['add_code'];
+        //         $check_voucher = check_voucher($add_code);
+        //         if(is_array($check_voucher)){
+        //             extract($check_voucher);
+        //             if($start_at <= $date && $end_at > $date){
+        //                 $voucher_discount = $value;
+        //                 echo '<script>alert("Áp Dụng Thành Công !");</script>';
+        //             }else{
+        //                 echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+        //             }
+        //         }else{
+        //             echo '<script>alert("Mã Giảm Giá Không Tồn Tại !");</script>';
+        //         }
+        //     }
+        //     include "./Duan/View/HTML_PHP/Cart/check_out.php";
+        //     break;
         case 'shipping_process':
             $id_user = $_SESSION['user_name_login']['id_user'];
             $count = count_bill_per_user($id_user,1,2);

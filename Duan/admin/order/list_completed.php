@@ -68,15 +68,6 @@
                                     <span>Trang Thái Đơn Hàng</span>
                                     <strong><?=$status_name?></strong>
                                 </li>
-                                <?php
-                                    if($status == 1){
-                                ?>
-                                    <li class="list-group-item d-flex justify-content-between">
-                                        <a href="index.php?act=change_status_bill&id=<?=$id_bill?>"><button>Xác Nhận Đơn Hàng</button></a>
-                                    </li>
-                                <?php
-                                    }
-                                ?>
                             </div>
                             <br>
                             <?php
@@ -87,7 +78,7 @@
                             <?php
                                 for ($i=0; $i < $bills_count; $i++) {
                             ?>
-                            <a class="paginate_button current" href="index.php?act=list_cancelled_order&page=<?=$i?>" aria-controls="example" data-dt-idx="1" tabindex="0"><?=$i+1?></a>
+                            <a class="paginate_button current" href="index.php?act=list_completed_order&page=<?=$i?>" aria-controls="example" data-dt-idx="1" tabindex="0"><?=$i+1?></a>
                             <?php
                                 }
                             ?>
