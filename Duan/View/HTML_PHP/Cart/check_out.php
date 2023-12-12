@@ -149,14 +149,14 @@
 
 
 
-                        <hr>
+                        <!-- <hr> -->
 
 
-                        <h4 class="mb-3">Phương Thức Thanh Toán</h4>
+                        <!-- <h4 class="mb-3">Phương Thức Thanh Toán</h4> -->
 
-                        <div class="d-block my-3">
+                        <!-- <div class="d-block my-3">
                             <?php
-                                foreach ($payments as $payment) {
+                                // foreach ($payments as $payment) {
                             ?>
                                 <div class="custom-control custom-radio">
                                     <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value ="<?=$payment['id_payment']?>"
@@ -164,9 +164,9 @@
                                     <label class="custom-control-label" for="credit"><?=$payment['name_payment']?></label>
                                 </div>
                             <?php
-                                }
+                                // }
                             ?>
-                        </div>
+                        </div> -->
 
                         <hr>
                         <?php
@@ -185,7 +185,8 @@
                             }
                         ?>
                         <input type="hidden" name="check_out_method" id="" value="<?=$method?>">
-                        <input class="btn btn-primary btn-lg btn-block" name="pay" type="submit" value="Thanh Toán"></input>
+                        <input class="btn btn-primary btn-lg btn-block" name="pay" type="submit" value="Thanh Toán COD"></input>
+                        <input class="btn btn-primary btn-lg btn-block" name="redirect" type="submit" value="Thanh Toán VN PAY"></input>
                     </form>
                 
                 </div>
