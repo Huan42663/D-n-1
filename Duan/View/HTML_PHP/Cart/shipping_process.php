@@ -135,6 +135,7 @@
     .btn-cancel:hover {
         background-color: #0E2241;
         border: 1px solid #0E2241;
+        color: white;
     }
 
     .btn-cant-cancel {

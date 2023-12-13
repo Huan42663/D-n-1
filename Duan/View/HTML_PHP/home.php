@@ -37,7 +37,7 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------- Chuyển Ảnh ------------ -->
 <div class="container mt-3 mb-5 p-0">
   <div class="row g-0">
-    <div id="carouselExampleIndicators" class="col-9 col-xl-10 carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="col-12 col-xl-12 carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -69,10 +69,10 @@
       </button>
     </div>
 
-    <div class="col-3 col-xl-2"
+    <!-- <div class="col-3 col-xl-2"
       style="background-color: white; border-radius: 0px 10px 10px 0px; box-shadow: 0px 0px 5px gainsboro;">
 
-    </div>
+    </div> -->
   </div>
 </div>
 
