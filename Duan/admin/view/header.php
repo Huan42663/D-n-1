@@ -168,7 +168,7 @@
           <?php
           if (empty($_SESSION['user_name_login'])) {
             echo "<script>alert('bạn không đủ thẩm quyền');</script>";
-          } else if (extract($_SESSION['user_name_login']) && $role == 2) {
+          } else if (extract($_SESSION['user_name_login']) && $role >= 1) {
             ?>
 
               <li class="nav-label first">Trang Chủ</li>

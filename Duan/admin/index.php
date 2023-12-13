@@ -335,7 +335,7 @@ if (empty($_SESSION['user_name_login'])) {
                 break;
             case 'updated_pro':
                 if (isset($_POST['sua']) && $_POST['sua']) {
-                    // $check = check_pro($_POST['pro_name']);
+                    $check = check_pro_update($_POST['pro_name'],$_POST['id_pro']);
                     if ($_POST['pro_name'] == "") {
                         echo "<script>alert('Không để trống tên sản phẩm');</script>";
                     } elseif ($_POST['price'] == "") {
@@ -345,9 +345,9 @@ if (empty($_SESSION['user_name_login'])) {
                     } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST['price'])) {
                         echo "<script>alert('Không để Ký tự đặc biệt');</script>";
                     } 
-                    // elseif (is_array($check)) {
-                    //     echo "<script>alert('sản phẩm đã tồn tại');</script>";
-                    // }
+                    elseif (is_array($check)) {
+                        echo "<script>alert('sản phẩm đã tồn tại');</script>";
+                    }
                      elseif ($_POST['price'] <= $_POST['discount']) {
                         echo "<script>alert('Giá khuyến mại phải nhỏ hơn giá gốc');</script>";
                     } elseif ($_POST['price'] <= 0) {
@@ -505,16 +505,7 @@ if (empty($_SESSION['user_name_login'])) {
                     $id = $_GET['id'];
                     delete_comment($id);
                 }
-                $limit = 5;
-                if (isset($_GET['page'])) {
-                    $number = $_GET['page'];
-                    $start = $number * $limit;
-                } else {
-                    $start = 0;
-                }
-                $count = count_comment();
-                $list_comment = load_limit_5_comment($start, $limit);
-                include "comment/list.php";
+                echo "<script>location.href'index.php?act=list_comment';</script>";
                 break;
             case 'list_account':
                 $limit = 5;

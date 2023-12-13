@@ -91,7 +91,7 @@ function change_status_bill ($id_bill){
 function count_pro_sold ($pro_name,$color_name){
     $sql = "SELECT NAME_PRO,SUM(QUANTITY_PRO) AS sold FROM OTHER_BILL 
     JOIN BILL ON OTHER_BILL.ID_BILL = BILL.ID_BILL
-    WHERE NAME_PRO = '$pro_name' AND COLOR_PRODUCT = '$color_name' AND STATUS != 0
+    WHERE NAME_PRO = '$pro_name' AND COLOR_PRODUCT = '$color_name' AND STATUS > 1
     GROUP BY NAME_PRO";
     $sold = pdo_query_one($sql);
     return $sold;
