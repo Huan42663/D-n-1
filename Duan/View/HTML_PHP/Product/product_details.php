@@ -125,7 +125,7 @@ if (isset($color_pro)) {
                             </span>
                             <?php
                         }
-                        if (!empty($sold)) {
+                        if (is_array($sold)) {
                             ?>
                             <span><strong>Đã Bán: </strong>
                                 <?= $sold['sold'] ?>

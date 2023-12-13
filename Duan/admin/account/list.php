@@ -44,7 +44,7 @@
                             </td>
                             <td>
                                 <?php
-                                if ($_SESSION['user_name_login']['role'] > $role) {
+                                if ($_SESSION['user_name_login']['role'] >= $role) {
                                     ?>
                                     <a href="index.php?act=update_account&id=<?= $id_user ?>"><input type="button"
                                             value="Sửa"></a>

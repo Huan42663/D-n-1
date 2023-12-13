@@ -30,8 +30,8 @@ function delete_pro($id_pro){
         //     $delete_other_cart = "DELETE FROM OTHER_CART WHERE ID_CLP = $id_clp";
         //     pdo_execute($delete_other_cart);
         // }
-        $delete_color_pro = "DELETE FROM COLOR_PRO WHERE ID_PRO = $id_pro";
-        pdo_execute($delete_color_pro);
+        $update_color_pro = "UPDATE color_pro SET id_pro = 1 WHERE id_pro = '$id_pro'";
+        pdo_execute($update_color_pro);
         $delet_comment = "DELETE FROM COMMENT WHERE ID_PRO = $id_pro";
         pdo_execute($delet_comment);
         $delete_pro = "DELETE FROM PRODUCT WHERE ID_PRO= $id_pro";
@@ -226,6 +226,12 @@ function other_pro($id)
 function check_pro($pro_name)
 {
     $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME = '$pro_name'";
+    $pro = pdo_query_one($sql);
+    return $pro;
+}
+function check_pro_update($pro_name,$id_pro)
+{
+    $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME = '$pro_name' AND id_pro != $id_pro";
     $pro = pdo_query_one($sql);
     return $pro;
 }

@@ -314,7 +314,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
             $i=0;
             foreach ($carts as $cart) {
                 $color_pro = load_one_color_pro($cart['id_clp']);
-                if($cart['quantity_cart'] > $color_pro['quantity']){
+                if($cart['quantity_cart'] > $color_pro['quantity'] || $cart['id_pro'] == 1){
                     $i++;
                 }
             }
@@ -340,7 +340,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 }
                 include "./Duan/View/HTML_PHP/Cart/check_out.php";
             }else{
-                echo '<script>alert("Số lượng sản phẩm trong giỏ hàng không phù hợp");</script>';
+                echo '<script>alert("sản phẩm hoặc số lượng trong giỏ hàng không phù hợp");</script>';
                 echo "<script>location.href='index.php?act=cart_lists';</script>";
             }
             break;
@@ -411,16 +411,32 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                 $bills = load_all_cart_for_account($id_user);
                 if ($firstname == "" || $lastname == "" || $tel == "" || $email == "" || $address == "") {
                     echo "<script>alert('không được bỏ trống');</script>";
-                    echo "<script>location.href='index.php?act=check_out';</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
                 } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $firstname) || preg_match('/[!@#$%^&*(),.?":{}|<>]/', $lastname)) {
                     echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
-                    echo "<script>location.href='index.php?act=check_out';</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
                 } elseif (!ctype_digit($tel)) {
                     echo "<script>alert('số điện thoại không hợp lệ');</script>";
-                    echo "<script>location.href='index.php?act=check_out';</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
                 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     echo "<script>alert('email không hợp lệ');</script>";
-                    echo "<script>location.href='index.php?act=check_out';</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
                 } else {
                     add_bill($firstname, $lastname, $tel, $address, $date, $payment, $id_user, $totals, $voucher);
                     if ($check_out_method == 'check_out_cart') {
@@ -500,6 +516,35 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                     $quantity_cart
                 ];
                 $_SESSION['bill_array'] = $bill_array;
+                if ($firstname == "" || $lastname == "" || $tel == "" || $email == "" || $address == "") {
+                    echo "<script>alert('không được bỏ trống');</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
+                } elseif (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $firstname) || preg_match('/[!@#$%^&*(),.?":{}|<>]/', $lastname)) {
+                    echo "<script>alert('Không được thêm ký tự đặc biệt');</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
+                } elseif (!ctype_digit($tel)) {
+                    echo "<script>alert('số điện thoại không hợp lệ');</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
+                } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo "<script>alert('email không hợp lệ');</script>";
+                    if($check_out_method == "check_out_buy"){
+                        echo "<script>location.href='index.php';</script>";
+                    }elseif($check_out_method == "check_out_cart"){
+                        echo "<script>location.href='index.php?act=check_out';</script>";
+                    }
+                }else{
                     $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
                     $vnp_Returnurl = "http://localhost/duan1/index.php?act=handle_vnpay";
                     $vnp_TmnCode = "GHVBHPHU"; //Mã website tại VNPAY 
@@ -556,7 +601,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != '')) {
                     } else {
                         echo json_encode($returnData);
                     }
+
                 }
+            }
             break;
         case 'handle_vnpay':
             if ($_GET['vnp_ResponseCode'] == '00'){
